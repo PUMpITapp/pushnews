@@ -1,0 +1,3 @@
+[submodule "pemu"]
+	path = pemu
+	url = ssh://guiob406@pumi-2.ida.liu.se/opt/git/pemu.git
