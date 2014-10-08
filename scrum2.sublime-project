@@ -1,0 +1,21 @@
+{
+    "folders":
+    [
+        {
+          "path": "."
+        }
+    ],
+    "settings":
+    {
+        "tab_size": 2,
+        "translate_tabs_to_spaces": false
+    },
+    "build_systems":
+    [
+        {
+            "name": "PumpITApp-Emulator",
+            "working_dir": "${project_path}",
+            "shell_cmd": "cd pemu && make clean && make all && cp pemu ../src && cp src/gfx.lua ../src && cd ../src && ./pemu -f main.lua"
+        }
+    ]
+}
