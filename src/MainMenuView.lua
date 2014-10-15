@@ -21,7 +21,7 @@ end
 
 function MainMenuView:loadView()
 	self.surface:clear({63,81,181,255})
-
+	onKey = MainMenuView.onKey
 	local categories_w = self.size.w/1.5
 	local categories_h = self.size.h/1.5
 	self:printCategories(self.size.w/2-categories_w/2, self.size.h/2-categories_h/2, categories_w, categories_h)
@@ -62,8 +62,9 @@ function MainMenuView:printCategories(x, y, w, h)
 	self.surface:copyfrom(categoriesSurface, nil, {x=x, y=y}, false)
 end
 
-function MainMenuView:onKey(key, state)
-  if key == '1' then
-  	print('keyOne')
+MainMenuView.onKey = function (key, state)
+  if key == 'ok' then
+  	newsFeedView = NewsFeedView:new()
+  	newsFeedView:viewDidLoad()
   end
 end

@@ -1,9 +1,6 @@
 gfx = require "gfx"
 require "MainMenuView"
-
-function onKey(key, state)
-	print('test')
-end
+require "newsfeedview"
 
 main = MainMenuView:new()
 main:loadView()

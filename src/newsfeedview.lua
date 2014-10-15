@@ -60,7 +60,4 @@ end
 end
 
 
-main = NewsFeedView:new()
-main:viewDidLoad()
-
 
