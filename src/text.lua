@@ -1,5 +1,5 @@
-arial = require "arial_regular_12"
-font_spritesheet = gfx.loadpng(arial.file)
+arial = require "fonts/arial_regular_12"
+font_spritesheet = gfx.loadpng('fonts/'..arial.file)
 
 function text.print(surface, font, text, x, y, w, h)
     local sx = x -- Start x position on the surface
