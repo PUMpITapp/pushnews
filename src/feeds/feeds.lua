@@ -30,23 +30,12 @@ function FeedGetter:downloadFeeds(url, filename)
 end
 
 function FeedGetter:parseFeeds(url, filename)
-    local f = io.open(filename, "rb")
-    local rss = f:read("*all")
-    f:close()
+  local f = io.open(filename, "rb")
+  local rss = f:read("*all")
+  f:close()
 
 	local parsed, err = feedparser.parse(rss, url)
 
 	return parsed
 
-end
-
-function FeedGetter:getFeeds(url)
-	local feedFile = "feeds/feed.xml"
-
-	print (feedFile)
-	self.downloadFeeds(url, feedFile)
-
-	local feeds = self.parseFeeds(url, feedFile)
-
-	return feeds
 end
