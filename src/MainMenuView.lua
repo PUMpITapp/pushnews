@@ -19,22 +19,27 @@ function MainMenuView:new()
   return setmetatable(newObj, self)
 end
 
-function MainMenuView:loadView()
+function MainMenuView:viewDidLoad()
+	-- When the view is loaded for the first time. This will be executed once.
 	self.surface:clear({63,81,181,255})
-	onKey = MainMenuView.onKey
 	local categories_w = self.size.w/1.5
 	local categories_h = self.size.h/1.5
 	self:printCategories(self.size.w/2-categories_w/2, self.size.h/2-categories_h/2, categories_w, categories_h)
   self:drawView()
 end
 
+function MainMenuView:viewDidEnd()
+	-- When this view will dissapear and another view will be shown, this is executed.
+end
+
 function MainMenuView:drawView()
+	-- When the view has been loaded before and it is presented again.
 	gfx.screen:copyfrom(self.surface, nil, {x=0,y=0}, false)
 	gfx.update()
 end
 
-function MainMenuView:updateView()
-	-- body
+function MainMenuView:freeView()
+	-- When the view is deleted. (You may want to free the memory allowed to you surfaces)
 end
 
 function MainMenuView:printCategories(x, y, w, h)
@@ -62,9 +67,10 @@ function MainMenuView:printCategories(x, y, w, h)
 	self.surface:copyfrom(categoriesSurface, nil, {x=x, y=y}, false)
 end
 
-MainMenuView.onKey = function (key, state)
-  if key == 'ok' then
-  	newsFeedView = NewsFeedView:new()
-  	newsFeedView:viewDidLoad()
-  end
+function MainMenuView:onKey(key, state)
+	if state == 'up' then
+  	if key == '1' then
+			vc:presentView("newsFeed")
+  	end
+	end
 end
