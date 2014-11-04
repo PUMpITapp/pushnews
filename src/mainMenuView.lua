@@ -10,6 +10,7 @@ local categories = {
 
 MainMenuView = {}
 
+-- Constructor of the MainMenuView class
 function MainMenuView:new()
 	newObj = {
 		size = { w=gfx.screen:get_width(), h=gfx.screen:get_height() },
@@ -19,8 +20,8 @@ function MainMenuView:new()
   return setmetatable(newObj, self)
 end
 
+-- When the view is loaded for the first time. This will be executed once.
 function MainMenuView:viewDidLoad()
-	-- When the view is loaded for the first time. This will be executed once.
 	self.surface:clear({63,81,181,255})
 	local categories_w = self.size.w/1.5
 	local categories_h = self.size.h/1.5
@@ -28,20 +29,21 @@ function MainMenuView:viewDidLoad()
   self:drawView()
 end
 
+-- When this view will dissapear and another view will be shown, this is executed.
 function MainMenuView:viewDidEnd()
-	-- When this view will dissapear and another view will be shown, this is executed.
 end
 
+-- When the view has been loaded before and it is presented again.
 function MainMenuView:drawView()
-	-- When the view has been loaded before and it is presented again.
 	gfx.screen:copyfrom(self.surface, nil, {x=0,y=0}, false)
 	gfx.update()
 end
 
+-- When the view is deleted. (You may want to free the memory allowed to you surfaces)
 function MainMenuView:freeView()
-	-- When the view is deleted. (You may want to free the memory allowed to you surfaces)
 end
 
+-- Print the available categories onto the MainMenuView
 function MainMenuView:printCategories(x, y, w, h)
 	local categoriesSurface = gfx.new_surface(w,h)
 	categoriesSurface:clear({63,160,181,255})
@@ -67,6 +69,7 @@ function MainMenuView:printCategories(x, y, w, h)
 	self.surface:copyfrom(categoriesSurface, nil, {x=x, y=y}, false)
 end
 
+-- The MainMenuView has his own onKey function.
 function MainMenuView:onKey(key, state)
 	if state == 'up' then
   	if key == '1' then

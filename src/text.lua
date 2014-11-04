@@ -5,6 +5,7 @@ local registeredFonts = { "arial_regular_12" }
 
 local fonts = {}
 
+-- Load the fonts (information file and spritesheet) into the fonts table according to the registeredFonts table.
 function TextModule.loadFonts()
   for i,font in pairs(registeredFonts) do
     local fontInfo = require(fontDir .. font)
@@ -13,6 +14,7 @@ function TextModule.loadFonts()
   end
 end
 
+-- Print a text on a surface. Font should be a string specified in registeredFonts.
 function TextModule.print(surface, font, text, x, y, w, h)
   if fonts[font] then
     local sx = x -- Start x position on the surface
@@ -47,6 +49,7 @@ function TextModule.print(surface, font, text, x, y, w, h)
   end
 end
 
+-- When this module is required, load the available fonts.
 TextModule.loadFonts()
 
 return TextModule
