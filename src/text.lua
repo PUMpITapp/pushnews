@@ -1,7 +1,20 @@
-arial = require "fonts/arial_regular_12"
-font_spritesheet = gfx.loadpng('fonts/'..arial.file)
+local TextModule = {}
 
-function text.print(surface, font, text, x, y, w, h)
+local fontDir = "fonts/"
+local registeredFonts = { "arial_regular_12" }
+
+local fonts = {}
+
+function TextModule.loadFonts()
+  for i,font in pairs(registeredFonts) do
+    local fontInfo = require(fontDir .. font)
+    local fontSprite = gfx.loadpng(fontDir .. fontInfo.file)
+    fonts[font] = { info = fontInfo, sprite = fontSprite }
+  end
+end
+
+function TextModule.print(surface, font, text, x, y, w, h)
+  if fonts[font] then
     local sx = x -- Start x position on the surface
     local surface_w = surface:get_width()
     local surface_h = surface:get_height()
@@ -14,26 +27,26 @@ function text.print(surface, font, text, x, y, w, h)
 
     for i = 1,#text do -- For each character in the text
       local c = text:sub(i,i) -- Get the character
-      for j = 1,#font.chars do -- For each character in the font
-        local fc = font.chars[j] -- Get the character information
+      for j = 1,#fonts[font].info.chars do -- For each character in the font
+        local fc = fonts[font].info.chars[j] -- Get the character information
         if fc.char == c then
           if x + fc.width > sx + w then -- If the text is gonna be out the surface, popup a new line
             x = sx
-            y = y + font.height
+            y = y + fonts[font].info.height
           end
           dx = x + fc.ox -- dx is the x positon of the character, some characters need offset
-          dy = y + font.metrics.ascender - fc.oy -- dy is the y position of the character, some characters need offset
-          surface:copyfrom(font_spritesheet, {x=fc.x, y=fc.y, w=fc.w, h=fc.h}, {x=dx, y=dy})
+          dy = y + fonts[font].info.metrics.ascender - fc.oy -- dy is the y position of the character, some characters need offset
+          surface:copyfrom(fonts[font].sprite, {x=fc.x, y=fc.y, w=fc.w, h=fc.h}, {x=dx, y=dy})
           x = x + fc.width -- add offset for next character
           break
         end
       end
     end
-
-    gfx.update()
+  else
+    print("Err: font not found.")
   end
+end
 
+TextModule.loadFonts()
 
-text.print(gfx.screen, arial, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi maximus auctor tellus. In interdum maximus odio consequat posuere. Suspendisse convallis condimentum pharetra. Ut luctus massa eget consequat iaculis. Nunc blandit semper odio, et tristique justo vestibulum nec. Donec ex justo, iaculis eget fringilla at, tempus sed justo. Pellentesque a odio orci. Integer vel lorem sodales, laoreet quam non, porta velit.", 200, 100, 300, 400)
-
-return text
+return TextModule
