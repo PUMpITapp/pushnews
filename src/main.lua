@@ -4,7 +4,7 @@ gfx = require "gfx"
 text = require "text"
 require "viewController"
 require "mainMenuView"
-require "newsfeedview"
+require "newsFeedView"
 
 -- Create a view controller for our app.
 vc = viewController:new()

@@ -1,8 +1,6 @@
 -- Push news app
 -- newsfeedview class
 
-gfx = require "gfx"
-
 local png_elements = { menubutton = 'images/sample.png' }
 -- Class definition
 NewsFeedView = {}
