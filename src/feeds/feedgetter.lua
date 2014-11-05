@@ -2,6 +2,7 @@ local http = require("socket.http")
 local io = require("io")
 local ltn12 = require("ltn12")
 require "feedparser"
+require "feeds.feed"
 
 FeedGetter = {}
 FeedGetter.__index = FeedsGetter
@@ -37,5 +38,15 @@ function FeedGetter:parseFeeds(url, filename)
 	local parsed, err = feedparser.parse(rss, url)
 
 	return parsed
+end
 
+--Should result a simple array of feed from the output given by the feedparser library
+function FeedGetter:translateResult(parsed, source)
+	local feeds = {}
+
+	for i, parsedFeed in ipairs(parsed.entries) do
+ 		feeds[i] = Feed:new(parsedFeed.title, parsedFeed.summary, parsedFeed.updated, parsedFeed.id, source)
+ 	end
+
+ 	return feeds
 end
