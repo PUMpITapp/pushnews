@@ -16,7 +16,7 @@ function NewsFeedView:new()
 end
 
 -- Loads the complete view
-function NewsFeedView:viewDidLoad(newval)
+function NewsFeedView:viewDidLoad()
 	self.surface:clear({226,237,254,255})
 	self:drawView()
 end
@@ -40,8 +40,8 @@ end
 
 function NewsFeedView:onKey(key, state)
 	if state == 'up' then
-  	if key == '1' then
-  		vc:presentView("main")
+  	if key == 'left' then
+  		vc:presentView("categories")
   	end
 	end
 end

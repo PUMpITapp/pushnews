@@ -3,7 +3,7 @@
 gfx = require "gfx"
 text = require "text"
 require "viewController"
-require "mainMenuView"
+require "categoriesView"
 require "newsFeedView"
 
 -- Create a view controller for our app.
@@ -17,10 +17,10 @@ end
 -- onStart function is called at the beginning according to the Zenterio API
 function onStart()
 	-- Add some nice view
-	vc:addView("main", MainMenuView:new())
+	vc:addView("categories", categoriesView:new())
 	vc:addView("newsFeed", NewsFeedView:new())
 	-- Present the main view to the screen
-	vc:presentView("main")
+	vc:presentView("categories")
 end
 
 -- Run the onStart() function. This has to be removed when running on the STB.
