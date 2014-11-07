@@ -113,7 +113,13 @@ end
 function categoriesView:onKey(key, state)
 	if state == 'up' then
   	if key == 'right' then
-			vc:presentView("newsFeed")
+			local selectedCategories = self:getSelectedCategories()
+
+			if #selectedCategories >= 1 then
+				local newsFeed = vc:getView("newsFeed")
+				newsFeed.view.selectedCategories = selectedCategories
+				vc:presentView("newsFeed")
+			end
 		else
 			key = tonumber(key)
 			if key >=1 and key <= 9 then
