@@ -15,9 +15,7 @@ function FeedGetter:new()
 end
 
 function FeedGetter:downloadFeeds(url, filename)
-	print(filename)
-
-	outputfile = io.open(filename, "w+")
+	local outputfile = io.open(filename, "w+")
 
 	http.request { 
     url = url, 

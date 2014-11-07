@@ -30,7 +30,7 @@ describe("FeedGetter:", function()
     local feeds = getter:parseFeeds(downloadURL, examplefile)
 
     --To check if it worked we simply check if we have some feeds
-    assert.is_true(table.getn(feeds.entries) > 0)
+    assert.is_true(#feeds.entries > 0)
 
   end)
 
@@ -43,7 +43,7 @@ describe("FeedGetter:", function()
     local feeds = getter:translateResult(parsed, 'CNN')
 
     --To check if it worked we simply check if we have some feeds
-    assert.is_true(table.getn(feeds) > 0)
+    assert.is_true(#feeds > 0)
 
     for i, parsedFeed in ipairs(parsed.entries) do
           assert.are_not.equals(nil, feeds[i].title)
