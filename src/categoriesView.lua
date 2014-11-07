@@ -15,11 +15,11 @@ end
 -- When the view is loaded for the first time. This will be executed once.
 function categoriesView:viewDidLoad()
 	self.surface:clear({63,81,181,255})
-	self.categories = { 
-										 { name = 'News', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },  
+	self.categories = {
+										 { name = 'News', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },
 										 { name = 'Health', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },
-										 { name = 'Technology', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' }, 
-										 { name = 'Environment', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },  
+										 { name = 'Technology', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },
+										 { name = 'Environment', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },
 										 { name = 'Culture', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },
 										 { name = 'Science', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },
 										 { name = 'Ours', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },
