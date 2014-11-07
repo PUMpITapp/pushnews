@@ -5,6 +5,7 @@ text = require "text"
 require "viewController"
 require "categoriesView"
 require "newsFeedView"
+require "detailNewsView"
 
 -- Create a view controller for our app.
 vc = viewController:new()
@@ -19,8 +20,9 @@ function onStart()
 	-- Add some nice view
 	vc:addView("categories", categoriesView:new())
 	vc:addView("newsFeed", NewsFeedView:new())
+	vc:addView("detailNewsView", detailNewsView:new())
 	-- Present the main view to the screen
-	vc:presentView("categories")
+	vc:presentView("detailNewsView")
 end
 
 -- Run the onStart() function. This has to be removed when running on the STB.
