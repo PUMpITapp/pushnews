@@ -32,6 +32,23 @@ function NewsFeedView:drawView()
 	gfx.screen:copyfrom(toScreen, nil, {x = 30, y = 10})
 	gfx.update()
 
+	-- printing random news
+	local news = {"Random News 1",
+								"Random News 2",
+								"Random News 3",
+								"Random News 4",
+								"Random News 5",
+								"Random News 6"}
+
+	local news_summary = gfx.new_surface(self.size.w-60,80)
+	for i=1, 6 do
+		news_summary:clear({226,220,254,255})
+		text.print(news_summary,"arial_regular_12",1,1,1,nil,nil,1)
+		text.print(news_summary,"arial_regular_12",news[i],10,10,nil,nil,1)
+		gfx.screen:copyfrom(news_summary,nil,{x=30, y=(100 + (90*i))},false)
+	end
+	gfx.update()
+
 	--printing Filtertab
 	local filter_surface = gfx.new_surface(300,100)
 	filter_surface:clear({68,160,200,255})
