@@ -97,6 +97,18 @@ function categoriesView:selectCategory(key)
 	self:drawCategoriesSurface()
 end
 
+function categoriesView:getSelectedCategories()
+	local selectedCategories = {}
+
+	for key, val in pairs(self.categories) do
+		if val.selected == true then
+			table.insert(selectedCategories, val.name)
+		end
+	end
+
+	return selectedCategories
+end
+
 -- The categoriesView has his own onKey function.
 function categoriesView:onKey(key, state)
 	if state == 'up' then
