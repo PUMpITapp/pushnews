@@ -1,14 +1,4 @@
-local categories = { 
-										 { name = 'News', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },  
-										 { name = 'Health', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },
-										 { name = 'Technology', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' }, 
-										 { name = 'Environment', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },  
-										 { name = 'Culture', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },
-										 { name = 'Science', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },
-										 { name = 'Ours', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },
-										 { name = 'Ours', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },
-										 { name = 'Ours', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' }
-									 }
+-- categoriesView class
 
 categoriesView = {}
 
@@ -25,14 +15,22 @@ end
 -- When the view is loaded for the first time. This will be executed once.
 function categoriesView:viewDidLoad()
 	self.surface:clear({63,81,181,255})
+	self.categories = { 
+										 { name = 'News', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },  
+										 { name = 'Health', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },
+										 { name = 'Technology', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' }, 
+										 { name = 'Environment', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },  
+										 { name = 'Culture', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },
+										 { name = 'Science', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },
+										 { name = 'Ours', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },
+										 { name = 'Ours', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },
+										 { name = 'Ours', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' }
+									 }
 
-	local categories_w = self.size.w/1.5
-	local categories_h = self.size.h/1.5
-	self.categoriesSurface_x = self.size.w/2-categories_w/2
-	self.categoriesSurface_y = self.size.h/2-categories_h/2
-	self:createCategories(categories_w, categories_h)
-	self:drawCategories()
-  self:drawView()
+	local categories_width = self.size.w/1.5
+	local categories_height = self.size.h/1.5
+	self:createCategoriesSurface(categories_width, categories_height)
+	self:drawCategoriesSurface()
 end
 
 -- When this view will dissapear and another view will be shown, this is executed.
@@ -50,7 +48,7 @@ function categoriesView:freeView()
 end
 
 -- Print the available categories onto the categoriesView
-function categoriesView:createCategories(w, h)
+function categoriesView:createCategoriesSurface(w, h)
 	self.categoriesSurface = gfx.new_surface(w,h)
 	self.categoriesSurface:clear({63,160,181,255})
 
@@ -61,14 +59,14 @@ function categoriesView:createCategories(w, h)
 	local cx = offset
 	local cy = offset
 
-	for key, val in pairs(categories) do
+	for key, val in pairs(self.categories) do
 		local categorySurface = gfx.loadpng(val.img_unselected)
 		if cx+cw > w then
 			cx = offset
 			cy = cy + ch + offset
 		end
-		categories[key].x = cx
-		categories[key].y = cy
+		self.categories[key].x = cx
+		self.categories[key].y = cy
 		self.categoriesSurface:copyfrom(categorySurface, nil, {x=cx, y=cy, w=cw, h=ch}, false)
 		cx = cx + cw + offset
 		categorySurface:destroy()
@@ -76,23 +74,27 @@ function categoriesView:createCategories(w, h)
 
 end
 
-function categoriesView:drawCategories()
-	self.surface:copyfrom(self.categoriesSurface, nil, {x=self.categoriesSurface_x, y=self.categoriesSurface_y}, false)
+function categoriesView:drawCategoriesSurface()
+	local categoriesSurface_x = self.size.w/2-self.categoriesSurface:get_width()/2
+	local categoriesSurface_y = self.size.h/2-self.categoriesSurface:get_height()/2
+	self.surface:copyfrom(self.categoriesSurface, nil, {x=categoriesSurface_x, y=categoriesSurface_y}, false)
 	self:drawView()
 end
 
 function categoriesView:selectCategory(key)
-	if categories[key].selected == false then
-		categories[key].selected = true
-		local categorySurface = gfx.loadpng(categories[key].img_selected)
-		self.categoriesSurface:copyfrom(categorySurface, nil, {x=categories[key].x, y=categories[key].y, w=200, h=120}, false)
-		self:drawCategories()
+	local categorySurface = nil
+
+	if self.categories[key].selected == false then
+		self.categories[key].selected = true
+		categorySurface = gfx.loadpng(self.categories[key].img_selected)
 	else
-		categories[key].selected = false
-		local categorySurface = gfx.loadpng(categories[key].img_unselected)
-		self.categoriesSurface:copyfrom(categorySurface, nil, {x=categories[key].x, y=categories[key].y, w=200, h=120}, false)
-		self:drawCategories()
+		self.categories[key].selected = false
+		categorySurface = gfx.loadpng(self.categories[key].img_unselected)
 	end
+
+	self.categoriesSurface:copyfrom(categorySurface, nil, {x=self.categories[key].x, y=self.categories[key].y, w=200, h=120}, false)
+	categorySurface:destroy()
+	self:drawCategoriesSurface()
 end
 
 -- The categoriesView has his own onKey function.
