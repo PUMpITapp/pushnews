@@ -81,8 +81,8 @@ function categoriesView:createCategoriesSurface()
 end
 
 function categoriesView:drawCategoriesSurface()
-	local categoriesSurface_x = self.size.w/2-self.categoriesSurface:get_width()/2
-	local categoriesSurface_y = self.size.h/2-self.categoriesSurface:get_height()/2
+	local categoriesSurface_x = self.size.w/2-self.categories_w/2
+	local categoriesSurface_y = self.size.h/2-self.categories_h/2
 	self.surface:copyfrom(self.categoriesSurface, nil, {x=categoriesSurface_x, y=categoriesSurface_y}, false)
 	self:drawView()
 end
