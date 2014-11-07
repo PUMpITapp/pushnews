@@ -122,7 +122,7 @@ function categoriesView:onKey(key, state)
 			end
 		else
 			key = tonumber(key)
-			if key >=1 and key <= 9 then
+			if key ~= nil and key >=1 and key <= 9 then
 				self:selectCategory(key)
 			end
   	end
