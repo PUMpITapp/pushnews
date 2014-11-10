@@ -20,7 +20,7 @@ function onStart()
 	vc:addView("categories", categoriesView:new())
 	vc:addView("newsFeed", NewsFeedView:new())
 	-- Present the main view to the screen
-	vc:presentView("newsFeed")
+	vc:presentView("categories")
 end
 
 -- Run the onStart() function. This has to be removed when running on the STB.

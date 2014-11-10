@@ -112,7 +112,7 @@ end
 -- The categoriesView has his own onKey function.
 function categoriesView:onKey(key, state)
 	if state == 'up' then
-  	if key == 'right' then
+  	if key == 'red' then
 			local selectedCategories = self:getSelectedCategories()
 
 			if #selectedCategories >= 1 then
