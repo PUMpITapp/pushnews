@@ -3,6 +3,8 @@
 require "feeds.feed"
 
 local png_elements = { menubutton = 'images/sample.png' }
+local which_section = 1
+local number_section = 3
 -- Class definition
 NewsFeedView = {}
 
@@ -36,7 +38,9 @@ function NewsFeedView:fetchNews(selectedCategories)
 	table.insert(news, Feed:new("Title 3", "Summary 3","03/11/2014","Link 3","Source 1",nil))
 	table.insert(news, Feed:new("Title 4", "Summary 4","01/10/2014","Link 4","Source 1",nil))
 	table.insert(news, Feed:new("Title 5", "Summary 5","03/11/2014","Link 5","Source 1",nil))
-	table.insert(news, Feed:new("Title 6", "Summary 6","04/11/2014","Link 6","Source 1",nil))
+	table.insert(news, Feed:new("Title 6", "Summary 6","04/09/2014","Link 6","Source 1",nil))
+	table.insert(news, Feed:new("Title 7", "Summary 7","04/10/2014","Link 7","Source 1",nil))
+	table.insert(news, Feed:new("Title 8", "Summary 8","12/10/2014","Link 8","Source 1",nil))
  	return news
 end
 
@@ -52,7 +56,7 @@ function NewsFeedView:drawView()
 	gfx.update()
 
 	--call function to print news
-	self:printNews(3,self.news)
+	self:printNews(3,self:divide_news_to_sections())
 
 	--printing Filtertab
 	local filter_surface = gfx.new_surface(300,100)
@@ -62,14 +66,38 @@ end
 
 function NewsFeedView:onKey(key, state)
 	if state == 'up' then
-  	if key == 'left' then
-  		vc:presentView("categories")
+		if key == 'Down' then
+			if (which_section+number_section) > table_size(self.news) then
+				--do nothing
+			else
+				which_section = which_section+number_section
+				self:printNews(3,self:divide_news_to_sections())
+			end
+			print(key)
+		elseif key == 'Up' then
+			if (which_section-number_section) < 0 then
+				--do nothing
+			else
+				which_section = which_section-number_section
+				self:printNews(3,self:divide_news_to_sections())
+			end
+		end
+	end
+
+	if state == 'up' then
+		for i=1 , table_size(self.news) do
+			if tostring(i) == key then
+				print(self.news[i+(which_section-1)].title)
+				--sned to seledted news to DetailedNewsView and opnen it
+			end
   	end
 	end
 end
 
 function NewsFeedView:printNews(s_size,news)
 -- printing random news
+	gfx.screen:copyfrom(self.surface, nil, {x=0,y=0}, false)
+	gfx.update()
 	local section_size = s_size
 	local frame_size = table_size(news)
 	local section_width = self.size.w/section_size
@@ -112,5 +140,19 @@ function table_size(table_news)
 		count = count + 1
 	end
 	return count
+end
+
+function NewsFeedView:divide_news_to_sections()
+	local section = {}
+	local end_point
+	if (number_section+which_section) > table_size(self.news) then
+		end_point = table_size(self.news)
+	else
+		end_point = number_section+which_section-1
+	end
+	for i=which_section, end_point do
+		table.insert(section,self.news[i])
+	end
+	return section
 end
 
