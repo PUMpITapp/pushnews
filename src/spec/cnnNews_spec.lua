@@ -5,7 +5,7 @@ local testfile = "feeds/test.xml"
 
 describe("CNNNews:", function()
 
-it("Download and parse all CNN feed categories", function()
+it("Download and parse all CNN feed categories and their articles", function()
 
     local getter = FeedGetter:new()
     local news = CNNNews:new()
@@ -27,11 +27,26 @@ it("Download and parse all CNN feed categories", function()
         assert.not_same(nil, feed.link)
         assert.not_same(nil, feed.date)
 
+        --Uncomment if you want to check all the news text (it takes ALOT of time)
+        --print (feed.link)
+        --local text = news:getArticleText(feed.link)
+        --assert.not_same(nil, text)
+        --print (text)
+
       end
     end
 
   end)
 
+it("Download a CNN Article and return the article text", function()
 
+    local news = CNNNews:new()
+    local link = 'http://edition.cnn.com/2014/11/10/world/europe/russia-nato-new-cold-war/index.html'
+
+    text = news:getArticleText(link)
+
+    assert.not_same(nil, text)
+
+  end)
 
 end)
