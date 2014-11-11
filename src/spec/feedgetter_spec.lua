@@ -32,25 +32,12 @@ describe("FeedGetter:", function()
     --To check if it worked we simply check if we have some feeds
     assert.is_true(#feeds.entries > 0)
 
-  end)
+    for i, feed in ipairs(feeds.entries) do
+      assert.not_same(nil, feed.title)
+      assert.not_same(nil, feed.summary)
+      assert.not_same(nil, feed.link)
+      assert.not_same(nil, feed.date)
 
-  it("Parse existing rss file AND retrieve it as standart feed array", function()
-
-    local getter = FeedGetter:new()
-
-    local parsed = getter:parseFeeds(downloadURL, examplefile)
-
-    local feeds = getter:translateResult(parsed, 'CNN')
-
-    --To check if it worked we simply check if we have some feeds
-    assert.is_true(#feeds > 0)
-
-    for i, parsedFeed in ipairs(parsed.entries) do
-          assert.are_not.equals(nil, feeds[i].title)
-          assert.are_not.equals(nil, feeds[i].summary)
-          assert.are_not.equals(nil, feeds[i].date)
-          assert.are_not.equals(nil, feeds[i].source)
-          assert.are_not.equals(nil, feeds[i].link)
     end
 
   end)
