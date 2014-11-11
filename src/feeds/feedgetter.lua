@@ -3,29 +3,7 @@ local io = require("io")
 local ltn12 = require("ltn12")
 local SLAXML = require 'slaxdom'
 require "feeds.feed"
-
-function getByName(el, name)
-	elements = {}
-
-	for i, kid in ipairs (el.kids) do
-		if kid.name == name then
-			table.insert(elements, kid)
-		end
-	end
-
-	return elements
-
-end
-
-function elementText(el)
-  local pieces = {}
-  for _,n in ipairs(el.kids) do
-    if n.type=='element' then pieces[#pieces+1] = elementText(n)
-    elseif n.type=='text' then pieces[#pieces+1] = n.value
-    end
-  end
-  return table.concat(pieces)
-end
+require "feeds.xml"
 
 FeedGetter = {}
 FeedGetter.__index = FeedsGetter
