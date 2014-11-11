@@ -51,7 +51,7 @@ function FeedGetter:downloadFeeds(url, filename)
 
 end
 
-function FeedGetter:parseFeeds(url, filename)
+function FeedGetter:parseFeeds(filename)
 
 	local xml = io.open(filename):read('*all')
 	local doc = SLAXML:dom(xml)
