@@ -4,6 +4,30 @@ local downloadURL = "http://rss.cnn.com/rss/edition_europe.rss"
 local testfile = "feeds/test.xml"
 local examplefile = "feeds/example.xml"
 
+local function valid_feed (feed)
+
+  assert.not_same(nil, feed.title)
+  assert.not_same(nil, feed.summary)
+  assert.not_same(nil, feed.link)
+  assert.not_same(nil, feed.date)
+
+  assert.not_same('', feed.title)
+  assert.not_same('', feed.summary)
+  assert.not_same('', feed.link)
+
+  assert.not_same(nil, feed.images)
+
+  for i, img in ipairs(feed.images) do
+    assert.not_same(nil, img.height)
+    assert.not_same(nil, img.width)
+    assert.not_same(nil, img.url)
+    assert.is_true(img.height > 0)
+    assert.is_true(img.width > 0)
+  end
+
+  assert.same(nil, feed.summary:find('<img'))
+
+end
 
 describe("FeedGetter:", function()
   it("check download of rss feed", function()
@@ -33,11 +57,7 @@ describe("FeedGetter:", function()
     assert.is_true(#feeds.entries > 0)
 
     for i, feed in ipairs(feeds.entries) do
-      assert.not_same(nil, feed.title)
-      assert.not_same(nil, feed.summary)
-      assert.not_same(nil, feed.link)
-      assert.not_same(nil, feed.date)
-
+      valid_feed(feed)
     end
 
   end)
@@ -55,10 +75,7 @@ it("Download and parse recent CNN feeds", function()
     assert.is_true(#feeds.entries > 0)
 
     for i, feed in ipairs(feeds.entries) do
-      assert.not_same(nil, feed.title)
-      assert.not_same(nil, feed.summary)
-      assert.not_same(nil, feed.link)
-      assert.not_same(nil, feed.date)
+      valid_feed(feed)
 
     end
 
@@ -77,15 +94,10 @@ it("Download and parse BBC feeds", function()
     assert.is_true(#feeds.entries > 0)
 
     for i, feed in ipairs(feeds.entries) do
-      assert.not_same(nil, feed.title)
-      assert.not_same(nil, feed.summary)
-      assert.not_same(nil, feed.link)
-      assert.not_same(nil, feed.date)
+      valid_feed(feed)
 
     end
 
   end)
-
-
 
 end)

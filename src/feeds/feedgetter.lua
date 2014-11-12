@@ -38,17 +38,44 @@ function FeedGetter:parseFeeds(filename)
 
 	local feeds = {}
 
+	local first = true
+
 	for i, item in ipairs(items) do
 
 		local title = elementText(getByName(item, 'title')[1])
-		local summary = elementText(getByName(item, 'description')[1])
+		local descr = elementText(getByName(item, 'description')[1])
 		local date = elementText(getByName(item, 'pubDate')[1])
 		local link = elementText(getByName(item, 'guid')[1])
+		local images = {}
 
-		local image = nil
+		for i, imgElement in ipairs(getByName(item, 'thumbnail')) do
+			local url = imgElement.attr.url
+			local width = tonumber(imgElement.attr.width)
+			local height = tonumber(imgElement.attr.height)
+			
+			--do not use incomplete images
 
-		--Insert the new feed
-		table.insert(feeds, Feed:new(title, summary, date, link, image))
+			if url ~= nil and width ~= nil and height ~= nil 
+		 		 and url ~= '' and width > 0 and height > 0 then
+				table.insert(images,{url = url, width = width, height = height})
+			end
+
+		end
+
+		local b, e = descr:find("<img")
+
+		--remove img tags for some descriptions
+		if b ~= nil then
+			descr = descr:sub(1, b - 1)
+		end
+
+		--do not use incomplete feeds
+
+		if title ~= nil and title ~= '' and descr ~= nil and descr ~= ''
+		and date ~= nil and date ~= '' and link ~= nil and link ~= '' then
+			--Insert the new feed
+			table.insert(feeds, Feed:new(title, descr, date, link, images))
+		end
 	end
 
 	local parsed = {entries = feeds}
