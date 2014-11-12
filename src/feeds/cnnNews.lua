@@ -68,6 +68,16 @@ function CNNNews:new()
   return setmetatable(newObj, self)
 end
 
+function CNNNews:downloadArticle (link, output)
+	local outputfile = io.open(output, "w+")
+
+	http.request { 
+    url = link, 
+    sink = ltn12.sink.file(outputfile)
+	}
+
+end
+
 function CNNNews:getArticleText(link)
 	local outputfile = io.open(articleFile, "w+")
 

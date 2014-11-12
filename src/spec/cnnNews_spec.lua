@@ -38,6 +38,25 @@ it("Download and parse all CNN feed categories and their articles", function()
 
   end)
 
+it("Download a CNN Article into an html file", function()
+
+    local news = CNNNews:new()
+    local link = 'http://edition.cnn.com/2014/11/10/world/europe/russia-nato-new-cold-war/index.html'
+    local output = 'feeds/test.html'
+
+    os.remove(output)
+
+    news:downloadArticle(link, output)
+
+    local file = io.open (testfile, "r")
+    local size = file:seek("end")
+    io.close(file)
+
+    --We check the file size to see if we got any result
+    assert.is_true(size > 0)
+
+  end)
+
 it("Download a CNN Article and return the article text", function()
 
     local news = CNNNews:new()
