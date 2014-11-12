@@ -4,7 +4,7 @@ gfx = require "gfx"
 text = require "text"
 require "viewController"
 require "categoriesView"
-require "newsFeedView"
+--require "newsFeedView"
 require "detailNewsView"
 
 -- Create a view controller for our app.
@@ -19,7 +19,7 @@ end
 function onStart()
 	-- Add some nice view
 	vc:addView("categories", categoriesView:new())
-	vc:addView("newsFeed", NewsFeedView:new())
+	--vc:addView("newsFeed", NewsFeedView:new())
 	vc:addView("detailNewsView", detailNewsView:new())
 	-- Present the main view to the screen
 	vc:presentView("detailNewsView")
