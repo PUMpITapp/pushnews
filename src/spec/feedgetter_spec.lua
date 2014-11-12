@@ -52,7 +52,6 @@ describe("FeedGetter:", function()
           assert.are_not.equals(nil, feeds[i].source)
           assert.are_not.equals(nil, feeds[i].link)
     end
-
   end)
 
 end)

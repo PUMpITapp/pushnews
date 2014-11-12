@@ -1,10 +1,11 @@
 -- Push news app
 -- newsfeedview class
+
 require "feeds.feed"
 
 local png_elements = { menubutton = 'images/sample.png' }
 local which_section = 1
-local number_section = 3
+local number_section = 6
 -- Class definition
 NewsFeedView = {}
 
@@ -58,16 +59,13 @@ function NewsFeedView:drawView()
 	--call function to print news
 	self:printNews(3,self:divide_news_to_sections())
 
-	--printing Filtertab
-	local filter_surface = gfx.new_surface(300,100)
-	filter_surface:clear({68,160,200,255})
 	gfx.update()
 end
 
 function NewsFeedView:onKey(key, state)
 	if state == 'up' then
 		if key == 'Down' then
-			if (which_section+number_section) > table_size(self.news) then
+			if (which_section+number_section) > #self.news then
 				--do nothing
 			else
 				which_section = which_section+number_section
@@ -85,7 +83,7 @@ function NewsFeedView:onKey(key, state)
 	end
 
 	if state == 'up' then
-		for i=1 , table_size(self.news) do
+		for i=1 , #self.news do
 			if tostring(i) == key then
 				print(self.news[i+(which_section-1)].title)
 				--sned to seledted news to DetailedNewsView and opnen it
@@ -99,7 +97,7 @@ function NewsFeedView:printNews(s_size,news)
 	gfx.screen:copyfrom(self.surface, nil, {x=0,y=0}, false)
 	gfx.update()
 	local section_size = s_size
-	local frame_size = table_size(news)
+	local frame_size = #news
 	local section_width = self.size.w/section_size
 	local frame_width = (section_width*80)/100
 	local frame_hight = (section_width*85)/100
@@ -133,20 +131,13 @@ function NewsFeedView:printNews(s_size,news)
 	gfx.update()
 end
 
---return size of table
-function table_size(table_news)
-	local count = 0
-	for _ in pairs(table_news) do
-		count = count + 1
-	end
-	return count
-end
 
+--return the news which should be showed on screen and it is controlled by which_section and number_section
 function NewsFeedView:divide_news_to_sections()
 	local section = {}
 	local end_point
-	if (number_section+which_section) > table_size(self.news) then
-		end_point = table_size(self.news)
+	if (number_section+which_section) > #self.news then
+		end_point = #self.news
 	else
 		end_point = number_section+which_section-1
 	end
@@ -155,4 +146,3 @@ function NewsFeedView:divide_news_to_sections()
 	end
 	return section
 end
-
