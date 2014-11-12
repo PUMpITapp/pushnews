@@ -1,7 +1,7 @@
 local TextModule = {}
 
 local fontDir = "fonts/"
-local registeredFonts = { "arial_regular_12" }
+local registeredFonts = { "arial_regular_12", "lato_large", "lato_medium", "lato_small" }
 
 local fonts = {}
 
