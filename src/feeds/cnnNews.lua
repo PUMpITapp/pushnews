@@ -94,24 +94,8 @@ function CNNNews:parseArticleFile(articleFile)
 end
 
 function CNNNews:getArticleText(link)
-	local outputfile = io.open(articleFile, "w+")
+	self:downloadArticle(articleFile, articleFile)
 
-
-	http.request { 
-    url = link, 
-    sink = ltn12.sink.file(outputfile)
-	}
-
-	local htmlstr = io.open(articleFile):read('*all')
-	
-	local html = require 'html'
-
-  local root = html.parsestr(htmlstr)
-	
-	local paragraphs = getParagraphs(root)
-
-	local text = getText (paragraphs)
-
-	return text
+	return self:parseArticleFile(articleFile)
 
 end
