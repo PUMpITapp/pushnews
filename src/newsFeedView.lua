@@ -25,9 +25,9 @@ function NewsFeedView:viewDidLoad()
 	self.bottomSurface = gfx.new_surface(gfx.screen:get_width(), gfx.screen:get_height()/8)
 	self.newsSurface = gfx.new_surface(gfx.screen:get_width(), gfx.screen:get_height()-self.headerSurface:get_height()-self.bottomSurface:get_height())
 
-	self.headerSurface:clear({255, 237, 254, 255})
-	self.bottomSurface:clear({255, 237, 254, 255})
-	self.newsSurface:clear({226, 237, 254, 255})
+	self.headerSurface:clear({255,237,254,255})
+	self.bottomSurface:clear({255,237,254,255})
+	self.newsSurface:clear({226,237,254,255})
 
 	local menuButton = gfx.loadpng('images/small_menu.png')
 	self.headerSurface:copyfrom(menuButton, nil, { x = 30, y = 10 })
@@ -71,12 +71,12 @@ end
 
 function NewsFeedView:printNews(s_size, news)
 	local section_size = s_size
-	local section_width = self.size.w/section_size
-	local frame_width = (section_width*80)/100
-	local frame_hight = (section_width*85)/100
-	local move_frame_y = 100
+	local section_width = self.newsSurface:get_width()/section_size
+	local frame_width = (section_width*70)/100
+	local frame_height = (section_width*70)/100
+	local move_frame_y = 35
 	local move_frame_x = (section_width*10/100)
-	local news_summary = gfx.new_surface(frame_width, frame_hight)
+	local news_summary = gfx.new_surface(frame_width, frame_height)
 	local news_pic = nil
 
 	self.newsSurface:clear({226,237,254,255})
@@ -99,7 +99,7 @@ function NewsFeedView:printNews(s_size, news)
 		self.newsSurface:copyfrom(news_summary, nil, { x=move_frame_x, y=move_frame_y }, false)
 
 		if i%section_size == section_size-1 then
-			move_frame_y = move_frame_y+frame_hight+30
+			move_frame_y = move_frame_y+frame_height+30
 		end
 	end
 
