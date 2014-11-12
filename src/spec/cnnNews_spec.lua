@@ -68,4 +68,15 @@ it("Download a CNN Article and return the article text", function()
 
   end)
 
+it("parse and existing article html file", function()
+
+    local news = CNNNews:new()
+    local file = 'feeds/exampleCNN.html'
+
+    text = news:parseArticleFile(file)
+
+    assert.not_same(nil, text)
+
+  end)
+
 end)

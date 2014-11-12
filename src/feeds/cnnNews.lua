@@ -78,6 +78,21 @@ function CNNNews:downloadArticle (link, output)
 
 end
 
+function CNNNews:parseArticleFile(articleFile)
+	local htmlstr = io.open(articleFile):read('*all')
+	
+	local html = require 'html'
+
+  local root = html.parsestr(htmlstr)
+	
+	local paragraphs = getParagraphs(root)
+
+	local text = getText (paragraphs)
+
+	return text
+
+end
+
 function CNNNews:getArticleText(link)
 	local outputfile = io.open(articleFile, "w+")
 
