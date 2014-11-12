@@ -1,8 +1,9 @@
 local http = require("socket.http")
 local io = require("io")
 local ltn12 = require("ltn12")
-require "feedparser"
+local SLAXML = require 'slaxdom'
 require "feeds.feed"
+require "feeds.xml"
 
 FeedGetter = {}
 FeedGetter.__index = FeedsGetter
@@ -16,9 +17,7 @@ function FeedGetter:new()
 end
 
 function FeedGetter:downloadFeeds(url, filename)
-	print(filename)
-
-	outputfile = io.open(filename, "w+")
+	local outputfile = io.open(filename, "w+")
 
 	http.request { 
     url = url, 
@@ -30,23 +29,29 @@ function FeedGetter:downloadFeeds(url, filename)
 
 end
 
-function FeedGetter:parseFeeds(url, filename)
-  local f = io.open(filename, "rb")
-  local rss = f:read("*all")
-  f:close()
+function FeedGetter:parseFeeds(filename)
 
-	local parsed, err = feedparser.parse(rss, url)
+	local xml = io.open(filename):read('*all')
+	local doc = SLAXML:dom(xml)
+	local channel = getByName(doc.root, 'channel')[1]
+	local items = getByName(channel, 'item')
 
-	return parsed
-end
-
---Should result a simple array of feed from the output given by the feedparser library
-function FeedGetter:translateResult(parsed, source)
 	local feeds = {}
 
-	for i, parsedFeed in ipairs(parsed.entries) do
- 		feeds[i] = Feed:new(parsedFeed.title, parsedFeed.summary, parsedFeed.updated, parsedFeed.id, source)
- 	end
+	for i, item in ipairs(items) do
 
- 	return feeds
+		local title = elementText(getByName(item, 'title')[1])
+		local summary = elementText(getByName(item, 'description')[1])
+		local date = elementText(getByName(item, 'pubDate')[1])
+		local link = elementText(getByName(item, 'guid')[1])
+
+		local image = nil
+
+		--Insert the new feed
+		table.insert(feeds, Feed:new(title, summary, date, link, image))
+	end
+
+	local parsed = {entries = feeds}
+
+	return parsed
 end
