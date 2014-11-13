@@ -6,6 +6,7 @@ require "feeds.cnnNews"
 local news_index = 1
 local each_section = 6
 local key_counter = 1
+local num_of_col = 3
 local newsFeedTmpFile = "feeds/test.xml"
 -- Class definition
 NewsFeedView = {}
@@ -39,7 +40,7 @@ function NewsFeedView:viewDidLoad()
 	self.headerSurface:copyfrom(menuButton, nil, { x = 30, y = 0, w=menuButton:get_width()*menuButtonScalingFactor, h=menuButton:get_height()*menuButtonScalingFactor })
 	menuButton:destroy()
 
-	self:printNews(3)
+	self:printNews(num_of_col)
 
 	self:drawView()
 end
@@ -81,7 +82,7 @@ function NewsFeedView:printNews(s_size)
 	local frame_width = (section_width*50)/100
 	local frame_height = (section_width*50)/100
 	local move_frame_y = 35
-	local move_frame_x = (section_width*10/100)
+	local move_frame_x 
 	local news_summary = gfx.new_surface(frame_width, frame_height)
 	local news_pic = nil
 
@@ -98,7 +99,7 @@ function NewsFeedView:printNews(s_size)
 
 	for i=news_index, end_point do
 		news_summary:clear({197,202,233,255})
-		move_frame_x = (section_width*10/100)+((i-1)%section_size)*section_width
+		move_frame_x = (section_width*25/100)+((i-1)%section_size)*section_width
 		text.print(news_summary, "arial_regular_12", tostring(key_counter), 1, 1, nil, nil, 1)
 
 		if self.news[i].image == nil then
@@ -110,7 +111,7 @@ function NewsFeedView:printNews(s_size)
 			news_summary:copyfrom(news_pic, nil, { x=15, y=10, w=frame_width-30, h=frame_width-100 })
 			text.print(news_summary, "arial_regular_12", self.news[i].title, 15, frame_width-90, nil, nil, 1)
 		end
-		
+
 		self.newsSurface:copyfrom(news_summary, nil, { x=move_frame_x, y=move_frame_y }, false)
 
 		if (i-1)%section_size == section_size-1 then
