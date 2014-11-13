@@ -3,8 +3,9 @@
 require "feeds.feedgetter"
 require "feeds.cnnNews"
 
-local which_section = 1
-local number_section = 6
+local news_index = 1
+local each_section = 6
+local key_counter = 1
 local newsFeedTmpFile = "feeds/test.xml"
 -- Class definition
 NewsFeedView = {}
@@ -87,21 +88,20 @@ function NewsFeedView:printNews(s_size)
 	self.newsSurface:clear({63,81,181,255})
 
 	local end_point
-	local key_counter = 1
+	key_counter = 1
 
-	if (number_section+which_section) > #self.news then
+	if (each_section+news_index) > #self.news then
 		end_point = #self.news
 	else
-		end_point = number_section+which_section-1
+		end_point = each_section+news_index-1
 	end
- 	print(which_section, end_point)
 
-	for i=which_section, end_point do
+	for i=news_index, end_point do
 		news_summary:clear({197,202,233,255})
 		move_frame_x = (section_width*10/100)+((i-1)%section_size)*section_width
 		text.print(news_summary, "arial_regular_12", tostring(key_counter), 1, 1, nil, nil, 1)
 
-		if self.news[i+1].image == nil then
+		if self.news[i].image == nil then
 			news_pic = nil
 			text.print(news_summary, "arial_regular_12", self.news[i].date, 15, 10, nil, nil, 1)
 			text.print(news_summary, "arial_regular_12", self.news[i].title, 15, 60, nil, nil, 1)
@@ -110,8 +110,7 @@ function NewsFeedView:printNews(s_size)
 			news_summary:copyfrom(news_pic, nil, { x=15, y=10, w=frame_width-30, h=frame_width-100 })
 			text.print(news_summary, "arial_regular_12", self.news[i].title, 15, frame_width-90, nil, nil, 1)
 		end
-
-		--text.print(news_summary,"arial_regular_12",news[i+1].summary,20,30,nil,1)
+		
 		self.newsSurface:copyfrom(news_summary, nil, { x=move_frame_x, y=move_frame_y }, false)
 
 		if (i-1)%section_size == section_size-1 then
@@ -129,28 +128,28 @@ function NewsFeedView:onKey(key, state)
 		if key == 'left' then
 			vc:presentView('categories')
 		elseif key == 'down' then
-			if (which_section+number_section) > #self.news then
+			if (news_index+each_section) > #self.news then
 				--do nothing
 			else
-				which_section = which_section+number_section
+				news_index = news_index+each_section
 				self:printNews(3)
 				self:drawView()
 			end
 		elseif key == 'up' then
-			if (which_section-number_section) < 0 then
+			if (news_index-each_section) < 0 then
 				--do nothing
 			else
-				which_section = which_section-number_section
+				news_index = news_index-each_section
 				self:printNews(3)
 				self:drawView()
 			end
-		else
-			for i=1 , #self.news do
+		elseif key ~= nil then
+			for i=1,key_counter-1 do
 				if tostring(i) == key then
-					print(self.news[i+(which_section-1)].title)
+					print(self.news[i+(news_index-1)].title)
 					--send to seledted news to DetailedNewsView and opnen it
 				end
-  		end
+			end
 		end
 	end
 end

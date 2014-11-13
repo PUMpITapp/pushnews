@@ -6,7 +6,7 @@
 <description>CNN.com delivers up-to-the-minute news and information on the latest top stories, weather, entertainment, politics and more.</description>
 <language>en-US</language>
 <copyright>Copyright 2014 Cable News Network LP, LLLP.</copyright>
-<pubDate>Thu, 13 Nov 2014 03:26:43 EST</pubDate>
+<pubDate>Thu, 13 Nov 2014 05:22:40 EST</pubDate>
 <ttl>10</ttl>
 <image>
 <title>CNN.com - Top Stories</title>
@@ -17,15 +17,6 @@
 <description>CNN.com delivers up-to-the-minute news and information on the latest top stories, weather, entertainment, politics and more.</description>
 </image>
 <atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="self" type="application/rss+xml" href="http://rss.cnn.com/rss/edition" /><feedburner:info xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0" uri="rss/edition" /><atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="hub" href="http://pubsubhubbub.appspot.com/" /><item>
-<title>Rapper Big Bank Hank dies</title>
-<guid>http://edition.cnn.com/2014/11/11/showbiz/big-bank-hank-sugarhill-gang-obit/index.html</guid>
-<link>http://edition.cnn.com/2014/11/11/showbiz/big-bank-hank-sugarhill-gang-obit/index.html?eref=edition</link>
-<description>A member of the Sugarhill Gang, whose pioneering hit "Rapper's Delight" brought hip-hop to mainstream audiences 35 years ago, died Tuesday of complications from cancer.</description>
-<pubDate>Tue, 11 Nov 2014 21:56:43 EST</pubDate>
-<media:thumbnail height="51" width="90" url="http://i2.cdn.turner.com/cnn/dam/assets/141111112547-big-bank-hank-restricted-top-tease.jpg" />
-<media:content height="51" width="90" medium="image" type="image/jpeg" url="http://i2.cdn.turner.com/cnn/dam/assets/141111112547-big-bank-hank-restricted-top-tease.jpg" />
-</item>
-<item>
 <title>How will ISIS react if leader dead?</title>
 <guid>http://edition.cnn.com/2014/11/11/world/meast/al-baghdadi-replacement/index.html</guid>
 <link>http://edition.cnn.com/2014/11/11/world/meast/al-baghdadi-replacement/index.html?eref=edition</link>
@@ -53,13 +44,20 @@
 <media:content height="51" width="90" medium="image" type="image/jpeg" url="http://i2.cdn.turner.com/cnn/dam/assets/141111141251-trabant-1-top-tease.jpg" />
 </item>
 <item>
-<title>Church: Mormon founder had 40 wives </title>
-<guid>http://edition.cnn.com/2014/11/11/living/mormon-founder-polygamy/index.html</guid>
-<link>http://edition.cnn.com/2014/11/11/living/mormon-founder-polygamy/index.html?eref=edition</link>
-<description>The founder of the Mormon church, Joseph Smith, wed as many as 40 wives, including some who were already married and one as young as 14 years old, the church acknowledged in a surprising new essay. </description>
-<pubDate>Tue, 11 Nov 2014 00:35:24 EST</pubDate>
-<media:thumbnail height="51" width="90" url="http://i2.cdn.turner.com/cnn/dam/assets/120511041616-belief-mormon-leader-top-tease.jpg" />
-<media:content height="51" width="90" medium="image" type="image/jpeg" url="http://i2.cdn.turner.com/cnn/dam/assets/120511041616-belief-mormon-leader-top-tease.jpg" />
+<title>'Big Bang Theory' actress dies at 62</title>
+<guid>http://edition.cnn.com/2014/11/12/showbiz/carol-susi-dead/index.html</guid>
+<link>http://edition.cnn.com/2014/11/12/showbiz/carol-susi-dead/index.html?eref=edition</link>
+<description>Carol Ann Susi, whose brash Brooklyn accent reverberated on the hit television series "Big Bang Theory, " has died after a battle with cancer.</description>
+<pubDate>Wed, 12 Nov 2014 10:14:00 EST</pubDate>
+<media:thumbnail height="51" width="90" url="http://i2.cdn.turner.com/cnn/dam/assets/141112001629-carol-ann-susi-top-tease.jpg" />
+<media:content height="51" width="90" medium="image" type="image/jpeg" url="http://i2.cdn.turner.com/cnn/dam/assets/141112001629-carol-ann-susi-top-tease.jpg" />
+</item>
+<item>
+<title>Bill Cosby rape claims won't go away</title>
+<guid>http://edition.cnn.com/2014/11/11/showbiz/tv/bill-cosby-rape-allegations/index.html</guid>
+<link>http://edition.cnn.com/2014/11/11/showbiz/tv/bill-cosby-rape-allegations/index.html?eref=edition</link>
+<description>It was not the sort of meme Bill Cosby wanted to generate.</description>
+<pubDate>Thu, 13 Nov 2014 04:26:05 EST</pubDate>
 </item>
 <item>
 <title>Climate deal is 'watershed moment'</title>
@@ -111,9 +109,9 @@
 <guid>http://edition.cnn.com/2014/11/12/politics/obama-syria-strategy-review/index.html</guid>
 <link>http://edition.cnn.com/2014/11/12/politics/obama-syria-strategy-review/index.html?eref=edition</link>
 <description>The U.S. President has ordered an overhaul of policy on Syria, recognizing Bashar al-Assad's removal may be key to defeating ISIS, sources say. </description>
-<pubDate>Thu, 13 Nov 2014 03:25:48 EST</pubDate>
-<media:thumbnail height="51" width="90" url="http://i2.cdn.turner.com/cnn/dam/assets/141106094237-01-obama-1106-top-tease.jpg" />
-<media:content height="51" width="90" medium="image" type="image/jpeg" url="http://i2.cdn.turner.com/cnn/dam/assets/141106094237-01-obama-1106-top-tease.jpg" />
+<pubDate>Thu, 13 Nov 2014 04:02:07 EST</pubDate>
+<media:thumbnail height="51" width="90" url="http://i2.cdn.turner.com/cnn/dam/assets/141113085921-dakhaniyeh-syria-rubble-top-tease.jpg" />
+<media:content height="51" width="90" medium="image" type="image/jpeg" url="http://i2.cdn.turner.com/cnn/dam/assets/141113085921-dakhaniyeh-syria-rubble-top-tease.jpg" />
 </item>
 <item>
 <title>Assad in U.S. crosshairs </title>
@@ -143,13 +141,54 @@
 <media:content height="51" width="90" medium="image" type="image/jpeg" url="http://i2.cdn.turner.com/cnn/dam/assets/140502185039-tim-kaine-top-tease.jpg" />
 </item>
 <item>
-<title>Comet lander scores bull's-eye</title>
+<title>FIFA clears Russia, Qatar bids</title>
+<guid>http://edition.cnn.com/video/data/2.0/video/sports/2014/11/13/lkvl-thomas-fifa-ethics-report.cnn.html</guid>
+<link>http://edition.cnn.com/video/data/2.0/video/sports/2014/11/13/lkvl-thomas-fifa-ethics-report.cnn.html?eref=edition</link>
+<description>FIFA has released the results of an independent investigations into the 2018 and 2022 world cup bidding processes.</description>
+<pubDate>Thu, 13 Nov 2014 05:20:25 EST</pubDate>
+<media:thumbnail height="51" width="90" url="http://i2.cdn.turner.com/cnn/dam/assets/141113043413-lkvl-thomas-fifa-ethics-report-00010212-top-tease.jpg" />
+<media:content height="51" width="90" medium="image" type="image/jpeg" url="http://i2.cdn.turner.com/cnn/dam/assets/141113043413-lkvl-thomas-fifa-ethics-report-00010212-top-tease.jpg" />
+</item>
+<item>
+<title>Blast at near Egyptian embassy, Libya</title>
+<guid>http://edition.cnn.com/2014/11/13/world/meast/libya-unrest/index.html</guid>
+<link>http://edition.cnn.com/2014/11/13/world/meast/libya-unrest/index.html?eref=edition</link>
+<description>A car bomb exploded near the Egyptian embassy in Tripoli on Thursday morning, the Libyan state news agency reported. </description>
+<pubDate>Thu, 13 Nov 2014 04:06:01 EST</pubDate>
+</item>
+<item>
+<title>World leaders gather in Myanmar</title>
+<guid>http://edition.cnn.com/2014/11/13/politics/myanmar-obama-asean-visit/index.html</guid>
+<link>http://edition.cnn.com/2014/11/13/politics/myanmar-obama-asean-visit/index.html?eref=edition</link>
+<description>What a difference two years makes. </description>
+<pubDate>Thu, 13 Nov 2014 04:04:52 EST</pubDate>
+</item>
+<item>
+<title>Rights focus at ASEAN for Obama</title>
+<guid>http://edition.cnn.com/video/data/2.0/video/world/2014/11/13/lklv-watson-obama-asean-myanmar-visit.cnn.html</guid>
+<link>http://edition.cnn.com/video/data/2.0/video/world/2014/11/13/lklv-watson-obama-asean-myanmar-visit.cnn.html?eref=edition</link>
+<description>U.S. President Barack Obama visits Myanmar for the ASEAN summit, but the country's human rights record could dominate the agenda.</description>
+<pubDate>Thu, 13 Nov 2014 00:39:14 EST</pubDate>
+<media:thumbnail height="51" width="90" url="http://i2.cdn.turner.com/cnn/dam/assets/141113002555-lklv-watson-obama-asean-myanmar-visit-00002704-top-tease.jpg" />
+<media:content height="51" width="90" medium="image" type="image/jpeg" url="http://i2.cdn.turner.com/cnn/dam/assets/141113002555-lklv-watson-obama-asean-myanmar-visit-00002704-top-tease.jpg" />
+</item>
+<item>
+<title>Philae probe lands on comet</title>
 <guid>http://edition.cnn.com/2014/11/12/world/comet-landing-countdown/index.html</guid>
 <link>http://edition.cnn.com/2014/11/12/world/comet-landing-countdown/index.html?eref=edition</link>
 <description>The Philae probe lands on a comet -- a historic first -- and sends back its first photos but mission control is worried anchoring harpoons have failed.</description>
-<pubDate>Thu, 13 Nov 2014 00:41:28 EST</pubDate>
+<pubDate>Thu, 13 Nov 2014 04:27:06 EST</pubDate>
 <media:thumbnail height="51" width="90" url="http://i2.cdn.turner.com/cnn/dam/assets/141112180541-first-descent-image-rolis-philae-rosetta-top-tease.png" />
 <media:content height="51" width="90" medium="image" type="image/jpeg" url="http://i2.cdn.turner.com/cnn/dam/assets/141112180541-first-descent-image-rolis-philae-rosetta-top-tease.png" />
+</item>
+<item>
+<title>Probe lands, fails to anchor</title>
+<guid>http://edition.cnn.com/video/data/2.0/video/tech/2014/11/13/lklv-pleitgen-rosetta-spacecraft-latest.cnn.html</guid>
+<link>http://edition.cnn.com/video/data/2.0/video/tech/2014/11/13/lklv-pleitgen-rosetta-spacecraft-latest.cnn.html?eref=edition</link>
+<description>Rosetta mission controllers are sure the lander is on Philae, but it is not anchored to Comet 67P. CNN's Fred Pleitgen reports.</description>
+<pubDate>Thu, 13 Nov 2014 04:26:43 EST</pubDate>
+<media:thumbnail height="51" width="90" url="http://i2.cdn.turner.com/cnn/dam/assets/141107154919-philae-lander-artist-impression-rosetta-top-tease.jpg" />
+<media:content height="51" width="90" medium="image" type="image/jpeg" url="http://i2.cdn.turner.com/cnn/dam/assets/141107154919-philae-lander-artist-impression-rosetta-top-tease.jpg" />
 </item>
 <item>
 <title>Landing was biggest test</title>
@@ -161,11 +200,11 @@
 <media:content height="51" width="90" medium="image" type="image/jpeg" url="http://i2.cdn.turner.com/cnn/dam/assets/141112125544-comet-top-tease.jpg" />
 </item>
 <item>
-<title>Obama pitted against congress</title>
-<guid>http://edition.cnn.com/2014/11/13/politics/obama-gop/index.html</guid>
-<link>http://edition.cnn.com/2014/11/13/politics/obama-gop/index.html?eref=edition</link>
-<description>For President Barack Obama and the Republicans in Congress, distance does not make the heart grow fonder.</description>
-<pubDate>Thu, 13 Nov 2014 02:39:28 EST</pubDate>
+<title>UK police arrest terror suspect</title>
+<guid>http://edition.cnn.com/2014/11/13/world/europe/uk-terror-arrest/index.html</guid>
+<link>http://edition.cnn.com/2014/11/13/world/europe/uk-terror-arrest/index.html?eref=edition</link>
+<description>British authorities on Thursday morning arrested a 27-year-old man on suspicion of financing terrorist acts, police said.</description>
+<pubDate>Thu, 13 Nov 2014 04:30:39 EST</pubDate>
 </item>
 <item>
 <title>Bin Laden SEAL reveals details</title>
@@ -186,24 +225,6 @@
 <media:content height="51" width="90" medium="image" type="image/jpeg" url="http://i2.cdn.turner.com/cnn/dam/assets/141112194754-pkg-udas-india-sterilization-clinic-00001715-top-tease.jpg" />
 </item>
 <item>
-<title>Rights focus at ASEAN for Obama</title>
-<guid>http://edition.cnn.com/video/data/2.0/video/world/2014/11/13/lklv-watson-obama-asean-myanmar-visit.cnn.html</guid>
-<link>http://edition.cnn.com/video/data/2.0/video/world/2014/11/13/lklv-watson-obama-asean-myanmar-visit.cnn.html?eref=edition</link>
-<description>U.S. President Barack Obama visits Myanmar for the ASEAN summit, but the country's human rights record could dominate the agenda.</description>
-<pubDate>Thu, 13 Nov 2014 00:39:14 EST</pubDate>
-<media:thumbnail height="51" width="90" url="http://i2.cdn.turner.com/cnn/dam/assets/141113002555-lklv-watson-obama-asean-myanmar-visit-00002704-top-tease.jpg" />
-<media:content height="51" width="90" medium="image" type="image/jpeg" url="http://i2.cdn.turner.com/cnn/dam/assets/141113002555-lklv-watson-obama-asean-myanmar-visit-00002704-top-tease.jpg" />
-</item>
-<item>
-<title>Sen. Warren up for leadership role</title>
-<guid>http://edition.cnn.com/2014/11/12/politics/warren-senate-leadership-post/index.html</guid>
-<link>http://edition.cnn.com/2014/11/12/politics/warren-senate-leadership-post/index.html?eref=edition</link>
-<description>Senate Democratic leaders are considering adding Sen. Elizabeth Warren to their leadership team, according to a source familiar with the discussions. </description>
-<pubDate>Wed, 12 Nov 2014 22:16:32 EST</pubDate>
-<media:thumbnail height="51" width="90" url="http://i2.cdn.turner.com/cnn/dam/assets/140822171502-elizabeth-warren-senate-top-tease.jpg" />
-<media:content height="51" width="90" medium="image" type="image/jpeg" url="http://i2.cdn.turner.com/cnn/dam/assets/140822171502-elizabeth-warren-senate-top-tease.jpg" />
-</item>
-<item>
 <title>Injured test pilot questioned</title>
 <guid>http://edition.cnn.com/2014/11/12/us/spaceshiptwo-surviving-pilot-ntsb/index.html</guid>
 <link>http://edition.cnn.com/2014/11/12/us/spaceshiptwo-surviving-pilot-ntsb/index.html?eref=edition</link>
@@ -213,11 +234,11 @@
 <media:content height="51" width="90" medium="image" type="image/jpeg" url="http://i2.cdn.turner.com/cnn/dam/assets/141102111401-virgin-space-wreckage-top-tease.jpg" />
 </item>
 <item>
-<title>Female bomber hits school</title>
+<title>Female bomber hits Nigeria school</title>
 <guid>http://edition.cnn.com/2014/11/12/world/nigeria-college-female-suicide-bomber/index.html</guid>
 <link>http://edition.cnn.com/2014/11/12/world/nigeria-college-female-suicide-bomber/index.html?eref=edition</link>
 <description>A female suicide bomber on Wednesday blew herself up at a teacher training college in central Nigerian town of Potiskum, killing one and injuring seven others, witnesses said.</description>
-<pubDate>Wed, 12 Nov 2014 22:05:42 EST</pubDate>
+<pubDate>Thu, 13 Nov 2014 04:05:38 EST</pubDate>
 <media:thumbnail height="51" width="90" url="http://i2.cdn.turner.com/cnn/dam/assets/141112161146-nr-nigeria-suicide-bomber-robin-sanders-intv-00001320-top-tease.jpg" />
 <media:content height="51" width="90" medium="image" type="image/jpeg" url="http://i2.cdn.turner.com/cnn/dam/assets/141112161146-nr-nigeria-suicide-bomber-robin-sanders-intv-00001320-top-tease.jpg" />
 </item>
@@ -231,40 +252,22 @@
 <media:content height="51" width="90" medium="image" type="image/jpeg" url="http://i2.cdn.turner.com/cnn/dam/assets/140522030345-pkg-watson-west-bank-teenagers-killed-00004908-top-tease.jpg" />
 </item>
 <item>
-<title>Protesters vow more violence</title>
-<guid>http://edition.cnn.com/video/data/2.0/video/world/2014/11/12/pkg-romo-mexico-clashes-continue.cnn.html</guid>
-<link>http://edition.cnn.com/video/data/2.0/video/world/2014/11/12/pkg-romo-mexico-clashes-continue.cnn.html?eref=edition</link>
-<description>Protests in Mexico over the disappearance of 43 students show no signs of stopping. CNN's Rafael Romo reports.</description>
-<pubDate>Wed, 12 Nov 2014 22:06:00 EST</pubDate>
-<media:thumbnail height="51" width="90" url="http://i2.cdn.turner.com/cnn/dam/assets/141112113704-cnnee-mexico-romo-guerrero-police-00000217-top-tease.jpg" />
-<media:content height="51" width="90" medium="image" type="image/jpeg" url="http://i2.cdn.turner.com/cnn/dam/assets/141112113704-cnnee-mexico-romo-guerrero-police-00000217-top-tease.jpg" />
-</item>
-<item>
 <title>U.S. sailors attacked in Turkey</title>
 <guid>http://edition.cnn.com/2014/11/12/politics/turkey-navy-sailors-bags-over-heards/index.html</guid>
 <link>http://edition.cnn.com/2014/11/12/politics/turkey-navy-sailors-bags-over-heards/index.html?eref=edition</link>
 <description>Three U.S. Navy sailors were assaulted and had bags placed over their heads during a stop in Istanbul, Turkey, according to U.S. military officials.</description>
-<pubDate>Wed, 12 Nov 2014 18:01:36 EST</pubDate>
+<pubDate>Thu, 13 Nov 2014 04:06:14 EST</pubDate>
 <media:thumbnail height="51" width="90" url="http://i2.cdn.turner.com/cnn/dam/assets/141112102602-sot-nr-us-navy-sailors-attacked-turkey-starr-00003014-top-tease.jpg" />
 <media:content height="51" width="90" medium="image" type="image/jpeg" url="http://i2.cdn.turner.com/cnn/dam/assets/141112102602-sot-nr-us-navy-sailors-attacked-turkey-starr-00003014-top-tease.jpg" />
 </item>
 <item>
-<title>Djokovic crushes Wawrinka</title>
+<title>Tennis: Djokovic crushes Wawrinka</title>
 <guid>http://edition.cnn.com/2014/11/12/sport/tennis-djokovic-atp-finals/index.html</guid>
 <link>http://edition.cnn.com/2014/11/12/sport/tennis-djokovic-atp-finals/index.html?eref=edition</link>
 <description>Novak Djokovic has plenty of reasons to feel on top of the world -- but one more victory at the ATP World Tour finals will mean he ends 2014 as the leading ranked player on the planet.</description>
-<pubDate>Wed, 12 Nov 2014 16:55:33 EST</pubDate>
+<pubDate>Thu, 13 Nov 2014 04:14:26 EST</pubDate>
 <media:thumbnail height="51" width="90" url="http://i2.cdn.turner.com/cnn/dam/assets/141110165140-djokovic-wins-top-tease.jpg" />
 <media:content height="51" width="90" medium="image" type="image/jpeg" url="http://i2.cdn.turner.com/cnn/dam/assets/141110165140-djokovic-wins-top-tease.jpg" />
-</item>
-<item>
-<title>'Big Bang Theory' actress dies at 62</title>
-<guid>http://edition.cnn.com/2014/11/12/showbiz/carol-susi-dead/index.html</guid>
-<link>http://edition.cnn.com/2014/11/12/showbiz/carol-susi-dead/index.html?eref=edition</link>
-<description>Carol Ann Susi, whose brash Brooklyn accent reverberated on the hit television series "Big Bang Theory, " has died after a battle with cancer.</description>
-<pubDate>Wed, 12 Nov 2014 10:14:00 EST</pubDate>
-<media:thumbnail height="51" width="90" url="http://i2.cdn.turner.com/cnn/dam/assets/141112001629-carol-ann-susi-top-tease.jpg" />
-<media:content height="51" width="90" medium="image" type="image/jpeg" url="http://i2.cdn.turner.com/cnn/dam/assets/141112001629-carol-ann-susi-top-tease.jpg" />
 </item>
 <item>
 <title>Long-range patrols near U.S. planned</title>
@@ -375,6 +378,24 @@
 <media:content height="51" width="90" medium="image" type="image/jpeg" url="http://i2.cdn.turner.com/cnn/dam/assets/141001104259-train-station-kings-cross-top-tease.jpg" />
 </item>
 <item>
+<title>Why Philae's space odyssey matters </title>
+<guid>http://edition.cnn.com/2014/11/12/opinion/chiao-philae-comet/index.html</guid>
+<link>http://edition.cnn.com/2014/11/12/opinion/chiao-philae-comet/index.html?eref=edition</link>
+<description>Drama could inspire people back on Earth to new heights, says former astronaut Leroy Chiao.</description>
+<pubDate>Wed, 12 Nov 2014 22:28:57 EST</pubDate>
+<media:thumbnail height="51" width="90" url="http://i2.cdn.turner.com/cnn/dam/assets/141112125031-philae-and-rosetta-top-tease.jpg" />
+<media:content height="51" width="90" medium="image" type="image/jpeg" url="http://i2.cdn.turner.com/cnn/dam/assets/141112125031-philae-and-rosetta-top-tease.jpg" />
+</item>
+<item>
+<title>It's complicated: Watch sells for $24.4M</title>
+<guid>http://edition.cnn.com/2014/11/12/business/24-million-gold-watch-sothebys-record-patek-philippe/index.html</guid>
+<link>http://edition.cnn.com/2014/11/12/business/24-million-gold-watch-sothebys-record-patek-philippe/index.html?eref=edition</link>
+<description>The most "complicated" handmade watch in the world has been sold at auction for an historic $24.4 million.</description>
+<pubDate>Thu, 13 Nov 2014 04:15:53 EST</pubDate>
+<media:thumbnail height="51" width="90" url="http://i2.cdn.turner.com/cnn/dam/assets/141112154821-patek-philippe-henry-graves-supercomplication21111111111-top-tease.jpg" />
+<media:content height="51" width="90" medium="image" type="image/jpeg" url="http://i2.cdn.turner.com/cnn/dam/assets/141112154821-patek-philippe-henry-graves-supercomplication21111111111-top-tease.jpg" />
+</item>
+<item>
 <title>Things to do in NYC before you die</title>
 <guid>http://edition.cnn.com/2014/11/13/travel/new-york-things-to-do/index.html</guid>
 <link>http://edition.cnn.com/2014/11/13/travel/new-york-things-to-do/index.html?eref=edition</link>
@@ -384,13 +405,13 @@
 <media:content height="51" width="90" medium="image" type="image/jpeg" url="http://i2.cdn.turner.com/cnn/dam/assets/141104122616-nyc-highline-top-tease.jpg" />
 </item>
 <item>
-<title>China's military machine on display</title>
-<guid>http://edition.cnn.com/2014/11/10/world/asia/china-air-show/index.html</guid>
-<link>http://edition.cnn.com/2014/11/10/world/asia/china-air-show/index.html?eref=edition</link>
-<description>Stealth planes and drones present China as an aerospace power.</description>
-<pubDate>Tue, 11 Nov 2014 03:38:17 EST</pubDate>
-<media:thumbnail height="51" width="90" url="http://i2.cdn.turner.com/cnn/dam/assets/141107143414-china-aviation-2-top-tease.jpg" />
-<media:content height="51" width="90" medium="image" type="image/jpeg" url="http://i2.cdn.turner.com/cnn/dam/assets/141107143414-china-aviation-2-top-tease.jpg" />
+<title>'Big Bang Theory' actress dies at 62</title>
+<guid>http://edition.cnn.com/2014/11/12/showbiz/carol-susi-dead/index.html</guid>
+<link>http://edition.cnn.com/2014/11/12/showbiz/carol-susi-dead/index.html?eref=edition</link>
+<description>Carol Ann Susi, whose brash Brooklyn accent reverberated on the hit television series "Big Bang Theory, " has died after a battle with cancer.</description>
+<pubDate>Thu, 13 Nov 2014 04:28:51 EST</pubDate>
+<media:thumbnail height="51" width="90" url="http://i2.cdn.turner.com/cnn/dam/assets/141112001629-carol-ann-susi-top-tease.jpg" />
+<media:content height="51" width="90" medium="image" type="image/jpeg" url="http://i2.cdn.turner.com/cnn/dam/assets/141112001629-carol-ann-susi-top-tease.jpg" />
 </item>
 <item>
 <title>Solar road opens in the Netherlands</title>
@@ -411,22 +432,13 @@
 <media:content height="51" width="90" medium="image" type="image/jpeg" url="http://i2.cdn.turner.com/cnn/dam/assets/141112194147-pkg-newton-thailand-lisu-mountain-village-00004330-top-tease.jpg" />
 </item>
 <item>
-<title>Why Philae's space odyssey matters </title>
-<guid>http://edition.cnn.com/2014/11/12/opinion/chiao-philae-comet/index.html</guid>
-<link>http://edition.cnn.com/2014/11/12/opinion/chiao-philae-comet/index.html?eref=edition</link>
-<description>Drama could inspire people back on Earth to new heights, says former astronaut Leroy Chiao.</description>
-<pubDate>Wed, 12 Nov 2014 22:28:57 EST</pubDate>
-<media:thumbnail height="51" width="90" url="http://i2.cdn.turner.com/cnn/dam/assets/141112125031-philae-and-rosetta-top-tease.jpg" />
-<media:content height="51" width="90" medium="image" type="image/jpeg" url="http://i2.cdn.turner.com/cnn/dam/assets/141112125031-philae-and-rosetta-top-tease.jpg" />
-</item>
-<item>
-<title>Steam safari: The Pride of Africa</title>
+<title>Most luxurious train in the world?</title>
 <guid>http://edition.cnn.com/2014/11/12/travel/rovos-rail-steam-safari/index.html</guid>
 <link>http://edition.cnn.com/2014/11/12/travel/rovos-rail-steam-safari/index.html?eref=edition</link>
 <description>Experience Africa's savannah in style aboard the world's "most luxurious train."</description>
-<pubDate>Thu, 13 Nov 2014 01:11:00 EST</pubDate>
-<media:thumbnail height="51" width="90" url="http://i2.cdn.turner.com/cnn/dam/assets/141106160919-rovos-rail-steam-safari-1-top-tease.jpg" />
-<media:content height="51" width="90" medium="image" type="image/jpeg" url="http://i2.cdn.turner.com/cnn/dam/assets/141106160919-rovos-rail-steam-safari-1-top-tease.jpg" />
+<pubDate>Thu, 13 Nov 2014 04:58:32 EST</pubDate>
+<media:thumbnail height="51" width="90" url="http://i2.cdn.turner.com/cnn/dam/assets/141106160922-rovos-rail-steam-safari-2-top-tease.jpg" />
+<media:content height="51" width="90" medium="image" type="image/jpeg" url="http://i2.cdn.turner.com/cnn/dam/assets/141106160922-rovos-rail-steam-safari-2-top-tease.jpg" />
 </item>
 <item>
 <title>The 10 worst people at the gym</title>
@@ -445,15 +457,6 @@
 <pubDate>Wed, 12 Nov 2014 16:57:27 EST</pubDate>
 <media:thumbnail height="51" width="90" url="http://i2.cdn.turner.com/cnn/dam/assets/130719165110-01-jesus-christ-top-tease.jpg" />
 <media:content height="51" width="90" medium="image" type="image/jpeg" url="http://i2.cdn.turner.com/cnn/dam/assets/130719165110-01-jesus-christ-top-tease.jpg" />
-</item>
-<item>
-<title>The apartheid you've never heard of</title>
-<guid>http://edition.cnn.com/2014/11/11/world/asia/myanmar-rohingya-minority/index.html</guid>
-<link>http://edition.cnn.com/2014/11/11/world/asia/myanmar-rohingya-minority/index.html?eref=edition</link>
-<description>Myanmar's Rohingya, trapped in rural ghettos, live in fear of violence.</description>
-<pubDate>Wed, 12 Nov 2014 06:56:14 EST</pubDate>
-<media:thumbnail height="51" width="90" url="http://i2.cdn.turner.com/cnn/dam/assets/141111141612-sittwe-4-top-tease.jpg" />
-<media:content height="51" width="90" medium="image" type="image/jpeg" url="http://i2.cdn.turner.com/cnn/dam/assets/141111141612-sittwe-4-top-tease.jpg" />
 </item>
 <item>
 <title>Trapped and dangling 68 floors above NYC</title>
@@ -481,13 +484,13 @@
 <pubDate>Wed, 12 Nov 2014 23:48:26 EST</pubDate>
 </item>
 <item>
-<title>World's most expensive watch</title>
-<guid>http://edition.cnn.com/2014/11/12/business/24-million-gold-watch-sothebys-record-patek-philippe/index.html</guid>
-<link>http://edition.cnn.com/2014/11/12/business/24-million-gold-watch-sothebys-record-patek-philippe/index.html?eref=edition</link>
-<description>Gold timepiece -- "one of the wonders of the world" -- sells for $24.4 million.</description>
-<pubDate>Wed, 12 Nov 2014 15:04:08 EST</pubDate>
-<media:thumbnail height="51" width="90" url="http://i2.cdn.turner.com/cnn/dam/assets/141112154821-patek-philippe-henry-graves-supercomplication21111111111-top-tease.jpg" />
-<media:content height="51" width="90" medium="image" type="image/jpeg" url="http://i2.cdn.turner.com/cnn/dam/assets/141112154821-patek-philippe-henry-graves-supercomplication21111111111-top-tease.jpg" />
+<title>The apartheid you've never heard of</title>
+<guid>http://edition.cnn.com/2014/11/11/world/asia/myanmar-rohingya-minority/index.html</guid>
+<link>http://edition.cnn.com/2014/11/11/world/asia/myanmar-rohingya-minority/index.html?eref=edition</link>
+<description>Myanmar's Rohingya, trapped in rural ghettos, live in fear of violence.</description>
+<pubDate>Wed, 12 Nov 2014 06:56:14 EST</pubDate>
+<media:thumbnail height="51" width="90" url="http://i2.cdn.turner.com/cnn/dam/assets/141111141612-sittwe-4-top-tease.jpg" />
+<media:content height="51" width="90" medium="image" type="image/jpeg" url="http://i2.cdn.turner.com/cnn/dam/assets/141111141612-sittwe-4-top-tease.jpg" />
 </item>
 <item>
 <title>Climate: 'Once in a decade chance'</title>
@@ -713,6 +716,15 @@
 <media:content height="51" width="90" medium="image" type="image/jpeg" url="http://i2.cdn.turner.com/cnn/dam/assets/140903125635-berlin-wall-bike-6-top-tease.jpg" />
 </item>
 <item>
+<title>ISIS 'cub' fighter, 15, saved by father</title>
+<guid>http://edition.cnn.com/2014/11/12/world/meast/syria-isis-child-fighter/index.html</guid>
+<link>http://edition.cnn.com/2014/11/12/world/meast/syria-isis-child-fighter/index.html?eref=edition</link>
+<description>"Yasir" says the first time he saw a beheading he didn't eat for two days, repulsed by the scene -- not the actual act. But ISIS gave him such purpose his father had to trick him into leaving.</description>
+<pubDate>Thu, 13 Nov 2014 05:16:42 EST</pubDate>
+<media:thumbnail height="51" width="90" url="http://i2.cdn.turner.com/cnn/dam/assets/141112111722-pkg-damon-teenager-isis-00005403-top-tease.jpg" />
+<media:content height="51" width="90" medium="image" type="image/jpeg" url="http://i2.cdn.turner.com/cnn/dam/assets/141112111722-pkg-damon-teenager-isis-00005403-top-tease.jpg" />
+</item>
+<item>
 <title>Why China still needs the U.S.</title>
 <guid>http://edition.cnn.com/2014/11/12/opinion/brown-china-apec/index.html</guid>
 <link>http://edition.cnn.com/2014/11/12/opinion/brown-china-apec/index.html?eref=edition</link>
@@ -726,16 +738,25 @@
 <guid>http://edition.cnn.com/2014/11/13/world/asia/china-stealth-fighter-analysis/index.html</guid>
 <link>http://edition.cnn.com/2014/11/13/world/asia/china-stealth-fighter-analysis/index.html?eref=edition</link>
 <description>China unveils its next-gen fighter. But what are its capabilities? </description>
-<pubDate>Thu, 13 Nov 2014 03:40:38 EST</pubDate>
+<pubDate>Thu, 13 Nov 2014 05:03:30 EST</pubDate>
 <media:thumbnail height="51" width="90" url="http://i2.cdn.turner.com/cnn/dam/assets/141111103846-china-jet-j31-restricted-top-tease.jpg" />
 <media:content height="51" width="90" medium="image" type="image/jpeg" url="http://i2.cdn.turner.com/cnn/dam/assets/141111103846-china-jet-j31-restricted-top-tease.jpg" />
 </item>
 <item>
-<title>China shows off new stealth fighter jet</title>
+<title>China's military machine on display</title>
+<guid>http://edition.cnn.com/2014/11/10/world/asia/china-air-show/index.html</guid>
+<link>http://edition.cnn.com/2014/11/10/world/asia/china-air-show/index.html?eref=edition</link>
+<description>Stealth planes and drones present China as an aerospace power.</description>
+<pubDate>Tue, 11 Nov 2014 03:38:17 EST</pubDate>
+<media:thumbnail height="51" width="90" url="http://i2.cdn.turner.com/cnn/dam/assets/141107143414-china-aviation-2-top-tease.jpg" />
+<media:content height="51" width="90" medium="image" type="image/jpeg" url="http://i2.cdn.turner.com/cnn/dam/assets/141107143414-china-aviation-2-top-tease.jpg" />
+</item>
+<item>
+<title>China shows off jet</title>
 <guid>http://edition.cnn.com/video/data/2.0/video/world/2014/11/12/tsr-dnt-todd-china-stealth-fighter-jet.cnn.html</guid>
 <link>http://edition.cnn.com/video/data/2.0/video/world/2014/11/12/tsr-dnt-todd-china-stealth-fighter-jet.cnn.html?eref=edition</link>
 <description>China shows off its new stealth fighter jet, but did it steal the design from an American company? Brian Todd reports.</description>
-<pubDate>Thu, 13 Nov 2014 01:31:09 EST</pubDate>
+<pubDate>Thu, 13 Nov 2014 04:17:20 EST</pubDate>
 <media:thumbnail height="51" width="90" url="http://i2.cdn.turner.com/cnn/dam/assets/141112175501-tsr-dnt-todd-china-stealth-fighter-jet-00002124-top-tease.jpg" />
 <media:content height="51" width="90" medium="image" type="image/jpeg" url="http://i2.cdn.turner.com/cnn/dam/assets/141112175501-tsr-dnt-todd-china-stealth-fighter-jet-00002124-top-tease.jpg" />
 </item>
@@ -751,7 +772,9 @@
 <guid>http://edition.cnn.com/2014/11/13/world/asia/china-stealth-fighter-analysis/index.html</guid>
 <link>http://edition.cnn.com/2014/11/13/world/asia/china-stealth-fighter-analysis/index.html?eref=edition</link>
 <description>Zhuhai's Air Show has always been a venue for surprises, usually first-time showings of advanced Chinese military hardware. </description>
-<pubDate>Thu, 13 Nov 2014 03:35:22 EST</pubDate>
+<pubDate>Thu, 13 Nov 2014 05:03:30 EST</pubDate>
+<media:thumbnail height="51" width="90" url="http://i2.cdn.turner.com/cnn/dam/assets/141112175501-tsr-dnt-todd-china-stealth-fighter-jet-00002124-top-tease.jpg" />
+<media:content height="51" width="90" medium="image" type="image/jpeg" url="http://i2.cdn.turner.com/cnn/dam/assets/141112175501-tsr-dnt-todd-china-stealth-fighter-jet-00002124-top-tease.jpg" />
 </item>
 <item>
 <title>Russian patrols</title>
