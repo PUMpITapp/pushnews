@@ -133,7 +133,7 @@ function NewsFeedView:onKey(key, state)
 				--do nothing
 			else
 				news_index = news_index+each_section
-				self:printNews(3)
+				self:printNews(num_of_col)
 				self:drawView()
 			end
 		elseif key == 'up' then
@@ -141,7 +141,7 @@ function NewsFeedView:onKey(key, state)
 				--do nothing
 			else
 				news_index = news_index-each_section
-				self:printNews(3)
+				self:printNews(num_of_col)
 				self:drawView()
 			end
 		elseif key ~= nil then
