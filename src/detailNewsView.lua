@@ -21,7 +21,8 @@ local textstr = news:parseArticleFile(file)
 function detailNewsView:new()
 	newObj = {
 		size = { w=gfx.screen:get_width(), h=gfx.screen:get_height() },
-		surface = gfx.new_surface(gfx.screen:get_width(), gfx.screen:get_height())
+		surface = gfx.new_surface(gfx.screen:get_width(), gfx.screen:get_height()),
+		currentPage = 1
 	}
   self.__index = self
   return setmetatable(newObj, self)
@@ -30,6 +31,7 @@ end
 -- When the view is loaded for the first time. This will be executed once.
 function detailNewsView:viewDidLoad()
 	self.surface:clear({63,81,181,255})
+	self.newsSurfaces = text.createSplit(self.size.w, self.size.h-400, "arial_regular_12", textstr, 10, 10, self.size.w-10, 100)
   self:drawView()
   
   self:printNews()
@@ -73,16 +75,16 @@ local textprint_h = 0
 --local titleend = logoSurface:get_height() + titleSurface:get_height()
 
 --Summary Surface
-local summarySurface = gfx.new_surface(self.size.w, self.size.h-400)
-summarySurface:clear({63,81,181,255})
-local i = text.print(summarySurface, "arial_regular_12", textstr, textprint_x, textprint_y, textprint_w, textprint_h)
-self.surface:copyfrom(summarySurface, nil, {x= 0, y=200}, false)
+--local summarySurface = gfx.new_surface(self.size.w, self.size.h-400)
+--summarySurface:clear({63,81,181,255})
+--local i = text.print(summarySurface, "arial_regular_12", textstr, textprint_x, textprint_y, textprint_w, textprint_h)
+self.surface:copyfrom(self.newsSurfaces[self.currentPage], nil, {x= 0, y=200}, false)
 
-textstr = textstr:sub(i, #textstr)
-print ('nxt')
-print (textstr:sub(1,300))
-print ("last index")
-print (i)
+--textstr = textstr:sub(i, #textstr)
+--print ('nxt')
+--print (textstr:sub(1,300))
+--print ("last index")
+--print (i)
 self:drawView()
 
 --local summaryend = titleend + summarySurface:get_height()
@@ -157,6 +159,16 @@ function detailNewsView:onKey(key, state)
 	if state == 'up' then
   	if key == 'right' then
 			vc:presentView("newsFeed")
+  	elseif key == 'up' then
+  		if self.currentPage > 1 and #self.newsSurfaces > 1 then
+  			self.currentPage = self.currentPage - 1
+  			self:printNews()
+  		end
+  	elseif key == 'down' then
+  		if self.currentPage < #self.newsSurfaces then
+  			self.currentPage = self.currentPage + 1
+  			self:printNews()
+  		end
   	end
 	end
 end

@@ -65,15 +65,35 @@ function TextModule.print(surface, font, text, x, y, w, h)
 
         last_i = i
 
-        if y > surface_h then
+        if y > h then
           return i
         end
 
       end
     end
+    return last_i
   else
     print("Err: font not found.")
   end
+end
+
+function TextModule.createSplit(surface_w, surface_h, font, text, x, y, w, h)
+  local surfaces = {}
+  local stop = false
+  local i = 1
+  local surface_counter = 0
+
+  while stop == false do
+    if i >= #text then
+      stop = true
+    else
+      table.insert(surfaces, gfx.new_surface(surface_w, surface_h))
+      surface_counter = surface_counter + 1
+      i = i + TextModule.print(surfaces[surface_counter], font, text:sub(i, #text), x, y, w, h) - 1
+    end
+  end
+
+  return surfaces
 end
 
 function TextModule.getCharInfo(font, char)
