@@ -16,9 +16,9 @@ end
 function categoriesView:viewDidLoad()
 	self.surface:clear({63,81,181,255})
 	self.categories = {
-										 { name = 'News', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },
-										 { name = 'Health', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },
+										 { name = 'Top', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },
 										 { name = 'Technology', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },
+										 { name = 'Health', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },
 										 { name = 'Environment', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },
 										 { name = 'Culture', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },
 										 { name = 'Science', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },
@@ -118,7 +118,7 @@ end
 -- The categoriesView has his own onKey function.
 function categoriesView:onKey(key, state)
 	if state == 'up' then
-  	if key == 'right' then
+  	if key == 'red' then
 			local selectedCategories = self:getSelectedCategories()
 
 			if #selectedCategories >= 1 then
