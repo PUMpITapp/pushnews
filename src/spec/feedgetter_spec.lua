@@ -97,7 +97,6 @@ it("Download and parse BBC feeds", function()
       valid_feed(feed)
 
     end
-
   end)
 
 end)
