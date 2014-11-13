@@ -1,5 +1,6 @@
 -- Push news app
 -- newsfeedview class
+require "feeds.categoriegetter"
 require "feeds.feedgetter"
 require "feeds.cnnNews"
 
@@ -16,6 +17,7 @@ function NewsFeedView:new()
 	newObj = {
 		size = {w=gfx.screen:get_width(), h=gfx.screen:get_height()},
 		surface = gfx.new_surface(gfx.screen:get_width(), gfx.screen:get_height()),
+		categoryGetter = CategorieGetter:new(),
 		feedGetter = FeedGetter:new(),
 		feedProviders = { CNNNews:new() }
 	}
@@ -49,6 +51,23 @@ function NewsFeedView:fetchNews(selectedCategories)
 	local feeds = {}
 
 	os.remove(newsFeedTmpFile)
+
+-- If we need to have different preselected categories.
+--	for k, selectedCategories in pairs(selectedCategories) do
+--		local cat = self.categoryGetter.categories[selectedCategories]
+--		if cat ~= nil then
+--			for k1, provider in ipairs(cat.providers) do
+--				local url = provider.categories[selectedCategories]
+--				if url ~= nil then
+--					self.feedGetter:downloadFeeds(url, newsFeedTmpFile)
+--	  			local tmp = self.feedGetter:parseFeeds(newsFeedTmpFile)
+--	  			for k3, news in pairs(tmp.entries) do
+--	  				table.insert(feeds, news)
+--	  			end
+--				end
+--			end
+--		end
+--	end
 
   for k1, selectedCategory in pairs(selectedCategories) do
   	for k2, provider in pairs(self.feedProviders) do
