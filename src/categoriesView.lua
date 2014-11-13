@@ -16,9 +16,9 @@ end
 function categoriesView:viewDidLoad()
 	self.surface:clear({63,81,181,255})
 	self.categories = {
-										 { name = 'News', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },
-										 { name = 'Health', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },
+										 { name = 'Top', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },
 										 { name = 'Technology', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },
+										 { name = 'Health', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },
 										 { name = 'Environment', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },
 										 { name = 'Culture', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },
 										 { name = 'Science', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },
@@ -27,9 +27,12 @@ function categoriesView:viewDidLoad()
 										 { name = 'Ours', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' }
 									 }
 
-	local categories_width = self.size.w/1.5
-	local categories_height = self.size.h/1.5
-	self:createCategoriesSurface(categories_width, categories_height)
+	self.categories_w = self.size.w/1.3
+	self.categories_h = self.size.h/1.3
+	self.category_w = 220
+	self.category_h = 140
+
+	self:createCategoriesSurface()
 	self:drawCategoriesSurface()
 end
 
@@ -48,35 +51,38 @@ function categoriesView:freeView()
 end
 
 -- Print the available categories onto the categoriesView
-function categoriesView:createCategoriesSurface(w, h)
-	self.categoriesSurface = gfx.new_surface(w,h)
+function categoriesView:createCategoriesSurface()
+	self.categoriesSurface = gfx.new_surface(self.categories_w,self.categories_h)
 	self.categoriesSurface:clear({63,160,181,255})
 
-	local cw = 200
-	local ch = 120
-	local nbCategories = math.floor(w/cw)
-	local offset = (w%cw)/(nbCategories+1)
-	local cx = offset
-	local cy = offset
+	local nbCategoriesPerRow = math.floor(self.categories_w/self.category_w)
+	local nbRow = math.ceil(#self.categories/nbCategoriesPerRow)
+	local offset_x = (self.categories_w%self.category_w)/(nbCategoriesPerRow+1)
+	local offset_y = (self.categories_h-(nbRow*self.category_h))/(nbRow+1)
+	local cx = offset_x
+	local cy = offset_y
 
 	for key, val in pairs(self.categories) do
 		local categorySurface = gfx.loadpng(val.img_unselected)
-		if cx+cw > w then
-			cx = offset
-			cy = cy + ch + offset
+
+		if cx + self.category_w > self.categories_w then
+			cx = offset_x
+			cy = cy + self.category_h + offset_y
 		end
+
 		self.categories[key].x = cx
 		self.categories[key].y = cy
-		self.categoriesSurface:copyfrom(categorySurface, nil, {x=cx, y=cy, w=cw, h=ch}, false)
-		cx = cx + cw + offset
+		self.categoriesSurface:copyfrom(categorySurface, nil, {x=cx, y=cy, w=self.category_w, h=self.category_h}, false)
 		categorySurface:destroy()
+
+		cx = cx + self.category_w + offset_x
 	end
 
 end
 
 function categoriesView:drawCategoriesSurface()
-	local categoriesSurface_x = self.size.w/2-self.categoriesSurface:get_width()/2
-	local categoriesSurface_y = self.size.h/2-self.categoriesSurface:get_height()/2
+	local categoriesSurface_x = self.size.w/2-self.categories_w/2
+	local categoriesSurface_y = self.size.h/2-self.categories_h/2
 	self.surface:copyfrom(self.categoriesSurface, nil, {x=categoriesSurface_x, y=categoriesSurface_y}, false)
 	self:drawView()
 end
@@ -92,7 +98,7 @@ function categoriesView:selectCategory(key)
 		categorySurface = gfx.loadpng(self.categories[key].img_unselected)
 	end
 
-	self.categoriesSurface:copyfrom(categorySurface, nil, {x=self.categories[key].x, y=self.categories[key].y, w=200, h=120}, false)
+	self.categoriesSurface:copyfrom(categorySurface, nil, {x=self.categories[key].x, y=self.categories[key].y, w=self.category_w, h=self.category_h}, false)
 	categorySurface:destroy()
 	self:drawCategoriesSurface()
 end
@@ -122,7 +128,7 @@ function categoriesView:onKey(key, state)
 			end
 		else
 			key = tonumber(key)
-			if key >=1 and key <= 9 then
+			if key ~= nil and key >=1 and key <= 9 then
 				self:selectCategory(key)
 			end
   	end

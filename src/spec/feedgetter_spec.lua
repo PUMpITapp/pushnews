@@ -4,6 +4,30 @@ local downloadURL = "http://rss.cnn.com/rss/edition_europe.rss"
 local testfile = "feeds/test.xml"
 local examplefile = "feeds/example.xml"
 
+local function valid_feed (feed)
+
+  assert.not_same(nil, feed.title)
+  assert.not_same(nil, feed.summary)
+  assert.not_same(nil, feed.link)
+  assert.not_same(nil, feed.date)
+
+  assert.not_same('', feed.title)
+  assert.not_same('', feed.summary)
+  assert.not_same('', feed.link)
+
+  assert.not_same(nil, feed.images)
+
+  for i, img in ipairs(feed.images) do
+    assert.not_same(nil, img.height)
+    assert.not_same(nil, img.width)
+    assert.not_same(nil, img.url)
+    assert.is_true(img.height > 0)
+    assert.is_true(img.width > 0)
+  end
+
+  assert.same(nil, feed.summary:find('<img'))
+
+end
 
 describe("FeedGetter:", function()
   it("check download of rss feed", function()
@@ -27,32 +51,52 @@ describe("FeedGetter:", function()
 
     local getter = FeedGetter:new()
 
-    local feeds = getter:parseFeeds(downloadURL, examplefile)
+    local feeds = getter:parseFeeds(examplefile)
 
     --To check if it worked we simply check if we have some feeds
-    assert.is_true(table.getn(feeds.entries) > 0)
+    assert.is_true(#feeds.entries > 0)
+
+    for i, feed in ipairs(feeds.entries) do
+      valid_feed(feed)
+    end
 
   end)
 
-  it("Parse existing rss file AND retrieve it as standart feed array", function()
+it("Download and parse recent CNN feeds", function()
+
+    local CNNLink = "http://rss.cnn.com/rss/edition_europe.rss"
 
     local getter = FeedGetter:new()
 
-    local parsed = getter:parseFeeds(downloadURL, examplefile)
-
-    local feeds = getter:translateResult(parsed, 'CNN')
+    getter:downloadFeeds(CNNLink, testfile)
+    local feeds = getter:parseFeeds(testfile)
 
     --To check if it worked we simply check if we have some feeds
-    assert.is_true(table.getn(feeds) > 0)
+    assert.is_true(#feeds.entries > 0)
 
-    for i, parsedFeed in ipairs(parsed.entries) do
-          assert.are_not.equals(nil, feeds[i].title)
-          assert.are_not.equals(nil, feeds[i].summary)
-          assert.are_not.equals(nil, feeds[i].date)
-          assert.are_not.equals(nil, feeds[i].source)
-          assert.are_not.equals(nil, feeds[i].link)
+    for i, feed in ipairs(feeds.entries) do
+      valid_feed(feed)
+
     end
 
+  end)
+
+it("Download and parse BBC feeds", function()
+
+    local BBCLink = "http://feeds.bbci.co.uk/news/world/europe/rss.xml"
+
+    local getter = FeedGetter:new()
+
+    getter:downloadFeeds(BBCLink, testfile)
+    local feeds = getter:parseFeeds(testfile)
+
+    --To check if it worked we simply check if we have some feeds
+    assert.is_true(#feeds.entries > 0)
+
+    for i, feed in ipairs(feeds.entries) do
+      valid_feed(feed)
+
+    end
   end)
 
 end)
