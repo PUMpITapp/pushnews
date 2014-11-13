@@ -132,7 +132,9 @@ end
 
 function NewsFeedView:onKey(key, state)
 	if state == 'up' then
-		if key == 'Down' then
+		if key == 'left' then
+			vc:presentView('categories')
+		elseif key == 'down' then
 			if (which_section+number_section) > #self.news then
 				--do nothing
 			else
@@ -140,7 +142,7 @@ function NewsFeedView:onKey(key, state)
 				self:printNews(3, self:divideNewsToSections())
 				self:drawView()
 			end
-		elseif key == 'Up' then
+		elseif key == 'up' then
 			if (which_section-number_section) < 0 then
 				--do nothing
 			else
@@ -148,15 +150,13 @@ function NewsFeedView:onKey(key, state)
 				self:printNews(3, self:divideNewsToSections())
 				self:drawView()
 			end
+		else
+			for i=1 , #self.news do
+				if tostring(i) == key then
+					print(self.news[i+(which_section-1)].title)
+					--sned to seledted news to DetailedNewsView and opnen it
+				end
+  		end
 		end
-	end
-
-	if state == 'up' then
-		for i=1 , #self.news do
-			if tostring(i) == key then
-				print(self.news[i+(which_section-1)].title)
-				--sned to seledted news to DetailedNewsView and opnen it
-			end
-  	end
 	end
 end
