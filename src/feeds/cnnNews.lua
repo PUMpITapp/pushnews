@@ -44,7 +44,7 @@ end
 function CNNNews:new()
 	newObj = {
 		categories = {
-			top = 'http://rss.cnn.com/rss/edition.rss',
+			Top = 'http://rss.cnn.com/rss/edition.rss',
 			world = 'http://rss.cnn.com/rss/edition_world.rss',
 			africa = 'http://rss.cnn.com/rss/edition_africa.rss',
 			americas = 'http://rss.cnn.com/rss/edition_americas.rss',
@@ -53,7 +53,7 @@ function CNNNews:new()
 			meast = 'http://rss.cnn.com/rss/edition_meast.rss',
 			us = 'http://rss.cnn.com/rss/edition_us.rss',
 			money = 'http://rss.cnn.com/rss/money_news_international.rss',
-			techno = 'http://rss.cnn.com/rss/edition_technology.rss',
+			Technology = 'http://rss.cnn.com/rss/edition_technology.rss',
 			space = 'http://rss.cnn.com/rss/edition_space.rss',
 			entertainment = 'http://rss.cnn.com/rss/edition_entertainment.rss',
 			sports = 'http://rss.cnn.com/rss/edition_sport.rss',

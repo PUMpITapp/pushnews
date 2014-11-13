@@ -5,6 +5,7 @@ text = require "text"
 require "viewController"
 require "categoriesView"
 require "newsFeedView"
+require "feeds.cnnNews"
 
 -- Create a view controller for our app.
 vc = viewController:new()

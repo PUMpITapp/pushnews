@@ -1,9 +1,11 @@
 -- Push news app
 -- newsfeedview class
-require "feeds.feed"
+require "feeds.feedgetter"
+require "feeds.cnnNews"
 
 local which_section = 1
 local number_section = 6
+local newsFeedTmpFile = "feeds/test.xml"
 -- Class definition
 NewsFeedView = {}
 
@@ -11,7 +13,9 @@ NewsFeedView = {}
 function NewsFeedView:new()
 	newObj = {
 		size = {w=gfx.screen:get_width(), h=gfx.screen:get_height()},
-		surface = gfx.new_surface(gfx.screen:get_width(), gfx.screen:get_height())
+		surface = gfx.new_surface(gfx.screen:get_width(), gfx.screen:get_height()),
+		feedGetter = FeedGetter:new(),
+		feedProviders = { CNNNews:new() }
 	}
 	self.__index = self
 	return setmetatable(newObj, self)
@@ -25,12 +29,13 @@ function NewsFeedView:viewDidLoad()
 	self.bottomSurface = gfx.new_surface(gfx.screen:get_width(), gfx.screen:get_height()/8)
 	self.newsSurface = gfx.new_surface(gfx.screen:get_width(), gfx.screen:get_height()-self.headerSurface:get_height()-self.bottomSurface:get_height())
 
-	self.headerSurface:clear({255,237,254,255})
-	self.bottomSurface:clear({255,237,254,255})
-	self.newsSurface:clear({226,237,254,255})
+	self.headerSurface:clear({63,81,181,255})
+	self.bottomSurface:clear({63,81,181,255})
+	self.newsSurface:clear({63,81,181,255})
 
-	local menuButton = gfx.loadpng('images/small_menu.png')
-	self.headerSurface:copyfrom(menuButton, nil, { x = 30, y = 10 })
+	local menuButton = gfx.loadpng('images/push_news_logo.png')
+	local menuButtonScalingFactor = self.headerSurface:get_height()/menuButton:get_height()
+	self.headerSurface:copyfrom(menuButton, nil, { x = 30, y = 0, w=menuButton:get_width()*menuButtonScalingFactor, h=menuButton:get_height()*menuButtonScalingFactor })
 	menuButton:destroy()
 
 	self:printNews(3, self:divideNewsToSections())
@@ -39,24 +44,24 @@ function NewsFeedView:viewDidLoad()
 end
 
 function NewsFeedView:fetchNews(selectedCategories)
-	local news = {}
+	local feeds = {}
 
-	table.insert(news, Feed:new("Swansea City 2-1 Arsenal",
-															"Swansea fight back from a goal down to beat Arsenal and move up to fifth in the Premier League table.",
-															"01/11/2014","Link 1","Source 1",
-															"sport1.jpg"))
-	table.insert(news, Feed:new("China's economic risks 'not scary'",
-															"President Xi Jinping plays down the risks facing China's economy, at a meeting of business leaders ahead of the Apec summit.",
-															"07/11/2014","Link 2","Source 1",
-															"business1.jpg"))
-	table.insert(news, Feed:new("Title 3", "Summary 3", "03/11/2014", "Link 3", "Source 1", nil))
-	table.insert(news, Feed:new("Title 4", "Summary 4", "01/10/2014", "Link 4", "Source 1", nil))
-	table.insert(news, Feed:new("Title 5", "Summary 5", "03/11/2014", "Link 5", "Source 1", nil))
-	table.insert(news, Feed:new("Title 6", "Summary 6", "04/09/2014", "Link 6", "Source 1", nil))
-	table.insert(news, Feed:new("Title 7", "Summary 7", "04/10/2014", "Link 7", "Source 1", nil))
-	table.insert(news, Feed:new("Title 8", "Summary 8", "12/10/2014", "Link 8", "Source 1", nil))
+	os.remove(newsFeedTmpFile)
 
- 	return news
+  for k1, selectedCategory in pairs(selectedCategories) do
+  	for k2, provider in pairs(self.feedProviders) do
+  		local url = provider.categories[selectedCategory]
+  		if url ~= nil then
+  			self.feedGetter:downloadFeeds(url, newsFeedTmpFile)
+  			local tmp = self.feedGetter:parseFeeds(newsFeedTmpFile)
+  			for k3, news in pairs(tmp.entries) do
+  				table.insert(feeds, news)
+  			end
+  		end
+  	end
+  end
+
+ 	return feeds
 end
 
 -- Function to draw elements of the view
@@ -72,23 +77,24 @@ end
 function NewsFeedView:printNews(s_size, news)
 	local section_size = s_size
 	local section_width = self.newsSurface:get_width()/section_size
-	local frame_width = (section_width*70)/100
-	local frame_height = (section_width*70)/100
+	local frame_width = (section_width*50)/100
+	local frame_height = (section_width*50)/100
 	local move_frame_y = 35
 	local move_frame_x = (section_width*10/100)
 	local news_summary = gfx.new_surface(frame_width, frame_height)
 	local news_pic = nil
 
-	self.newsSurface:clear({226,237,254,255})
+	self.newsSurface:clear({63,81,181,255})
 
 	for i=0, #news-1 do
-		news_summary:clear({226,220,254,255})
+		news_summary:clear({197,202,233,255})
 		move_frame_x = (section_width*10/100)+(i%section_size)*section_width
 		text.print(news_summary, "arial_regular_12", tostring(i+1), 1, 1, nil, nil, 1)
 
 		if news[i+1].image == nil then
 			news_pic = nil
-			text.print(news_summary, "arial_regular_12", news[i+1].title, 15, 10, nil, nil, 1)
+			text.print(news_summary, "arial_regular_12", news[i+1].date, 15, 10, nil, nil, 1)
+			text.print(news_summary, "arial_regular_12", news[i+1].title, 15, 60, nil, nil, 1)
 		else
 			news_pic = gfx.loadjpeg("images/news/" .. news[i+1].image)
 			news_summary:copyfrom(news_pic, nil, { x=15, y=10, w=frame_width-30, h=frame_width-100 })
