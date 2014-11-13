@@ -6,7 +6,7 @@ local io = require ("io")
 
 detailNewsView = {}
 
-local feed = Feed:new("ABC DEFGH IJK LMNOP QRST UVWXY ZABC DEFG HIJK LMNOPQ RSTUV WXYZ", "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW", "Nov. 9, 2014 5:29 p.m. ET","http://online.wsj.com/articles/merkel-hails-fall-of-berlin-wall-as-proof-dreams-can-come-true-1415537034","blabla5", "blabla6")
+local feed = Feed:new("Russia encounters Swedish passager plane with military forces and paulina was in it", "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW", "Nov. 9, 2014 5:29 p.m. ET","http://online.wsj.com/articles/merkel-hails-fall-of-berlin-wall-as-proof-dreams-can-come-true-1415537034","blabla5", "blabla6")
 
 local news = CNNNews:new()
     local file = '../feeds/exampleCNN.html'
@@ -30,8 +30,8 @@ end
 
 -- When the view is loaded for the first time. This will be executed once.
 function detailNewsView:viewDidLoad()
-	self.surface:clear({63,81,181,255})
-	self.newsSurfaces = text.createSplit(self.size.w, self.size.h-400, "arial_regular_12", textstr, 10, 10, self.size.w-10, 100)
+	self.surface:clear({234,234,234,255})
+	self.newsSurfaces = text.createSplit(self.size.w-600, self.size.h-250, "lora_small", textstr, 10, 10, self.size.w, self.size.h-300)
   self:drawView()
   
   self:printNews()
@@ -48,13 +48,11 @@ function detailNewsView:drawView()
 end
 
 function detailNewsView:printNews()
---local logoSurface = gfx.new_surface(self.size.w, self.size.h/6)
---logoSurface:clear({255,255,255,255})
---self.surface:copyfrom(logoSurface, nil, {x=0, y=0}, false)--
-
---local imageSurface = gfx.loadjpeg("images/aftonbladet.jpeg")--
-
---self.surface:copyfrom(imageSurface, nil, {x=0, y=0}, false)--
+local logoSurface = gfx.new_surface(self.size.w, self.size.h/6)
+logoSurface:clear({255,255,255,255})
+self.surface:copyfrom(logoSurface, nil, {x=0, y=0}, false)
+--local imageSurface = gfx.loadjpeg("images/aftonbladet.jpeg")
+--self.surface:copyfrom(imageSurface, nil, {x=0, y=0}, false)
 
 
 --local titleSurface = gfx.new_surface(self.size.w, self.size.h/10)
@@ -65,41 +63,50 @@ function detailNewsView:printNews()
 local textprint_x = 10
 local textprint_y = 0
 local textprint_w = self.size.w-10
-local textprint_h = 0
+local textprint_h = 110
 
 --Title Surface 
-	--local titleSurface = gfx.new_surface(self.size.w, self:adaptSurface(feed.title, "lato_medium"))
---titleSurface:clear({63,81,181,255})
---text.print(titleSurface, "lato_medium", feed.title , textprint_x, textprint_y, textprint_w, textprint_h)
---self.surface:copyfrom(titleSurface, nil, {x= 0, y=logoSurface:get_height()}, false)
---local titleend = logoSurface:get_height() + titleSurface:get_height()
+local titleSurface = gfx.new_surface(self.size.w, self:adaptSurface(feed.title, "lato_medium"))
+titleSurface:clear({234,234,234,255})
+text.print(titleSurface, "lato_medium", feed.title , textprint_x, textprint_y, textprint_w, titleSurface:get_height())
+self.surface:copyfrom(titleSurface, nil, {x= 0, y=logoSurface:get_height()}, false)
+local titleend = logoSurface:get_height() + titleSurface:get_height()
 
 --Summary Surface
 --local summarySurface = gfx.new_surface(self.size.w, self.size.h-400)
 --summarySurface:clear({63,81,181,255})
 --local i = text.print(summarySurface, "arial_regular_12", textstr, textprint_x, textprint_y, textprint_w, textprint_h)
-self.surface:copyfrom(self.newsSurfaces[self.currentPage], nil, {x= 0, y=200}, false)
+
 
 --textstr = textstr:sub(i, #textstr)
 --print ('nxt')
 --print (textstr:sub(1,300))
 --print ("last index")
 --print (i)
-self:drawView()
+
 
 --local summaryend = titleend + summarySurface:get_height()
 
 --Date surface
---local dateSurface = gfx.new_surface(self.size.w, self:adaptSurface(feed.date, "lato_small"))
---dateSurface:clear({63,81,181,255})
---text.print(dateSurface, "arial_regular_12", feed.date, textprint_x, textprint_y, textprint_w, textprint_h)
---self.surface:copyfrom(dateSurface, nil, {x= 0, y=summaryend}, false)
+local dateSurface = gfx.new_surface(self.size.w, self:adaptSurface(feed.date, "lato_small"))
+dateSurface:clear({234,234,234,255})
+text.print(dateSurface, "lato_small", feed.date, textprint_x, textprint_y, textprint_w, textprint_h)
+self.surface:copyfrom(dateSurface, nil, {x= 0, y=titleend}, false)
+local dateend = titleend + dateSurface:get_height()
+local newsImgSurface = gfx.new_surface(self.size.w/2, self.size.h)
+newsImgSurface:clear({234,234,234,255})
+
+self.surface:copyfrom(self.newsSurfaces[self.currentPage], nil, {x= newsImgSurface:get_width(), y=dateend+10}, false)
+
 
 --News image surface
---local newsimgsurface = gfx.loadjpeg("images/merkel.jpeg")
---self.surface:copyfrom(newsimgsurface, nil, {x=0, y= summaryend + dateSurface:get_height()}, false)
 
 
+self.surface:copyfrom(newsImgSurface, nil, {x=0, y=dateend}, false)
+
+
+
+self:drawView()
 
 
 

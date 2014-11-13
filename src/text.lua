@@ -1,7 +1,7 @@
 local TextModule = {}
 
 local fontDir = "fonts/"
-local registeredFonts = { "arial_regular_12", "lato_large", "lato_medium", "lato_small" }
+local registeredFonts = { "arial_regular_12", "lato_large", "lato_medium", "lato_small", "lora_small"}
 
 local fonts = {}
 
@@ -87,7 +87,10 @@ function TextModule.createSplit(surface_w, surface_h, font, text, x, y, w, h)
     if i >= #text then
       stop = true
     else
-      table.insert(surfaces, gfx.new_surface(surface_w, surface_h))
+      local sur = gfx.new_surface(surface_w, surface_h)
+      sur:clear({234,234,234,255})
+      table.insert(surfaces, sur)
+     
       surface_counter = surface_counter + 1
       i = i + TextModule.print(surfaces[surface_counter], font, text:sub(i, #text), x, y, w, h) - 1
     end
