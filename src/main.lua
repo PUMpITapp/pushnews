@@ -1,10 +1,39 @@
 -- Every story needs a beginning, this is ours.
 
-gfx = require "gfx"
+--- Checks if the file was called from a test file.
+-- Returs true if it was, 
+--   - which would mean that the file is being tested.
+-- Returns false if it was not,
+--   - which wold mean that the file was being used.  
+function checkTestMode()
+  runFile = debug.getinfo(2, "S").source:sub(2,3)
+  if (runFile ~= './' ) then
+    underGoingTest = false
+  elseif (runFile == './') then
+    underGoingTest = true
+  end
+  return underGoingTest
+end
+
+--- Chooses either the actual or he dummy gfx.
+-- Returns dummy gfx if the file is being tested.
+-- Rerunes actual gfx if the file is being run.
+function chooseGfx(underGoingTest)
+  if not underGoingTest then
+    tempGfx = require "gfx"
+  elseif underGoingTest then
+    tempGfx = require "gfx_stub"
+  end
+  return tempGfx
+end
+
+gfx = chooseGfx(checkTestMode())
+
 text = require "text"
 require "viewController"
 require "categoriesView"
 require "newsFeedView"
+require "feeds.cnnNews"
 
 -- Create a view controller for our app.
 vc = viewController:new()
