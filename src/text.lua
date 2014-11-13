@@ -62,6 +62,13 @@ function TextModule.print(surface, font, text, x, y, w, h)
         dy = y + fonts[font].info.metrics.ascender - char.oy -- dy is the y position of the character, some characters need offset
         surface:copyfrom(fonts[font].sprite, {x=char.x, y=char.y, w=char.w, h=char.h}, {x=dx, y=dy})
         x = x + char.width -- add offset for next character
+
+        last_i = i
+
+        if y > surface_h then
+          return i
+        end
+
       end
     end
   else
