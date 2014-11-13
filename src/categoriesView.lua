@@ -14,23 +14,23 @@ end
 
 -- When the view is loaded for the first time. This will be executed once.
 function categoriesView:viewDidLoad()
-	self.surface:clear({63,81,181,255})
+	self.surface:clear({255,255,255,255})
 	self.categories = {
-										 { name = 'Top', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },
-										 { name = 'Technology', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },
-										 { name = 'Health', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },
-										 { name = 'Environment', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },
-										 { name = 'Culture', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },
-										 { name = 'Science', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },
-										 { name = 'Ours', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },
-										 { name = 'Ours', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' },
-										 { name = 'Ours', selected = false, img_unselected = 'images/category_r.png', img_selected = 'images/category_r_selected.png' }
+										 { name = 'Top', selected = false, img_unselected = 'images/categories/topstories1.png', img_selected = 'images/categories/topstories1_s.png' },
+										 { name = 'World', selected = false, img_unselected = 'images/categories/world2.png', img_selected = 'images/categories/world2_s.png' },
+										 { name = 'Europe', selected = false, img_unselected = 'images/categories/europe3.png', img_selected = 'images/categories/europe3_s.png' },
+										 { name = 'Finance', selected = false, img_unselected = 'images/categories/finance4.png', img_selected = 'images/categories/finance4_s.png' },
+										 { name = 'Entertainment', selected = false, img_unselected = 'images/categories/entertainment5.png', img_selected = 'images/categories/entertainment5_s.png' },
+										 { name = 'Technology', selected = false, img_unselected = 'images/categories/technology6.png', img_selected = 'images/categories/technology6_s.png' },
+										 { name = 'Art', selected = false, img_unselected = 'images/categories/art7.png', img_selected = 'images/categories/art7_s.png' },
+										 { name = 'Fashion', selected = false, img_unselected = 'images/categories/fashion8.png', img_selected = 'images/categories/fashion8_s.png' },
+										 { name = 'Sports', selected = false, img_unselected = 'images/categories/sports9.png', img_selected = 'images/categories/sports9_s.png' }
 									 }
 
 	self.categories_w = self.size.w/1.3
 	self.categories_h = self.size.h/1.3
-	self.category_w = 220
-	self.category_h = 140
+	self.category_w = 800/3
+	self.category_h = 500/3
 
 	self:createCategoriesSurface()
 	self:drawCategoriesSurface()
@@ -53,7 +53,7 @@ end
 -- Print the available categories onto the categoriesView
 function categoriesView:createCategoriesSurface()
 	self.categoriesSurface = gfx.new_surface(self.categories_w,self.categories_h)
-	self.categoriesSurface:clear({63,160,181,255})
+	self.categoriesSurface:clear({255,255,255,255})
 
 	local nbCategoriesPerRow = math.floor(self.categories_w/self.category_w)
 	local nbRow = math.ceil(#self.categories/nbCategoriesPerRow)
