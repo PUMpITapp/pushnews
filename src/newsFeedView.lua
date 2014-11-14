@@ -104,8 +104,8 @@ end
 function NewsFeedView:printNews(s_size)
 	local section_size = s_size
 	local section_width = self.newsSurface:get_width()/section_size
-	local frame_width = (section_width*50)/100
-	local frame_height = (section_width*50)/100
+	local frame_width = (section_width*70)/100
+	local frame_height = (section_width*55)/100
 	local move_frame_y = 35
 	local move_frame_x 
 	local news_summary = gfx.new_surface(frame_width, frame_height)
@@ -126,7 +126,7 @@ function NewsFeedView:printNews(s_size)
 		news_summary:clear({50,58,69,255}, {x=0,y=0,w=news_summary:get_width(), h=35})
 		news_summary:clear({159,167,180,255}, {x=0,y=news_summary:get_height()-60,w=news_summary:get_width(),h=60})
 
-		move_frame_x = (section_width*25/100)+((i-1)%section_size)*section_width
+		move_frame_x = (section_width*15/100)+((i-1)%section_size)*section_width
 
 		text.print(news_summary, "arial_regular_12", tostring(key_counter), 7, 5, nil, nil, 1)
 
