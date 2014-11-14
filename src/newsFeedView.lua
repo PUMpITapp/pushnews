@@ -183,8 +183,9 @@ function NewsFeedView:onKey(key, state)
 		elseif key ~= nil then
 			for i=1,key_counter-1 do
 				if tostring(i) == key then
-					print(self.news[i+(news_index-1)].title)
-					--send to seledted news to DetailedNewsView and opnen it
+					local detailNewsView = vc:getView("detailNewsView")
+					detailNewsView.view.newsFeed = self.news[i+(news_index-1)]
+					vc:presentView("detailNewsView")
 				end
 			end
 		end

@@ -1,7 +1,7 @@
 local TextModule = {}
 
 local fontDir = "fonts/"
-local registeredFonts = { "arial_regular_12" }
+local registeredFonts = { "arial_regular_12", "lato_large", "lato_medium", "lato_small", "lora_small"}
 
 local fonts = {}
 
@@ -53,6 +53,11 @@ function TextModule.print(surface, font, text, x, y, w, h)
       end
       
       if shouldBePrinted == true then
+
+        if y > h then
+          return i
+        end
+
         char = TextModule.getCharInfo(font, c)
         if x + char.width > sx + w then -- If the text is gonna be out the surface, popup a new line
           x = sx
@@ -62,11 +67,36 @@ function TextModule.print(surface, font, text, x, y, w, h)
         dy = y + fonts[font].info.metrics.ascender - char.oy -- dy is the y position of the character, some characters need offset
         surface:copyfrom(fonts[font].sprite, {x=char.x, y=char.y, w=char.w, h=char.h}, {x=dx, y=dy})
         x = x + char.width -- add offset for next character
+
+        last_i = i
       end
     end
+    return last_i
   else
     print("Err: font not found.")
   end
+end
+
+function TextModule.createSplit(surface_w, surface_h, font, text, x, y, w, h)
+  local surfaces = {}
+  local stop = false
+  local i = 1
+  local surface_counter = 0
+
+  while stop == false do
+    if i >= #text then
+      stop = true
+    else
+      local sur = gfx.new_surface(surface_w, surface_h)
+      sur:clear({234,234,234,255})
+      table.insert(surfaces, sur)
+     
+      surface_counter = surface_counter + 1
+      i = i + TextModule.print(surfaces[surface_counter], font, text:sub(i, #text), x, y, w, h) - 1
+    end
+  end
+
+  return surfaces
 end
 
 function TextModule.getCharInfo(font, char)
