@@ -31,8 +31,6 @@ end
 
 -- Loads the complete view
 function NewsFeedView:viewDidLoad()
-	self.news = self:fetchNews(self.selectedCategories)
-
 	self.headerSurface = gfx.new_surface(gfx.screen:get_width(), gfx.screen:get_height()/8)
 	self.bottomSurface = gfx.new_surface(gfx.screen:get_width(), gfx.screen:get_height()/8)
 	self.newsSurface = gfx.new_surface(gfx.screen:get_width(), gfx.screen:get_height()-self.headerSurface:get_height()-self.bottomSurface:get_height())
@@ -45,8 +43,6 @@ function NewsFeedView:viewDidLoad()
 	local menuButtonScalingFactor = self.headerSurface:get_height()/menuButton:get_height()
 	self.headerSurface:copyfrom(menuButton, nil, { x = 30, y = 0, w=menuButton:get_width()*menuButtonScalingFactor, h=menuButton:get_height()*menuButtonScalingFactor })
 	menuButton:destroy()
-
-	self:printNews(num_of_col)
 
 	self:drawView()
 end
@@ -91,10 +87,16 @@ end
 
 -- Function to draw elements of the view
 function NewsFeedView:drawView()
-	self.surface:copyfrom(self.headerSurface, nil, { x=0, y=0 }, false)
-	self.surface:copyfrom(self.newsSurface, nil, { x=0, y=self.headerSurface:get_height() }, false)
-	self.surface:copyfrom(self.bottomSurface, nil, { x=0, y=self.headerSurface:get_height()+self.newsSurface:get_height() }, false)
+	self.news = self:fetchNews(self.selectedCategories)
+	self:printNews(num_of_col)
 
+	self.surface:copyfrom(self.headerSurface, nil, { x=0, y=0 }, false)
+	self.surface:copyfrom(self.bottomSurface, nil, { x=0, y=self.headerSurface:get_height()+self.newsSurface:get_height() }, false)
+	self:drawCurrentPage()
+end
+
+function NewsFeedView:drawCurrentPage()
+	self.surface:copyfrom(self.newsSurface, nil, { x=0, y=self.headerSurface:get_height() }, false)
 	gfx.screen:copyfrom(self.surface, nil, { x=0, y=0 }, false)
 	gfx.update()
 end
@@ -170,7 +172,7 @@ function NewsFeedView:onKey(key, state)
 			else
 				news_index = news_index+each_section
 				self:printNews(num_of_col)
-				self:drawView()
+				self:drawCurrentPage()
 			end
 		elseif key == 'up' then
 			if (news_index-each_section) < 0 then
@@ -178,7 +180,7 @@ function NewsFeedView:onKey(key, state)
 			else
 				news_index = news_index-each_section
 				self:printNews(num_of_col)
-				self:drawView()
+				self:drawCurrentPage()
 			end
 		elseif key ~= nil then
 			for i=1,key_counter-1 do
