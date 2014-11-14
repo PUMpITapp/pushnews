@@ -53,6 +53,11 @@ function TextModule.print(surface, font, text, x, y, w, h)
       end
       
       if shouldBePrinted == true then
+
+        if y > h then
+          return i
+        end
+
         char = TextModule.getCharInfo(font, c)
         if x + char.width > sx + w then -- If the text is gonna be out the surface, popup a new line
           x = sx
@@ -64,11 +69,6 @@ function TextModule.print(surface, font, text, x, y, w, h)
         x = x + char.width -- add offset for next character
 
         last_i = i
-
-        if y > h then
-          return i
-        end
-
       end
     end
     return last_i
