@@ -14,7 +14,7 @@ end
 
 -- When the view is loaded for the first time. This will be executed once.
 function categoriesView:viewDidLoad()
-	self.surface:clear({255,255,255,255})
+	self.surface:clear({234,237,242,255})
 	self.categories = {
 										 { name = 'Top', selected = false, img_unselected = 'images/categories/topstories1.png', img_selected = 'images/categories/topstories1_s.png' },
 										 { name = 'World', selected = false, img_unselected = 'images/categories/world2.png', img_selected = 'images/categories/world2_s.png' },
@@ -53,7 +53,7 @@ end
 -- Print the available categories onto the categoriesView
 function categoriesView:createCategoriesSurface()
 	self.categoriesSurface = gfx.new_surface(self.categories_w,self.categories_h)
-	self.categoriesSurface:clear({255,255,255,255})
+	self.categoriesSurface:clear({234,237,242,255})
 
 	local nbCategoriesPerRow = math.floor(self.categories_w/self.category_w)
 	local nbRow = math.ceil(#self.categories/nbCategoriesPerRow)

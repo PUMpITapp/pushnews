@@ -3,12 +3,16 @@
 require "feeds.categoriegetter"
 require "feeds.feedgetter"
 require "feeds.cnnNews"
+local http = require("socket.http")
+local io = require("io")
+local ltn12 = require("ltn12")
 
 local news_index = 1
 local each_section = 6
 local key_counter = 1
 local num_of_col = 3
 local newsFeedTmpFile = "feeds/test.xml"
+local newsFeedTmpImg = "feeds/test.jpg"
 -- Class definition
 NewsFeedView = {}
 
@@ -33,9 +37,9 @@ function NewsFeedView:viewDidLoad()
 	self.bottomSurface = gfx.new_surface(gfx.screen:get_width(), gfx.screen:get_height()/8)
 	self.newsSurface = gfx.new_surface(gfx.screen:get_width(), gfx.screen:get_height()-self.headerSurface:get_height()-self.bottomSurface:get_height())
 
-	self.headerSurface:clear({63,81,181,255})
-	self.bottomSurface:clear({63,81,181,255})
-	self.newsSurface:clear({63,81,181,255})
+	self.headerSurface:clear({234,237,242,255})
+	self.bottomSurface:clear({234,237,242,255})
+	self.newsSurface:clear({234,237,242,255})
 
 	local menuButton = gfx.loadpng('images/push_news_logo.png')
 	local menuButtonScalingFactor = self.headerSurface:get_height()/menuButton:get_height()
@@ -104,9 +108,6 @@ function NewsFeedView:printNews(s_size)
 	local move_frame_x 
 	local news_summary = gfx.new_surface(frame_width, frame_height)
 	local news_pic = nil
-
-	self.newsSurface:clear({63,81,181,255})
-
 	local end_point
 	key_counter = 1
 
@@ -117,18 +118,34 @@ function NewsFeedView:printNews(s_size)
 	end
 
 	for i=news_index, end_point do
-		news_summary:clear({197,202,233,255})
-		move_frame_x = (section_width*25/100)+((i-1)%section_size)*section_width
-		text.print(news_summary, "arial_regular_12", tostring(key_counter), 1, 1, nil, nil, 1)
+		news_summary:clear({255,255,255,255})
+		news_summary:clear({50,58,69,255}, {x=0,y=0,w=news_summary:get_width(), h=35})
+		news_summary:clear({159,167,180,255}, {x=0,y=news_summary:get_height()-60,w=news_summary:get_width(),h=60})
 
-		if self.news[i].image == nil then
+		move_frame_x = (section_width*25/100)+((i-1)%section_size)*section_width
+
+		text.print(news_summary, "arial_regular_12", tostring(key_counter), 7, 5, nil, nil, 1)
+
+		if self.news[i].images[1] == nil then
 			news_pic = nil
-			text.print(news_summary, "arial_regular_12", self.news[i].date, 15, 10, nil, nil, 1)
-			text.print(news_summary, "arial_regular_12", self.news[i].title, 15, 60, nil, nil, 1)
-		else
-			news_pic = gfx.loadjpeg("images/news/" .. self.news[i].image)
-			news_summary:copyfrom(news_pic, nil, { x=15, y=10, w=frame_width-30, h=frame_width-100 })
-			text.print(news_summary, "arial_regular_12", self.news[i].title, 15, frame_width-90, nil, nil, 1)
+			print("no image")
+			text.print(news_summary, "arial_regular_12", self.news[i].title, 15, news_summary:get_height()-60, nil, nil, 1)
+			text.print(news_summary, "arial_regular_12", self.news[i].date:sub(1,16), 30, 5, nil, nil, 1)
+		else			
+			local url = self.news[i].images[1].url
+			if url ~= nil then				
+				local outputfile = io.open(newsFeedTmpImg, "w+")				
+				http.request { 
+			    url = url, 
+			    sink = ltn12.sink.file(outputfile)
+				}				
+				--outputfile:close()				
+				local img = gfx.loadjpeg(newsFeedTmpImg)
+				news_summary:copyfrom(img, nil, { x=0, y=35, w=news_summary:get_width(), h=news_summary:get_height()-35-60 }, false)
+				img:destroy()				
+			end			
+			text.print(news_summary, "arial_regular_12", self.news[i].title, 15, news_summary:get_height()-60, news_summary:get_width()-15, nil, 1)
+			text.print(news_summary, "arial_regular_12", self.news[i].date:sub(1,16), 30, 5, nil, nil, 1)
 		end
 
 		self.newsSurface:copyfrom(news_summary, nil, { x=move_frame_x, y=move_frame_y }, false)
