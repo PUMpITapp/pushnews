@@ -113,6 +113,8 @@ function NewsFeedView:printNews(s_size)
 	local end_point
 	key_counter = 1
 
+	self.newsSurface:clear({234,237,242,255})
+
 	if (each_section+news_index) > #self.news then
 		end_point = #self.news
 	else
