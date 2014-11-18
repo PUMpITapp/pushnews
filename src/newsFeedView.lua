@@ -143,10 +143,12 @@ function NewsFeedView:printNews(s_size)
 			    url = url, 
 			    sink = ltn12.sink.file(outputfile)
 				}				
-				--outputfile:close()				
+				--outputfile:close()
 				local img = gfx.loadjpeg(newsFeedTmpImg)
-				news_summary:copyfrom(img, nil, { x=0, y=35, w=news_summary:get_width(), h=news_summary:get_height()-35-60 }, false)
-				img:destroy()				
+				if img ~= nil then
+					news_summary:copyfrom(img, nil, { x=0, y=35, w=news_summary:get_width(), h=news_summary:get_height()-35-60 }, false)
+					img:destroy()
+				end
 			end			
 			text.print(news_summary, "arial_regular_12", self.news[i].title, 15, news_summary:get_height()-60, news_summary:get_width()-15, nil, 1)
 			text.print(news_summary, "arial_regular_12", self.news[i].date:sub(1,16), 30, 5, nil, nil, 1)
