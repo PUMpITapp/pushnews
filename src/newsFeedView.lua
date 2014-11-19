@@ -132,7 +132,6 @@ function NewsFeedView:printNews(s_size)
 
 		if self.news[i].images[1] == nil then
 			news_pic = nil
-			print("no image")
 			text.print(news_summary, "arial_regular_12", self.news[i].title, 15, news_summary:get_height()-60, nil, nil, 1)
 			text.print(news_summary, "arial_regular_12", self.news[i].date:sub(1,16), 30, 5, nil, nil, 1)
 		else			
