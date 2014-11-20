@@ -34,6 +34,8 @@ function NewsFeedView:viewDidLoad()
 
   -- Fetches the news on the internet
   self.news = self:fetchNews(self.selectedCategories)
+  self:convertNewsDate()
+  self:sortNewsByDate()
 
   -- Print logo on the top
   --local menuButton = gfx.loadpng('push_news_logo.png')
@@ -104,6 +106,28 @@ function NewsFeedView:fetchNews(selectedCategories)
   return feeds
 end
 
+function NewsFeedView:convertNewsDate()
+  local p = "%a+, (%d+) (%a+) (%d+) (%d+):(%d+):(%d+) (%a+)"
+  local MON = {Jan=1, Feb=2, Mar=3, Apr=4, May=5, Jun=6, Jul=7, Aug=8, Sep=9, Oct=10, Nov=11, Dec=12}
+  
+  for i=1, #self.news do
+    day, month, year, hour, min, sec, tz = self.news[i].date:match(p)
+    local month = MON[month]
+    self.news[i].date = os.time({tz=tz, day=day, month=month, year=year, hour=hour, min=min, sec=sec})
+  end
+end
+
+function NewsFeedView:sortNewsByDate()
+  local orderFunction = function (a, b)
+    if a.date >= b.date then
+      return true
+    end
+    return false
+  end
+
+  table.sort(self.news, orderFunction)
+end
+
 function NewsFeedView:printNews()
   local news_summary = gfx.new_surface(self.news_w, self.news_h)
 
@@ -156,12 +180,14 @@ function NewsFeedView:printNews()
 
     -- Fill in header color of news
     news_summary:clear({255,255,255,255}, { x=0, y=0, w=25, h=25})
-    -- Print news number, title and date
+
+    -- Print news number, category, title and date
     text.print(news_summary, "open_sans_regular_10", tostring((self.newsPerPage+i-1)%self.newsPerPage+1), 7, 0, nil, nil)
     local cat_i, cat_x = text.print(news_summary, "open_sans_regular_8_red", string.upper(self.news[i].category), 15, 168, nil, nil)
-    text.print(news_summary, "open_sans_regular_8_black", ' - ' .. self.news[i].date:sub(1,16), cat_x, 168, news_summary:get_width()-15, nil)
+    text.print(news_summary, "open_sans_regular_8_black", ' - ' .. os.date("%x %X", self.news[i].date), cat_x, 168, news_summary:get_width()-15, nil)
     text.print(news_summary, "open_sans_regular_10", self.news[i].title, 15, 195, news_summary:get_width()-15, nil)
 
+    -- Print the news to the screen
     gfx.screen:copyfrom(news_summary, nil, {x=self.newsContainer_x+cx, y=self.newsContainer_y+cy, w=self.news_w, h=self.news_h}, false)
 
     cx = cx + self.news_w + offset_x
