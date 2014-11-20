@@ -44,24 +44,24 @@ end
 function CNNNews:new()
 	newObj = {
 		categories = {
-			Top = 'http://rss.cnn.com/rss/edition.rss',
-			World = 'http://rss.cnn.com/rss/edition_world.rss',
-			africa = 'http://rss.cnn.com/rss/edition_africa.rss',
-			americas = 'http://rss.cnn.com/rss/edition_americas.rss',
-			asia = 'http://rss.cnn.com/rss/edition_asia.rss',
-			Europe = 'http://rss.cnn.com/rss/edition_europe.rss',
-			meast = 'http://rss.cnn.com/rss/edition_meast.rss',
-			us = 'http://rss.cnn.com/rss/edition_us.rss',
-			Finance = 'http://rss.cnn.com/rss/money_news_international.rss',
-			Technology = 'http://rss.cnn.com/rss/edition_technology.rss',
-			space = 'http://rss.cnn.com/rss/edition_space.rss',
-			Entertainment = 'http://rss.cnn.com/rss/edition_entertainment.rss',
-			Sports = 'http://rss.cnn.com/rss/edition_sport.rss',
-			football = 'http://rss.cnn.com/rss/edition_football.rss',
-			golf = 'http://rss.cnn.com/rss/edition_golf.rss',
-			motor = 'http://rss.cnn.com/rss/edition_motorsport.rss',
-			tennis = 'http://rss.cnn.com/rss/edition_tennis.rss',
-			latest = 'http://rss.cnn.com/rss/cnn_latest.rss'
+			['Top stories'] = 'http://rss.cnn.com/rss/edition.rss',
+			['World'] = 'http://rss.cnn.com/rss/edition_world.rss',
+			['africa'] = 'http://rss.cnn.com/rss/edition_africa.rss',
+			['americas'] = 'http://rss.cnn.com/rss/edition_americas.rss',
+			['asia'] = 'http://rss.cnn.com/rss/edition_asia.rss',
+			['Europe'] = 'http://rss.cnn.com/rss/edition_europe.rss',
+			['meast'] = 'http://rss.cnn.com/rss/edition_meast.rss',
+			['us'] = 'http://rss.cnn.com/rss/edition_us.rss',
+			['Finance'] = 'http://rss.cnn.com/rss/money_news_international.rss',
+			['Technology'] = 'http://rss.cnn.com/rss/edition_technology.rss',
+			['space'] = 'http://rss.cnn.com/rss/edition_space.rss',
+			['Entertainment'] = 'http://rss.cnn.com/rss/edition_entertainment.rss',
+			['Sports'] = 'http://rss.cnn.com/rss/edition_sport.rss',
+			['football'] = 'http://rss.cnn.com/rss/edition_football.rss',
+			['golf'] = 'http://rss.cnn.com/rss/edition_golf.rss',
+			['motor'] = 'http://rss.cnn.com/rss/edition_motorsport.rss',
+			['tennis'] = 'http://rss.cnn.com/rss/edition_tennis.rss',
+			['latest'] = 'http://rss.cnn.com/rss/cnn_latest.rss'
 		}
 	}
   self.__index = self

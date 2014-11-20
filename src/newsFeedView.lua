@@ -54,7 +54,7 @@ function NewsFeedView:drawView()
   gfx.screen:clear({232,232,232})
   
   -- Print previous button
-  local button = gfx.loadpng('previous.png')
+  local button = gfx.loadpng('images/previous.png')
   button:premultiply()
   gfx.screen:copyfrom(button, nil, { x=80, y=self.size.h/2-button:get_height()/2, w=32, h=68.75 }, true)
   button:destroy()
@@ -64,7 +64,7 @@ function NewsFeedView:drawView()
 
   -- Print up arrow if needed
   if self.newsIndex > self.newsPerPage then
-    local button = gfx.loadpng('up.png')
+    local button = gfx.loadpng('images/up.png')
     button:premultiply()
     gfx.screen:copyfrom(button, nil, { x=self.size.w-150, y=self.size.h/3, w=64, h=64 }, true)
     button:destroy()
@@ -72,7 +72,7 @@ function NewsFeedView:drawView()
   
   -- Print down arrow
   if self.newsIndex + self.newsPerPage <= #self.news then
-    local button = gfx.loadpng('down.png')
+    local button = gfx.loadpng('images/down.png')
     button:premultiply()
     gfx.screen:copyfrom(button, nil, { x=self.size.w-150, y=self.size.h/3*2-button:get_height(), w=64, h=64 }, true)
     button:destroy()
@@ -94,6 +94,7 @@ function NewsFeedView:fetchNews(selectedCategories)
         self.feedGetter:downloadFeeds(url, newsFeedTmpFile)
         local tmp = self.feedGetter:parseFeeds(newsFeedTmpFile)
         for k3, news in pairs(tmp.entries) do
+          news.category = selectedCategory
           table.insert(feeds, news)
         end
       end
@@ -157,8 +158,8 @@ function NewsFeedView:printNews()
     news_summary:clear({255,255,255,255}, { x=0, y=0, w=25, h=25})
     -- Print news number, title and date
     text.print(news_summary, "open_sans_regular_10", tostring((self.newsPerPage+i-1)%self.newsPerPage+1), 7, 0, nil, nil)
-    text.print(news_summary, "open_sans_regular_8_red", string.upper('International'), 15, 168, nil, nil)
-    text.print(news_summary, "open_sans_regular_8_black", ' - ' .. self.news[i].date:sub(1,16), 125, 168, news_summary:get_width()-15, nil)
+    local cat_i, cat_x = text.print(news_summary, "open_sans_regular_8_red", string.upper(self.news[i].category), 15, 168, nil, nil)
+    text.print(news_summary, "open_sans_regular_8_black", ' - ' .. self.news[i].date:sub(1,16), cat_x, 168, news_summary:get_width()-15, nil)
     text.print(news_summary, "open_sans_regular_10", self.news[i].title, 15, 195, news_summary:get_width()-15, nil)
 
     gfx.screen:copyfrom(news_summary, nil, {x=self.newsContainer_x+cx, y=self.newsContainer_y+cy, w=self.news_w, h=self.news_h}, false)

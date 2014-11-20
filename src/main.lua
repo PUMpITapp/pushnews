@@ -30,6 +30,7 @@ end
 
 if runningOnBox == true then
   package.path = package.path .. ';' .. sys.root_path() .. '?.lua'
+  package.path = package.path .. ';' .. sys.root_path() .. 'images/?.png'
   package.path = package.path .. ';' .. sys.root_path() .. 'feeds/?.lua'
 else
   gfx = chooseGfx(checkTestMode())

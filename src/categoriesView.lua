@@ -13,17 +13,16 @@ end
 
 -- When the view is loaded for the first time. This will be executed once.
 function categoriesView:viewDidLoad()
-  gfx.screen:clear({232,232,232,255})
   self.categories = {
-                     { name = 'Top', selected = false, img_unselected = 'topstories1.png', img_selected = 'topstories1_s.png' },
-                     { name = 'World', selected = false, img_unselected = 'world2.png', img_selected = 'world2_s.png' },
-                     { name = 'Europe', selected = false, img_unselected = 'europe3.png', img_selected = 'europe3_s.png' },
-                     { name = 'Finance', selected = false, img_unselected = 'finance4.png', img_selected = 'finance4_s.png' },
-                     { name = 'Entertainment', selected = false, img_unselected = 'entertainment5.png', img_selected = 'entertainment5_s.png' },
-                     { name = 'Technology', selected = false, img_unselected = 'technology6.png', img_selected = 'technology6_s.png' },
-                     { name = 'Art', selected = false, img_unselected = 'art7.png', img_selected = 'art7_s.png' },
-                     { name = 'Fashion', selected = false, img_unselected = 'fashion8.png', img_selected = 'fashion8_s.png' },
-                     { name = 'Sports', selected = false, img_unselected = 'sports9.png', img_selected = 'sports9_s.png' }
+                     { name = 'Top stories', selected = false, img_unselected = 'images/topstories1.png', img_selected = 'images/topstories1_s.png' },
+                     { name = 'World', selected = false, img_unselected = 'images/world2.png', img_selected = 'images/world2_s.png' },
+                     { name = 'Europe', selected = false, img_unselected = 'images/europe3.png', img_selected = 'images/europe3_s.png' },
+                     { name = 'Finance', selected = false, img_unselected = 'images/finance4.png', img_selected = 'images/finance4_s.png' },
+                     { name = 'Entertainment', selected = false, img_unselected = 'images/entertainment5.png', img_selected = 'images/entertainment5_s.png' },
+                     { name = 'Technology', selected = false, img_unselected = 'images/technology6.png', img_selected = 'images/technology6_s.png' },
+                     { name = 'Art', selected = false, img_unselected = 'images/art7.png', img_selected = 'images/art7_s.png' },
+                     { name = 'Fashion', selected = false, img_unselected = 'images/fashion8.png', img_selected = 'images/fashion8_s.png' },
+                     { name = 'Sports', selected = false, img_unselected = 'images/sports9.png', img_selected = 'images/sports9_s.png' }
                    }
 
   self.categories_w = self.size.w/1.3
@@ -43,6 +42,15 @@ end
 
 -- When the view has been loaded before and it is presented again.
 function categoriesView:drawView()
+  local selectedCategories = self:getSelectedCategories()
+  
+  if selectedCategories ~= nil and #selectedCategories > 0 then
+    local button = gfx.loadpng('images/next.png')
+    button:premultiply()
+    gfx.screen:copyfrom(button, nil, { x=self.size.w-110, y=self.size.h/2-button:get_height()/2, w=32, h=68.75 }, true)
+    button:destroy()
+  end
+
   gfx.update()
 end
 
@@ -52,6 +60,8 @@ end
 
 -- Print the available categories onto the categoriesView
 function categoriesView:drawCategoriesSurface()
+  gfx.screen:clear({232,232,232,255})
+
   local nbCategoriesPerRow = math.floor(self.categories_w/self.category_w)
   local nbRow = math.ceil(#self.categories/nbCategoriesPerRow)
 
@@ -62,15 +72,18 @@ function categoriesView:drawCategoriesSurface()
   local cy = offset_y
 
   for key, val in pairs(self.categories) do
-    local categorySurface = gfx.loadpng(val.img_unselected)
+    local categorySurface = nil
+
+    if val.selected == false then
+      categorySurface = gfx.loadpng(val.img_unselected)
+    else
+      categorySurface = gfx.loadpng(val.img_selected)
+    end
 
     if cx + self.category_w > self.categories_w then
       cx = offset_x
       cy = cy + self.category_h + offset_y
     end
-
-    self.categories[key].x = cx
-    self.categories[key].y = cy
 
     gfx.screen:copyfrom(categorySurface, nil, {x=self.categories_x+cx, y=self.categories_y+cy, w=self.category_w, h=self.category_h}, false)
     categorySurface:destroy()
@@ -85,14 +98,11 @@ function categoriesView:selectCategory(key)
 
   if self.categories[key].selected == false then
     self.categories[key].selected = true
-    categorySurface = gfx.loadpng(self.categories[key].img_selected)
   else
     self.categories[key].selected = false
-    categorySurface = gfx.loadpng(self.categories[key].img_unselected)
   end
 
-  gfx.screen:copyfrom(categorySurface, nil, {x=self.categories_x+self.categories[key].x, y=self.categories_y+self.categories[key].y, w=self.category_w, h=self.category_h}, false)
-  categorySurface:destroy()
+  self:drawCategoriesSurface()
   self:drawView()
 end
 
