@@ -1,199 +1,198 @@
 -- Push news app
 -- newsfeedview class
-require "feeds.categoriegetter"
-require "feeds.feedgetter"
-require "feeds.cnnNews"
-local http = require("socket.http")
-local io = require("io")
-local ltn12 = require("ltn12")
-
-local news_index = 1
-local each_section = 6
-local key_counter = 1
-local num_of_col = 3
-local newsFeedTmpFile = "feeds/test.xml"
-local newsFeedTmpImg = "feeds/test.jpg"
+local newsFeedTmpFile = sys.root_path() .. "feed_rss_tmp.xml"
+local newsFeedTmpImg = "feed_img_tmp.jpg"
 -- Class definition
 NewsFeedView = {}
 
 --Class constructor
 function NewsFeedView:new()
-	newObj = {
-		size = {w=gfx.screen:get_width(), h=gfx.screen:get_height()},
-		surface = gfx.new_surface(gfx.screen:get_width(), gfx.screen:get_height()),
-		categoryGetter = CategorieGetter:new(),
-		feedGetter = FeedGetter:new(),
-		feedProviders = { CNNNews:new() }
-	}
-	self.__index = self
-	return setmetatable(newObj, self)
+  newObj = {
+    size = { w=gfx.screen:get_width(), h=gfx.screen:get_height() },
+    categoryGetter = CategorieGetter:new(),
+    feedGetter = FeedGetter:new(),
+    feedProviders = { CNNNews:new() },
+    newsPerPage = 6
+  }
+  self.__index = self
+  return setmetatable(newObj, self)
 end
 
 -- Loads the complete view
 function NewsFeedView:viewDidLoad()
-	self.headerSurface = gfx.new_surface(gfx.screen:get_width(), gfx.screen:get_height()/8)
-	self.bottomSurface = gfx.new_surface(gfx.screen:get_width(), gfx.screen:get_height()/8)
-	self.newsSurface = gfx.new_surface(gfx.screen:get_width(), gfx.screen:get_height()-self.headerSurface:get_height()-self.bottomSurface:get_height())
+  -- Set news container size and position
+  self.newsContainer_w = self.size.w*0.68
+  self.newsContainer_h = self.size.h*0.80
+  self.newsContainer_x = self.size.w/2-self.newsContainer_w/2
+  self.newsContainer_y = self.size.h*0.1
+  -- Set news size 
+  self.news_w = 270
+  self.news_h = 250
 
-	self.headerSurface:clear({234,237,242,255})
-	self.bottomSurface:clear({234,237,242,255})
-	self.newsSurface:clear({234,237,242,255})
+  -- Set newsIndex to 1 when the view is loaded
+  self.newsIndex = 1
 
-	local menuButton = gfx.loadpng('images/push_news_logo.png')
-	local menuButtonScalingFactor = self.headerSurface:get_height()/menuButton:get_height()
-	self.headerSurface:copyfrom(menuButton, nil, { x = 30, y = 0, w=menuButton:get_width()*menuButtonScalingFactor, h=menuButton:get_height()*menuButtonScalingFactor })
-	menuButton:destroy()
+  -- Fetches the news on the internet
+  self.news = self:fetchNews(self.selectedCategories)
 
-	self:drawView()
-end
+  -- Print logo on the top
+  --local menuButton = gfx.loadpng('push_news_logo.png')
+  --local menuButtonScalingFactor = self.size.h/8/menuButton:get_height()
+  --gfx.screen:copyfrom(menuButton, nil, { x = 30, y = 0, w=menuButton:get_width()*menuButtonScalingFactor, h=menuButton:get_height()*menuButtonScalingFactor })
+  --menuButton:destroy()
 
-function NewsFeedView:fetchNews(selectedCategories)
-	local feeds = {}
+  -- Print the ads banner on the bottom
+  -- TODO
 
-	os.remove(newsFeedTmpFile)
-
--- If we need to have different preselected categories.
---	for k, selectedCategories in pairs(selectedCategories) do
---		local cat = self.categoryGetter.categories[selectedCategories]
---		if cat ~= nil then
---			for k1, provider in ipairs(cat.providers) do
---				local url = provider.categories[selectedCategories]
---				if url ~= nil then
---					self.feedGetter:downloadFeeds(url, newsFeedTmpFile)
---	  			local tmp = self.feedGetter:parseFeeds(newsFeedTmpFile)
---	  			for k3, news in pairs(tmp.entries) do
---	  				table.insert(feeds, news)
---	  			end
---				end
---			end
---		end
---	end
-
-  for k1, selectedCategory in pairs(selectedCategories) do
-  	for k2, provider in pairs(self.feedProviders) do
-  		local url = provider.categories[selectedCategory]
-  		if url ~= nil then
-  			self.feedGetter:downloadFeeds(url, newsFeedTmpFile)
-  			local tmp = self.feedGetter:parseFeeds(newsFeedTmpFile)
-  			for k3, news in pairs(tmp.entries) do
-  				table.insert(feeds, news)
-  			end
-  		end
-  	end
-  end
-
- 	return feeds
+  -- Draw the view
+  self:drawView()
 end
 
 -- Function to draw elements of the view
 function NewsFeedView:drawView()
-	self.news = self:fetchNews(self.selectedCategories)
-	self:printNews(num_of_col)
+  -- Clear screen below logo and above the ads banner
+  gfx.screen:clear({232,232,232})
+  
+  -- Print previous button
+  local button = gfx.loadpng('previous.png')
+  button:premultiply()
+  gfx.screen:copyfrom(button, nil, { x=80, y=self.size.h/2-button:get_height()/2, w=32, h=68.75 }, true)
+  button:destroy()
+  
+  -- Print the news to the screen
+  self:printNews()
 
-	self.surface:copyfrom(self.headerSurface, nil, { x=0, y=0 }, false)
-	self.surface:copyfrom(self.bottomSurface, nil, { x=0, y=self.headerSurface:get_height()+self.newsSurface:get_height() }, false)
-	self:drawCurrentPage()
+  -- Print up arrow if needed
+  if self.newsIndex > self.newsPerPage then
+    local button = gfx.loadpng('up.png')
+    button:premultiply()
+    gfx.screen:copyfrom(button, nil, { x=self.size.w-150, y=self.size.h/3, w=64, h=64 }, true)
+    button:destroy()
+  end
+  
+  -- Print down arrow
+  if self.newsIndex + self.newsPerPage <= #self.news then
+    local button = gfx.loadpng('down.png')
+    button:premultiply()
+    gfx.screen:copyfrom(button, nil, { x=self.size.w-150, y=self.size.h/3*2-button:get_height(), w=64, h=64 }, true)
+    button:destroy()
+  end
+  
+  -- Update the screen
+  gfx.update()
 end
 
-function NewsFeedView:drawCurrentPage()
-	self.surface:copyfrom(self.newsSurface, nil, { x=0, y=self.headerSurface:get_height() }, false)
-	gfx.screen:copyfrom(self.surface, nil, { x=0, y=0 }, false)
-	gfx.update()
+function NewsFeedView:fetchNews(selectedCategories)
+  local feeds = {}
+
+  os.remove(newsFeedTmpFile)
+
+  for k1, selectedCategory in pairs(selectedCategories) do
+    for k2, provider in pairs(self.feedProviders) do
+      local url = provider.categories[selectedCategory]
+      if url ~= nil then
+        self.feedGetter:downloadFeeds(url, newsFeedTmpFile)
+        local tmp = self.feedGetter:parseFeeds(newsFeedTmpFile)
+        for k3, news in pairs(tmp.entries) do
+          table.insert(feeds, news)
+        end
+      end
+    end
+  end
+
+  return feeds
 end
 
-function NewsFeedView:printNews(s_size)
-	local section_size = s_size
-	local section_width = self.newsSurface:get_width()/section_size
-	local frame_width = (section_width*70)/100
-	local frame_height = (section_width*55)/100
-	local move_frame_y = 35
-	local move_frame_x 
-	local news_summary = gfx.new_surface(frame_width, frame_height)
-	local news_pic = nil
-	local end_point
-	key_counter = 1
+function NewsFeedView:printNews()
+  local news_summary = gfx.new_surface(self.news_w, self.news_h)
 
-	self.newsSurface:clear({234,237,242,255})
+  local nbNewsPerRow = math.floor(self.newsContainer_w/self.news_w)
+  local nbRow = math.ceil(self.newsPerPage/nbNewsPerRow)
 
-	if (each_section+news_index) > #self.news then
-		end_point = #self.news
-	else
-		end_point = each_section+news_index-1
-	end
+  local offset_x = (self.newsContainer_w%self.news_w)/(nbNewsPerRow+1)
+  local offset_y = (self.newsContainer_h-(nbRow*self.news_h))/(nbRow+1)
 
-	for i=news_index, end_point do
-		news_summary:clear({255,255,255,255})
-		news_summary:clear({50,58,69,255}, {x=0,y=0,w=news_summary:get_width(), h=35})
-		news_summary:clear({159,167,180,255}, {x=0,y=news_summary:get_height()-60,w=news_summary:get_width(),h=60})
+  local cx = offset_x
+  local cy = offset_y
 
-		move_frame_x = (section_width*15/100)+((i-1)%section_size)*section_width
+  local newsIndexMax = self.newsIndex + self.newsPerPage - 1
+  if newsIndexMax > #self.news then
+    newsIndexMax = #self.news
+  end
 
-		text.print(news_summary, "arial_regular_12", tostring(key_counter), 7, 5, nil, nil, 1)
+  for i=self.newsIndex, newsIndexMax do
+    -- Fill in background color of news
+    news_summary:clear({255,255,255,255})
 
-		if self.news[i].images[1] == nil then
-			news_pic = nil
-			print("no image")
-			text.print(news_summary, "arial_regular_12", self.news[i].title, 15, news_summary:get_height()-60, nil, nil, 1)
-			text.print(news_summary, "arial_regular_12", self.news[i].date:sub(1,16), 30, 5, nil, nil, 1)
-		else			
-			local url = self.news[i].images[1].url
-			if url ~= nil then				
-				local outputfile = io.open(newsFeedTmpImg, "w+")				
-				http.request { 
-			    url = url, 
-			    sink = ltn12.sink.file(outputfile)
-				}				
-				--outputfile:close()
-				local img = gfx.loadjpeg(newsFeedTmpImg)
-				if img ~= nil then
-					news_summary:copyfrom(img, nil, { x=0, y=35, w=news_summary:get_width(), h=news_summary:get_height()-35-60 }, false)
-					img:destroy()
-				end
-			end			
-			text.print(news_summary, "arial_regular_12", self.news[i].title, 15, news_summary:get_height()-60, news_summary:get_width()-15, nil, 1)
-			text.print(news_summary, "arial_regular_12", self.news[i].date:sub(1,16), 30, 5, nil, nil, 1)
-		end
+    if cx + self.news_w > self.newsContainer_w then
+      cx = offset_x
+      cy = cy + self.news_h + offset_y
+    end
 
-		self.newsSurface:copyfrom(news_summary, nil, { x=move_frame_x, y=move_frame_y }, false)
+    -- Print the image of the news to the screen
+    if self.news[i].images[1] == nil then
+      -- TODO find some nice fallback pictures
+    else
+      local url = self.news[i].images[1].url
+      if url ~= nil then
+        local outputfile = io.open(sys.root_path() .. newsFeedTmpImg, "w+")
 
-		if (i-1)%section_size == section_size-1 then
-			move_frame_y = move_frame_y+frame_height+30
-		end
-		key_counter = key_counter + 1
-	end
+        http.request {
+          url = url,
+          sink = ltn12.sink.file(outputfile)
+        }
 
-	news_summary:destroy()
+        local bimg = io.open(sys.root_path() .. newsFeedTmpImg, "rb")
+        if string.byte(bimg:read(2)) == 255 then
+          local img = gfx.loadjpeg(newsFeedTmpImg)
+          if img ~= nil then
+            news_summary:copyfrom(img, nil, { x=0, y=0, w=news_summary:get_width(), h=153 }, false)
+            img:destroy()
+          end
+        end
+      end
+    end
 
+    -- Fill in header color of news
+    news_summary:clear({255,255,255,255}, { x=0, y=0, w=25, h=25})
+    -- Print news number, title and date
+    text.print(news_summary, "open_sans_regular_10", tostring((self.newsPerPage+i-1)%self.newsPerPage+1), 7, 0, nil, nil)
+    text.print(news_summary, "open_sans_regular_8_red", string.upper('International'), 15, 168, nil, nil)
+    text.print(news_summary, "open_sans_regular_8_black", ' - ' .. self.news[i].date:sub(1,16), 125, 168, news_summary:get_width()-15, nil)
+    text.print(news_summary, "open_sans_regular_10", self.news[i].title, 15, 195, news_summary:get_width()-15, nil)
+
+    gfx.screen:copyfrom(news_summary, nil, {x=self.newsContainer_x+cx, y=self.newsContainer_y+cy, w=self.news_w, h=self.news_h}, false)
+
+    cx = cx + self.news_w + offset_x
+  end
+
+  news_summary:destroy()
 end
 
 function NewsFeedView:onKey(key, state)
-	if state == 'up' then
-		if key == 'left' then
-			vc:presentView('categories')
-		elseif key == 'down' then
-			if (news_index+each_section) > #self.news then
-				--do nothing
-			else
-				news_index = news_index+each_section
-				self:printNews(num_of_col)
-				self:drawCurrentPage()
-			end
-		elseif key == 'up' then
-			if (news_index-each_section) < 0 then
-				--do nothing
-			else
-				news_index = news_index-each_section
-				self:printNews(num_of_col)
-				self:drawCurrentPage()
-			end
-		elseif key ~= nil then
-			for i=1,key_counter-1 do
-				if tostring(i) == key then
-					local detailNewsView = vc:getView("detailNewsView")
-					detailNewsView.view.newsFeed = self.news[i+(news_index-1)]
-					vc:presentView("detailNewsView")
-				end
-			end
-		end
-	end
+  if state == 'up' then
+    if key == 'left' then
+      vc:presentView('categories')
+    elseif key == 'down' then
+      if self.newsIndex + self.newsPerPage <= #self.news then
+        self.newsIndex = self.newsIndex + self.newsPerPage
+        self:drawView()
+      end
+    elseif key == 'up' then
+      if self.newsIndex > self.newsPerPage then
+        self.newsIndex = self.newsIndex - self.newsPerPage
+        self:drawView()
+      end
+    else
+      key = tonumber(key)
+      if key ~= nil and key > 0 and key <= self.newsPerPage then
+        local newsSelected = key + self.newsIndex - 1
+        if self.news[newsSelected] ~= nil then
+          local detailNewsView = vc:getView("detailNewsView")
+          detailNewsView.newsFeed = self.news[newsSelected]
+          vc:presentView("detailNewsView")
+        end
+      end
+    end
+  end
 end

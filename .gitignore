@@ -1,6 +1,8 @@
 # Created by https://www.gitignore.io
 src/feeds/test.xml
 src/feeds/test.jpg
+src/feed_img_tmp.jpg
+src/feed_rss_tmp.xml
 
 ### scrum2 specific ###
 src/pemu
