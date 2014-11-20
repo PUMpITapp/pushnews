@@ -15,15 +15,15 @@ end
 function categoriesView:viewDidLoad()
   gfx.screen:clear({232,232,232,255})
   self.categories = {
-                     { name = 'Top', selected = false, img_unselected = 'topstories1.png', img_selected = 'topstories1_s.png' },
-                     { name = 'World', selected = false, img_unselected = 'world2.png', img_selected = 'world2_s.png' },
-                     { name = 'Europe', selected = false, img_unselected = 'europe3.png', img_selected = 'europe3_s.png' },
-                     { name = 'Finance', selected = false, img_unselected = 'finance4.png', img_selected = 'finance4_s.png' },
-                     { name = 'Entertainment', selected = false, img_unselected = 'entertainment5.png', img_selected = 'entertainment5_s.png' },
-                     { name = 'Technology', selected = false, img_unselected = 'technology6.png', img_selected = 'technology6_s.png' },
-                     { name = 'Art', selected = false, img_unselected = 'art7.png', img_selected = 'art7_s.png' },
-                     { name = 'Fashion', selected = false, img_unselected = 'fashion8.png', img_selected = 'fashion8_s.png' },
-                     { name = 'Sports', selected = false, img_unselected = 'sports9.png', img_selected = 'sports9_s.png' }
+                     { name = 'Top', selected = false, img_unselected = 'images/topstories1.png', img_selected = 'images/topstories1_s.png' },
+                     { name = 'World', selected = false, img_unselected = 'images/world2.png', img_selected = 'images/world2_s.png' },
+                     { name = 'Europe', selected = false, img_unselected = 'images/europe3.png', img_selected = 'images/europe3_s.png' },
+                     { name = 'Finance', selected = false, img_unselected = 'images/finance4.png', img_selected = 'images/finance4_s.png' },
+                     { name = 'Entertainment', selected = false, img_unselected = 'images/entertainment5.png', img_selected = 'images/entertainment5_s.png' },
+                     { name = 'Technology', selected = false, img_unselected = 'images/technology6.png', img_selected = 'images/technology6_s.png' },
+                     { name = 'Art', selected = false, img_unselected = 'images/art7.png', img_selected = 'images/art7_s.png' },
+                     { name = 'Fashion', selected = false, img_unselected = 'images/fashion8.png', img_selected = 'images/fashion8_s.png' },
+                     { name = 'Sports', selected = false, img_unselected = 'images/sports9.png', img_selected = 'images/sports9_s.png' }
                    }
 
   self.categories_w = self.size.w/1.3

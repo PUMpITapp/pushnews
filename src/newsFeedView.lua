@@ -54,7 +54,7 @@ function NewsFeedView:drawView()
   gfx.screen:clear({232,232,232})
   
   -- Print previous button
-  local button = gfx.loadpng('previous.png')
+  local button = gfx.loadpng('images/previous.png')
   button:premultiply()
   gfx.screen:copyfrom(button, nil, { x=80, y=self.size.h/2-button:get_height()/2, w=32, h=68.75 }, true)
   button:destroy()
@@ -64,7 +64,7 @@ function NewsFeedView:drawView()
 
   -- Print up arrow if needed
   if self.newsIndex > self.newsPerPage then
-    local button = gfx.loadpng('up.png')
+    local button = gfx.loadpng('images/up.png')
     button:premultiply()
     gfx.screen:copyfrom(button, nil, { x=self.size.w-150, y=self.size.h/3, w=64, h=64 }, true)
     button:destroy()
@@ -72,7 +72,7 @@ function NewsFeedView:drawView()
   
   -- Print down arrow
   if self.newsIndex + self.newsPerPage <= #self.news then
-    local button = gfx.loadpng('down.png')
+    local button = gfx.loadpng('images/down.png')
     button:premultiply()
     gfx.screen:copyfrom(button, nil, { x=self.size.w-150, y=self.size.h/3*2-button:get_height(), w=64, h=64 }, true)
     button:destroy()
