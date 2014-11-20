@@ -2,10 +2,8 @@ require "main"
 
 local vc = viewController:new()
 local categoriesview = categoriesView:new()
-local newsfeedview = NewsFeedView:new()
 
 vc:addView("categories", categoriesview)
-vc:addView("newsFeed", newsfeedview)
 vc:presentView("categories")
 
 
