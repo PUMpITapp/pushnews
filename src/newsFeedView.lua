@@ -53,28 +53,28 @@ function NewsFeedView:drawView()
   -- Clear screen below logo and above the ads banner
   gfx.screen:clear({232,232,232})
   
+  -- Print the news to the screen
+  self:printNews()
+
   -- Print previous button
   local button = gfx.loadpng('images/previous.png')
   button:premultiply()
-  gfx.screen:copyfrom(button, nil, { x=80, y=self.size.h/2-button:get_height()/2, w=32, h=68.75 }, true)
+  gfx.screen:copyfrom(button, nil, { x=self.newsContainer_x/2-button:get_width()/2, y=self.size.h/2-button:get_height()/2, w=32, h=68.75 }, true)
   button:destroy()
-  
-  -- Print the news to the screen
-  self:printNews()
 
   -- Print up arrow if needed
   if self.newsIndex > self.newsPerPage then
     local button = gfx.loadpng('images/up.png')
     button:premultiply()
-    gfx.screen:copyfrom(button, nil, { x=self.size.w-150, y=self.size.h/3, w=64, h=64 }, true)
+    gfx.screen:copyfrom(button, nil, { x=self.size.w-self.newsContainer_x/2-button:get_width()/2, y=self.size.h/3-button:get_height()/2, w=64, h=64 }, true)
     button:destroy()
   end
   
-  -- Print down arrow
+  -- Print down arrow if needed
   if self.newsIndex + self.newsPerPage <= #self.news then
     local button = gfx.loadpng('images/down.png')
     button:premultiply()
-    gfx.screen:copyfrom(button, nil, { x=self.size.w-150, y=self.size.h/3*2-button:get_height(), w=64, h=64 }, true)
+    gfx.screen:copyfrom(button, nil, { x=self.size.w-self.newsContainer_x/2-button:get_width()/2, y=self.size.h/3*2-button:get_height()/2, w=64, h=64 }, true)
     button:destroy()
   end
   
