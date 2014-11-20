@@ -77,7 +77,7 @@ function TextModule.print(surface, font, text, x, y, w, h)
       end
     end
 
-    return last_i
+    return last_i, x
   else
     print("Err: font not found.")
   end

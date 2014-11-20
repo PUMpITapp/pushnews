@@ -94,6 +94,7 @@ function NewsFeedView:fetchNews(selectedCategories)
         self.feedGetter:downloadFeeds(url, newsFeedTmpFile)
         local tmp = self.feedGetter:parseFeeds(newsFeedTmpFile)
         for k3, news in pairs(tmp.entries) do
+          news.category = selectedCategory
           table.insert(feeds, news)
         end
       end
@@ -157,8 +158,8 @@ function NewsFeedView:printNews()
     news_summary:clear({255,255,255,255}, { x=0, y=0, w=25, h=25})
     -- Print news number, title and date
     text.print(news_summary, "open_sans_regular_10", tostring((self.newsPerPage+i-1)%self.newsPerPage+1), 7, 0, nil, nil)
-    text.print(news_summary, "open_sans_regular_8_red", string.upper('International'), 15, 168, nil, nil)
-    text.print(news_summary, "open_sans_regular_8_black", ' - ' .. self.news[i].date:sub(1,16), 125, 168, news_summary:get_width()-15, nil)
+    local cat_i, cat_x = text.print(news_summary, "open_sans_regular_8_red", string.upper(self.news[i].category), 15, 168, nil, nil)
+    text.print(news_summary, "open_sans_regular_8_black", ' - ' .. self.news[i].date:sub(1,16), cat_x, 168, news_summary:get_width()-15, nil)
     text.print(news_summary, "open_sans_regular_10", self.news[i].title, 15, 195, news_summary:get_width()-15, nil)
 
     gfx.screen:copyfrom(news_summary, nil, {x=self.newsContainer_x+cx, y=self.newsContainer_y+cy, w=self.news_w, h=self.news_h}, false)

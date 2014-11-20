@@ -11,7 +11,8 @@ function Feed:new(title, summary, date, link, images)
 		summary = summary,
 		date = date,
 		link = link,
-		images = images
+		images = images,
+    category = nil
 	}
   self.__index = self
   return setmetatable(newObj, self)
