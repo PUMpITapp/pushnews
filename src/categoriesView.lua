@@ -47,7 +47,7 @@ function categoriesView:drawView()
   if selectedCategories ~= nil and #selectedCategories > 0 then
     local button = gfx.loadpng('images/next.png')
     button:premultiply()
-    gfx.screen:copyfrom(button, nil, { x=self.size.w-110, y=self.size.h/2-button:get_height()/2, w=32, h=68.75 }, true)
+    gfx.screen:copyfrom(button, nil, { x=gfx.screen:get_width()-self.categories_x/2-button:get_width(), y=self.size.h/2-button:get_height()/2, w=32, h=68.75 }, true)
     button:destroy()
   end
 

@@ -34,6 +34,12 @@ function NewsFeedView:viewDidLoad()
 
   -- Fetches the news on the internet
   self.news = self:fetchNews(self.selectedCategories)
+<<<<<<< HEAD
+=======
+  self:convertNewsDate()
+  self:sortNewsByDate()
+
+>>>>>>> fd2ea0ada44d520d37f80a5b99e18c5a8b07c92a
   -- Print logo on the top
   --local menuButton = gfx.loadpng('push_news_logo.png')
   --local menuButtonScalingFactor = self.size.h/8/menuButton:get_height()
@@ -52,28 +58,28 @@ function NewsFeedView:drawView()
   -- Clear screen below logo and above the ads banner
   gfx.screen:clear({232,232,232})
   
+  -- Print the news to the screen
+  self:printNews()
+
   -- Print previous button
   local button = gfx.loadpng('images/previous.png')
   button:premultiply()
-  gfx.screen:copyfrom(button, nil, { x=80, y=self.size.h/2-button:get_height()/2, w=32, h=68.75 }, true)
+  gfx.screen:copyfrom(button, nil, { x=self.newsContainer_x/2-button:get_width()/2, y=self.size.h/2-button:get_height()/2, w=32, h=68.75 }, true)
   button:destroy()
-  
-  -- Print the news to the screen
-  self:printNews()
 
   -- Print up arrow if needed
   if self.newsIndex > self.newsPerPage then
     local button = gfx.loadpng('images/up.png')
     button:premultiply()
-    gfx.screen:copyfrom(button, nil, { x=self.size.w-150, y=self.size.h/3, w=64, h=64 }, true)
+    gfx.screen:copyfrom(button, nil, { x=self.size.w-self.newsContainer_x/2-button:get_width()/2, y=self.size.h/3-button:get_height()/2, w=64, h=64 }, true)
     button:destroy()
   end
   
-  -- Print down arrow
+  -- Print down arrow if needed
   if self.newsIndex + self.newsPerPage <= #self.news then
     local button = gfx.loadpng('images/down.png')
     button:premultiply()
-    gfx.screen:copyfrom(button, nil, { x=self.size.w-150, y=self.size.h/3*2-button:get_height(), w=64, h=64 }, true)
+    gfx.screen:copyfrom(button, nil, { x=self.size.w-self.newsContainer_x/2-button:get_width()/2, y=self.size.h/3*2-button:get_height()/2, w=64, h=64 }, true)
     button:destroy()
   end
   
@@ -101,6 +107,28 @@ function NewsFeedView:fetchNews(selectedCategories)
   end
 
   return feeds
+end
+
+function NewsFeedView:convertNewsDate()
+  local p = "%a+, (%d+) (%a+) (%d+) (%d+):(%d+):(%d+) (%a+)"
+  local MON = {Jan=1, Feb=2, Mar=3, Apr=4, May=5, Jun=6, Jul=7, Aug=8, Sep=9, Oct=10, Nov=11, Dec=12}
+  
+  for i=1, #self.news do
+    day, month, year, hour, min, sec, tz = self.news[i].date:match(p)
+    local month = MON[month]
+    self.news[i].date = os.time({tz=tz, day=day, month=month, year=year, hour=hour, min=min, sec=sec})
+  end
+end
+
+function NewsFeedView:sortNewsByDate()
+  local orderFunction = function (a, b)
+    if a.date >= b.date then
+      return true
+    end
+    return false
+  end
+
+  table.sort(self.news, orderFunction)
 end
 
 function NewsFeedView:printNews()
@@ -155,11 +183,14 @@ function NewsFeedView:printNews()
 
     -- Fill in header color of news
     news_summary:clear({255,255,255,255}, { x=0, y=0, w=25, h=25})
-    -- Print news number, title and date
+
+    -- Print news number, category, title and date
     text.print(news_summary, "open_sans_regular_10", tostring((self.newsPerPage+i-1)%self.newsPerPage+1), 7, 0, nil, nil)
     local cat_i, cat_x = text.print(news_summary, "open_sans_regular_8_red", string.upper(self.news[i].category), 15, 168, nil, nil)
-    text.print(news_summary, "open_sans_regular_8_black", ' - ' .. self.news[i].date:sub(1,16), cat_x, 168, news_summary:get_width()-15, nil)
+    text.print(news_summary, "open_sans_regular_8_black", ' - ' .. os.date("%x %X", self.news[i].date), cat_x, 168, news_summary:get_width()-15, nil)
     text.print(news_summary, "open_sans_regular_10", self.news[i].title, 15, 195, news_summary:get_width()-15, nil)
+    
+    -- Print the news to the screen
     gfx.screen:copyfrom(news_summary, nil, {x=self.newsContainer_x+cx, y=self.newsContainer_y+cy, w=self.news_w, h=self.news_h}, false)
 
     cx = cx + self.news_w + offset_x
