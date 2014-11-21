@@ -57,7 +57,7 @@ function TextModule.print(surface, font, text, x, y, w, h)
 
       if shouldBePrinted == true then
         if y > h then
-          return i
+          return i, x
         end
 
         char = TextModule.getCharInfo(font, c)

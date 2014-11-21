@@ -1,0 +1,20 @@
+require "main"
+
+describe("New Feed View", function()
+  it("Back to Categories", function()
+    vc:getView("categories"):onKey("1","up")
+    vc:getView("categories"):onKey("right","up")
+    vc:getView("newsFeed"):onKey("left","up")
+    local id,view = vc:getcurrentViewIdentifier()
+    assert.are.equal(id,"categories")
+  end)
+
+  it("Select News", function()
+    vc:getView("categories"):onKey("1","up")
+    vc:getView("categories"):onKey("right","up")
+    vc:getView("newsFeed"):onKey("1","up")
+    local id,view = vc:getcurrentViewIdentifier()
+    print(id)
+    --assert.are.equal(id,"categories")
+  end)
+end) 

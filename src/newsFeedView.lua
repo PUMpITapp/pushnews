@@ -34,7 +34,6 @@ function NewsFeedView:viewDidLoad()
 
   -- Fetches the news on the internet
   self.news = self:fetchNews(self.selectedCategories)
-
   -- Print logo on the top
   --local menuButton = gfx.loadpng('push_news_logo.png')
   --local menuButtonScalingFactor = self.size.h/8/menuButton:get_height()
@@ -161,7 +160,6 @@ function NewsFeedView:printNews()
     local cat_i, cat_x = text.print(news_summary, "open_sans_regular_8_red", string.upper(self.news[i].category), 15, 168, nil, nil)
     text.print(news_summary, "open_sans_regular_8_black", ' - ' .. self.news[i].date:sub(1,16), cat_x, 168, news_summary:get_width()-15, nil)
     text.print(news_summary, "open_sans_regular_10", self.news[i].title, 15, 195, news_summary:get_width()-15, nil)
-
     gfx.screen:copyfrom(news_summary, nil, {x=self.newsContainer_x+cx, y=self.newsContainer_y+cy, w=self.news_w, h=self.news_h}, false)
 
     cx = cx + self.news_w + offset_x
