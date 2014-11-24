@@ -3,6 +3,8 @@ src/feeds/test.xml
 src/feeds/test.jpg
 src/feed_img_tmp.jpg
 src/feed_rss_tmp.xml
+feed_img_tmp.jpg
+feed_rss_tmp.xml
 
 ### scrum2 specific ###
 src/pemu
