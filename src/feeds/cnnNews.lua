@@ -3,6 +3,8 @@ local io = require("io")
 local ltn12 = require("ltn12")
 local SLAXML = require 'slaxdom'
 
+require 'feeds.htmlLib'
+
 local articleFile = "feeds/article.html"
 
 CNNNews = {}
@@ -24,21 +26,6 @@ function getParagraphs(elements)
 	end
 
 	return t
-end
-
-function getText(paragraphs)
-	local str = ''
-
-	for i, p in ipairs(paragraphs) do
-		if type(p) == 'table' then
-			str = str .. getText(p) .. ' '
-		else
-			str = str .. p
-		end
-	end
-
-	return str
-
 end
 
 function CNNNews:new()
@@ -89,7 +76,12 @@ function CNNNews:parseArticleFile(articleFile)
 
 	print (#paragraphs)
 
-	local text = getText (paragraphs)
+	if #paragraphs == 0 then
+		--try something else
+		
+	end
+
+	local text = HTML.getText (paragraphs)
 
 	return text
 

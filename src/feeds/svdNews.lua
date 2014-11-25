@@ -3,49 +3,12 @@ local io = require("io")
 local ltn12 = require("ltn12")
 local SLAXML = require 'slaxdom'
 
+require 'feeds.htmlLib'
+
 local articleFile = "feeds/article.html"
 
 SVDNews = {}
 SVDNews.__index = SVDNews
-
-function SVDNews:getText(paragraphs)
-	local str = ''
-
-	if paragraphs == nil then
-		return nil
-	end
-
-	for i, p in ipairs(paragraphs) do
-		if type(p) == 'table' then
-			str = str .. self:getText(p) .. ' '
-		elseif p ~= '' then
-			str = str .. p
-		end
-	end
-
-	return str
-
-end
-
-function SVDNews:findClass(elements, className)
-
-	local t = {}
-	for i, e in pairs(elements) do
-		if e._attr and e._attr.class and e._attr.class == className then
-			table.insert(t, e)
-		elseif e ~= nil and type(e) == 'table' then
-
-			local other = self:findClass(e, className)
-
-			for k, o in ipairs(other) do
-				table.insert (t, o)
-			end
-		end
-	end
-
-	return t
-
-end
 
 function SVDNews:getParagraphs(elements)
 	local t = {}
@@ -105,14 +68,14 @@ function SVDNews:parseArticleFile(articleFile)
 
   local root = html.parsestr(htmlstr)
 	
-	local block = self:findClass(root, 'articletext')[1]
+	local block = HTML.findClass(root, 'articletext')[1]
 	if block == nil then
-		block = self:findClass(root, 'entry')[1]
+		block = HTML.findClass(root, 'entry')[1]
 	end
 
 	local paragraphs = self:getParagraphs(block)
 
-	local text = self:getText (paragraphs)
+	local text = HTML.getText (paragraphs)
 
 	return text
 

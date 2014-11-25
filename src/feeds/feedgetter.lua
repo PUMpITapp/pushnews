@@ -2,10 +2,11 @@ local http = require("socket.http")
 local io = require("io")
 local ltn12 = require("ltn12")
 local SLAXML = require 'slaxdom'
+
 require "feeds.feed"
 require "feeds.xml"
 
-local ignoreLinksRegx = {"quiz.svd.se"}
+local ignoreLinksRegx = {"quiz.svd.se", "cnn.com/video"}
 
 
 FeedGetter = {}
@@ -41,8 +42,8 @@ function FeedGetter:parseFeeds(filename)
 
 	local doc = SLAXML:dom(xml)
 
-	local channel = getByName(doc.root, 'channel')[1]
-	local items = getByName(channel, 'item')
+	local channel = XML.getByName(doc.root, 'channel')[1]
+	local items = XML.getByName(channel, 'item')
 
 	local feeds = {}
 
@@ -51,13 +52,13 @@ function FeedGetter:parseFeeds(filename)
 
 	for i, item in ipairs(items) do
 
-		local title = elementText(getByName(item, 'title')[1])
-		local descr = elementText(getByName(item, 'description')[1])
-		local date = elementText(getByName(item, 'pubDate')[1])
-		local link = elementText(getByName(item, 'guid')[1])
+		local title = XML.elementText(XML.getByName(item, 'title')[1])
+		local descr = XML.elementText(XML.getByName(item, 'description')[1])
+		local date = XML.elementText(XML.getByName(item, 'pubDate')[1])
+		local link = XML.elementText(XML.getByName(item, 'guid')[1])
 		local images = {}
 
-		for i, imgElement in ipairs(getByName(item, 'thumbnail')) do
+		for i, imgElement in ipairs(XML.getByName(item, 'thumbnail')) do
 			local url = imgElement.attr.url
 			local width = tonumber(imgElement.attr.width)
 			local height = tonumber(imgElement.attr.height)
