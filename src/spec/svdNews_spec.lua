@@ -30,10 +30,13 @@ it("Download and parse all SVD feed categories and their articles", function()
         assert.not_same(nil, feed.date)
 
         --Uncomment if you want to check all the news text (it takes ALOT of time)
-       --  print (feed.link)
-       --  local text = news:getArticleText(feed.link)
-       --  assert.not_same(nil, text)
-       -- print (text)
+
+        --Test only a few links or it takes too much time
+        if i < 5 then
+          local text = news:getArticleText(feed.link)
+          assert.not_same(nil, text)
+          assert.not_same('', text)
+        end
 
       end
     end

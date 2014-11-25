@@ -5,6 +5,9 @@ local SLAXML = require 'slaxdom'
 require "feeds.feed"
 require "feeds.xml"
 
+local ignoreLinksRegx = {"quiz.svd.se"}
+
+
 FeedGetter = {}
 FeedGetter.__index = FeedsGetter
 
@@ -73,9 +76,24 @@ function FeedGetter:parseFeeds(filename)
 
 		if title ~= nil and title ~= '' and descr ~= nil and descr ~= ''
 		and date ~= nil and date ~= '' and link ~= nil and link ~= '' then
+			--filter for some particular links
+			
+			local good = true
+			for i, IgnoreLink in ipairs(ignoreLinksRegx) do
+				if string.find(link, IgnoreLink) ~= nil then
+					good = false
+				end
+			end
+
+			if good then				
 			--Insert the new feed
 			table.insert(feeds, Feed:new(title, descr, date, link, images))
+			end
+
 		end
+
+		
+
 	end
 
 	local parsed = {entries = feeds}
