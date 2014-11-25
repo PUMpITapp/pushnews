@@ -26,12 +26,14 @@ it("Download and parse all CNN feed categories and their articles", function()
         assert.not_same(nil, feed.summary)
         assert.not_same(nil, feed.link)
         assert.not_same(nil, feed.date)
+  
+        if i < 3 then        
+          print (feed.link)
+          local text = news:getArticleText(feed.link)
+          assert.not_same(nil, text)
+          assert.not_same('', text)
 
-        --Uncomment if you want to check all the news text (it takes ALOT of time)
-        --print (feed.link)
-        --local text = news:getArticleText(feed.link)
-        --assert.not_same(nil, text)
-        --print (text)
+        end
 
       end
     end
@@ -60,11 +62,12 @@ it("Download a CNN Article into an html file", function()
 it("Download a CNN Article and return the article text", function()
 
     local news = CNNNews:new()
-    local link = 'http://edition.cnn.com/2014/11/10/world/europe/russia-nato-new-cold-war/index.html'
+    local link = 'http://edition.cnn.com/2014/10/26/world/asia/india-music-basti-profile/index.html'
 
     text = news:getArticleText(link)
 
     assert.not_same(nil, text)
+    assert.not_same('', text)
 
   end)
 
@@ -76,6 +79,7 @@ it("parse and existing article html file", function()
     text = news:parseArticleFile(file)
 
     assert.not_same(nil, text)
+    assert.not_same('', text)
 
   end)
 

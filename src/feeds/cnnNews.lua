@@ -87,6 +87,8 @@ function CNNNews:parseArticleFile(articleFile)
 	
 	local paragraphs = getParagraphs(root)
 
+	print (#paragraphs)
+
 	local text = getText (paragraphs)
 
 	return text
@@ -94,7 +96,7 @@ function CNNNews:parseArticleFile(articleFile)
 end
 
 function CNNNews:getArticleText(link)
-	self:downloadArticle(articleFile, articleFile)
+	self:downloadArticle(link, articleFile)
 
 	return self:parseArticleFile(articleFile)
 
