@@ -33,15 +33,21 @@ function FeedGetter:downloadFeeds(url, filename)
 end
 
 function FeedGetter:parseFeeds(filename)
-
 	local xml = io.open(filename):read('*all')
+
+	--deleting everything after the end rss tag, causing parsing errors
+	local beg, found = string.find(xml, '</rss>')
+	xml = string.sub(xml, 1, found)
+
 	local doc = SLAXML:dom(xml)
+
 	local channel = getByName(doc.root, 'channel')[1]
 	local items = getByName(channel, 'item')
 
 	local feeds = {}
 
 	local first = true
+
 
 	for i, item in ipairs(items) do
 

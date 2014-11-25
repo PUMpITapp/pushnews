@@ -17,7 +17,6 @@ it("Download and parse all SVD feed categories and their articles", function()
 
       getter:downloadFeeds(url, testfile)
 
-
       local feeds = getter:parseFeeds(testfile)
 
       --To check if it worked we simply check if we have some feeds
@@ -34,6 +33,8 @@ it("Download and parse all SVD feed categories and their articles", function()
         --Test only a few links or it takes too much time
         if i < 3 then
           local text = news:getArticleText(feed.link)
+          print (feed.link)
+          print (text)
           assert.not_same(nil, text)
           assert.not_same('', text)
         end

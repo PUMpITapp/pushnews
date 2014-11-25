@@ -81,7 +81,7 @@ function SVDNews:new()
 			['Entertainment'] = 'http://www.svd.se/kultur/?service=rss',
 			['Sports'] = 'http://www.svd.se/sport/?service=rss',
 			['Art'] = 'http://www.svd.se/kultur/konst/?service=rss',
-			--['Fashion'] =  'http://blog.svd.se/modebloggen/feed/'
+			['Fashion'] =  'http://blog.svd.se/modebloggen/feed/'
 		}
 	}
   self.__index = self
@@ -106,6 +106,10 @@ function SVDNews:parseArticleFile(articleFile)
   local root = html.parsestr(htmlstr)
 	
 	local block = self:findClass(root, 'articletext')[1]
+	if block == nil then
+		block = self:findClass(root, 'entry')[1]
+	end
+
 	local paragraphs = self:getParagraphs(block)
 
 	local text = self:getText (paragraphs)
