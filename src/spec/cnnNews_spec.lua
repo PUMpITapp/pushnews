@@ -1,5 +1,6 @@
 require "feeds.feedgetter"
 require "feeds.cnnNews"
+require "feeds.download"
 
 local testfile = "feeds/test.xml"
 
@@ -28,7 +29,6 @@ it("Download and parse all CNN feed categories and their articles", function()
         assert.not_same(nil, feed.date)
   
         if i < 3 then        
-          print (feed.link)
           local text = news:getArticleText(feed.link)
           assert.not_same(nil, text)
           --assert.not_same('', text)
@@ -48,7 +48,7 @@ it("Download a CNN Article into an html file", function()
 
     os.remove(output)
 
-    news:downloadArticle(link, output)
+    download.downloadFile(link, output)
 
     local file = io.open (testfile, "r")
     local size = file:seek("end")

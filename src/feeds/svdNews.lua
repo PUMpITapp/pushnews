@@ -1,9 +1,7 @@
-local http = require("socket.http")
-local io = require("io")
-local ltn12 = require("ltn12")
 local SLAXML = require 'slaxdom'
 
 require 'feeds.htmlLib'
+require 'feeds.download'
 
 local articleFile = "feeds/article.html"
 
@@ -51,16 +49,6 @@ function SVDNews:new()
   return setmetatable(newObj, self)
 end
 
-function SVDNews:downloadArticle (link, output)
-	local outputfile = io.open(output, "w+")
-
-	http.request { 
-    url = link, 
-    sink = ltn12.sink.file(outputfile)
-	}
-
-end
-
 function SVDNews:parseArticleFile(articleFile)
 	local htmlstr = io.open(articleFile):read('*all')
 	
@@ -82,7 +70,7 @@ function SVDNews:parseArticleFile(articleFile)
 end
 
 function SVDNews:getArticleText(link)
-	self:downloadArticle(link, articleFile)
+	download.downloadFile(link, articleFile)
 
 	local text = self:parseArticleFile(articleFile)
 

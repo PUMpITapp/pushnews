@@ -1,5 +1,6 @@
 require "feeds.feedgetter"
 require "feeds.svdNews"
+require "feeds.download"
 
 local testfile = "feeds/test.xml"
 
@@ -15,7 +16,7 @@ it("Download and parse all SVD feed categories and their articles", function()
 
       os.remove(testfile)
 
-      getter:downloadFeeds(url, testfile)
+      download.downloadFile(url, testfile)
 
       local feeds = getter:parseFeeds(testfile)
 
@@ -50,7 +51,7 @@ it("Download a SVD Article into an html file", function()
 
     os.remove(output)
 
-    news:downloadArticle(link, output)
+    download.downloadFile(link, output)
 
     local file = io.open (testfile, "r")
     local size = file:seek("end")
