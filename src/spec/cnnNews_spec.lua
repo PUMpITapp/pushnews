@@ -28,12 +28,12 @@ it("Download and parse all CNN feed categories and their articles", function()
         assert.not_same(nil, feed.link)
         assert.not_same(nil, feed.date)
   
-        if i < 3 then        
-          local text = news:getArticleText(feed.link)
-          assert.not_same(nil, text)
-          --assert.not_same('', text)
+        -- if i < 3 then        
+        --   local text = news:getArticleText(feed.link)
+        --   assert.not_same(nil, text)
+        --   --assert.not_same('', text)
 
-        end
+        -- end
 
       end
     end
