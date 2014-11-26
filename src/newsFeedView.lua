@@ -37,7 +37,7 @@ function NewsFeedView:viewDidLoad()
   self.news = self:fetchNews(self.selectedCategories)
   self:convertNewsDate()
   self:sortNewsByDate()
-
+  
   -- Print logo on the top
   --local menuButton = gfx.loadpng('push_news_logo.png')
   --local menuButtonScalingFactor = self.size.h/8/menuButton:get_height()
