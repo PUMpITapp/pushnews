@@ -5,7 +5,8 @@ categoriesView = {}
 -- Constructor of the categoriesView class
 function categoriesView:new()
   newObj = {
-    size = { w=gfx.screen:get_width(), h=gfx.screen:get_height() }
+    size = { w=gfx.screen:get_width(), h=gfx.screen:get_height() },
+    backgroundColor = {232,232,232,255}
   }
   self.__index = self
   return setmetatable(newObj, self)
@@ -13,6 +14,7 @@ end
 
 -- When the view is loaded for the first time. This will be executed once.
 function categoriesView:viewDidLoad()
+  gfx.screen:clear(self.backgroundColor)
   self.categories = {
                      { name = 'Top stories', selected = false, img_unselected = 'images/topstories1.png', img_selected = 'images/topstories1_s.png' },
                      { name = 'World', selected = false, img_unselected = 'images/world2.png', img_selected = 'images/world2_s.png' },
@@ -44,13 +46,16 @@ end
 function categoriesView:drawView()
   local selectedCategories = self:getSelectedCategories()
   
+  local button = gfx.loadpng('images/next.png')
+  local buttonPos = { x=gfx.screen:get_width()-self.categories_x/2-button:get_width(), y=self.size.h/2-button:get_height()/2, w=32, h=68.75 }
+  gfx.screen:clear(self.backgroundColor, buttonPos)
+
   if selectedCategories ~= nil and #selectedCategories > 0 then
-    local button = gfx.loadpng('images/next.png')
     button:premultiply()
-    gfx.screen:copyfrom(button, nil, { x=gfx.screen:get_width()-self.categories_x/2-button:get_width(), y=self.size.h/2-button:get_height()/2, w=32, h=68.75 }, true)
-    button:destroy()
+    gfx.screen:copyfrom(button, nil, buttonPos, true)
   end
 
+  button:destroy()
   gfx.update()
 end
 
@@ -60,8 +65,6 @@ end
 
 -- Print the available categories onto the categoriesView
 function categoriesView:drawCategoriesSurface()
-  gfx.screen:clear({232,232,232,255})
-
   local nbCategoriesPerRow = math.floor(self.categories_w/self.category_w)
   local nbRow = math.ceil(#self.categories/nbCategoriesPerRow)
 
@@ -85,7 +88,9 @@ function categoriesView:drawCategoriesSurface()
       cy = cy + self.category_h + offset_y
     end
 
-    gfx.screen:copyfrom(categorySurface, nil, {x=self.categories_x+cx, y=self.categories_y+cy, w=self.category_w, h=self.category_h}, false)
+    self.categories[key].pos = {x=self.categories_x+cx, y=self.categories_y+cy, w=self.category_w, h=self.category_h}
+
+    gfx.screen:copyfrom(categorySurface, nil, self.categories[key].pos, false)
     categorySurface:destroy()
 
     cx = cx + self.category_w + offset_x
@@ -98,11 +103,16 @@ function categoriesView:selectCategory(key)
 
   if self.categories[key].selected == false then
     self.categories[key].selected = true
+    categorySurface = gfx.loadpng(self.categories[key].img_selected)
+    gfx.screen:copyfrom(categorySurface, nil, self.categories[key].pos, false)
   else
     self.categories[key].selected = false
-  end
+    categorySurface = gfx.loadpng(self.categories[key].img_unselected)
+    gfx.screen:copyfrom(categorySurface, nil, self.categories[key].pos, false)
 
-  self:drawCategoriesSurface()
+  end
+  
+  categorySurface:destroy()
   self:drawView()
 end
 

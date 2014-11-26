@@ -25,6 +25,7 @@ function NewsFeedView:viewDidLoad()
   self.newsContainer_h = self.size.h*0.80
   self.newsContainer_x = self.size.w/2-self.newsContainer_w/2
   self.newsContainer_y = self.size.h*0.1
+  
   -- Set news size 
   self.news_w = 270
   self.news_h = 250
@@ -118,13 +119,7 @@ function NewsFeedView:convertNewsDate()
 end
 
 function NewsFeedView:sortNewsByDate()
-  local orderFunction = function (a, b)
-    if a.date >= b.date then
-      return true
-    end
-    return false
-  end
-
+  local orderFunction = function (a, b) return a.date > b.date end
   table.sort(self.news, orderFunction)
 end
 
@@ -184,7 +179,8 @@ function NewsFeedView:printNews()
     -- Print news number, category, title and date
     text.print(news_summary, "open_sans_regular_10", tostring((self.newsPerPage+i-1)%self.newsPerPage+1), 7, 0, nil, nil)
     local cat_i, cat_x = text.print(news_summary, "open_sans_regular_8_red", string.upper(self.news[i].category), 15, 168, nil, nil)
-    text.print(news_summary, "open_sans_regular_8_black", ' - ' .. os.date("%x %X", self.news[i].date), cat_x, 168, news_summary:get_width()-15, nil)
+    text.print(news_summary, "open_sans_regular_8_black", ' - ' .. os.date("%x", self.news[i].date), cat_x, 168, news_summary:get_width()-15, nil)
+    --text.print(news_summary, "open_sans_regular_8_black", ' - ' .. self.news[i].date:sub(5,16), cat_x, 168, news_summary:get_width()-15, nil)
     text.print(news_summary, "open_sans_regular_10", self.news[i].title, 15, 195, news_summary:get_width()-15, nil)
 
     -- Print the news to the screen
