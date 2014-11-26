@@ -15,6 +15,7 @@ end
 -- When the view is loaded for the first time. This will be executed once.
 function categoriesView:viewDidLoad()
   gfx.screen:clear(self.backgroundColor)
+  self.selectedSource = "CNN"
   self.categories = {
                      { name = 'Top stories', selected = false, img_unselected = 'images/topstories1.png', img_selected = 'images/topstories1_s.png' },
                      { name = 'World', selected = false, img_unselected = 'images/world2.png', img_selected = 'images/world2_s.png' },
@@ -31,8 +32,8 @@ function categoriesView:viewDidLoad()
   self.categories_h = self.size.h/1.3
   self.categories_x = self.size.w/2-self.categories_w/2
   self.categories_y = self.size.h/2-self.categories_h/2
-  self.category_w = 800/3
-  self.category_h = 500/3
+  self.category_w = 800/3.2
+  self.category_h = 500/3.2
 
   self:drawCategoriesSurface()
   self:drawView()
@@ -47,7 +48,7 @@ function categoriesView:drawView()
   local selectedCategories = self:getSelectedCategories()
   
   local button = gfx.loadpng('images/next.png')
-  local buttonPos = { x=gfx.screen:get_width()-self.categories_x/2-button:get_width(), y=self.size.h/2-button:get_height()/2, w=32, h=68.75 }
+  local buttonPos = { x=self.size.w-self.categories_x/2-button:get_width(), y=self.size.h/2-button:get_height()/2, w=32, h=68.75 }
   gfx.screen:clear(self.backgroundColor, buttonPos)
 
   if selectedCategories ~= nil and #selectedCategories > 0 then
@@ -56,6 +57,33 @@ function categoriesView:drawView()
   end
 
   button:destroy()
+
+  local buttonCNN, buttonSVD = nil
+  buttonPos = { x=self.size.w/2-64, y=self.size.h-76, w=32, h=32 }
+
+  if self.selectedSource == "CNN" then
+    buttonCNN = gfx.loadpng('images/radio_selected.png')
+    buttonSVD = gfx.loadpng('images/radio_unselected.png')
+  else 
+    buttonSVD = gfx.loadpng('images/radio_selected.png')
+    buttonCNN = gfx.loadpng('images/radio_unselected.png')
+  end
+
+  buttonCNN:premultiply()
+  buttonSVD:premultiply()
+
+  gfx.screen:clear(self.backgroundColor, buttonPos)
+  gfx.screen:copyfrom(buttonCNN, nil, buttonPos, true)
+  local i, x = text.print(gfx.screen, "open_sans_regular_10", "CNN", buttonPos.x+35, buttonPos.y+3, 50, nil)
+
+  buttonPos.x = x + 10
+  gfx.screen:clear(self.backgroundColor, buttonPos)
+  gfx.screen:copyfrom(buttonSVD, nil, buttonPos, true)
+  text.print(gfx.screen, "open_sans_regular_10", "SVD", buttonPos.x+35, buttonPos.y+3, 50, nil)
+  
+  buttonSVD:destroy()
+  buttonCNN:destroy()
+
   gfx.update()
 end
 
@@ -136,9 +164,16 @@ function categoriesView:onKey(key, state)
 
       if #selectedCategories >= 1 then
         local newsFeed = vc:getView("newsFeed")
+        newsFeed.selectedSource = self.selectedSource
         newsFeed.selectedCategories = selectedCategories
         vc:presentView("newsFeed")
       end
+    elseif key == "red" then
+      self.selectedSource = "CNN"
+      self:drawView()
+    elseif key == "green" then
+      self.selectedSource = "SVD"
+      self:drawView()
     else
       key = tonumber(key)
       if key ~= nil and key >=1 and key <= 9 then
