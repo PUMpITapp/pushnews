@@ -8,29 +8,6 @@ local articleFile = "feeds/article.html"
 SVDNews = {}
 SVDNews.__index = SVDNews
 
-function SVDNews:getParagraphs(elements)
-	local t = {}
-
-	if elements == nil then
-		return nil
-	end
-
-	for i, e in pairs(elements) do
-		if e._tag == 'p' and e._attr.class == nil then
-			table.insert(t, e)
-		elseif e ~= nil and type(e) == 'table' then
-
-			local other = SVDNews:getParagraphs(e)
-
-			for k, o in ipairs(other) do
-				table.insert (t, o)
-			end
-		end
-	end
-
-	return t
-end
-
 function SVDNews:new()
 	newObj = {
 		categories = {
@@ -61,8 +38,7 @@ function SVDNews:parseArticleFile(articleFile)
 		block = HTML.findClass(root, 'entry')[1]
 	end
 
-	local paragraphs = self:getParagraphs(block)
-
+	local paragraphs = HTML.findTag(block, 'p')
 	local text = HTML.getText (paragraphs)
 
 	return text

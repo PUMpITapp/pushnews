@@ -70,6 +70,7 @@ it("Download a SVD Article and return the article text", function()
     text = news:getArticleText(link)
 
     assert.not_same(nil, text)
+    assert.not_same('', text)
 
   end)
 
@@ -81,6 +82,7 @@ it("parse and existing article html file", function()
     text = news:parseArticleFile(file)
 
     assert.not_same(nil, text)
+    assert.not_same('', text)
 
   end)
 

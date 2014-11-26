@@ -62,13 +62,21 @@ function CNNNews:parseArticleFile(articleFile)
 	local html = require 'html'
 
   local root = html.parsestr(htmlstr)
-	
-	local paragraphs = getParagraphs(root)
+  
+  local block = HTML.findClass(root, 'cnn_storyarea')
 
-	if #paragraphs == 0 then
-		--try something else
-		
-	end
+  if #block == 0 then
+  	block = HTML.findClass(root, 'cnnContentContainer')
+  end
+  if #block == 0 then
+  	block = HTML.findId(root, 'storytext')
+  end
+
+  if block == nil then
+  	block = {}
+  end
+	
+	local paragraphs = HTML.findTag(block, 'p')
 
 	local text = HTML.getText (paragraphs)
 
