@@ -99,4 +99,22 @@ it("Download and parse BBC feeds", function()
     end
   end)
 
+it("Download and parse SVD feeds", function()
+
+    local link = "http://www.svd.se/sport/?service=rss"
+
+    local getter = FeedGetter:new()
+
+    getter:downloadFeeds(link, testfile)
+    local feeds = getter:parseFeeds(testfile)
+
+    --To check if it worked we simply check if we have some feeds
+    assert.is_true(#feeds.entries > 0)
+
+    for i, feed in ipairs(feeds.entries) do
+      valid_feed(feed)
+
+    end
+  end)
+
 end)

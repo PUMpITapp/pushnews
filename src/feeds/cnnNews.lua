@@ -3,6 +3,9 @@ local io = require("io")
 local ltn12 = require("ltn12")
 local SLAXML = require 'slaxdom'
 
+require 'feeds.htmlLib'
+require 'feeds.download'
+
 local articleFile = "feeds/article.html"
 
 CNNNews = {}
@@ -24,21 +27,6 @@ function getParagraphs(elements)
 	end
 
 	return t
-end
-
-function getText(paragraphs)
-	local str = ''
-
-	for i, p in ipairs(paragraphs) do
-		if type(p) == 'table' then
-			str = str .. getText(p) .. ' '
-		else
-			str = str .. p
-		end
-	end
-
-	return str
-
 end
 
 function CNNNews:new()
@@ -68,16 +56,6 @@ function CNNNews:new()
   return setmetatable(newObj, self)
 end
 
-function CNNNews:downloadArticle (link, output)
-	local outputfile = io.open(output, "w+")
-
-	http.request { 
-    url = link, 
-    sink = ltn12.sink.file(outputfile)
-	}
-
-end
-
 function CNNNews:parseArticleFile(articleFile)
 	local htmlstr = io.open(articleFile):read('*all')
 	
@@ -87,14 +65,19 @@ function CNNNews:parseArticleFile(articleFile)
 	
 	local paragraphs = getParagraphs(root)
 
-	local text = getText (paragraphs)
+	if #paragraphs == 0 then
+		--try something else
+		
+	end
+
+	local text = HTML.getText (paragraphs)
 
 	return text
 
 end
 
 function CNNNews:getArticleText(link)
-	self:downloadArticle(articleFile, articleFile)
+	download.downloadFile(link, articleFile)
 
 	return self:parseArticleFile(articleFile)
 
