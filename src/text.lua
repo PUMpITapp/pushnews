@@ -7,7 +7,7 @@ local registeredFonts = { "open_sans_regular_10_white", "open_sans_regular_10", 
 
 local fonts = {}
 
--- Load the fonts (information file and spritesheet) into the fonts table according to the registeredFonts table.
+--- Load the fonts (information file and spritesheet) into the fonts table according to the registeredFonts table.
 function TextModule.loadFonts()
   for i,font in pairs(registeredFonts) do
     local fontInfo = require(fontDir .. font)
@@ -17,7 +17,16 @@ function TextModule.loadFonts()
   end
 end
 
--- Print a text on a surface. Font should be a string specified in registeredFonts.
+--- Print a text on a surface. Font should be a string specified in registeredFonts.
+-- @param #string surface The surface on which we want to print the text.   
+-- @param #string font The font we want to use when printing
+-- @param #string text The text to be printed
+-- @param #number x Start position for printing on the surface x-axis
+-- @param #number y Start position for printing on the surface y-axis
+-- @param #number w The width to use for printing the text
+-- @param #number h The height to use for printing the text
+-- @return #number where the FINISH THIS ONE!
+-- @return #number Position...
 function TextModule.print(surface, font, text, x, y, w, h)
   local last_i = 0
   local surface_w = 0
