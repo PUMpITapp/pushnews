@@ -60,7 +60,8 @@ end
 function NewsFeedView:drawView()
   -- Clear screen below logo and above the ads banner
   gfx.screen:clear({232,232,232})
-  
+  applogo = gfx.loadpng('images/push_news_logo.png')
+    gfx.screen:copyfrom(applogo, nil, { x=10, y=10, w=165, h=55 }, true)
   -- Print the news to the screen
   self:printNews()
 
