@@ -10,6 +10,9 @@ SVDNews.__index = SVDNews
 
 function SVDNews:new()
 	newObj = {
+		name = "SVD",
+		advertising = true,
+		datePattern = "%a+, (%d+) (%a+) (%d+) (%d+):(%d+):(%d+) %+(%d+)",
 		categories = {
 			['Top stories'] = 'http://www.svd.se/?service=rss',
 			['World'] = 'http://www.svd.se/nyheter/utrikes/?service=rss',

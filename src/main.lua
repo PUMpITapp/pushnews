@@ -46,6 +46,7 @@ require "newsFeedView"
 require "feeds.categoriegetter"
 require "feeds.feedgetter"
 require "feeds.cnnNews"
+require "feeds.svdNews"
 http = require("socket.http")
 io = require("io")
 ltn12 = require("ltn12")
@@ -63,7 +64,7 @@ function onStart()
   -- Add some nice view
   vc:addView("categories", categoriesView:new())
   vc:addView("newsFeed", NewsFeedView:new())
-  vc:addView("detailNewsView", detailNewsView:new())
+  --vc:addView("detailNewsView", detailNewsView:new())
   -- Present the main view to the screen
   vc:presentView("categories")
 end

@@ -11,7 +11,7 @@ function NewsFeedView:new()
     size = { w=gfx.screen:get_width(), h=gfx.screen:get_height() },
     categoryGetter = CategorieGetter:new(),
     feedGetter = FeedGetter:new(),
-    feedProviders = { CNNNews:new() },
+    feedProvider = nil,
     newsPerPage = 6
   }
   self.__index = self
@@ -23,8 +23,14 @@ function NewsFeedView:viewDidLoad()
   -- Set news container size and position
   self.newsContainer_w = self.size.w*0.68
   self.newsContainer_h = self.size.h*0.80
-  self.newsContainer_x = self.size.w/2-self.newsContainer_w/2
-  self.newsContainer_y = self.size.h*0.1
+  if self.feedProvider.advertising == true then
+    self.newsContainer_x = self.size.w/2-self.newsContainer_w/2
+    self.newsContainer_y = self.size.h*0.04
+  else
+    self.newsContainer_x = self.size.w/2-self.newsContainer_w/2
+    self.newsContainer_y = self.size.h*0.1
+  end
+  
   -- Set news size 
   self.news_w = 270
   self.news_h = 250
@@ -80,6 +86,15 @@ function NewsFeedView:drawView()
     gfx.screen:copyfrom(button, nil, { x=self.size.w-self.newsContainer_x/2-button:get_width()/2, y=self.size.h/3*2-button:get_height()/2, w=64, h=64 }, true)
     button:destroy()
   end
+
+  -- Print advertising if needed
+  if self.feedProvider.advertising == true then
+    local banner = gfx.new_surface(self.newsContainer_w*0.75, 80)
+    banner:clear({52, 152, 219})
+    gfx.screen:copyfrom(banner, nil, {x=self.size.w/2-banner:get_width()/2, y=self.size.h-banner:get_height()-20}, true)
+    banner:destroy()
+    text.print(gfx.screen, "open_sans_regular_10_white", "Your custom advertising banner here", self.size.w/2-155, self.size.h-banner:get_height()/1.5-20, 800, nil)
+  end
   
   -- Update the screen
   gfx.update()
@@ -91,15 +106,13 @@ function NewsFeedView:fetchNews(selectedCategories)
   os.remove(newsFeedTmpFile)
 
   for k1, selectedCategory in pairs(selectedCategories) do
-    for k2, provider in pairs(self.feedProviders) do
-      local url = provider.categories[selectedCategory]
-      if url ~= nil then
-        self.feedGetter:downloadFeeds(url, newsFeedTmpFile)
-        local tmp = self.feedGetter:parseFeeds(newsFeedTmpFile)
-        for k3, news in pairs(tmp.entries) do
-          news.category = selectedCategory
-          table.insert(feeds, news)
-        end
+    local url = self.feedProvider.categories[selectedCategory]
+    if url ~= nil then
+      self.feedGetter:downloadFeeds(url, newsFeedTmpFile)
+      local tmp = self.feedGetter:parseFeeds(newsFeedTmpFile)
+      for k3, news in pairs(tmp.entries) do
+        news.category = selectedCategory
+        table.insert(feeds, news)
       end
     end
   end
@@ -108,24 +121,17 @@ function NewsFeedView:fetchNews(selectedCategories)
 end
 
 function NewsFeedView:convertNewsDate()
-  local p = "%a+, (%d+) (%a+) (%d+) (%d+):(%d+):(%d+) (%a+)"
   local MON = {Jan=1, Feb=2, Mar=3, Apr=4, May=5, Jun=6, Jul=7, Aug=8, Sep=9, Oct=10, Nov=11, Dec=12}
   
   for i=1, #self.news do
-    day, month, year, hour, min, sec, tz = self.news[i].date:match(p)
+    local day, month, year, hour, min, sec, tz = self.news[i].date:match(self.feedProvider.datePattern)
     local month = MON[month]
     self.news[i].date = os.time({tz=tz, day=day, month=month, year=year, hour=hour, min=min, sec=sec})
   end
 end
 
 function NewsFeedView:sortNewsByDate()
-  local orderFunction = function (a, b)
-    if a.date >= b.date then
-      return true
-    end
-    return false
-  end
-
+  local orderFunction = function (a, b) return a.date > b.date end
   table.sort(self.news, orderFunction)
 end
 
@@ -185,7 +191,7 @@ function NewsFeedView:printNews()
     -- Print news number, category, title and date
     text.print(news_summary, "open_sans_regular_10", tostring((self.newsPerPage+i-1)%self.newsPerPage+1), 7, 0, nil, nil)
     local cat_i, cat_x = text.print(news_summary, "open_sans_regular_8_red", string.upper(self.news[i].category), 15, 168, nil, nil)
-    text.print(news_summary, "open_sans_regular_8_black", ' - ' .. os.date("%x %X", self.news[i].date), cat_x, 168, news_summary:get_width()-15, nil)
+    text.print(news_summary, "open_sans_regular_8_black", ' - ' .. os.date("%x", self.news[i].date), cat_x, 168, news_summary:get_width()-15, nil)
     text.print(news_summary, "open_sans_regular_10", self.news[i].title, 15, 195, news_summary:get_width()-15, nil)
 
     -- Print the news to the screen
