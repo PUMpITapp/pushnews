@@ -43,15 +43,6 @@ function NewsFeedView:viewDidLoad()
   self:convertNewsDate()
   self:sortNewsByDate()
   
-  -- Print logo on the top
-  --local menuButton = gfx.loadpng('push_news_logo.png')
-  --local menuButtonScalingFactor = self.size.h/8/menuButton:get_height()
-  --gfx.screen:copyfrom(menuButton, nil, { x = 30, y = 0, w=menuButton:get_width()*menuButtonScalingFactor, h=menuButton:get_height()*menuButtonScalingFactor })
-  --menuButton:destroy()
-
-  -- Print the ads banner on the bottom
-  -- TODO
-
   -- Draw the view
   self:drawView()
 end
@@ -229,6 +220,7 @@ function NewsFeedView:onKey(key, state)
         local newsSelected = key + self.newsIndex - 1
         if self.news[newsSelected] ~= nil then
           local detailNewsView = vc:getView("detailNewsView")
+          detailNewsView.feedProvider = self.feedProvider
           detailNewsView.newsFeed = self.news[newsSelected]
           vc:presentView("detailNewsView")
         end

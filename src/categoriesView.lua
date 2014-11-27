@@ -89,8 +89,7 @@ function categoriesView:drawView()
     local i, x = text.print(gfx.screen, "open_sans_regular_10", val, buttonPos.x+35, buttonPos.y+3, 50, nil)
     buttonPos.x = x + 10
   end
-  applogo = gfx.loadpng('images/push_news_logo.png')
-    gfx.screen:copyfrom(applogo, nil, { x=10, y=10, w=165, h=55 }, true)
+
   gfx.update()
 end
 

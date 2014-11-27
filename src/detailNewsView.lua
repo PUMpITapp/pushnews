@@ -13,7 +13,7 @@ function detailNewsView:new()
     pageIndexes = {},
     total_pages = nil,
     feedGetter = FeedGetter:new(),
-    news = CNNNews:new()
+    feedProvider = nil
   }
   self.__index = self
   return setmetatable(newObj, self)
@@ -25,8 +25,8 @@ function detailNewsView:viewDidLoad()
 
   gfx.screen:clear({234,234,234,255})
 
-  lorem = self.news:getArticleText(self.newsFeed.link)
-  
+  lorem = self.feedProvider:getArticleText(self.newsFeed.link)
+
   self:drawView()
 end
 
@@ -73,10 +73,10 @@ function detailNewsView:printNews(currentPage)
   local printpage = "Page:" .. self.currentPage .. "/" .. self.total_pages
 
   --Print page content
-  text.print(gfx.screen, "lato_medium", self.newsFeed.title , textprint_x, 50, textprint_w, textprint_h)
-  text.print(gfx.screen, "lato_small", os.date("%x  %X", self.newsFeed.date), textprint_x, textprint_y, textprint_w, 100)
+  text.print(gfx.screen, "open_sans_regular_10", self.newsFeed.title , textprint_x, 50, textprint_w, textprint_h)
+  text.print(gfx.screen, "open_sans_regular_8_black", os.date("%x  %X", self.newsFeed.date), textprint_x, textprint_y, textprint_w, 100)
   text.print(gfx.screen, "open_sans_regular_8_red", string.upper(self.newsFeed.category), textprint_x, 130, textprint_w, textprint_h)
-  text.print(gfx.screen, "lato_small", printpage , printpage_x, printpage_y, 200, 100)
+  text.print(gfx.screen, "open_sans_regular_10", printpage , printpage_x, printpage_y, 200, 100)
 
   --Print news image
   local news_img = gfx.loadpng("images/cnn.png")
@@ -94,7 +94,7 @@ function detailNewsView:printNews(currentPage)
   -- If it is the first page, full content should be printed.
   if currentPage == 1 then
     -- Print the news text
-    text.print(gfx.screen, "lato_small", lorem:sub(1, self.pageIndexes[self.currentPage]-1), article_x, 200, article_w, article_h)
+    text.print(gfx.screen, "open_sans_regular_10", lorem:sub(1, self.pageIndexes[self.currentPage]-1), article_x, 200, article_w, article_h)
   end
 
   --TODO: Printing image
@@ -116,9 +116,7 @@ function detailNewsView:printNews(currentPage)
     up_button:destroy()
     
     -- Printing text from the last index in the last page to the index of the currentpage-1.    rarticle_x, 200, article_w, article_h)
-    text.print(gfx.screen, "lato_small", lorem:sub(self.pageIndexes[self.currentPage-1], self.pageIndexes[self.currentPage]-1), article_x, 200, article_w, article_h)
-      
-    --text.print(gfx.screen, "lato_small", printpage , printpage_x, printpage_y, 100, 100)
+    text.print(gfx.screen, "open_sans_regular_10", lorem:sub(self.pageIndexes[self.currentPage-1], self.pageIndexes[self.currentPage]-1), article_x, 200, article_w, article_h)
   end
 end
 
@@ -142,7 +140,7 @@ function detailNewsView:createSplit()
     if i >= #lorem then
       stop = true
     else
-      local ii, x = text.print(nil, "lato_small", lorem:sub(i, #lorem), article_x, textprint_y, article_w , article_h)
+      local ii, x = text.print(nil, "open_sans_regular_10", lorem:sub(i, #lorem), article_x, textprint_y, article_w , article_h)
       i = i + ii - 1
       table.insert(self.pageIndexes, i)
       page_counter = page_counter + 1
