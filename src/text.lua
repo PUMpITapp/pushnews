@@ -35,6 +35,7 @@ function TextModule.print(surface, font, text, x, y, w, h)
 
   if fonts[font] then
     local sx = x -- Start x position on the surface
+
     if surface == nil then
       surface_w = w
       surface_h = h
@@ -56,7 +57,7 @@ function TextModule.print(surface, font, text, x, y, w, h)
       local c = utf8.sub(text,i,i) -- Get the character
 
       if c == ' ' then
-        local remaining_length = w - x
+        local remaining_length = (sx+w) - x
         local needed_length = 0
 
         for j = i+1,#text do
