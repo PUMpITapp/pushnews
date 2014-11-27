@@ -1,4 +1,4 @@
-require('utf8')
+
 
 local TextModule = {}
 
@@ -35,14 +35,15 @@ function TextModule.print(surface, font, text, x, y, w, h)
 
     for i = 1,#text do -- For each character in the text
       local shouldBePrinted = true
-      local c = utf8_sub(text,i,i) -- Get the character
+      local utf8 = require('utf8')
+      local c = utf8.sub(text,i,i) -- Get the character
 
       if c == ' ' then
         local remaining_length = w - x
         local needed_length = 0
 
         for j = i+1,#text do
-          local cc = utf8_sub(text,j,j)
+          local cc = utf8.sub(text,j,j)
           if cc == ' ' then
             break
           end
@@ -87,28 +88,6 @@ function TextModule.print(surface, font, text, x, y, w, h)
   else
     print("Err: font not found.")
   end
-end
-
-function TextModule.createSplit(surface_w, surface_h, font, text, x, y, w, h)
-  local surfaces = {}
-  local stop = false
-  local i = 1
-  local surface_counter = 0
-
-  while stop == false do
-    if i >= #text then
-      stop = true
-    else
-      local sur = gfx.new_surface(surface_w, surface_h)
-      sur:clear({234,234,234,255})
-      table.insert(surfaces, sur)
-
-      surface_counter = surface_counter + 1
-      i = i + TextModule.print(surfaces[surface_counter], font, text:sub(i, #text), x, y, w, h) - 1
-    end
-  end
-
-  return surfaces
 end
 
 function TextModule.getCharInfo(font, char)

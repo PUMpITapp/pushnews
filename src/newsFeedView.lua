@@ -61,6 +61,12 @@ function NewsFeedView:drawView()
   -- Clear screen below logo and above the ads banner
   gfx.screen:clear({232,232,232})
   
+  -- Print logo
+  local logo = gfx.loadpng('images/push_news_logo.png')
+  logo:premultiply()
+  gfx.screen:copyfrom(logo, nil, {x=10, y=10, w=608*0.3, h=166*0.3})
+  logo:destroy()
+
   -- Print the news to the screen
   self:printNews()
 
@@ -192,6 +198,7 @@ function NewsFeedView:printNews()
     local cat_i, cat_x = text.print(news_summary, "open_sans_regular_8_red", string.upper(self.news[i].category), 15, 168, nil, nil)
     text.print(news_summary, "open_sans_regular_8_black", ' - ' .. os.date("%x", self.news[i].date), cat_x, 168, news_summary:get_width()-15, nil)
     text.print(news_summary, "open_sans_regular_10", self.news[i].title, 15, 195, news_summary:get_width()-15, nil)
+    --print(self.news[i].title)
 
     -- Print the news to the screen
     gfx.screen:copyfrom(news_summary, nil, {x=self.newsContainer_x+cx, y=self.newsContainer_y+cy, w=self.news_w, h=self.news_h}, false)
