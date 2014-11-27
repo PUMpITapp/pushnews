@@ -1,0 +1,2734 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="sv" lang="sv"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="metering" content="custom">
+<script type="text/javascript" async="" src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/4944.js"></script><script src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/ga.js" async="" type="text/javascript"></script><script src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/widgets.js" id="twitter-wjs"></script><script src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/all.js" id="facebook-jssdk"></script><script src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/tag.js"></script><script style="color: rgb(0, 0, 0);" type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"UAAAVlVUGwACVFNSBAY="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=s(e),f=c.length,u=i(a,o,r),d=0;f>d;d++)c[d].apply(u,n);return u}function a(t,e){f[t]=s(t).concat(e)}function s(t){return f[t]||[]}function c(){return n(e)}var f={};return{on:a,emit:e,create:c,listeners:s,_events:f}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],3:[function(t){function e(t,e,n,i,s){try{c?c-=1:r("err",[s||new UncaughtException(t,e,n)])}catch(f){try{r("ierr",[f,(new Date).getTime(),!0])}catch(u){}}return"function"==typeof a?a.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function n(t){r("err",[t,(new Date).getTime()])}var r=t("handle"),o=t(5),i=t("ee"),a=window.onerror,s=!1,c=0;t("loader").features.err=!0,window.onerror=e,NREUM.noticeError=n;try{throw new Error}catch(f){"stack"in f&&(t(1),t(4),"addEventListener"in window&&t(2),window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&t(3),s=!0)}i.on("fn-start",function(){s&&(c+=1)}),i.on("fn-err",function(t,e,r){s&&(this.thrown=!0,n(r))}),i.on("fn-end",function(){s&&!this.thrown&&c>0&&(c-=1)}),i.on("internal-error",function(t){r("ierr",[t,(new Date).getTime(),!0])})},{1:8,2:5,3:9,4:7,5:20,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],4:[function(t){function e(){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var n=t("ee"),r=t("handle"),o=t(2);t("loader").features.stn=!0,t(1),n.on("fn-start",function(t){var e=t[0];e instanceof Event&&(this.bstStart=Date.now())}),n.on("fn-end",function(t,e){var n=t[0];n instanceof Event&&r("bst",[n,e,this.bstStart,Date.now()])}),o.on("fn-start",function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),o.on("fn-end",function(t,e){r("bstTimer",[e,this.bstStart,Date.now(),this.bstType])}),n.on("pushState-start",function(){this.time=Date.now(),this.startPath=location.pathname+location.hash}),n.on("pushState-end",function(){r("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),"addEventListener"in window.performance&&(window.performance.addEventListener("webkitresourcetimingbufferfull",function(){r("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.webkitClearResourceTimings()},!1),window.performance.addEventListener("resourcetimingbufferfull",function(){r("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.clearResourceTimings()},!1)),document.addEventListener("scroll",e,!1),document.addEventListener("keypress",e,!1),document.addEventListener("click",e,!1)}},{1:6,2:8,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],5:[function(t,e){function n(t){i.inPlace(t,["addEventListener","removeEventListener"],"-",r)}function r(t){return t[1]}var o=(t(1),t("ee").create()),i=t(2)(o),a=t("gos");if(e.exports=o,n(window),"getPrototypeOf"in Object){for(var s=document;s&&!s.hasOwnProperty("addEventListener");)s=Object.getPrototypeOf(s);s&&n(s);for(var c=XMLHttpRequest.prototype;c&&!c.hasOwnProperty("addEventListener");)c=Object.getPrototypeOf(c);c&&n(c)}else XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&n(XMLHttpRequest.prototype);o.on("addEventListener-start",function(t){if(t[1]){var e=t[1];"function"==typeof e?this.wrapped=t[1]=a(e,"nr@wrapped",function(){return i(e,"fn-",null,e.name||"anonymous")}):"function"==typeof e.handleEvent&&i.inPlace(e,["handleEvent"],"fn-")}}),o.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:20,2:21,ee:"QJf3ax",gos:"7eSDFh"}],6:[function(t,e){var n=(t(2),t("ee").create()),r=t(1)(n);e.exports=n,r.inPlace(window.history,["pushState"],"-")},{1:21,2:20,ee:"QJf3ax"}],7:[function(t,e){var n=(t(2),t("ee").create()),r=t(1)(n);e.exports=n,r.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=r(t[0],"fn-")})},{1:21,2:20,ee:"QJf3ax"}],8:[function(t,e){function n(t,e,n){var r=t[0];"string"==typeof r&&(r=new Function(r)),t[0]=o(r,"fn-",null,n)}var r=(t(2),t("ee").create()),o=t(1)(r);e.exports=r,o.inPlace(window,["setTimeout","setInterval","setImmediate"],"setTimer-"),r.on("setTimer-start",n)},{1:21,2:20,ee:"QJf3ax"}],9:[function(t,e){function n(){c.inPlace(this,d,"fn-")}function r(t,e){c.inPlace(e,["onreadystatechange"],"fn-")}function o(t,e){return e}var i=t("ee").create(),a=t(1),s=t(2),c=s(i),f=s(a),u=window.XMLHttpRequest,d=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"];e.exports=i,window.XMLHttpRequest=function(t){var e=new u(t);try{i.emit("new-xhr",[],e),f.inPlace(e,["addEventListener","removeEventListener"],"-",function(t,e){return e}),e.addEventListener("readystatechange",n,!1)}catch(r){try{i.emit("internal-error",[r])}catch(o){}}return e},window.XMLHttpRequest.prototype=u.prototype,c.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",o),i.on("send-xhr-start",r),i.on("open-xhr-start",r)},{1:5,2:21,ee:"QJf3ax"}],10:[function(t){function e(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function n(t){var n=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var i=0;c>i;i++)t.removeEventListener(s[i],this.listener,!1);if(!n.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){n.status=t.status;var a=t.responseType,f="arraybuffer"===a||"blob"===a||"json"===a?t.response:t.responseText,u=e(f);if(u&&(r.rxSize=u),this.sameOrigin){var d=t.getResponseHeader("X-NewRelic-App-Data");d&&(n.cat=d.split(", ").pop())}}else n.status=0;r.cbTime=this.cbTime,o("xhr",[n,r,this.startTime])}}}function r(t,e){var n=i(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}if(window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)){t("loader").features.xhr=!0;var o=t("handle"),i=t(2),a=t("ee"),s=["load","error","abort","timeout"],c=s.length,f=t(1);t(4),t(3),a.on("new-xhr",function(){this.totalCbs=0,this.called=0,this.cbTime=0,this.end=n,this.ended=!1,this.xhrGuids={}}),a.on("open-xhr-start",function(t){this.params={method:t[0]},r(this,t[1]),this.metrics={}}),a.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),a.on("send-xhr-start",function(t,n){var r=this.metrics,o=t[0],i=this;if(r&&o){var f=e(o);f&&(r.txSize=f)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof n.onload))&&i.end(n)}catch(e){try{a.emit("internal-error",[e])}catch(r){}}};for(var u=0;c>u;u++)n.addEventListener(s[u],this.listener,!1)}),a.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),a.on("xhr-load-added",function(t,e){var n=""+f(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),a.on("xhr-load-removed",function(t,e){var n=""+f(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),a.on("addEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-added",[t[1],t[2]],e)}),a.on("removeEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-removed",[t[1],t[2]],e)}),a.on("fn-start",function(t,e,n){e instanceof XMLHttpRequest&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),a.on("fn-end",function(t,e){this.xhrCbStart&&a.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{1:"XL7HBI",2:11,3:9,4:5,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],11:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");return!r.port&&o[1]&&(r.port=o[1].split("/")[0].split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname),r.sameOrigin=!e.hostname||e.hostname===document.domain&&e.port===n.port&&e.protocol===n.protocol,r}},{}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],G9z0Bl:[function(t,e){function n(){var t=p.info=NREUM.info;if(t&&t.agent&&t.licenseKey&&t.applicationID&&c&&c.body){p.proto="https"===d.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=c.createElement("script");e.src=p.proto+t.agent,c.body.appendChild(e)}}function r(){"complete"===c.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),s=window,c=s.document,f="addEventListener",u="attachEvent",d=(""+location).split("?")[0],p=e.exports={offset:i(),origin:d,features:{}};c[f]?(c[f]("DOMContentLoaded",o,!1),s[f]("load",n,!1)):(c[u]("onreadystatechange",r),s[u]("onload",n)),a("mark",["firstbyte",i()])},{handle:"D5DuLP"}],20:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],21:[function(t,e){function n(t){return!(t&&"function"==typeof t&&t.apply&&!t[i])}var r=t("ee"),o=t(1),i="nr@wrapper",a=Object.prototype.hasOwnProperty;e.exports=function(t){function e(t,e,r,a){function nrWrapper(){var n,i,s,f;try{i=this,n=o(arguments),s=r&&r(n,i)||{}}catch(d){u([d,"",[n,i,a],s])}c(e+"start",[n,i,a],s);try{return f=t.apply(i,n)}catch(p){throw c(e+"err",[n,i,p],s),p}finally{c(e+"end",[n,i,f],s)}}return n(t)?t:(e||(e=""),nrWrapper[i]=!0,f(t,nrWrapper),nrWrapper)}function s(t,r,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<r.length;c++)s=r[c],a=t[s],n(a)||(t[s]=e(a,f?s+o:o,i,s,t))}function c(e,n,r){try{t.emit(e,n,r)}catch(o){u([o,e,n,r])}}function f(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){u([r])}for(var o in t)a.call(t,o)&&(e[o]=t[o]);return e}function u(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=r),e.inPlace=s,e.flag=i,e}},{1:20,ee:"QJf3ax"}]},{},["G9z0Bl",3,10,4]);</script><script src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/590600374.js"></script>
+<!-- Executing mobileUrl : start -->
+<!-- Executing mobileUrl : end -->
+<!-- Executing meta : start -->
+<title>Norsk oljeproduktion minskas inte | Nyheter | SvD</title>
+<meta name="description" content="Det är inte aktuellt för Norge att dra ned på oljeproduktionen, enligt landets regering. Detta trots ett stort överutbud på världsmarknaden och den senaste tidens prisras.">
+<meta property="fb:app_id" content="120052334696503">
+<meta property="fb:admins" content="100001284351618">
+<meta property="article:publisher" content="https://www.facebook.com/svd.naringsliv">
+<meta property="og:site_name" content="SvD.se">
+<meta property="og:title" content="Norsk oljeproduktion minskas inte">
+<meta property="og:description" content="Det är inte aktuellt för Norge att dra ned på oljeproduktionen, enligt landets regering. Detta trots ett stort överutbud på världsmarknaden och den senaste tidens prisras.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://www.svd.se/naringsliv/nyheter/norsk-oljeproduktion-minskas-inte_4131605.svd">
+<meta property="og:image" content="http://www.svd.se/template/images/header/SvD_Nliv_logo_512x512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@SvDNaringsliv">
+<meta name="twitter:title" content="Norsk oljeproduktion minskas inte">
+<meta name="twitter:description" content="Det är inte aktuellt för Norge att dra ned på oljeproduktionen, enligt landets regering. Detta trots ett stort överutbud på världsmarknaden och den senaste tidens prisras.">
+<meta name="twitter:url" content="http://www.svd.se/naringsliv/nyheter/norsk-oljeproduktion-minskas-inte_4131605.svd">
+<meta name="twitter:image" content="http://www.svd.se/template/images/header/SvD_Nliv_logo_512x512.png">
+<meta property="lp:url" content="http://www.svd.se/naringsliv/nyheter/norsk-oljeproduktion-minskas-inte_4131605.svd">
+<meta name="publishdate" content="Mon, 24 Nov 2014 15:40:39 +0100">
+<meta name="author" content="Stockholm TT">
+<meta name="robots" content="noarchive">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="msapplication-TileImage" content="http://www.svd.se/template/images/favicon/Ikon_SvD_Nliv_144x144.png">
+<meta name="msapplication-TileColor" content="#000">
+<link rel="shortcut icon" href="http://www.svd.se/template/images/favicon/favicon_nliv.ico" type="image/x-icon">
+<link rel="apple-touch-icon-precomposed" sizes="48x48" href="http://www.svd.se/template/images/favicon/Ikon_SvD_Nliv_48x48.png" type="image/png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://www.svd.se/template/images/favicon/Ikon_SvD_Nliv_72x72.png" type="image/png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://www.svd.se/template/images/favicon/Ikon_SvD_Nliv_114x114.png" type="image/png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://www.svd.se/template/images/favicon/Ikon_SvD_Nliv_144x144.png" type="image/png">
+<link rel="image_src" href="http://www.svd.se/template/images/header/SvD_Nliv_logo_512x512.png">
+<link rel="canonical" href="http://www.svd.se/naringsliv/nyheter/norsk-oljeproduktion-minskas-inte_4131605.svd">
+<!-- Executing meta : end -->
+<!-- Executing css : start -->
+<link rel="stylesheet" type="text/css" href="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/svdcore-naringsliv.css" media="all">
+<link rel="stylesheet" type="text/css" href="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/smartphones.css" media="only screen and (max-device-width: 480px)">
+<link rel="stylesheet" type="text/css" href="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/tablets.css" media="only screen and (min-device-width: 481px) and (max-device-width: 1024px)">
+<link rel="stylesheet" type="text/css" href="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/error.css" media="all">
+<!--[if lte IE 8]>
+<link rel="stylesheet" type="text/css" media="all" href="http://www.svd.se/template/css/ie8-and-below.css?v=57"/>
+<![endif]-->
+<!--[if lte IE 7]>
+<link rel="stylesheet" type="text/css" media="all" href="http://www.svd.se/template/css/ie7-and-below.css?v=57"/>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/print.css" media="print">
+<!-- Executing css : end -->
+<!-- Executing js : start -->
+<script type="text/javascript">
+var mobileUrl = "http://mobil.svd.se/custom/svd/redirect.jsp?item=http%3A%2F%2Fwww.svd.se%2F%3Fservice%3Dmobile%26articleId%3D4131605";
+var mobileRedirectEnabled = true;
+var mobilePattern=new RegExp("ACS-|NetFr|Amoi|NF-B|AvantGo|Benq|Symb|BlackBe|Blaz|CLDC|Dange|DOCO|Erics|hiptop|ipaq|KDDI|UP.B|AU.B|HTC|IEMo|s CE|MIDP|mobil|MOT-|MOTO|Mini/|NEC-|Nokia|OPWV|Palm|PlayS|Qtek|SAMS|Sany|SCH-|SEC-|SGH-|SHARP|SIE-|t-Mo|Sony|Vodaf|wap-|iPhon|WinW|Androi|PSP|iPod|J2ME|WAP|Tablet b|DocoMo|Fennec");
+var disableMobileRedirect = false;
+var bigAndroid = false;
+if(navigator.userAgent.indexOf("Android")>=0 && navigator.userAgent.indexOf("Mobile")==-1) bigAndroid = true;
+if(window.location.href.indexOf("noredirect=true")!=-1) mobileRedirectEnabled = false;
+if(mobileRedirectEnabled) {
+if(document.cookie.indexOf("mobileRedirect=false")!=-1) disableMobileRedirect = true;
+if(window.location.href.indexOf("fromMobile=true")!=-1) {
+disableMobileRedirect = true;
+var disableMobileRedirExp = new Date();
+disableMobileRedirExp.setTime(disableMobileRedirExp.getTime()+(60*60*1000*24*30));
+document.cookie = "mobileRedirect=false;expires="+disableMobileRedirExp.toUTCString()+";domain=.svd.se;path=/";
+}
+if(!disableMobileRedirect && mobilePattern.test(navigator.userAgent) && !(false) && mobileUrl.length>0 && !bigAndroid) {
+var mredirectsrc = "www.nliv.se";
+(mobileUrl.indexOf("?") === -1) ? redirectMobileUrl = mobileUrl + "?mredirectsrc=" + mredirectsrc : redirectMobileUrl = mobileUrl + "&mredirectsrc=" + mredirectsrc;
+// find hash
+if (window.location.hash) {
+redirectMobileUrl = redirectMobileUrl + window.location.hash;
+} else {
+// find broken hash from Facebook IOS app
+if (window.location.pathname.lastIndexOf('%23') > 0) {
+redirectMobileUrl = redirectMobileUrl + '#' + window.location.pathname.substring(window.location.pathname.lastIndexOf('%23') + 3);
+}
+}
+window.location.href = redirectMobileUrl;
+}
+}
+</script>
+<!--[if lte IE 8]>
+<script type="text/javascript">
+document.createElement('header');
+document.createElement('nav');
+document.createElement('section');
+document.createElement('article');
+document.createElement('aside');
+document.createElement('footer');
+document.createElement('hgroup');
+</script>
+<![endif]-->
+<script type="text/javascript" src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/jquery.js"></script>
+<script type="text/javascript" src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/svdcore-naringsliv.js"></script>
+<!-- START Trafikfonden AT -->
+<script type="text/javascript">
+// <![CDATA[
+(function ($) {
+var rc = new SvD.tf.RegisterClick();
+rc.setSitePattern(/^http.*?[\.\/](aftonbladet\.|alltomstockholm\.|blocket\.|bytbil\.|destination\.|hitta\.|klart\.|motesplatsen\.|prisjakt\.|servicefinder\.|tv\.nu|lendo\.|mobilio\.|letsdeal\.|bokon\.|sport\.nu|elpriser\.|fakturaborsen\.|flexidrive\.|kundkraft\.|minhembio\.com|se\.nu|suredo\.)/);
+rc.setUrlExceptions({"aftonbladet.":"aftonbladet","alltomstockholm.":"aftonbladet_allt_om_stockholm","blocket.":"blocket","bytbil.":"bytbil","destination.":"destination","hitta.":"hitta","motesplatsen.":"motesplatsen","prisjakt.":"prisjakt","tv.nu":"tvnu","lendo.":"lendo","mobilio.":"mobilio","letsdeal.":"letsdeal","bokon.":"bokon","sport.nu":"sportnu","elpriser.":"elpriser","fakturaborsen.":"fakturaborsen","flexidrive.":"flexidrive","kundkraft.":"kundkraft","minhembio.com":"minhembio","se.nu":"senu","suredo.":"suredo"});
+rc.setAbortPattern(/^http.*?[\.\/](ads\.aftonbladet)/);
+rc.setContext("naringsliv_nyheter");
+$.onAvailable('header', function () {rc.tag('header');});
+$.onAvailable('zone-breaking-news', function () {rc.tag('zone-breaking-news');});
+$.onAvailable('zone-top', function () {rc.tag('zone-top');});
+$.onAvailable('zone-1', function () {rc.tag('zone-1');});
+$.onAvailable('in-between-1', function () {rc.tag('in-between-1');});
+$.onAvailable('zone-2', function () {rc.tag('zone-2');});
+$.onAvailable('in-between-2', function () {rc.tag('in-between-2');});
+$.onAvailable('zone-3', function () {rc.tag('zone-3');});
+$.onAvailable('in-between-3', function () {rc.tag('in-between-3');});
+$.onAvailable('zone-4', function () {rc.tag('zone-4');});
+$.onAvailable('in-between-4', function () {rc.tag('in-between-4');});
+$.onAvailable('zone-5', function () {rc.tag('zone-5');});
+$.onAvailable('in-between-5', function () {rc.tag('in-between-5');});
+$.onAvailable('zone-6', function () {rc.tag('zone-6');});
+$.onAvailable('in-between-6', function () {rc.tag('in-between-6');});
+$.onAvailable('zone-7', function () {rc.tag('zone-7');});
+$.onAvailable('in-between-7', function () {rc.tag('in-between-7');});
+$.onAvailable('zone-8', function () {rc.tag('zone-8');});
+$.onAvailable('in-between-8', function () {rc.tag('in-between-8');});
+$.onAvailable('section-content', function () {rc.tag('section-content');});
+$.onAvailable('section-additional', function () {rc.tag('section-additional');});
+$.onAvailable('footer', function () {rc.tag('footer');});
+})(jQuery);
+// ]]>
+</script>
+<!-- END Trafikfonden AT -->
+<script type="text/javascript" src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/socstat.js"></script>
+<script type="text/javascript">
+// <![CDATA[
+svdPwLoginIframeSrc="https://login.svd.se/?site=nliv&type=nav";
+svdPwKundwebbBaseUrl="https://kundservice.svd.se";
+SvD.baseUrl = "http://www.svd.se/";
+SvD.sectionUrl = "http://www.svd.se/naringsliv/nyheter/";
+SvD.borsBaseUrl = "http://bors-nliv.svd.se/";
+SvD.activityFeedEnabled = "true";
+SvD.activityFeedRecommendations = "false";
+SvD.activityFeedMaxAge = "14"
+SvD.activityFeedLink = "";
+SvD.siteName = "nliv.se";
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-1717270-1']);
+_gaq.push(['_trackPageview']);
+window.adgroupid = Math.round(Math.random() * 100000);
+document.domain = "svd.se";
+if(typeof jQuery != 'undefined') {
+SvD.basePath = '/template/';
+SvD.enableStickyNav=true;
+SvD.enableFixedAd = true;
+SvD.fixedAdCloseButton = false;
+SvD.disabledFixedAdUaPattern=new RegExp("Galaxy S II|CPU OS 3_2|CPU OS 5_1");
+SvD.fixedAd.stopPositionSmallScreen = 480;
+SvD.fixedAd.loggedIn = false;
+SvD.stickyInitDelay = 2000;
+SvD.truncatedListDelay = 4000;
+SvD.articleTypeName = "standard";
+}
+// ]]>
+</script>
+<!-- Executing js : end -->
+<!-- Executing rss : start -->
+<link rel="alternate" type="application/rss+xml" title="SvD Nyheter |" href="http://www.svd.se/naringsliv/nyheter/?service=rss">
+<link rel="alternate" type="application/rss+xml" title="SvD | Senaste nytt" href="http://www.svd.se/naringsliv/nyheter/?service=rss&amp;type=senastenytt">
+<link rel="alternate" type="application/rss+xml" title="SvD | Mest läst" href="http://www.svd.se/naringsliv/nyheter/?service=rss&amp;type=mostread">
+<link rel="alternate" type="application/rss+xml" title="SvD | Mest kommenterat" href="http://www.svd.se/naringsliv/nyheter/?service=rss&amp;type=commented">
+<link rel="alternate" type="application/rss+xml" title="SvD | Toppnyheter" href="http://www.svd.se/?service=rss">
+<!-- Executing rss : end -->
+<!-- npario -->
+<script type="text/javascript">
+var ap='1';
+var jssvc='eu.npario-inc.net/DMP/tag.js';
+var ck = 'C610';
+var doseg = '0';
+(function() {
+var jsurl="js.npario-inc.net/DMP/tag.js";
+if(typeof(jssvc) !== 'undefined') {
+jsurl=jssvc;
+}
+var jsb=document.createElement("script");
+var gsvc=gs();
+jsb.src = gsvc+"://"+jsurl+"?ck="+ck+"&seg="+doseg+"&ap="+ap+"&Category=SvD:naringsliv:nyheter&Search="+SvD.utils.urlParam("q");
+var s = document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(jsb, s);
+})();
+function gs(){return "http"+(location.protocol=="https:"?"s":"");}
+</script>
+<!--[if lte IE 7]>
+<script type="text/javascript">
+document.write('<scr'+'ipt type="text/javascript" src="http://eu.npario-inc.net/DMP/tag.js?ck=C610&seg=0&ap=1&Category=SvD:naringsliv:nyheter&Search='+SvD.utils.urlParam('q')+'"></scri'+'pt>')
+</script>
+<![endif]-->
+<!-- / npario -->
+<!-- Ads init -->
+<script>
+window.EAS_load_fif = function(){};
+</script>
+<script src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/EAS_tag.js"></script>
+<script>
+var EASDate = new Date();
+var EASTime = EASDate.getTime();
+var EASKw2 = "pv1";
+if(document.cookie.indexOf("EASFv=true")>=0) EASKw2 = "pvn";
+if(EASKw2 == "pv1") {
+var EASFvExp = EASDate;
+EASFvExp.setTime(EASFvExp.getTime()+(60*60*1000));
+document.cookie = "EASFv=true; expires=" + EASFvExp.toUTCString() + "; domain=.svd.se; path=/";
+}
+var EASPvid = Math.random()*EASTime;
+var EASParams = {
+pageviewid:EASPvid,
+time:EASTime,
+kw2:EASKw2,
+EASTnp:jQuery.cookie('nPsegs'),
+EASTloggedin:SvD.isLoggedIn
+};
+var bigBangPrevented=false,useBigBang=false;
+</script>
+<!-- /Ads init -->
+<!-- 3581710 -->
+<script type="text/javascript" src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/infopeek.js"></script>
+<link type="text/css" href="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/infopeek.css" rel="stylesheet">
+<script type="text/javascript">if (typeof InfoPeek !== 'undefined') {
+InfoPeek.init(document.URL, null, {lang: 'sv'});
+}
+</script>
+<!--SVDFIVE-985-->
+<script type="text/javascript">
+jQuery(document).ready(function() {
+if (jQuery("#subnavigation").children().length == 0) {
+jQuery("#subnavigation").remove();
+}
+if (jQuery("#zone-breaking-news").children().length == 0) {
+jQuery("#zone-breaking-news").remove();
+}
+});
+</script>
+<!--/SVDFIVE-985-->
+<!-- /3581710 -->
+<style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_close_icon:active{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_loader{background-color:#f2f2f2;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3b5998;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{max-height:590px;min-height:590px;max-width:500px;min-width:500px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;left:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29447e;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f2f2f2;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style></head>
+<body data-twttr-rendered="true" class="naringsliv logged-out js-enabled"><iframe class="hooalhgvcffghpqwmvwy" src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/hub.html" style="position: absolute; top: -9999em; width: 10px; height: 10px;" name="twttrHubFrameSecure" tabindex="0" scrolling="no" allowtransparency="true" id="twttrHubFrameSecure" frameborder="0"></iframe><iframe class="hooalhgvcffghpqwmvwy" src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/hub_002.html" style="position: absolute; top: -9999em; width: 10px; height: 10px;" name="twttrHubFrame" tabindex="0" scrolling="no" allowtransparency="true" id="twttrHubFrame" frameborder="0"></iframe>
+<div class="ad ad-4009865">
+<div id="position4009865"></div>
+<script>
+document.write('<scr'+'ipt src="http://ads.aftonbladet.se/eas?cu=3176&EASTsection=naringsliv%7cnaringsliv_nyheter&EASInclude2=naringsliv%7cnaringsliv_nyheter&EASTpage=article&EASTomx=upp&kw1=article4131605&kw3=&cat1=&cat2=&cat3=&EASInclude=%2b0.36&EASTpw=&cre=mu&js=y&target=_blank&' + jQuery.param(EASParams) + '"></scri'+'pt>');
+</script><script src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/eas_002.js"></script>
+</div>
+<!--[if gte IE 9]><style type="text/css">#svd_pw_curtain{filter:none;}</style><![endif]-->
+<div id="svd_pw_curtain"></div>
+<div id="master-container">
+<div id="svd_pw_alert">
+<div class="svd_pw_alert_box nliv" id="svd_pw_ajax"></div>
+</div>
+<!--[if lte IE 7]><div id="svd_pw_curtain_ie7"></div><![endif]-->
+<div id="big-bang-ad">
+</div>
+<div id="page">
+<div id="header">
+<div class="ad ad-3115456 fixed" id="panorama">
+<div id="position3115456"></div>
+<script>
+if(!useBigBang)document.write('<scr'+'ipt src="http://ads.aftonbladet.se/eas?cu=522&EASTsection=naringsliv%7cnaringsliv_nyheter&EASInclude2=naringsliv%7cnaringsliv_nyheter&EASTpage=article&EASTomx=upp&kw1=article4131605&kw3=&cat1=&cat2=&cat3=&EASInclude=%2b0.36&EASTpw=&cre=mu&js=y&target=_blank&' + jQuery.param(EASParams) + '"></scri'+'pt>');
+</script><script src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/eas.js"></script>
+</div>
+<div class="ad ad-3215010 popup-ad">
+<div id="position3215010"></div>
+<script>
+jQuery(document).bind(SvD.ads.events.SVD_PRIORITIZED_CONTENT_AND_ADS_LOADED, function(){EAS_load_fif('position3215010','http://www.svd.se/naringsliv/nyheter/?service=EAS_fif', 'http://ads.aftonbladet.se/eas?cu=1457&EASTsection=naringsliv%7cnaringsliv_nyheter&EASInclude2=naringsliv%7cnaringsliv_nyheter&EASTpage=article&EASTomx=upp&kw1=article4131605&kw3=&cat1=&cat2=&cat3=&EASInclude=%2b0.36&EASTpw=&cre=mu&js=y&target=_blank&' + jQuery.param(EASParams),'0','0')});
+</script>
+</div>
+<script type="text/javascript">
+if(useBigBang) SvD.ads.useBigBang.page("#FFF0E6");
+</script>
+<!-- STOCK TICKER -->
+<div style="width: 995px; overflow: hidden;" id="stock-ticker"><ul style="white-space: nowrap; width: 5708px;"><li><a target="_blank" href="http://bors-nliv.svd.se/index.php/detail/index/4031">Nordic Mines: 0.025 <span class="">0 %</span></a></li><li><a target="_blank" href="http://bors-nliv.svd.se/index.php/detail/index/772">Ericsson B: 93.05 <span class="negative">-0.96 %</span></a></li><li><a target="_blank" href="http://bors-nliv.svd.se/index.php/detail/index/1146">Volvo B: 81.35 <span class="positive">0.49 %</span></a></li><li><a target="_blank" href="http://bors-nliv.svd.se/index.php/detail/index/1168">Nordea Bank: 93.5 <span class="positive">0.27 %</span></a></li><li><a target="_blank" href="http://bors-nliv.svd.se/index.php/detail/index/1095">Anoto Group: 0.237 <span class="negative">-5.2 %</span></a></li><li><a target="_blank" href="http://bors-nliv.svd.se/index.php/detail/index/342">SEB A: 97.2 <span class="positive">1.94 %</span></a></li><li><a target="_blank" href="http://bors-nliv.svd.se/index.php/detail/index/1176">SSAB A: 52.4 <span class="positive">1.85 %</span></a></li><li><a target="_blank" href="http://bors-nliv.svd.se/index.php/detail/index/2956">Sandvik: 79.9 <span class="negative">-0.75 %</span></a></li><li><a target="_blank" href="http://bors-nliv.svd.se/index.php/detail/index/928">TeliaSonera: 51.95 <span class="positive">0.1 %</span></a></li><li><a target="_blank" href="http://bors-nliv.svd.se/index.php/detail/index/29673">REC Silicon: 2.818 <span class="positive">2.47 %</span></a></li><li><a target="_blank" href="http://bors-nliv.svd.se/index.php/detail/index/2187">Nokia Corporation: 60.7 <span class="positive">0.5 %</span></a></li><li><a target="_blank" href="http://bors-nliv.svd.se/index.php/detail/index/4705">SAS: 14.6 <span class="positive">7.35 %</span></a></li><li><a target="_blank" href="http://bors-nliv.svd.se/index.php/detail/index/2327">Elekta B: 75.65 <span class="negative">-1.18 %</span></a></li><li><a target="_blank" href="http://bors-nliv.svd.se/index.php/detail/index/105">Swedbank A: 194.3 <span class="positive">1.73 %</span></a></li><li><a target="_blank" href="http://bors-nliv.svd.se/index.php/detail/index/1862">Tele2 B: 97.6 <span class="positive">0.72 %</span></a></li><li><a target="_blank" href="http://bors-nliv.svd.se/index.php/detail/index/6186">Transcom WorldWide SDB B: 1.23 <span class="positive">8.85 %</span></a></li><li><a target="_blank" href="http://bors-nliv.svd.se/index.php/detail/index/1045">Alfa Laval: 153.9 <span class="positive">0.72 %</span></a></li><li><a target="_blank" href="http://bors-nliv.svd.se/index.php/detail/index/730">ABB: 170.2 <span class="positive">0.12 %</span></a></li><li><a target="_blank" href="http://bors-nliv.svd.se/index.php/detail/index/95315">EnQuest PLC: 8.08 <span class="negative">-3 %</span></a></li><li><a target="_blank" href="http://bors-nliv.svd.se/index.php/detail/index/1360">Boliden: 126.6 <span class="negative">-0.63 %</span></a></li></ul>
+</div>
+<!-- /STOCK TICKER -->
+<!-- STOCK HEADER -->
+<div id="stock-header">
+<h2>Börsuppdateringar</h2>
+<ul>
+<li class="market se">
+<a href="http://bors-nliv.svd.se/index.php/indexlist/index/sverige" target="_blank">
+<span class="value positive">+0,36</span>
+<span class="data">
+<span class="title">OMXS, 16.07</span>
+<span class="result">I år: +10,22 %</span>
+</span>
+</a>
+</li>
+<li class="market us">
+<a href="http://bors-nliv.svd.se/index.php/indexlist/index/utland" target="_blank">
+<span class="value positive">+0,06</span>
+<span class="data">
+<span class="title">DJIA, 16.08</span>
+<span class="result">I år: +7,50 %</span>
+</span>
+</a>
+</li>
+<li class="currency usd">
+<a href="http://bors-nliv.svd.se/index.php/valutor" target="_blank">
+<span class="value">7,44</span>
+<span class="data">
+<span class="title">Dollar</span>
+<span class="result">-3 öre</span>
+</span>
+</a>
+</li>
+<li class="currency euro">
+<a href="http://bors-nliv.svd.se/index.php/valutor" target="_blank">
+<span class="value">9,25</span>
+<span class="data">
+<span class="title">Euro</span>
+<span class="result">oför.</span>
+</span>
+</a>
+</li>
+<li class="stock positive">
+<a href="http://bors-nliv.svd.se/index.php/detail/index/4052" target="_blank">
+<span class="title">Vinnare</span>
+<span class="result">
+<span class="value">+12,76 % </span>NeuroVive Pharmaceutical</span>
+</a>
+</li>
+<li class="stock negative">
+<a href="http://bors-nliv.svd.se/index.php/detail/index/20236" target="_blank">
+<span class="title">Förlorare</span>
+<span class="result">
+<span class="value">-9,19 % </span>Venue Retail Group B</span>
+</a>
+</li>
+</ul>
+</div>
+<!-- /STOCK HEADER -->
+<div class="content" id="header-content">
+<div class="info">
+<ul id="servicenavigation">
+<li class=""><a href="https://kundservice.svd.se/annonsera/" title="Annonsera" target="_blank">Annonsera</a></li>
+<li class=""><a href="https://kundservice.svd.se/kundservice" title="Kundservice" target="_blank">Kundservice</a></li>
+<li class=""><a href="https://kundservice.svd.se/Vara-produkter/eSvD/?c=1" title="eSvD" target="_blank">eSvD</a></li>
+<li id="subscription-register"><a href="https://kundservice.svd.se/bliprenumerant" title="Bli Kund" target="_blank">Bli Kund</a></li>
+<li id="subscription-login"><a href="https://kundservice.svd.se/Logga-in-svdse/?ReturnUrl=http://www.svd.se/naringsliv/nyheter/norsk-oljeproduktion-minskas-inte_4131605.svd" title="Logga in">Logga in</a></li>
+<li id="subscription-button">
+<a id="subscription-name" href="https://kundservice.svd.se/minasidor" title="Inloggad" target="_blank"></a>
+<div id="subscription-submenu">
+<a id="my-pages" href="https://kundservice.svd.se/minasidor" title="Mina sidor" target="_blank">Mina sidor</a>
+<a id="subscription-logout" href="https://kundservice.svd.se/" title="Logga ut" target="_blank">Logga ut</a>
+</div>
+</li>
+</ul>
+<script type="text/javascript">
+(function($) {
+if(document.cookie.indexOf("svd-wp=")>=0) {
+$("#servicenavigation #subscription-login, #servicenavigation #subscription-register").hide();
+$("#servicenavigation #subscription-logout, #servicenavigation #subscription-button").show();
+$("#servicenavigation #subscription-name").html(SvD.utils.getWpEmail());
+$("body").addClass("logged-in").removeClass("logged-out");
+SvD.fixedAd.loggedIn = true;
+} else {
+$("body").addClass("logged-out").removeClass("logged-in");
+}
+})(jQuery)
+</script>
+<p class="date">Måndag den 24 november, uppdaterad <abbr class="timeago" title="15:17">för 13 minuter sedan</abbr>
+</p>
+</div>
+<a href="#content" id="skiptocontent" accesskey="s" tabindex="1" title="Hoppa till textinnehållet">Hoppa till textinnehållet</a>
+<div class="logo">
+<p>
+<a href="http://www.svd.se/naringsliv/" accesskey="1" title="SvD - Näringsliv" class="subsection-logo">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/header.png" alt="Nyheter">
+</a>
+</p>
+</div>
+<!-- SEARCH BOX -->
+<form action="http://www.svd.se/search.do" method="get" id="searchbox" accept-charset="UTF-8">
+<fieldset>
+<label for="searchwordAutocomplete">Sök nyheter &amp; aktier</label>
+<span class="ui-helper-hidden-accessible" aria-live="polite" role="status"></span><input value="Sök nyheter &amp; aktier" autocomplete="off" id="searchwordAutocomplete" name="q" class="textbox ui-autocomplete-input" type="text">
+<input name="section1" value="Näringsliv" type="hidden">
+<input value="" name="submit" type="submit">
+</fieldset>
+</form>
+<script type="text/javascript">SvD.global.autocomplete("/naringsliv");</script>
+<!-- /SEARCH BOX -->
+<!-- NAVIGATION -->
+<div id="navigation">
+<ul id="mainnavigation">
+<li><a href="http://www.svd.se/" class="svd" onclick="s_objectID='mainNav_http%3A%2F%2Fwww.svd.se%2F';">SvD.se</a></li>
+<li class="selected"><a href="http://www.svd.se/naringsliv/" class="" onclick="s_objectID='mainNav_http%3A%2F%2Fwww.svd.se%2Fnaringsliv%2F';">Näringsliv</a></li>
+<li><a href="http://bors-nliv.svd.se/" class="" onclick="s_objectID='mainNav_http%3A%2F%2Fbors-nliv.svd.se%2F';" target="_blank">Börs</a></li>
+<li><a href="http://borsforum.svd.se/" class="" onclick="s_objectID='mainNav_http%3A%2F%2Fborsforum.svd.se';">Börsforum</a></li>
+<li><a href="http://www.svd.se/naringsliv/pengar/" class="" onclick="s_objectID='mainNav_http%3A%2F%2Fwww.svd.se%2Fnaringsliv%2Fpengar%2F';">Pengar</a></li>
+<li><a href="http://www.svd.se/naringsliv/sok-foretag/" class="" onclick="s_objectID='mainNav_http%3A%2F%2Fwww.svd.se%2Fnaringsliv%2Fsok-foretag%2F';">Sök företag</a></li>
+<li><a href="http://www.svd.se/naringsliv/motor/" class="" onclick="s_objectID='mainNav_http%3A%2F%2Fwww.svd.se%2Fnaringsliv%2Fmotor%2F';">Motor</a></li>
+<li><a href="http://www.svd.se/naringsliv/karriar/" class="" onclick="s_objectID='mainNav_http%3A%2F%2Fwww.svd.se%2Fnaringsliv%2Fkarriar%2F';">Karriär</a></li>
+<li class="last"><a href="http://www.svd.se/naringsliv/special/sajtkarta-naringsliv_7059581.svd" class="sitemap url-%3Fservice%3Dajax%26type%3Dsitemap" onclick="s_objectID='mainNav_http%3A%2F%2Fwww.svd.se%2Fnaringsliv%2Fspecial%2Fsajtkarta-naringsliv_7059581.svd';">A-Ö</a></li>
+</ul>
+
+</div>
+<!-- /NAVIGATION -->
+<script type="text/javascript">
+if(typeof jQuery!='undefined'){
+SvD.fixedAd.init();
+}
+</script>
+<div class="top-teaser blogg carousel auto-rotate"><ul><li style="height: 71px;"><a href="http://blog.svd.se/frobergsbilar/2014/11/20/jag-vantade-mig-mer-av-xc90/"><img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/coworkers_full_new_jonasfroberg_jona-sfroberg-127.png" alt="Jonas Fröberg"></a><h2><a title="”Jag väntade mig mer av XC90″" href="http://blog.svd.se/frobergsbilar/2014/11/20/jag-vantade-mig-mer-av-xc90/"><span class="vignette">Jonas Fröberg</span>”Jag väntade mig mer av XC90″</a></h2><p><a href="http://blog.svd.se/frobergsbilar/2014/11/20/jag-vantade-mig-mer-av-xc90/">Fröbergs bilar</a> |&nbsp;<a href="http://www.svd.se/opinion/blogg/">Alla bloggar</a></p></li></ul></div>
+</div>
+</div>
+<div id="ad-column" class="">
+<div class="ad ad-3115526">
+<div id="position3115526"></div>
+<script>
+if(!(SvD.ads.toSmallScreenForAdColumn(1024) && true)){
+if(!useBigBang)jQuery(document).bind(SvD.ads.events.SVD_PRIORITIZED_CONTENT_AND_ADS_LOADED, function(){EAS_load_fif('position3115526','http://www.svd.se/naringsliv/nyheter/?service=EAS_fif', 'http://ads.aftonbladet.se/eas?cu=513&EASTsection=naringsliv%7cnaringsliv_nyheter&EASInclude2=naringsliv%7cnaringsliv_nyheter&EASTpage=article&EASTomx=upp&kw1=article4131605&kw3=&cat1=&cat2=&cat3=&EASInclude=%2b0.36&EASTpw=&cre=mu&js=y&target=_blank&' + jQuery.param(EASParams),'0','0')});
+}
+</script>
+</div>
+<div class="ad ad-4110739">
+<div id="position4110739"></div>
+<script>
+if(!(SvD.ads.toSmallScreenForAdColumn(1024) && true)){
+if(!useBigBang)jQuery(document).bind(SvD.ads.events.SVD_PRIORITIZED_CONTENT_AND_ADS_LOADED, function(){EAS_load_fif('position4110739','http://www.svd.se/naringsliv/nyheter/?service=EAS_fif', 'http://ads.aftonbladet.se/eas?cu=1080&EASTsection=naringsliv%7cnaringsliv_nyheter&EASInclude2=naringsliv%7cnaringsliv_nyheter&EASTpage=article&EASTomx=upp&kw1=article4131605&kw3=&cat1=&cat2=&cat3=&EASInclude=%2b0.36&EASTpw=&cre=mu&js=y&target=_blank&' + jQuery.param(EASParams),'0','0')});
+}
+</script>
+</div>
+<div class="ad ad-3238590">
+<div id="position3238590"></div>
+<script>
+if(!(SvD.ads.toSmallScreenForAdColumn(1024) && true)){
+if(!useBigBang)jQuery(document).bind(SvD.ads.events.SVD_PRIORITIZED_CONTENT_AND_ADS_LOADED, function(){EAS_load_fif('position3238590','http://www.svd.se/naringsliv/nyheter/?service=EAS_fif', 'http://ads.aftonbladet.se/eas?cu=1066&EASTsection=naringsliv%7cnaringsliv_nyheter&EASInclude2=naringsliv%7cnaringsliv_nyheter&EASTpage=article&EASTomx=upp&kw1=article4131605&kw3=&cat1=&cat2=&cat3=&EASInclude=%2b0.36&EASTpw=&cre=mu&js=y&target=_blank&' + jQuery.param(EASParams),'0','0')});
+}
+</script>
+</div>
+<div class="ad ad-3248412">
+<div id="position3248412"></div>
+<script>
+if(!(SvD.ads.toSmallScreenForAdColumn(1024) && true)){
+if(!useBigBang)jQuery(document).bind(SvD.ads.events.SVD_PRIORITIZED_CONTENT_AND_ADS_LOADED, function(){EAS_load_fif('position3248412','http://www.svd.se/naringsliv/nyheter/?service=EAS_fif', 'http://ads.aftonbladet.se/eas?cu=1056&EASTsection=naringsliv%7cnaringsliv_nyheter&EASInclude2=naringsliv%7cnaringsliv_nyheter&EASTpage=article&EASTomx=upp&kw1=article4131605&kw3=&cat1=&cat2=&cat3=&EASInclude=%2b0.36&EASTpw=&cre=mu&js=y&target=_blank&' + jQuery.param(EASParams),'0','0')});
+}
+</script>
+</div>
+<div class="ad ad-3563064">
+<div id="position3563064"></div>
+<script>
+if(!(SvD.ads.toSmallScreenForAdColumn(1024) && true)){
+if(!useBigBang)jQuery(document).bind(SvD.ads.events.SVD_PRIORITIZED_CONTENT_AND_ADS_LOADED, function(){EAS_load_fif('position3563064','http://www.svd.se/naringsliv/nyheter/?service=EAS_fif', 'http://ads.aftonbladet.se/eas?cu=3031&EASTsection=naringsliv%7cnaringsliv_nyheter&EASInclude2=naringsliv%7cnaringsliv_nyheter&EASTpage=article&EASTomx=upp&kw1=article4131605&kw3=&cat1=&cat2=&cat3=&EASInclude=%2b0.36&EASTpw=&cre=mu&js=y&target=_blank&' + jQuery.param(EASParams),'0','0')});
+}
+</script>
+</div>
+</div>
+<script type="text/javascript">if(!useBigBang && !SvD.ads.toSmallScreenForAdColumn(1024)) SvD.ads.adColumnDelayedVisibility(1000);</script>
+<div id="content">
+<div style="position: relative;" id="main-content">
+<div id="section-content">
+<div id="article">
+<h1>
+Norsk oljeproduktion minskas inte
+</h1>
+<p class="preamble">
+Det är inte aktuellt för Norge att dra ned på oljeproduktionen, enligt 
+landets regering. Detta trots ett stort överutbud på världsmarknaden och
+ den senaste tidens prisras.
+</p>
+<div id="article-content">
+<p class="article-metadata">
+<span class="publishdate">
+24 november 2014 kl 15:40, uppdaterad: 24 november 2014 kl 16:18
+</span>
+</p>
+<div class="articlebody">
+<div class="articletext">
+<p><strong>Överutbudet på olja</strong> uppgår i den globala 
+konjunktursvackan till 800 000 fat per dag, enligt ryska beräkningar. På
+ torsdag samlas oljekartellen Opecs medlemmar för att slå fast framtida 
+produktionskvoter.</p>
+<p>Men vem som ska dra ned på produktionen för att skapa balans på marknaden är oklart.</p>
+<p>– Opec kan inte längre på egen hand kontrollera marknaden. Denna gång
+ måste också Ryssland, Norge och Mexiko bidra, säger Opec-landet Qatars 
+tidigare oljeminister Abdullah bin Hamad al-Attiyah till Bloomberg inför
+ mötet.</p>
+<div class="ad ad-3172666">
+<div id="position3172666"></div>
+<script>
+jQuery(document).bind(SvD.ads.events.SVD_PRIORITIZED_CONTENT_AND_ADS_LOADED, function(){EAS_load_fif('position3172666','http://www.svd.se/naringsliv/nyheter/?service=EAS_fif', 'http://ads.aftonbladet.se/eas?cu=518&EASTsection=naringsliv%7cnaringsliv_nyheter&EASInclude2=naringsliv%7cnaringsliv_nyheter&EASTpage=article&EASTomx=upp&kw1=article4131605&kw3=&cat1=&cat2=&cat3=&EASInclude=%2b0.36&EASTpw=&cre=mu&js=y&target=_blank&' + jQuery.param(EASParams),'0','0')});
+</script>
+</div>
+<p><strong>Att Norges regering</strong> tvekar över att bidra med 
+minskad produktion klargörs samtidigt i ett uttalande av det norska 
+departementets rådgivare Ella Bye Mørland till nyhetsbyrån NTB.</p>
+<p>Även i det norska stortinget är inställningen klar.</p>
+<p>– Ett sådant beslut måste tas på egna meriter och inte för att det 
+krävs av Opec eller andra. Vi är inte medlemmar i Opec och bör inte 
+uppträda som om vi vore det, säger Ola Elvestuen, ordförande i energi- 
+och miljöutskottet enligt NTB.</p>
+<p><strong>Förutom minskad</strong> efterfrågan i den svaga konjunkturen har överutbudet skapats av den kraftiga produktionsökningen av skifferolja i USA.</p>
+<div class="ad ad-3172668">
+<div id="position3172668"></div>
+<script>
+jQuery(document).bind(SvD.ads.events.SVD_PRIORITIZED_CONTENT_AND_ADS_LOADED, function(){EAS_load_fif('position3172668','http://www.svd.se/naringsliv/nyheter/?service=EAS_fif', 'http://ads.aftonbladet.se/eas?cu=1726&EASTsection=naringsliv%7cnaringsliv_nyheter&EASInclude2=naringsliv%7cnaringsliv_nyheter&EASTpage=article&EASTomx=upp&kw1=article4131605&kw3=&cat1=&cat2=&cat3=&EASInclude=%2b0.36&EASTpw=&cre=mu&js=y&target=_blank&' + jQuery.param(EASParams),'0','0')});
+</script>
+</div>
+</div>
+</div>
+<div class="section-news-list">
+<h2>Mer i ämnet</h2>
+<ul>
+<li>
+<span class="date">
+fr 14 nov
+</span>
+<a href="http://www.svd.se/naringsliv/branscher/energi-och-ravaror/lundin-varld-utan-olja-och-tillvaxt-en-fantasi_4100519.svd">
+Lundin: En värld utan olja är bara en fantasi
+</a>
+<p>
+<a href="http://www.svd.se/naringsliv/branscher/energi-och-ravaror/lundin-varld-utan-olja-och-tillvaxt-en-fantasi_4100519.svd">
+<span class="vignette"></span>
+Svensk oljemagnat kritisk till MP i regeringen.
+</a>
+</p>
+</li>
+<li>
+<span class="date">
+lö 8 nov
+</span>
+<a href="http://www.svd.se/naringsliv/kris-i-norska-oljeindustrin_4080093.svd">
+Kris i norsk oljeindustri – 7 000 har fått lämna
+</a>
+<p>
+<a href="http://www.svd.se/naringsliv/kris-i-norska-oljeindustrin_4080093.svd">
+<span class="vignette">Norge</span>
+Oljebolagen försöker desperat hitta möjligheter att spara.
+</a>
+</p>
+</li>
+<li>
+<span class="date">
+on 5 nov
+</span>
+<a href="http://www.svd.se/naringsliv/sjunkande-oljepris-fordel-for-lundin_4074195.svd">
+Sjunkande oljepris fördel för Lundin
+</a>
+<p>
+<a href="http://www.svd.se/naringsliv/sjunkande-oljepris-fordel-for-lundin_4074195.svd">
+<span class="vignette"></span>
+"Verkligen intressant för tillfället."
+</a>
+</p>
+</li>
+</ul>
+</div>
+</div>
+<div style="position: relative; min-height: 751px; padding-bottom: 16px;" id="article-additional">
+<ul class="article-tools">
+<li>
+<div fb-iframe-plugin-query="action=recommend&amp;app_id=120052334696503&amp;font=lucida%20grande&amp;href=http%3A%2F%2Fwww.svd.se%2Fnaringsliv%2Fnyheter%2Fnorsk-oljeproduktion-minskas-inte_4131605.svd&amp;layout=button_count&amp;locale=sv_SE&amp;sdk=joey&amp;send=false&amp;show_faces=false&amp;width=100" fb-xfbml-state="rendered" class="fb-like fb_iframe_widget" data-href="http://www.svd.se/naringsliv/nyheter/norsk-oljeproduktion-minskas-inte_4131605.svd" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-action="recommend" data-font="lucida grande"><span style="vertical-align: top; width: 0px; height: 0px; overflow: hidden;"><iframe class="hooalhgvcffghpqwmvwy" src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/like.html" style="border: medium none; visibility: visible; width: 0px; height: 0px;" title="fb:like Facebook Social Plugin" scrolling="no" allowtransparency="true" name="f23df77de2101e8" frameborder="0" height="1000px" width="100px"></iframe></span></div>
+</li>
+<li>
+<iframe style="width: 114px; height: 20px;" data-twttr-rendered="true" title="Twitter Tweet Button" class="twitter-share-button external-link twitter-tweet-button twitter-share-button twitter-count-horizontal hooalhgvcffghpqwmvwy" src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/tweet_button.html" allowtransparency="true" scrolling="no" id="twitter-widget-0" frameborder="0"></iframe>
+</li>
+<li>
+<script src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/in.js" type="text/javascript">
+lang: sv_SE
+</script>
+<script type="IN/Share" data-url="http://www.svd.se/naringsliv/nyheter/norsk-oljeproduktion-minskas-inte_4131605.svd" data-counter="right"></script>
+</li>
+<li>
+<div style="display: block;" id="clipboard-copy-container">
+<div id="clipboard-copy-button" class="url-http%3A%2F%2Fwww.svd.se%2Fnaringsliv%2Fnyheter%2Fnorsk-oljeproduktion-minskas-inte_4131605.svd%3Futm_source%3Dsharing%26utm_medium%3Dclipboard%26utm_campaign%3D20141124" title="Kopiera sidans adress till urklipp">Kopiera sidans adress</div>
+<div style="position: absolute; left: 0px; top: 0px; width: 145px; height: 19px; z-index: 99;"><embed title="Kopiera sidans adress till urklipp" id="ZeroClipboardMovie_1" src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/ZeroClipboard.swf" loop="false" menu="false" quality="best" bgcolor="#ffffff" name="ZeroClipboardMovie_1" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=1&amp;width=145&amp;height=19" wmode="transparent" height="19" width="145"></div></div>
+</li>
+</ul>
+<ul class="article-tools">
+<li class="inline">
+<a href="http://www.svd.se/naringsliv/nyheter/norsk-oljeproduktion-minskas-inte_4131605.svd?type=email#sendarticlebyemail" class="email" rel="nofollow">
+Tipsa en vän om den här artikeln
+</a>
+</li>
+<li class="inline">
+<a href="" rel="nofollow" class="print">
+Skriv ut
+</a>
+</li>
+<li class="inline">
+<a href="http://www.svd.se/naringsliv/nyheter/norsk-oljeproduktion-minskas-inte_4131605.svd?type=reportError#reporterror" class="reporterror" rel="nofollow">
+Anmäl
+</a>
+</li>
+<li class="inline">
+<a href="" class="text-size" rel="nofollow">
+Större text
+</a>
+</li>
+</ul>
+<div class="stock-info stock-info-default">
+<h2>Börsen</h2>
+<a target="_blank" href="http://bors-nliv.svd.se/"><img alt="börsgraf" src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/chart_002.png"></a><p><a class="title" target="_blank" href="http://bors-nliv.svd.se/">OMX Sthlm</a>, kl 16.07<br><span class="value positive">0,36%</span> 466,97 SEK</p><dl><dt>1 mån:</dt><dd>7,08%</dd><dt>Årsskiftet:</dt><dd>10,22%</dd></dl>
+</div>
+<div style="position: absolute; bottom: 0px;" id="related-articles">
+</div>
+<div class="content-switch logged-in">
+<div class="ad ad-3870650">
+<div id="position3870650"></div>
+<script>
+jQuery(document).bind(SvD.ads.events.SVD_PRIORITIZED_CONTENT_AND_ADS_LOADED, function(){EAS_load_fif('position3870650','http://www.svd.se/naringsliv/nyheter/?service=EAS_fif', 'http://ads.aftonbladet.se/eas?cu=3146&EASTsection=naringsliv%7cnaringsliv_nyheter&EASInclude2=naringsliv%7cnaringsliv_nyheter&EASTpage=article&EASTomx=upp&kw1=article4131605&kw3=&cat1=&cat2=&cat3=&EASInclude=%2b0.36&EASTpw=&cre=mu&js=y&target=_blank&' + jQuery.param(EASParams),'0','0')});
+</script>
+<noscript>
+<iframe src="http://ads.aftonbladet.se/eas?cu=3146&EASTsection=naringsliv%7cnaringsliv_nyheter&EASInclude2=naringsliv%7cnaringsliv_nyheter&EASTpage=article&EASTomx=upp&kw1=article4131605&kw3=&cat1=&cat2=&cat3=&EASInclude=%2b0.36&EASTpw=&cre=mu" scrolling="no" frameborder="0" marginheight="0" marginwidth="0">
+<a href="http://ads.aftonbladet.se/eas?cu=3146&EASTsection=naringsliv%7cnaringsliv_nyheter&EASInclude2=naringsliv%7cnaringsliv_nyheter&EASTpage=article&EASTomx=upp&kw1=article4131605&kw3=&cat1=&cat2=&cat3=&EASInclude=%2b0.36&EASTpw=&ty=ct">
+<img src="http://ads.aftonbladet.se/eas?cu=3146&EASTsection=naringsliv%7cnaringsliv_nyheter&EASInclude2=naringsliv%7cnaringsliv_nyheter&EASTpage=article&EASTomx=upp&kw1=article4131605&kw3=&cat1=&cat2=&cat3=&EASInclude=%2b0.36&EASTpw=&cre=img">
+</a>
+</iframe>
+</noscript>
+</div>
+</div>
+<div class="content-switch logged-out">
+<a href="https://kundservice.svd.se/1m0?utm_source=svdse&amp;utm_medium=faktaspalt&amp;utm_content=1m0&amp;utm_campaign=1m0&amp;kwsn=5067" style="float: right; margin: 53px 0 0 13px;" target="_blank">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/vandsida-145x200-utanlogga.gif" alt="2m_0" height="200" width="145">
+</a>
+</div>
+</div>
+<div class="byline">
+<ul class="share">
+<li>
+<div fb-iframe-plugin-query="action=recommend&amp;app_id=120052334696503&amp;font=lucida%20grande&amp;href=http%3A%2F%2Fwww.svd.se%2Fnaringsliv%2Fnyheter%2Fnorsk-oljeproduktion-minskas-inte_4131605.svd&amp;layout=button_count&amp;locale=sv_SE&amp;sdk=joey&amp;send=false&amp;show_faces=false&amp;width=145" fb-xfbml-state="rendered" class="fb-like fb_iframe_widget" data-href="http://www.svd.se/naringsliv/nyheter/norsk-oljeproduktion-minskas-inte_4131605.svd" data-send="false" data-layout="button_count" data-width="145" data-show-faces="false" data-action="recommend" data-font="lucida grande"><span style="vertical-align: top; width: 0px; height: 0px; overflow: hidden;"><iframe class="hooalhgvcffghpqwmvwy" src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/like_002.html" style="border: medium none; visibility: visible; width: 0px; height: 0px;" title="fb:like Facebook Social Plugin" scrolling="no" allowtransparency="true" name="f247541e8da0996" frameborder="0" height="1000px" width="145px"></iframe></span></div>
+</li>
+<li>
+<iframe style="width: 114px; height: 20px;" data-twttr-rendered="true" title="Twitter Tweet Button" class="twitter-share-button twitter-tweet-button twitter-share-button twitter-count-horizontal hooalhgvcffghpqwmvwy" src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/tweet_button_002.html" allowtransparency="true" scrolling="no" id="twitter-widget-1" frameborder="0"></iframe>
+</li>
+<li><iframe style="width: 205px; height: 20px;" data-twttr-rendered="true" title="Twitter Follow Button" class="twitter-follow-button twitter-follow-button hooalhgvcffghpqwmvwy" src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/follow_button.html" allowtransparency="true" scrolling="no" id="twitter-widget-2" frameborder="0"></iframe>
+</li>
+</ul>
+<p class="author">
+Stockholm TT
+</p>
+<p class="contact">
+<span class="phone"></span>
+<a href="mailto:" class="email"></a>
+</p>
+</div>
+<div style="margin-top:25px">
+<a id="prenumereralank" href="https://kundservice.svd.se/1m0?utm_source=nliv&amp;utm_medium=article&amp;utm_content=1m0&amp;utm_campaign=1m0&amp;kwsn=5067" target="_blank">
+<strong>Obegränsad tillgång till SvD digital</strong> – Just nu helt gratis i en månad!
+</a>
+<script type="text/javascript">
+if(location.href.indexOf("xtor=AD-500-")!=-1){
+jQuery("#prenumereralank").css("font-size","18px");
+}
+</script>
+</div>
+<!-- 3834870 Nliv -->
+<!-- /3834870 -->
+<div id="byline-ads">
+<div class="ad ad-3217056">
+<div id="position3217056"></div>
+<script>
+jQuery(document).bind(SvD.ads.events.SVD_PRIORITIZED_CONTENT_AND_ADS_LOADED, function(){EAS_load_fif('position3217056','http://www.svd.se/naringsliv/nyheter/?service=EAS_fif', 'http://ads.aftonbladet.se/eas?cu=2412&EASTsection=naringsliv%7cnaringsliv_nyheter&EASInclude2=naringsliv%7cnaringsliv_nyheter&EASTpage=article&EASTomx=upp&kw1=article4131605&kw3=&cat1=&cat2=&cat3=&EASInclude=%2b0.36&EASTpw=&cre=mu&js=y&target=_blank&' + jQuery.param(EASParams),'0','0')});
+</script>
+</div>
+<div class="ad ad-3870942 ">
+<iframe style="" class="hooalhgvcffghpqwmvwy" src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/eas.html" scrolling="no" marginheight="0" marginwidth="0" frameborder="0" height="300" width="655">&lt;a
+ target=_blank 
+href="http://ads.aftonbladet.se/eas?camp=105575;ty=ct"&gt;&lt;img 
+src="http://ads.aftonbladet.se/eas?camp=105575;cre=img;ord=_U_" 
+alt="EmediateAd" width="655" height="300" 
+style="border:0px"/&gt;&lt;/a&gt;</iframe>
+</div>
+</div>
+</div>
+</div>
+<div id="section-additional">
+<div class="content-switch logged-in">
+<div class="internal-ad">
+<a href="http://story.svd.se/murar/?utm_source=nliv&amp;utm_medium=rightbox_article&amp;utm_content=story&amp;utm_campaign=story" target="_blank">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/315x100_svdstory_europav2.gif" alt="esvd">
+</a>
+</div>
+</div>
+<div class="content-switch logged-out">
+<div class="internal-ad">
+<a href="https://kundservice.svd.se/1m0?utm_source=nliv&amp;utm_medium=rightbox_article&amp;utm_content=1m0&amp;utm_campaign=1m0&amp;kwsn=5067" target="_blank">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/vandsida-315x100.gif" alt="3_99">
+</a>
+</div>
+</div>
+<div style="width: 315px;" id="sticky">
+<div class="ad ad-3305744">
+<div id="position3305744"></div>
+<script>
+jQuery(document).bind(SvD.ads.events.SVD_PRIORITIZED_CONTENT_AND_ADS_LOADED, function(){EAS_load_fif('position3305744','http://www.svd.se/naringsliv/nyheter/?service=EAS_fif', 'http://ads.aftonbladet.se/eas?cu=1087&EASTsection=naringsliv%7cnaringsliv_nyheter&EASInclude2=naringsliv%7cnaringsliv_nyheter&EASTpage=article&EASTomx=upp&kw1=article4131605&kw3=&cat1=&cat2=&cat3=&EASInclude=%2b0.36&EASTpw=&cre=mu&js=y&target=_blank&' + jQuery.param(EASParams),'0','0')});
+</script>
+<noscript>
+<iframe src="http://ads.aftonbladet.se/eas?cu=1087&EASTsection=naringsliv%7cnaringsliv_nyheter&EASInclude2=naringsliv%7cnaringsliv_nyheter&EASTpage=article&EASTomx=upp&kw1=article4131605&kw3=&cat1=&cat2=&cat3=&EASInclude=%2b0.36&EASTpw=&cre=mu" scrolling="no" frameborder="0" marginheight="0" marginwidth="0">
+<a href="http://ads.aftonbladet.se/eas?cu=1087&EASTsection=naringsliv%7cnaringsliv_nyheter&EASInclude2=naringsliv%7cnaringsliv_nyheter&EASTpage=article&EASTomx=upp&kw1=article4131605&kw3=&cat1=&cat2=&cat3=&EASInclude=%2b0.36&EASTpw=&ty=ct">
+<img src="http://ads.aftonbladet.se/eas?cu=1087&EASTsection=naringsliv%7cnaringsliv_nyheter&EASInclude2=naringsliv%7cnaringsliv_nyheter&EASTpage=article&EASTomx=upp&kw1=article4131605&kw3=&cat1=&cat2=&cat3=&EASInclude=%2b0.36&EASTpw=&cre=img">
+</a>
+</iframe>
+</noscript>
+</div>
+<div class="news-list lp_feed id-1047158">
+<h2>Toppnyheter Näringsliv</h2>
+<ul>
+<li>
+<a href="http://www.svd.se/naringsliv/luxemburg-fortjanar-en-hel-del-kritik_4129381.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/Per-Lindvall995.jpg" title="FOTO: MALIN HOELSTAD/SVD. ." alt="" class="" height="96" width="145">
+</a>
+<h3>
+<a href="http://www.svd.se/naringsliv/luxemburg-fortjanar-en-hel-del-kritik_4129381.svd">
+Flera förtjänar kritik i skatteplaneringsfrågan
+</a></h3>
+<p>
+"Svenskt Näringsliv borde kunna markera gränsen tydligare.
+</p>	</li>
+<li class="">
+<a href="http://www.svd.se/naringsliv/motor/jattebra-bil-om-man-ar-elitgymnast_4102659.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/JF.jpg" title="" alt="" class="" height="96" width="145">
+</a>
+<h3>
+<a href="http://www.svd.se/naringsliv/motor/jattebra-bil-om-man-ar-elitgymnast_4102659.svd">
+”Jättebra bil – om man är elitgymnast”
+</a></h3>
+<p><a href="http://www.svd.se/naringsliv/motor/jattebra-bil-om-man-ar-elitgymnast_4102659.svd" class="added-anchor" target="_self">
+Nya BMW i8 kräver akrobatik. </a></p>	</li>
+<li class="">
+<a href="http://www.svd.se/naringsliv/brytpunkten-for-inkomstskatt-provas-inte_4130975.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/Pengar_002.jpg" title="FOTO: FREDRIK SANDBERG/TT." alt="" class="" height="96" width="145">
+</a>
+<h3>
+<a href="http://www.svd.se/naringsliv/brytpunkten-for-inkomstskatt-provas-inte_4130975.svd">
+Inga 3 000 extra för skattebetalarna
+</a></h3>
+<p><a href="http://www.svd.se/naringsliv/brytpunkten-for-inkomstskatt-provas-inte_4130975.svd" class="added-anchor" target="_self">
+Brytpunkten för inkomstskatt prövas inte. </a></p>	</li>
+</ul>
+</div>
+<div class="column-vignette" style="margin-top: 11px; padding-top: 10px; border-top: 1px solid #d8c9bf;">
+<a href="http://www.svd.se/naringsliv/satt-nlivse-som-startsida_7324619.svd"><img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/nliv-lila_1023954a.gif" alt="Gör nliv.se till din startsida"></a>
+</div>
+<div class="news-list lp_feed id-1047144">
+<h2>Mest läst</h2>
+<ul class="simple-numerical">
+<li>
+<a href="http://www.svd.se/naringsliv/nliv-misstanken-ryssland-testar-satellitdodare_4129451.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/nya-ryska-vapen-webb-02_002.jpg" title="" alt="" class="" height="50" width="76">
+</a>
+<span class="no">1</span>
+<a href="http://www.svd.se/naringsliv/nliv-misstanken-ryssland-testar-satellitdodare_4129451.svd">
+Världens modernaste stridsvagn är rysk
+</a>
+</li>
+<li class="">
+<a href="http://www.svd.se/naringsliv/harifran-gick-flygen-fore-bromma-och-arlanda-naringsliv_4100497.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/lindarngen-1930.jpg" title="FOTO: OKÄND. Här ännu en bild på hangaren från 1930-talet." alt="Här ännu en bild på hangaren från 1930-talet." class="" height="50" width="76">
+</a>
+<span class="no">2</span>
+<a href="http://www.svd.se/naringsliv/harifran-gick-flygen-fore-bromma-och-arlanda-naringsliv_4100497.svd">
+Hit gick flyg före Bromma och Arlanda
+</a>
+</li>
+<li class="">
+<a href="http://www.svd.se/naringsliv/pengar/sparande/inget-budgetbesked-fran-hogsta-ratt_4129007.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/deklaration_002.jpg" title="" alt="" class="" height="50" width="76">
+</a>
+<span class="no">3</span>
+<a href="http://www.svd.se/naringsliv/pengar/sparande/inget-budgetbesked-fran-hogsta-ratt_4129007.svd">
+Dom i dag kan ge tillbaka på skatten
+</a>
+</li>
+<li class="">
+<a href="http://www.svd.se/naringsliv/nyheter/varlden/sa-mycket-pengar-bloder-ryssland_4129815.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/russia.jpg" title="FOTO: ALEXEI BABUSHKIN /AP. Rysslands finansminister Anton Siluanov (till höger, till vänster Rysslands premiärminister Vladimir Putin)." alt="Rysslands finansminister Anton Siluanov (till höger, till vänster Rysslands premiärminister Vladimir Putin)." class="" height="50" width="76">
+</a>
+<span class="no">4</span>
+<a href="http://www.svd.se/naringsliv/nyheter/varlden/sa-mycket-pengar-bloder-ryssland_4129815.svd">
+Så många miljarder förlorar Ryssland
+</a>
+</li>
+<li>
+<a href="http://www.svd.se/naringsliv/verbal-strid-om-riksbankens-rantepolitik_4083645.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/Lars-eo-svensson.jpg" title="FOTO: MAGNUS HJALMARSON NEIDEMAN. Nationalekonomen Lars E O Svensson går till motattack på ekonomibloggen Ekonomistas" alt="Nationalekonomen Lars E O Svensson går till motattack på ekonomibloggen Ekonomistas" class="" height="50" width="76">
+</a>
+<span class="no">5</span>
+<a href="http://www.svd.se/naringsliv/verbal-strid-om-riksbankens-rantepolitik_4083645.svd">
+”Deras beräkningar är skakiga, inte mina”
+</a>
+</li>
+<li>
+<a href="http://www.svd.se/naringsliv/brytpunkten-for-inkomstskatt-provas-inte_4130975.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/Pengar.jpg" title="FOTO: FREDRIK SANDBERG/TT." alt="" class="" height="50" width="76">
+</a>
+<span class="no">6</span>
+<a href="http://www.svd.se/naringsliv/brytpunkten-for-inkomstskatt-provas-inte_4130975.svd">
+Inga 3 000 extra för skattebetalarna
+</a>
+</li>
+<li>
+<a href="http://www.svd.se/naringsliv/nyheter/varlden/vm-byggare-i-qatar-far-globalt-fackstod_4119957.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/qatar_arbetare1_002.jpg" title="FOTO: YVONNE ÅSELL/SVD. . Byggboomen inför fotbolls-vm 2022 har gjort att hundratusentals migrantarbetare från fattiga länder har rekryterats till Qatar. en del av dem SvD Näringsliv pratat med har inte fått ut den lön som lovats och de har blivit fråntagna sina pass.-" alt="Byggboomen inför fotbolls-vm 2022 har gjort att hundratusentals migrantarbetare från fattiga länder har rekryterats till Qatar. en del av dem SvD Näringsliv pratat med har inte fått ut den lön som lovats och de har blivit fråntagna sina pass.-" class="" height="50" width="76">
+</a>
+<span class="no">7</span>
+<a href="http://www.svd.se/naringsliv/nyheter/varlden/vm-byggare-i-qatar-far-globalt-fackstod_4119957.svd">
+Så ska VM-byggarna i Qatar få rättigheter
+</a>
+</li>
+<li>
+<a href="http://www.svd.se/naringsliv/sju-ryska-ubatar_4033283.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/Severodvinsk-bspec.jpg" title="FOTO: ARKIV. &lt;b&gt;Severodvinsk&lt;/b&gt;&lt;/br&gt;
+Severodvinsk är en rysk ubåt av Yasen-klass. Ryssland utvecklar just nu flera ubåtar av klassen som är tänkt att ersätta sovjeterans attackubåtar. Bygget av ubåtarna påbörjades i december 1993 men avbröts 1996 efter finansiella problem. 2003 återupptogs arbetet och i juli 2006 gick ryska försvarsdepartementet ut med uppgifter om att två Yasen-klassade ubåtar ska vara i bruk före 2015. Severodvinsk sjösattes 2011 och aktiverades i flottan i juni 2014. Flera nya ubåtar ska vara beställda. Utvecklingskostnaden uppges på Wikipedia vara 1,6 miljarder dollar." alt="&lt;b&gt;Severodvinsk&lt;/b&gt;&lt;/br&gt;
+Severodvinsk är en rysk ubåt av Yasen-klass. Ryssland utvecklar just nu flera ubåtar av klassen som är tänkt att ersätta sovjeterans attackubåtar. Bygget av ubåtarna påbörjades i december 1993 men avbröts 1996 efter finansiella problem. 2003 återupptogs arbetet och i juli 2006 gick ryska försvarsdepartementet ut med uppgifter om att två Yasen-klassade ubåtar ska vara i bruk före 2015. Severodvinsk sjösattes 2011 och aktiverades i flottan i juni 2014. Flera nya ubåtar ska vara beställda. Utvecklingskostnaden uppges på Wikipedia vara 1,6 miljarder dollar." class="" height="50" width="76">
+</a>
+<span class="no">8</span>
+<a href="http://www.svd.se/naringsliv/sju-ryska-ubatar_4033283.svd">
+Sju ryska ubåtar som just nu är i bruk
+</a>
+</li>
+<li>
+<a href="http://www.svd.se/naringsliv/teknisk-analys-investtech-fyra-jattar-analyserade_4119397.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/investtech-atlas-copco_002.jpg" title="" alt="" class="" height="50" width="76">
+</a>
+<span class="no">9</span>
+<a href="http://www.svd.se/naringsliv/teknisk-analys-investtech-fyra-jattar-analyserade_4119397.svd">
+Teknisk analys av fyra börsgiganter
+</a>
+</li>
+<li>
+<a href="http://www.svd.se/naringsliv/affarsjet-chefer-arga-over-hotande-brommastangning_4098151.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/bromma-Bengt-Grafstrom.jpg" title="FOTO: TOMAS ONEBORG." alt="" class="" height="50" width="76">
+</a>
+<span class="no">10</span>
+<a href="http://www.svd.se/naringsliv/affarsjet-chefer-arga-over-hotande-brommastangning_4098151.svd">
+Affärsjet-flygare arga över hotande stängning
+</a>
+</li>
+</ul>
+</div>
+<div class="news-list lp_feed id-1047152">
+<h2>Mest delat</h2>
+<ul class="simple-numerical">
+<li>
+<a href="http://www.svd.se/naringsliv/pengar/bostad/hetast-i-landet-och-iskallast_4126669.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/hemnetsearch.jpg" title="FOTO: FREDRIK SANDBERG/TT." alt="" class="" height="50" width="76">
+</a>
+<span class="no">1</span>
+<a href="http://www.svd.se/naringsliv/pengar/bostad/hetast-i-landet-och-iskallast_4126669.svd">
+Staden som är hetast i Sverige på Hemnet
+</a>
+</li>
+<li>
+<a href="http://www.svd.se/naringsliv/nyheter/varlden/vm-byggare-i-qatar-far-globalt-fackstod_4119957.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/qatar_arbetare1_002.jpg" title="FOTO: YVONNE ÅSELL/SVD. . Byggboomen inför fotbolls-vm 2022 har gjort att hundratusentals migrantarbetare från fattiga länder har rekryterats till Qatar. en del av dem SvD Näringsliv pratat med har inte fått ut den lön som lovats och de har blivit fråntagna sina pass.-" alt="Byggboomen inför fotbolls-vm 2022 har gjort att hundratusentals migrantarbetare från fattiga länder har rekryterats till Qatar. en del av dem SvD Näringsliv pratat med har inte fått ut den lön som lovats och de har blivit fråntagna sina pass.-" class="" height="50" width="76">
+</a>
+<span class="no">2</span>
+<a href="http://www.svd.se/naringsliv/nyheter/varlden/vm-byggare-i-qatar-far-globalt-fackstod_4119957.svd">
+Så ska VM-byggarna i Qatar få rättigheter
+</a>
+</li>
+<li>
+<span class="no">3</span>
+<a href="http://www.svd.se/naringsliv/digitalt/den-som-vet-mest-om-konsumenten-vinner_4118727.svd">
+”Så fort du är inloggad är du också registrerad”
+</a>
+</li>
+<li>
+<a href="http://www.svd.se/naringsliv/branscher/bank-och-fastighet/it-krasch-stangde-bank-i-en-manad_4127967.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/rbs.jpg" title="FOTO: MATT DUNHAM/TT. En av Royal Bank of Scotlands bankomater i London." alt="En av Royal Bank of Scotlands bankomater i London." class="" height="50" width="76">
+</a>
+<span class="no">4</span>
+<a href="http://www.svd.se/naringsliv/branscher/bank-och-fastighet/it-krasch-stangde-bank-i-en-manad_4127967.svd">
+It-haveri stängde ner bank – i en månad
+</a>
+</li>
+<li>
+<a href="http://www.svd.se/naringsliv/karriar/sa-nar-du-fram-med-ditt-budskap_4110755.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/Magnus_Kjel_002.jpg" title="FOTO: COACH2COACH. Magnus Kull och Kjell Enhager på företaget Coach2coach." alt="Magnus Kull och Kjell Enhager på företaget Coach2coach." class="" height="50" width="76">
+</a>
+<span class="no">5</span>
+<a href="http://www.svd.se/naringsliv/karriar/sa-nar-du-fram-med-ditt-budskap_4110755.svd">
+Så får du fram ditt budskap hela vägen
+</a>
+</li>
+</ul>
+</div>
+<div class="partner-box blocket-jobs-box">
+<h2>Lediga jobb från <a href="http://www.svd.se/naringsliv/karriar/sok-jobb/">Blocket Jobb</a></h2>
+<div class="search-box">
+<form action="http://www.svd.se/naringsliv/karriar/sok-jobb/" method="get">
+<fieldset>
+<input disabled="disabled" name="ca" value="11" type="hidden">
+<div class="field">
+<label for="search-query">Titel, yrkesområde eller företag</label>
+<input value="Titel, yrkesområde eller företag" id="search-query" name="q" class="single-input-with-submit" tabindex="1" type="text">
+</div>
+<div class="field">
+<input tabindex="29" id="searchbutton" value="Sök" type="submit">
+</div>
+</fieldset>
+</form>
+</div>
+<h3>Yrkesområde</h3>
+<p>
+<a href="http://www.svd.se/naringsliv/karriar/sok-jobb/?cg=9010">Administration &amp; HR</a>, <a href="http://www.svd.se/naringsliv/karriar/sok-jobb/?cg=9020">Bygg &amp; Hantverk</a>, <a href="http://www.svd.se/naringsliv/karriar/sok-jobb/?cg=9030">Data &amp; IT</a>, <a href="http://www.svd.se/naringsliv/karriar/sok-jobb/?cg=9040">Ekonomi/Finans/Juridik</a>, <a href="http://www.svd.se/naringsliv/karriar/sok-jobb/?cg=9050">Försäljning &amp; Marknad</a>, <a href="http://www.svd.se/naringsliv/karriar/sok-jobb/?cg=9060">Industri &amp; Transport</a>, <a href="http://www.svd.se/naringsliv/karriar/sok-jobb/?cg=9070">Media/Kultur/Reklam</a>, <a href="http://www.svd.se/naringsliv/karriar/sok-jobb/?cg=9080">Restaurang</a>, <a href="http://www.svd.se/naringsliv/karriar/sok-jobb/?cg=9090">Service &amp; Butik</a>, <a href="http://www.svd.se/naringsliv/karriar/sok-jobb/?cg=9100">Teknik &amp; Ingenjör</a>, <a href="http://www.svd.se/naringsliv/karriar/sok-jobb/?cg=9110">Utbildning</a>, <a href="http://www.svd.se/naringsliv/karriar/sok-jobb/?cg=9120">Vård/Hälsa/Skönhet</a>, <a href="http://www.svd.se/naringsliv/karriar/sok-jobb/?cg=9130">Övrigt</a>
+</p>
+<p class="partner-description">
+I samarbete med <a href="http://jobb.blocket.se/" target="_blank" rel="external">Blocket Jobb</a>
+</p>
+</div>	<div class="ad ad-3305728">
+<div id="position3305728"></div>
+<script>
+jQuery(document).bind(SvD.ads.events.SVD_PRIORITIZED_CONTENT_AND_ADS_LOADED, function(){EAS_load_fif('position3305728','http://www.svd.se/naringsliv/nyheter/?service=EAS_fif', 'http://ads.aftonbladet.se/eas?cu=1879&EASTsection=naringsliv%7cnaringsliv_nyheter&EASInclude2=naringsliv%7cnaringsliv_nyheter&EASTpage=article&EASTomx=upp&kw1=article4131605&kw3=&cat1=&cat2=&cat3=&EASInclude=%2b0.36&EASTpw=&cre=mu&js=y&target=_blank&' + jQuery.param(EASParams),'0','0')});
+</script>
+<noscript>
+<iframe src="http://ads.aftonbladet.se/eas?cu=1879&EASTsection=naringsliv%7cnaringsliv_nyheter&EASInclude2=naringsliv%7cnaringsliv_nyheter&EASTpage=article&EASTomx=upp&kw1=article4131605&kw3=&cat1=&cat2=&cat3=&EASInclude=%2b0.36&EASTpw=&cre=mu" scrolling="no" frameborder="0" marginheight="0" marginwidth="0">
+<a href="http://ads.aftonbladet.se/eas?cu=1879&EASTsection=naringsliv%7cnaringsliv_nyheter&EASInclude2=naringsliv%7cnaringsliv_nyheter&EASTpage=article&EASTomx=upp&kw1=article4131605&kw3=&cat1=&cat2=&cat3=&EASInclude=%2b0.36&EASTpw=&ty=ct">
+<img src="http://ads.aftonbladet.se/eas?cu=1879&EASTsection=naringsliv%7cnaringsliv_nyheter&EASInclude2=naringsliv%7cnaringsliv_nyheter&EASTpage=article&EASTomx=upp&kw1=article4131605&kw3=&cat1=&cat2=&cat3=&EASInclude=%2b0.36&EASTpw=&cre=img">
+</a>
+</iframe>
+</noscript>
+</div>
+</div>
+</div>
+</div>
+<div class="ad ad-3217058">
+<div id="position3217058"></div>
+<script>
+jQuery(document).bind(SvD.ads.events.SVD_PRIORITIZED_CONTENT_AND_ADS_LOADED, function(){EAS_load_fif('position3217058','http://www.svd.se/naringsliv/nyheter/?service=EAS_fif', 'http://ads.aftonbladet.se/eas?cu=1169&EASTsection=naringsliv%7cnaringsliv_nyheter&EASInclude2=naringsliv%7cnaringsliv_nyheter&EASTpage=article&EASTomx=upp&kw1=article4131605&kw3=&cat1=&cat2=&cat3=&EASInclude=%2b0.36&EASTpw=&cre=mu&js=y&target=_blank&' + jQuery.param(EASParams),'0','0')});
+</script>
+</div>
+<div id="updatenotice">
+SvD Näringslivs startsida har de senaste 15 minuterna uppdaterats med <strong> 1 uppdaterad </strong>
+artikel. <a href="http://www.svd.se/naringsliv">Gå till startsidan för SvD Näringsliv</a>.
+</div>
+<div id="section-teasers" class="naringsliv">
+<div class="zone-header">
+<h1>
+<a href="http://www.svd.se/naringsliv">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/zone_header_trans.png" alt="">
+<span></span>
+</a>
+</h1>
+</div>
+
+<div id="zone-top">
+</div>
+<div id="zone-1" class="zone zone-1 lp_zone1 lp_">
+<div class="grid-3-1-2">
+<div class="grid-column-1 colspan-3">
+<div class="newsarticle newsarticle-top ">
+<div class="image top">
+<a href="http://www.svd.se/naringsliv/luxemburg-fortjanar-en-hel-del-kritik_4129381.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/analysskatt.jpg" title="" alt="" class="" height="264" width="485">
+</a>
+<span class="vignette">analys | per lindvall</span>
+</div>
+<div class="content">
+<h2>
+<a href="http://www.svd.se/naringsliv/luxemburg-fortjanar-en-hel-del-kritik_4129381.svd">
+Flera förtjänar kritik i skatteplaneringsfrågan
+</a></h2>
+<p>"Svenskt Näringsliv borde kunna markera gränsen tydligare."</p>
+<ul class="related-content">
+<li>
+<p>
+<a href="http://www.svd.se/naringsliv/kraver-tuffare-utredning-av-luxemburgharva_4122839.svd">
+Ökat tryck på Juncker att stoppa fifflet
+</a>
+</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="newsarticle lp_pos1">
+<h2>
+<a href="http://www.svd.se/naringsliv/nyheter/norsk-oljeproduktion-minskas-inte_4131605.svd">
+Norge drar inte ner på oljan
+</a>
+</h2>
+<div class="content">
+<p>Inte aktuellt att dra ned på oljeproduktionen, enligt regeringen.</p>
+</div>
+</div>
+<div class="newsarticle lp_pos2">
+<div class="image left">
+<a href="http://www.svd.se/naringsliv/jattebra-bil-om-man-ar-elitgymnast_4102659.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/JF_002.jpg" title="" alt="" class="" height="96" width="145">
+</a>
+<span class="type type-video"><span>Webb-tv</span></span>
+</div>
+<h2>
+<a href="http://www.svd.se/naringsliv/jattebra-bil-om-man-ar-elitgymnast_4102659.svd">
+”Jättebra bil – om <br>man är elitgymnast”
+</a>
+</h2>
+<div class="content">
+<span class="vignette">Fröberg testar</span>
+<p>Nya BMW i8 kräver akrobatik.</p>
+</div>
+</div>
+<div class="newsarticle lp_pos3">
+<div class="image left">
+<a href="http://www.svd.se/naringsliv/brytpunkten-for-inkomstskatt-provas-inte_4130975.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/Pengar_002.jpg" title="FOTO: FREDRIK SANDBERG/TT." alt="" class="" height="96" width="145">
+</a>
+</div>
+<h2>
+<a href="http://www.svd.se/naringsliv/brytpunkten-for-inkomstskatt-provas-inte_4130975.svd">
+Inga 3 000 extra för skattebetalarna
+</a>
+</h2>
+<div class="content">
+<p>Brytpunkten för inkomstskatt prövas inte.</p>
+</div>
+</div>
+<div class="newsarticle lp_pos4">
+<div class="image left">
+<a href="http://www.svd.se/naringsliv/vm-arbetare-strejkar-i-qatar_4130183.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/arena.jpg" title="FOTO: BRUNO MAGALHAES/AP. . Trots löften om bättring från organisationskommittén bakom Qatars VM-ansökan kommer nu nya avslöjanden – arbetarna som byggt kommitténs lyxiga kontor har inte fått lön på mer än ett år. Bilden föreställer Arena do Jacare stadium i Brasilien, ett annat mästerskap som fick utstå kritik." alt="Trots löften om bättring från organisationskommittén bakom Qatars VM-ansökan kommer nu nya avslöjanden – arbetarna som byggt kommitténs lyxiga kontor har inte fått lön på mer än ett år. Bilden föreställer Arena do Jacare stadium i Brasilien, ett annat mästerskap som fick utstå kritik." class="" height="96" width="145">
+</a>
+</div>
+<h2>
+<a href="http://www.svd.se/naringsliv/vm-arbetare-strejkar-i-qatar_4130183.svd">
+VM-arbetare strejkar för högre löner
+</a>
+</h2>
+<div class="content">
+<p>Efter SvD:s avslöjande: Protester i Qatar.</p>
+</div>
+<div class="newsarticle">
+<div class="image right">
+<a href="http://www.svd.se/naringsliv/vm-byggare-i-qatar-far-globalt-fackstod_4119957.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/qatar_arbetare1_002.jpg" title="FOTO: YVONNE ÅSELL/SVD. . Byggboomen inför fotbolls-vm 2022 har gjort att hundratusentals migrantarbetare från fattiga länder har rekryterats till Qatar. en del av dem SvD Näringsliv pratat med har inte fått ut den lön som lovats och de har blivit fråntagna sina pass." alt="Byggboomen inför fotbolls-vm 2022 har gjort att hundratusentals migrantarbetare från fattiga länder har rekryterats till Qatar. en del av dem SvD Näringsliv pratat med har inte fått ut den lön som lovats och de har blivit fråntagna sina pass." class="" height="50" width="76">
+</a>
+</div>
+<h3>
+<a href="http://www.svd.se/naringsliv/vm-byggare-i-qatar-far-globalt-fackstod_4119957.svd">
+Så ska VM-byggarna få rättigheter
+</a></h3>
+<div class="content">
+<span class="vignette">Avslöjande</span>
+<p>
+SvD var med vid hemliga möten.
+</p>
+<ul class="related-content">
+<li>
+<p>
+<a href="http://www.svd.se/naringsliv/nyheter/varlden/arenor-idrotten-blundar-for-slavbyggen_8730646.svd?sidan=1">
+<span class="vignette">svd granskar</span>
+Idrotten blundar för slavbyggen
+</a>
+</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="newsarticle lp_pos5">
+<div class="image left">
+<a href="http://www.svd.se/naringsliv/fransk-stamning-av-netflix_4130659.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/netflix.jpeg" title="FOTO: SCANPIX." alt="" class="" height="96" width="145">
+</a>
+</div>
+<h2>
+<a href="http://www.svd.se/naringsliv/fransk-stamning-av-netflix_4130659.svd">
+Franska konsumenter<br>stämmer Netflix
+</a>
+</h2>
+<div class="content">
+<span class="vignette">Streaming</span>
+<p>Menar att tjänsten är "försåtlig."</p>
+</div>
+</div>
+<div class="newsarticle newsarticle-top lp_pos6">
+<div class="image top">
+<a href="http://www.svd.se/naringsliv/sa-har-amorteringskravet-paverkat-visningarna_4130661.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/lgenhetsvisning.jpg" title="FOTO: FOTO: ERIK OLSSON FASTIGHETSFÖRMEDLING." alt="" class="" height="264" width="485">
+</a>
+<span class="vignette">bostad</span>
+</div>
+<div class="content">
+<h2>
+<a href="http://www.svd.se/naringsliv/sa-har-amorteringskravet-paverkat-visningarna_4130661.svd">
+”En förvirrad känsla <br>– men stark efterfrågan”
+</a></h2>
+<p>Så har amorteringskravet märkts av på bostadsvisningarna.</p>
+</div>
+</div>
+<div class="newsarticle lp_pos7">
+<div class="image left">
+<a href="http://www.svd.se/naringsliv/nliv-misstanken-ryssland-testar-satellitdodare_4129451.svd?sidan=1">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/nya-ryska-vapen-webb-02.jpg" title="" alt="" class="" height="96" width="145">
+</a>
+</div>
+<h2>
+<a href="http://www.svd.se/naringsliv/nliv-misstanken-ryssland-testar-satellitdodare_4129451.svd?sidan=1">
+Världens modernaste stridsvagn är rysk
+</a>
+</h2>
+<div class="content">
+<span class="vignette">grafik</span>
+<p>Stor fruktan för Rysslands nya vapen.</p>
+</div>
+<div class="newsarticle">
+<div class="image right">
+<a href="http://www.svd.se/nyheter/utrikes/oro-vaxer-rymden-kan-fyllas-med-vapen_4122909.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/t.jpg" title="" alt="" class="" height="50" width="76">
+</a>
+</div>
+<h3>
+<a href="http://www.svd.se/nyheter/utrikes/oro-vaxer-rymden-kan-fyllas-med-vapen_4122909.svd">
+Rymden kan fyllas med vapen
+</a>
+</h3>
+<div class="content">
+<p>
+FOI: Väldigt viktigt att förhindra en sådan kapprustning.
+</p>
+<ul class="related-content">
+</ul>
+</div>
+</div>
+</div>
+<div class="newsarticle lp_pos8">
+<div class="image left">
+<a href="http://www.svd.se/naringsliv/sa-mycket-pengar-bloder-ryssland_4129815.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/russia_002.jpg" title="FOTO: ALEXEI BABUSHKIN /AP. Rysslands finansminister Anton Siluanov (till höger, till vänster Rysslands premiärminister Vladimir Putin) för att skatterna måste höjas." alt="Rysslands finansminister Anton Siluanov (till höger, till vänster Rysslands premiärminister Vladimir Putin) för att skatterna måste höjas." class="" height="96" width="145">
+</a>
+</div>
+<h2>
+<a href="http://www.svd.se/naringsliv/sa-mycket-pengar-bloder-ryssland_4129815.svd">
+Så många miljarder<br>förlorar Ryssland
+</a>
+</h2>
+<div class="content">
+<span class="vignette">Statsfinanser</span>
+<p>Sanktioner och prisras skadar.</p>
+</div>
+</div>
+<div class="newsarticle lp_pos9">
+<div class="image left">
+<a href="http://www.svd.se/naringsliv/odesdagar-for-juncker-i-eu_4129941.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/Jean-Claude-Juncker.jpg" title="FOTO: VIRGINIA MAYO/AP. EU-kommissionens ordförande Jean-Claude Juncker var tidigare premiär- och finansminister i Luxemburg." alt="EU-kommissionens ordförande Jean-Claude Juncker var tidigare premiär- och finansminister i Luxemburg." class="" height="96" width="145">
+</a>
+</div>
+<h2>
+<a href="http://www.svd.se/naringsliv/odesdagar-for-juncker-i-eu_4129941.svd">
+Juncker pressas att få fart på EU:s ekonomi
+</a>
+</h2>
+<div class="content">
+<p>Flera frågetecken kring investeringsprogram.</p>
+</div>
+</div>
+<div class="newsarticle lp_pos10">
+<div class="image left">
+<a href="http://www.svd.se/naringsliv/schweiz-folkomrostar-om-guldinnehav_4129389.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/guld%2520guldtackor.jpeg" title="FOTO: KAMRAN JEBREILI/SCANPIX. Guld är inte längre en bombsäker investering." alt="Guld är inte längre en bombsäker investering." class="" height="96" width="145">
+</a>
+</div>
+<h2>
+<a href="http://www.svd.se/naringsliv/schweiz-folkomrostar-om-guldinnehav_4129389.svd">
+Schweizarna röstar<br>om sitt guldägande
+</a>
+</h2>
+<div class="content">
+<span class="vignette">Tillgångar</span>
+<p>Kontroversiellt förslag motarbetas.</p>
+</div>
+</div>
+<div class="newsarticle lp_pos11">
+<div class="image left">
+<a href="http://www.svd.se/naringsliv/ny-kritik-mot-feds-new-york-bank_4127461.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/dudley.jpg" title="FOTO: RICHARD DREW/TT. Feds New York-chef William Dudley under en tv-intervju." alt="Feds New York-chef William Dudley under en tv-intervju." class="" height="96" width="145">
+</a>
+</div>
+<h2>
+<a href="http://www.svd.se/naringsliv/ny-kritik-mot-feds-new-york-bank_4127461.svd">
+Fed-chef anklagas för flathet mot bankerna
+</a>
+</h2>
+<div class="content">
+<span class="vignette">New York</span>
+<p>"Underdåniga snarare än kritiska".</p>
+</div>
+</div>
+<div class="newsarticle lp_pos12">
+<div class="image left">
+<a href="http://www.svd.se/naringsliv/lasarbilder-vralak-och-alskade-skrothogar_3861114.svd?sidan=20">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/BMW1500.jpg" title="FOTO: PRIVAT. ”Jag kör omkring med min 1500 på Öland på somrarna och bilen får beundrande blickar och kommentarer.  En unik detalj inuti bilen är att originalplasten sitter kvar på tre av dörrarnas insidor”, skriver Lennart Ejewall i sitt mejl till SvD Bil &amp; Motor." alt="”Jag kör omkring med min 1500 på Öland på somrarna och bilen får beundrande blickar och kommentarer.  En unik detalj inuti bilen är att originalplasten sitter kvar på tre av dörrarnas insidor”, skriver Lennart Ejewall i sitt mejl till SvD Bil &amp; Motor." class="" height="96" width="145">
+</a>
+</div>
+<h2>
+<a href="http://www.svd.se/naringsliv/lasarbilder-vralak-och-alskade-skrothogar_3861114.svd?sidan=20">
+”Elegant utan att <br>vara överdriven”
+</a>
+</h2>
+<div class="content">
+<span class="vignette">Läsarbilder</span>
+<p>Sann bilpoesi om BMW 1500.</p>
+</div>
+</div>
+<div class="newsarticle lp_pos13">
+<div class="image left">
+<a href="http://www.svd.se/naringsliv/inget-budgetbesked-fran-hogsta-ratt_4129007.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/deklaration.jpg" title="" alt="" class="" height="96" width="145">
+</a>
+</div>
+<h2>
+<a href="http://www.svd.se/naringsliv/inget-budgetbesked-fran-hogsta-ratt_4129007.svd">
+Dom i dag kan ge<br>tillbaka på skatten
+</a>
+</h2>
+<div class="content">
+<span class="vignette">Inkomstskatt</span>
+<p>900 000 svenskar får besked.</p>
+</div>
+</div>
+<div class="newsarticle newsarticle-top lp_pos14">
+<div class="image top">
+<a href="http://www.svd.se/naringsliv/vm-byggare-i-qatar-far-globalt-fackstod_4119957.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/qatar_arbetare1.jpg" title="FOTO: YVONNE ÅSELL/SVD. . Byggboomen inför fotbolls-vm 2022 har gjort att hundratusentals migrantarbetare från fattiga länder har rekryterats till Qatar. en del av dem SvD Näringsliv pratat med har inte fått ut den lön som lovats och de har blivit fråntagna sina pass." alt="Byggboomen inför fotbolls-vm 2022 har gjort att hundratusentals migrantarbetare från fattiga länder har rekryterats till Qatar. en del av dem SvD Näringsliv pratat med har inte fått ut den lön som lovats och de har blivit fråntagna sina pass." class="" height="264" width="485">
+</a>
+<span class="vignette">svd avslöjar</span>
+</div>
+<div class="content">
+<h2>
+<a href="http://www.svd.se/naringsliv/vm-byggare-i-qatar-far-globalt-fackstod_4119957.svd">
+Så ska VM-byggarna <br>i Qatar få rättigheter
+</a></h2>
+<p>SvD Näringsliv var med under de hemliga mötena.</p>
+</div>
+<div class="newsarticle">
+<h3>
+<a href="http://www.svd.se/naringsliv/nyheter/varlden/qatar-migrant-workers-get-global-union-support_4125461.svd">
+Migrant workers get global union support
+</a></h3>
+<div class="content">
+<p>
+Qatar workers will be given the opportunity to belong to a union.
+</p>
+</div>
+</div>
+</div>
+<div class="newsarticle lp_pos15">
+<div class="image left">
+<a href="http://www.svd.se/naringsliv/af-stoppar-meningslost-jobbsokande_4128959.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/arbetsform.jpeg" title="FOTO: SCANPIX. För att fler ska slippa gå hit behöver anställningsförhållandena bli mer flexibla, menar Svenskt Näringsliv och Företagarna." alt="För att fler ska slippa gå hit behöver anställningsförhållandena bli mer flexibla, menar Svenskt Näringsliv och Företagarna." class="" height="96" width="145">
+</a>
+</div>
+<h2>
+<a href="http://www.svd.se/naringsliv/af-stoppar-meningslost-jobbsokande_4128959.svd">
+AF stoppar jobbsök<br>som är ”meningslöst”
+</a>
+</h2>
+<div class="content">
+<span class="vignette">Karriär</span>
+<p>Regel om föreslagna jobb slopas.</p>
+</div>
+</div>
+<div class="newsarticle lp_pos16">
+<div class="image left">
+<a href="http://www.svd.se/naringsliv/skl-om-traineejobb-pengar-i-sjon_4129123.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/ldreboende.jpeg" title="FOTO: JESSICA GOW / TT. Många som bor på äldreboenden kan inte följa OS-sändningarna från Sotji." alt="Många som bor på äldreboenden kan inte följa OS-sändningarna från Sotji." class="" height="96" width="145">
+</a>
+</div>
+<h2>
+<a href="http://www.svd.se/naringsliv/skl-om-traineejobb-pengar-i-sjon_4129123.svd">
+SKL sågar planerna<br>på nya traineejobb
+</a>
+</h2>
+<div class="content">
+<span class="vignette">Jobb</span>
+<p>"Det riskerar att bli pengar i sjön."</p>
+</div>
+</div>
+<div class="newsarticle lp_pos17">
+<div class="image left">
+<a href="http://www.svd.se/naringsliv/lag-tillvaxt-for-kopcentrum_4129053.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/Kpcentrum.jpg" title="FOTO: HENRIK MONTGOMERY/TT. Kista galleria." alt="Kista galleria." class="" height="96" width="145">
+</a>
+</div>
+<h2>
+<a href="http://www.svd.se/naringsliv/lag-tillvaxt-for-kopcentrum_4129053.svd">
+Svenska köpcentrum visar på låg tillväxt
+</a>
+</h2>
+<div class="content">
+<span class="vignette">HUI</span>
+<p>Tappar mark mot andra handelskanaler.</p>
+</div>
+</div>
+<div class="newsarticle lp_pos18">
+<h2>
+<a href="http://www.svd.se/naringsliv/detta-hander-24-november_4128987.svd">
+Detta händer 24 november
+</a>
+</h2>
+<div class="content">
+<span class="vignette">Dagens agenda</span>
+<p>Tal av Cecilia Skingsley samt arbetslöshetssiffror.</p>
+</div>
+</div>
+<div class="newsarticle lp_pos19">
+<div class="image left">
+<a href="http://www.svd.se/naringsliv/verbal-strid-om-riksbankens-rantepolitik_4083645.svd?sidan=7">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/Lars-eo-svensson_002.jpg" title="FOTO: MAGNUS HJALMARSON NEIDEMAN. Nationalekonomen Lars E O Svensson går till motattack på ekonomibloggen Ekonomistas" alt="Nationalekonomen Lars E O Svensson går till motattack på ekonomibloggen Ekonomistas" class="" height="96" width="145">
+</a>
+</div>
+<h2>
+<a href="http://www.svd.se/naringsliv/verbal-strid-om-riksbankens-rantepolitik_4083645.svd?sidan=7">
+”Deras beräkningar är skakiga, inte mina”
+</a>
+</h2>
+<div class="content">
+<p>E O Svensson till motattack i "Lars-kampen".</p>
+</div>
+</div>
+<div class="newsarticle lp_pos20">
+<div class="image left">
+<a href="http://www.svd.se/naringsliv/miljobilskriget-rasar-men-resurser-saknas_4119415.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/Jonas-Frberg-NY.jpg" title="Jonas Fröberg." alt="Jonas Fröberg." class="" height="96" width="145">
+</a>
+</div>
+<h2>
+<a href="http://www.svd.se/naringsliv/miljobilskriget-rasar-men-resurser-saknas_4119415.svd">
+Teknikkrig väntar om framtidens miljöbil
+</a>
+</h2>
+<div class="content">
+<p>Stora pengar pengar krävs oavsett teknikval.</p>
+</div>
+</div>
+<div class="newsarticle newsarticle-top lp_pos21">
+<div class="image top">
+<a href="http://www.svd.se/naringsliv/darfor-slar-laga-rantor-mot-din-pension_4121947.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/fridavinjett.jpg" title="" alt="" class="" height="264" width="485">
+</a>
+<span class="vignette">Perspektiv | Frida Andersson</span>
+</div>
+<div class="content">
+<h2>
+<a href="http://www.svd.se/naringsliv/darfor-slar-laga-rantor-mot-din-pension_4121947.svd">
+Livbolagen får svårt att leverera i lågränteläget
+</a></h2>
+<p>Viktigt att veta vad du vill med dina pensionspengar.</p>
+</div>
+</div>
+<div class="newsarticle lp_pos22">
+<div class="image left">
+<a href="http://www.svd.se/naringsliv/lonekartlaggning-far-rott-ljus-av-do_4121235.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/Sandvik.jpg" title="FOTO: LARS PEHRSON. Sandviken med vd Olof Faxander är ett av många bolag som behöver se över företagets lönestruktur" alt="Sandviken med vd Olof Faxander är ett av många bolag som behöver se över företagets lönestruktur" class="" height="96" width="145">
+</a>
+</div>
+<h2>
+<a href="http://www.svd.se/naringsliv/lonekartlaggning-far-rott-ljus-av-do_4121235.svd">
+Kartläggning av löner saknar könsanalysen
+</a>
+</h2>
+<div class="content">
+<span class="vignette">Jämställdhet</span>
+<p>De flesta företag underkänns.</p>
+</div>
+</div>
+<div class="newsarticle lp_pos23">
+<div class="image left">
+<a href="http://www.svd.se/naringsliv/nyheter/farre-dor-men-fler-vill-begrava_4128275.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/begravning.jpg" title="FOTO: PONTUS LUNDAHL/TT." alt="" class="" height="96" width="145">
+</a>
+</div>
+<h2>
+<a href="http://www.svd.se/naringsliv/nyheter/farre-dor-men-fler-vill-begrava_4128275.svd">
+Begravningsbyråer går trögt – färre dör
+</a>
+</h2>
+<div class="content">
+<p>"Många tror att man tjänar mycket pengar".</p>
+</div>
+</div>
+<div class="newsarticle lp_pos24">
+<div class="image left">
+<a href="http://www.svd.se/naringsliv/nyheter/farre-vill-ha-pengar-som-prasslar_4128143.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/cash.jpg" title="FOTO: FREDRIK SANDBERG/TT." alt="" class="" height="96" width="145">
+</a>
+</div>
+<h2>
+<a href="http://www.svd.se/naringsliv/nyheter/farre-vill-ha-pengar-som-prasslar_4128143.svd">
+Svenskarna vill inte ha pengar på fickan
+</a>
+</h2>
+<div class="content">
+<p>Om tre år blir dina nuvarande sedlar värdelösa.</p>
+</div>
+</div>
+<div class="newsarticle lp_pos25">
+<div class="image left">
+<a href="http://www.svd.se/naringsliv/doldisen-som-tar-sig-an-den-svenska-skolkrisen_4120965.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/Johanna_Jaara_Astrand.jpg" title="FOTO: MIKAEL JOHANSSON. Johanna Jaara Åstrand är ny förbundsordförande i Lärarförbundet efter Eva-Lis Sirén." alt="Johanna Jaara Åstrand är ny förbundsordförande i Lärarförbundet efter Eva-Lis Sirén." class="" height="96" width="145">
+</a>
+</div>
+<h2>
+<a href="http://www.svd.se/naringsliv/doldisen-som-tar-sig-an-den-svenska-skolkrisen_4120965.svd">
+Doldis tar sig an den svenska skolkrisen
+</a>
+</h2>
+<div class="content">
+<span class="vignette">Lärarförbundet</span>
+<p>Tar över efter Eva-Lis Sirén.</p>
+</div>
+</div>
+<div class="newsarticle lp_pos26">
+<div class="image left">
+<a href="http://www.svd.se/naringsliv/sa-nar-du-fram-med-ditt-budskap_4110755.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/Magnus_Kjel.jpg" title="FOTO: COACH2COACH. Magnus Kull och Kjell Enhager på företaget Coach2coach." alt="Magnus Kull och Kjell Enhager på företaget Coach2coach." class="" height="96" width="145">
+</a>
+</div>
+<h2>
+<a href="http://www.svd.se/naringsliv/sa-nar-du-fram-med-ditt-budskap_4110755.svd">
+Så får du fram ditt budskap hela vägen
+</a>
+</h2>
+<div class="content">
+<p>Växande intresse i Sverige för NLP-metodiken.</p>
+</div>
+</div>
+<div class="newsarticle newsarticle-top lp_pos27">
+<div class="image top">
+<a href="http://www.svd.se/naringsliv/den-som-vet-mest-om-konsumenten-vinner_4118727.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/bocker.jpg" title="FOTO: SVD." alt="" class="" height="264" width="485">
+</a>
+<span class="vignette">Krönika | Jan Scherman</span>
+</div>
+<div class="content">
+<h2>
+<a href="http://www.svd.se/naringsliv/den-som-vet-mest-om-konsumenten-vinner_4118727.svd">
+”Så fort du är inloggad <br>är du också registrerad”
+</a></h2>
+<p>"Koll på kunden" en livsviktig annonsaffär för krisande medier.</p>
+</div>
+</div>
+<div class="newsarticle lp_pos28">
+<div class="image left">
+<a href="http://www.svd.se/naringsliv/it-krasch-stangde-bank-i-en-manad_4127967.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/rbs_002.jpg" title="FOTO: MATT DUNHAM/TT. En av Royal Bank of Scotlands bankomater i London." alt="En av Royal Bank of Scotlands bankomater i London." class="" height="96" width="145">
+</a>
+</div>
+<h2>
+<a href="http://www.svd.se/naringsliv/it-krasch-stangde-bank-i-en-manad_4127967.svd">
+It-haveri stängde ner bank – i en månad
+</a>
+</h2>
+<div class="content">
+<p>Tvingas böta 650 miljoner kronor för fiaskot.</p>
+</div>
+</div>
+<div class="newsarticle lp_pos29">
+<div class="image left">
+<a href="http://www.svd.se/naringsliv/oktoberfestreklam-falld-for-lattkladda-olflickor_4123693.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/Oktoberfest.jpg" title="FOTO: MATTHIAS SCHRADER/AP." alt="" class="" height="96" width="145">
+</a>
+</div>
+<h2>
+<a href="http://www.svd.se/naringsliv/oktoberfestreklam-falld-for-lattkladda-olflickor_4123693.svd">
+Festreklam fälld för<br>lättklädda ölflickor
+</a>
+</h2>
+<div class="content">
+<span class="vignette">Urringat</span>
+<p>"Framställs som rena sexobjekt".</p>
+</div>
+</div>
+<div class="newsarticle lp_pos30">
+<div class="image left">
+<a href="http://www.svd.se/naringsliv/teknisk-analys-investtech-fyra-jattar-analyserade_4119397.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/investtech-atlas-copco.jpg" title="" alt="" class="" height="96" width="145">
+</a>
+</div>
+<h2>
+<a href="http://www.svd.se/naringsliv/teknisk-analys-investtech-fyra-jattar-analyserade_4119397.svd">
+Teknisk analys av<br>fyra börsgiganter
+</a>
+</h2>
+<div class="content">
+<span class="vignette">Investtech</span>
+<p>Rekommenderas köp eller sälj?</p>
+</div>
+</div>
+<div class="newsarticle lp_pos31">
+<div class="image left">
+<a href="http://www.svd.se/naringsliv/ny-taglinje-ska-lanka-ihop-kina-med-madrid_4125043.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/trains.jpg" title="FOTO: FABIAN BIMMER/TT. Den nya tågsträcken kommer att passera Kazakstan, Ryssland, Vitryssland, Polen, Tyskland och Frankrike på väg mellan Kina och Spanien." alt="Den nya tågsträcken kommer att passera Kazakstan, Ryssland, Vitryssland, Polen, Tyskland och Frankrike på väg mellan Kina och Spanien." class="" height="96" width="145">
+</a>
+</div>
+<h2>
+<a href="http://www.svd.se/naringsliv/ny-taglinje-ska-lanka-ihop-kina-med-madrid_4125043.svd">
+Ny linje kopplar ihop Kina – med Madrid
+</a>
+</h2>
+<div class="content">
+<p>Världens längsta tågsträcka: 13 000 kilometer.</p>
+</div>
+</div>
+<div class="newsarticle lp_pos32">
+<div class="image left">
+<a href="http://www.svd.se/naringsliv/allt-fran-bilsalongen-i-la_4118889.svd?sidan=6">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/froberg-la.jpg" title="" alt="" class="" height="96" width="145">
+</a>
+</div>
+<h2>
+<a href="http://www.svd.se/naringsliv/allt-fran-bilsalongen-i-la_4118889.svd?sidan=6">
+”Miljöbilen används bara som ett pr-trick”
+</a>
+</h2>
+<div class="content">
+<span class="vignette">USA</span>
+<p>Motorkraft och super-flakbilar dominerar.</p>
+</div>
+</div>
+<div class="newsarticle lp_pos33">
+<div class="image left">
+<a href="http://www.svd.se/naringsliv/mardrommen-ar-langtifran-over-for-altor_4125229.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/cerv-carnegie.jpg" title="" alt="" class="" height="96" width="145">
+</a>
+</div>
+<h2>
+<a href="http://www.svd.se/naringsliv/mardrommen-ar-langtifran-over-for-altor_4125229.svd">
+Cervenka: Visst kan alla ha otur i affärer
+</a>
+</h2>
+<div class="content">
+<p>Men här börjar den bli en del av verksamheten.</p>
+</div>
+<div class="newsarticle">
+<div class="image right">
+<a href="http://www.svd.se/naringsliv/branscher/bank-och-fastighet/fi-granskar-carnegie-efter-ow-bunker-kraschen_4125333.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/carn.jpg" title="FOTO: TOMAS ONEBORG." alt="" class="" height="50" width="76">
+</a>
+</div>
+<h3>
+<a href="http://www.svd.se/naringsliv/branscher/bank-och-fastighet/fi-granskar-carnegie-efter-ow-bunker-kraschen_4125333.svd">
+Carnegie granskas efter kraschen
+</a>
+</h3>
+<div class="content">
+<p>
+Banken riskerar 100-tals miljoner i skadestånd.
+</p>
+<ul class="related-content">
+</ul>
+</div>
+</div>
+</div>
+<div class="newsarticle lp_pos34">
+<div class="image left">
+<a href="http://www.svd.se/naringsliv/nyheter/lagprisfonderna-okar-bland-sparare_4126783.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/fonder.jpg" title="FOTO: ANDERS WIKLUND/TT." alt="" class="" height="96" width="145">
+</a>
+</div>
+<h2>
+<a href="http://www.svd.se/naringsliv/nyheter/lagprisfonderna-okar-bland-sparare_4126783.svd">
+Lågprisfonderna<br>ökar bland sparare
+</a>
+</h2>
+<div class="content">
+<p>"Symbolisk gräns" för billigare alternativen.</p>
+</div>
+</div>
+<div class="newsarticle lp_pos35">
+<div class="image left">
+<a href="http://www.svd.se/naringsliv/nyheter/hetast-i-landet-och-iskallast_4126669.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/hemnetsearch_002.jpg" title="FOTO: FREDRIK SANDBERG/TT." alt="" class="" height="96" width="145">
+</a>
+</div>
+<h2>
+<a href="http://www.svd.se/naringsliv/nyheter/hetast-i-landet-och-iskallast_4126669.svd">
+Staden som är hetast<br>i Sverige på Hemnet
+</a>
+</h2>
+<div class="content">
+<span class="vignette">Listor</span>
+<p>Trenden: Allt färre vill bo i landsorten.</p>
+</div>
+</div>
+<div class="newsarticle lp_pos36">
+<div class="image left">
+<a href="http://www.svd.se/naringsliv/har-finns-sveriges-billigaste-hotellnatt_4120389.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/land%2520Ntopp.jpeg" title="FOTO: YVONNE ÅSELL. Öland." alt="Öland." class="" height="96" width="145">
+</a>
+</div>
+<h2>
+<a href="http://www.svd.se/naringsliv/har-finns-sveriges-billigaste-hotellnatt_4120389.svd">
+Här finns Sveriges<br>billigaste hotellnatt
+</a>
+</h2>
+<div class="content">
+<span class="vignette">Lista</span>
+<p>Städerna med högst och lägst priser.</p>
+</div>
+</div>
+<div class="media-article lp_mediateaser lp_pos37">
+<span class="vignette">tv</span>
+<div class="video url-%2F%3Fservice%3Dajax%26type%3DwebTvClip%26articleId%3D4118753%26width%3D485">
+<div class="content">
+<div class="image">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/Tumnagel%252520Audi%252520A7%252520h-tron_002.jpeg" title="Tumnagel till Audi A7 h-tron" alt="Tumnagel till Audi A7 h-tron" class="" height="322" width="485">
+<span class="type type-video"><span>Webb-tv</span></span>
+</div>
+<div class="data"></div>
+<div class="caption">
+<h2>
+<a href="http://www.svd.se/naringsliv/en-jattebra-bil-som-inte-gar-att-kopa_4118753.svd">
+”En jättebra bil som inte går att köpa”
+</a></h2>
+<p>SvD:s motorredaktör testar Audi A7 h-tron.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="grid-column-2 colspan-1">
+<div class="short-teasers">
+<div>
+<div class="short-teaser">
+<a href="http://blog.svd.se/frobergsbilar/2014/11/20/audis-tesladodare-har-om-nagra-veckor/">
+<div class="image">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/Audi-R8-e-tron.jpg" title="" alt="" class="" height="96" width="145">
+</div>
+Audis Tesladödare är här om några veckor
+</a>
+</div>
+<div class="short-teaser">
+<a href="http://www.svd.se/naringsliv/varldens-tio-basta-flygplatser_4119893.svd?sidan=1">
+<div class="image">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/Heathrow.jpg" title="FOTO: LHR AIRPORTS LIMITED. &lt;b&gt;10. Heathrow, England&lt;/b&gt;&lt;/br&gt;
+Den har utsetts till världens bästa flygplats när det kommer till shopping - men också kritiserats av borgmästaren för att ge ett hemskt intryck av staden. Londons Heathrow, som årligen har över 69 miljoner resenärer, tar sig trots det splittrade omdömet in på topp tio-listan, mycket tack vare att flygplatsen anses vara enkel att använda, är duktig på att informera om sina flighter, erbjuder bra transporter och är effektiv i säkerhetssyfte." alt="&lt;b&gt;10. Heathrow, England&lt;/b&gt;&lt;/br&gt;
+Den har utsetts till världens bästa flygplats när det kommer till shopping - men också kritiserats av borgmästaren för att ge ett hemskt intryck av staden. Londons Heathrow, som årligen har över 69 miljoner resenärer, tar sig trots det splittrade omdömet in på topp tio-listan, mycket tack vare att flygplatsen anses vara enkel att använda, är duktig på att informera om sina flighter, erbjuder bra transporter och är effektiv i säkerhetssyfte." class="" height="96" width="145">
+</div>
+Här är världens tio bästa flygplatser
+</a>
+</div>
+<div class="short-teaser">
+<a href="http://www.svd.se/naringsliv/digitalt/test-apples-surfplattor-ipad-air-2-och-ipad-mini-3_4102189.svd?sidan=1">
+<div class="image">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/ipadpuff.jpg" title="" alt="" class="" height="96" width="145">
+</div>
+Så bra är Ipad Air 2 och Ipad Mini 3
+</a>
+</div>
+<div class="short-teaser">
+<a href="http://www.svd.se/naringsliv/pengar/har-ar-resmalen-som-blivit-billigare_4101553.svd?sidan=1">
+<div class="image">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/parasoll-sola-semester-strand.jpg" title="FOTO: HASSE HOLMBERG/TT. &lt;b&gt;4. Tro inte att du är i fokus.&lt;/b&gt; ”Och hur är det med lönen och semesterveckorna? Jag, med min breda kompetens kräver…” Nej, att prata för mycket om sina egna villkor och förträffligheter för tidigt i en anställningsprocess kan göra att du sätter krokben för dig själv. Så även om du oftast ges chansen att ställa frågor är det klokt att rikta in dem på ämnen som inte handlar om just dig själv. Risken finns nämligen att du betraktas som arrogant och oattraktiv, säger Jenny Foss. Allt arbetsgivaren är intresserad av är en sak – vad kan du göra för oss? Inte tvärtom." alt="&lt;b&gt;4. Tro inte att du är i fokus.&lt;/b&gt; ”Och hur är det med lönen och semesterveckorna? Jag, med min breda kompetens kräver…” Nej, att prata för mycket om sina egna villkor och förträffligheter för tidigt i en anställningsprocess kan göra att du sätter krokben för dig själv. Så även om du oftast ges chansen att ställa frågor är det klokt att rikta in dem på ämnen som inte handlar om just dig själv. Risken finns nämligen att du betraktas som arrogant och oattraktiv, säger Jenny Foss. Allt arbetsgivaren är intresserad av är en sak – vad kan du göra för oss? Inte tvärtom." class="" height="96" width="145">
+</div>
+Här är resmålen som blivit billigare
+</a>
+</div>
+<div class="short-teaser">
+<a href="http://www.svd.se/naringsliv/folj-med-in-pa-muskobasen_4087985.svd?sidan=1">
+<div class="image">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/musko-1.jpg" title="FOTO: YVONNE ÅSELL.." alt="" class="" height="96" width="145">
+</div>
+Följ med in på svenska marinbasen
+</a>
+</div>
+<div class="short-teaser">
+<a href="http://www.svd.se/naringsliv/tio-misstag-du-bor-undvika-pa-jobbet_4097065.svd?sidan=1">
+<div class="image">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/matlada.jpg" title="FOTO: FREDRIK SANDBERG / TT. . 3. Ät rätt. Så pass stressigt på jobbet att du vill äta direkt ur matlådan framför datorn? Vi har nästan alla gjort det någon gång och flera av oss har säkert skämts lite där vi slafsar i oss resterna av en lasagne eller sallad. Men vad många inte tänker på, menar Ilya Pozin, är att du därmed även motvilligt tvingar dina arbetskamrater till matbordet. De vill inte höra dig tugga på dina salladsbitar eller se dig spilla pastasås." alt="3. Ät rätt. Så pass stressigt på jobbet att du vill äta direkt ur matlådan framför datorn? Vi har nästan alla gjort det någon gång och flera av oss har säkert skämts lite där vi slafsar i oss resterna av en lasagne eller sallad. Men vad många inte tänker på, menar Ilya Pozin, är att du därmed även motvilligt tvingar dina arbetskamrater till matbordet. De vill inte höra dig tugga på dina salladsbitar eller se dig spilla pastasås." class="" height="96" width="145">
+</div>
+Tio misstag du bör undvika på jobbet
+</a>
+</div>
+<div class="short-teaser">
+<a href="http://www.svd.se/naringsliv/motor/flygande-bil-losning-i-rusningstrafiken_4065489.svd">
+<div class="image">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/flyg.jpg" title="" alt="" class="" height="96" width="145">
+<span class="type type-video"><span>Webb-tv</span></span>
+</div>
+Flygande bil lösning i rusningstrafiken
+</a>
+</div>
+<div class="short-teaser">
+<a href="http://www.svd.se/naringsliv/flytande-lyx-for-4-miljarder-dollar_4066155.svd">
+<div class="image">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/lauderdale_1.jpg" title="FOTO: ERIK BERGIN/SVD. . Det är den 55:e båtmässan i Fort Lauderdale, USA:s främsta yacht- och seglingshamn längs Atlantkusten. SvD Näringsplats är på plats." alt="Det är den 55:e båtmässan i Fort Lauderdale, USA:s främsta yacht- och seglingshamn längs Atlantkusten. SvD Näringsplats är på plats." class="" height="96" width="145">
+</div>
+18 vräkiga lyxbåtar från USA-mässan
+</a>
+</div>
+<div class="short-teaser">
+<a href="http://www.svd.se/naringsliv/darfor-skrammer-deflations-spoket_4063517.svd">
+<div class="image">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/deflationsspket.jpg" title="" alt="" class="" height="96" width="145">
+<span class="type type-video"><span>Webb-tv</span></span>
+</div>
+Därför skrämmer deflations-spöket
+</a>
+</div>
+<div class="short-teaser">
+<a href="http://www.svd.se/naringsliv/digitalt/slutet-ar-nara-for-plasma-tv_4061447.svd">
+<div class="image">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/plasma.jpg" title="FOTO: JANERIK HENRIKSSON/TT.. Mellandagsrea på Elgiganten i Sickla under julhelgen 2005." alt="Mellandagsrea på Elgiganten i Sickla under julhelgen 2005." class="" height="96" width="145">
+</div>
+Snart säljs Sveriges allra sista plasma-tv
+</a>
+</div>
+<div class="short-teaser">
+<a href="http://www.svd.se/naringsliv/pengar/pension/plocka-ut-pensionen-pa-smartast-satt_4057103.svd?sidan=1">
+<div class="image">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/pension.jpg" title="FOTO: FREDRIK SANDBERG/SCANPIX." alt="" class="" height="96" width="145">
+</div>
+Så plockar du ut pensionen smartast
+</a>
+</div>
+<div class="short-teaser">
+<a href="http://www.svd.se/naringsliv/lista-sa-retar-varlden-ikea-sverige-naringsliv_4062965.svd?sidan=1">
+<div class="image">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/putinikea.jpg" title="FOTO: AP OCH REUTERS. Vladimir Putin och Ikearemmar." alt="Vladimir Putin och Ikearemmar." class="" height="96" width="145">
+</div>
+Så retar världen Sverige för Ikea
+</a>
+</div>
+<div class="short-teaser">
+<a href="http://www.svd.se/naringsliv/sa-ser-foretagsloggorna-ut-i-comic-sans_4056245.svd?sidan=1">
+<div class="image">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/cs_coke.jpg" title="FOTO: TOXEL.COM. Världens kanske mest välkända logga i Comic Sans-kostym. Coca Colas logotyp skrevs av revisorn till Colas grundare, Frank M. Robinson. Enligt Coca Cola skrev han logotypen med två stora C eftersom han trodde att det skulle göra sig bra i annonser. Den snirkliga handstilen har blivit en av världens mest kända – precis som Comoc Sans." alt="Världens kanske mest välkända logga i Comic Sans-kostym. Coca Colas logotyp skrevs av revisorn till Colas grundare, Frank M. Robinson. Enligt Coca Cola skrev han logotypen med två stora C eftersom han trodde att det skulle göra sig bra i annonser. Den snirkliga handstilen har blivit en av världens mest kända – precis som Comoc Sans." class="" height="96" width="145">
+</div>
+Så ser kända loggor ut i Comic Sans
+</a>
+</div>
+<div class="short-teaser">
+<a href="http://www.svd.se/naringsliv/branscher/industri-och-fordon/svenskt-dyker-upp-i-frammande-vatten_4037721.svd">
+<div class="image">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/undervattensfarkost.jpg" title="FOTO: TOMAS ONEBORG. Anders Magnerfelt, fd attackdykare i försvarsmakten, nu testansvarig och Carl Runemar, affärschef." alt="Anders Magnerfelt, fd attackdykare i försvarsmakten, nu testansvarig och Carl Runemar, affärschef." class="" height="96" width="145">
+</div>
+Svenska dykbåtar på export
+</a>
+</div>
+<div class="short-teaser">
+<a href="http://www.svd.se/naringsliv/pengar/pension/sa-tar-du-ut-pensionen-steg-for-steg_4042351.svd?sidan=1">
+<div class="image">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/telefon.jpg" title="FOTO: TT." alt="" class="" height="96" width="145">
+</div>
+Guide: Så gör du för att ta ut pensionen
+</a>
+</div>
+<div class="short-teaser">
+<a href="http://www.svd.se/naringsliv/varldens-tio-haftigaste-nya-nojesparker_4029473.svd?sidan=1">
+<div class="image">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/avatarland.jpg" title="FOTO: WALT DISNEY PARKS AND RESORTS." alt="" class="" height="96" width="145">
+</div>
+Här bygger de upp världen i ”Avatar”
+</a>
+</div>
+<div class="short-teaser">
+<a href="http://www.svd.se/naringsliv/digitalt/ga-runt-i-minecrafts-storsta-stad_4033313.svd?sidan=1">
+<div class="image">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/minecraft-titan-city3.jpg" title="FOTO: MINECRAFT." alt="" class="" height="96" width="145">
+</div>
+Minecraft-staden tog två år att bygga
+</a>
+</div>
+<div class="short-teaser">
+<a href="http://www.svd.se/naringsliv/pengar/varorna-som-blivit-billigare_4008767.svd?sidan=1">
+<div class="image">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/kylskp.jpg" title="FOTO: JONAS EKSTRÖMER/TT. Mat i kylskåp." alt="Mat i kylskåp." class="" height="96" width="145">
+</div>
+Här är varorna som blivit billigare
+</a>
+</div>
+<div class="short-teaser">
+<a href="http://www.svd.se/naringsliv/en-pristagare-som-ligger-helt-ratt-i-tiden_4006103.svd">
+<div class="image">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/2-minuter-Cervenka.jpg" title="FOTO: JOAKIM STÅHL/SVD. ." alt="" class="" height="96" width="145">
+<span class="type type-video"><span>Webb-tv</span></span>
+</div>
+”Jean Tirole ligger helt rätt i tiden”
+</a>
+</div>
+<div class="short-teaser">
+<a href="http://www.svd.se/naringsliv/motor/tema-tjanstebil/svd-tjanstebil-tar-greppet-om-elbilsmarknaden_3983757.svd">
+<div class="image">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/elbil_tidaholm-2.jpg" title="FOTO: KARIN GRIP. Lantbrukaren Arthur Buhrenstjerna kör numera hellre sin Nissan Leaf än Toyotapickupen. Här med med dottern Filippa." alt="Lantbrukaren Arthur Buhrenstjerna kör numera hellre sin Nissan Leaf än Toyotapickupen. Här med med dottern Filippa." class="" height="96" width="145">
+</div>
+En god affär – om laddproblemet är löst
+</a>
+</div>
+<div class="short-teaser">
+<a href="http://www.svd.se/naringsliv/motor/tema-tjanstebil/tjanstebilstrend-doms-ut-som-sakerhetsrisk_3994327.svd">
+<div class="image">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/Automotorsport%252520Senaste%252520knepet%252520Tvingar%252520dig%252.jpeg" title="" alt="" class="" height="96" width="145">
+</div>
+Tjänstebilstrend döms ut som risk
+</a>
+</div>
+<div class="short-teaser">
+<a href="http://www.svd.se/naringsliv/pengar/forsakring/fel-bilforsakring-kan-kosta-dig-tusenlappar_3991979.svd">
+<div class="image">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/bilar2995x662.jpeg" title="FOTO: CARLOS OSORIO/AP." alt="" class="" height="96" width="145">
+</div>
+Fel bilförsäkring kan kosta dig tusenlappar
+</a>
+</div>
+<div class="short-teaser">
+<a href="http://www.svd.se/naringsliv/pengar/forsakring/har-ar-de-basta-och-samsta-villaforsakringarna_3974598.svd">
+<div class="image">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/frskringar.jpg" title="" alt="" class="" height="96" width="145">
+</div>
+Här är de bästa villaförsäkringarna
+</a>
+</div>
+<div class="short-teaser">
+<a href="http://www.svd.se/naringsliv/nyheter/sverige/det-har-kan-bli-ministrarnas-nya-karriarer_3945174.svd?sidan=1">
+<div class="image">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/bildt2.jpg" title="FOTO: TT. Avgående utrikesminister Carl Bildt (M)." alt="Avgående utrikesminister Carl Bildt (M)." class="" height="96" width="145">
+</div>
+Ex-ministrar som jagar nya jobb
+</a>
+</div>
+<div class="short-teaser">
+<a href="http://www.svd.se/naringsliv/de-tio-basta-kickstarter-kampanjerna_3930200.svd?sidan=1">
+<div class="image">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/coolest-cooler.png" title="FOTO: COOLEST KICKSTARTER. Den 30 augusti 2014 blev Ryan Grepper från Portland historisk. Hans idé om en kylväska som samtidigt är ett underhållningpaket och minikök lyckades då få in hisnande 13,3 miljoner dollar i startkapital från Kickstarter. Det motsvarar närmare 95 miljoner svenska kronor. Kylväskan kallas kort och gott &quot;The Coolest&quot; och innehåller (förutom sedvanligt kylfack) även mobilladdare, mixer, högtalare, minikök och kapsylöppnare." alt="Den 30 augusti 2014 blev Ryan Grepper från Portland historisk. Hans idé om en kylväska som samtidigt är ett underhållningpaket och minikök lyckades då få in hisnande 13,3 miljoner dollar i startkapital från Kickstarter. Det motsvarar närmare 95 miljoner svenska kronor. Kylväskan kallas kort och gott &quot;The Coolest&quot; och innehåller (förutom sedvanligt kylfack) även mobilladdare, mixer, högtalare, minikök och kapsylöppnare." class="" height="96" width="145">
+</div>
+Kylväska drog in 95 miljoner kronor
+</a>
+</div>
+<div class="short-teaser">
+<a href="http://www.svd.se/naringsliv/telefontornet-ett-bortglomt-landmarke_3904814.svd?sidan=1">
+<div class="image">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/tel0.jpg" title="FOTO: TEKNISKA MUSEET. &lt;b&gt;Stockholms bortglömda landmärke.&lt;/b&gt; SvD gjorde en kortfilm om Telefontornet 2012 – nu har bilder på tornet fått fart i sociala medier i USA. Ta en titt på denna magiska bild: 4 000 telefontrådar gick från Telefontornet i centrala Stockholm ut över hustaken i alla riktningar och fram till abonnenterna. &quot;En del stockholmare sa att det skymde solen, så tätt var det&quot;, berättade den då 90-årige Karl-Väinö Tahvanainen i en SvD-intervju 2012 – han arbetade i det mytomspunna tornet. Bläddra vidare för att få veta mer och se fler fascinerande bilder på tornet – som förstördes i en dramatisk brand på 1950-talet." alt="&lt;b&gt;Stockholms bortglömda landmärke.&lt;/b&gt; SvD gjorde en kortfilm om Telefontornet 2012 – nu har bilder på tornet fått fart i sociala medier i USA. Ta en titt på denna magiska bild: 4 000 telefontrådar gick från Telefontornet i centrala Stockholm ut över hustaken i alla riktningar och fram till abonnenterna. &quot;En del stockholmare sa att det skymde solen, så tätt var det&quot;, berättade den då 90-årige Karl-Väinö Tahvanainen i en SvD-intervju 2012 – han arbetade i det mytomspunna tornet. Bläddra vidare för att få veta mer och se fler fascinerande bilder på tornet – som förstördes i en dramatisk brand på 1950-talet." class="" height="96" width="145">
+</div>
+Stockholmsbilden fascinerar i USA
+</a>
+</div>
+<div class="short-teaser">
+<a href="http://www.svd.se/naringsliv/sa-mycket-tjanade-michael-jackson-ar-for-ar_3865520.svd?sidan=1">
+<div class="image">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/michael_1979.jpg" title="FOTO: PRESSBILD. . 1979. Uppskattad inkomst: 28 miljoner kronor. Justerat för inflation: 90 miljoner kronor. Huvudsakliga inkomstkällor: Skivan &quot;Off the Wall&quot;, Destiny-turnén, inspelad musik, royalties." alt="1979. Uppskattad inkomst: 28 miljoner kronor. Justerat för inflation: 90 miljoner kronor. Huvudsakliga inkomstkällor: Skivan &quot;Off the Wall&quot;, Destiny-turnén, inspelad musik, royalties." class="" height="96" width="145">
+</div>
+Michael Jacksons inkomst år för år
+</a>
+</div>
+<div class="short-teaser">
+<a href="http://www.svd.se/naringsliv/allt-om-nya-volvo-xc90_3861078.svd?sidan=7">
+<div class="image">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/xc90.jpg" title="FOTO: MAGNUS HJALMARSON NEIDEMAN/SVD. ." alt="" class="" height="96" width="145">
+</div>
+Volvo XC90 inifrån och ut
+</a>
+</div>
+<div class="short-teaser">
+<a href="http://www.svd.se/naringsliv/de-11-dyraste-prylarna-pa-ebay_3830650.svd?sidan=1">
+<div class="image">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/actioncomics.jpg" title="FOTO: AP. Första numret av Action Comics." alt="Första numret av Action Comics." class="" height="96" width="145">
+</div>
+De dyraste prylarna som sålts på Ebay
+</a>
+</div>
+<div class="short-teaser">
+<a href="http://www.svd.se/naringsliv/varldens-bast-saljande-ol_3837824.svd?sidan=1">
+<div class="image">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/snow.jpg" title="10,3 miljarder liter Snow såldes i Kina under 2013, vilket gör ölet till världsetta med 5,3 procent av marknaden. Vill du provsmaka behöver du ta dig till Kina, eftersom märket bara säljs där. Smaken är enligt CNN Money inget att hurra över, även om ölet beskrivs som uppfriskande." alt="10,3 miljarder liter Snow såldes i Kina under 2013, vilket gör ölet till världsetta med 5,3 procent av marknaden. Vill du provsmaka behöver du ta dig till Kina, eftersom märket bara säljs där. Smaken är enligt CNN Money inget att hurra över, även om ölet beskrivs som uppfriskande." class="" height="96" width="145">
+</div>
+Känner du igen ölet som är världsetta?
+</a>
+</div>
+<div class="short-teaser">
+<a href="http://www.svd.se/naringsliv/pengar/forsakring/forsakringsfallorna-du-bor-undvika_3841788.svd?sidan=1">
+<div class="image">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/fundera.jpg" title="FOTO: PONTUS LUNDAHL / TT." alt="" class="" height="96" width="145">
+</div>
+Försäkringsfällorna du ska se upp för
+</a>
+</div>
+<div class="short-teaser">
+<a href="http://www.svd.se/naringsliv/pengar/bostad/varldens-dyraste-lagenhet_3836884.svd?sidan=1">
+<div class="image">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/toruodeon_rutsch2.jpg" title="FOTO: TOUR ODÉON. Cirka 400 miljoner dollar, eller cirka 2,8 miljarder kronor, kostar den mest påkostade lägenheten i Odeon." alt="Cirka 400 miljoner dollar, eller cirka 2,8 miljarder kronor, kostar den mest påkostade lägenheten i Odeon." class="" height="96" width="145">
+</div>
+Lägenheten som är dyrast världen
+</a>
+</div>
+<div class="short-teaser">
+<a href="http://www.svd.se/naringsliv/har-ar-varldens-10-vanligaste-stader_3828074.svd">
+<div class="image">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/9_Spanien.jpg" title="FOTO: ANDRES KUDACKI/AP. . 9. Sevilla, Spanien, delar niondeplatsen med Savannah, USA. “Charmigt, vackert, och välkomnande” lyder läsarnas omdömen. &quot;Lokalbefolkningen är vänlig och full av liv&quot; enligt en läsare, medan en annan berömmer staden som &quot;dansar till flamencons rytm som ingen annan spansk stad&quot;." alt="9. Sevilla, Spanien, delar niondeplatsen med Savannah, USA. “Charmigt, vackert, och välkomnande” lyder läsarnas omdömen. &quot;Lokalbefolkningen är vänlig och full av liv&quot; enligt en läsare, medan en annan berömmer staden som &quot;dansar till flamencons rytm som ingen annan spansk stad&quot;." class="" height="96" width="145">
+</div>
+Här är världens 10 vänligaste städer
+</a>
+</div>
+<div class="short-teaser">
+<a href="http://www.svd.se/naringsliv/varldens-storsta-yachter_3802590.svd?sidan=1">
+<div class="image">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/serene_yacht.jpg" title="FOTO: WIKICOMMONS. The Serene har tolv stora rum, en pool med havsvatten, två bubbelpooler, en klättervägg, ett gym - och en nattklubb." alt="The Serene har tolv stora rum, en pool med havsvatten, två bubbelpooler, en klättervägg, ett gym - och en nattklubb." class="" height="96" width="145">
+</div>
+Yachtnotan: 5 miljoner i veckan
+</a>
+</div>
+<div class="short-teaser">
+<a href="http://www.svd.se/naringsliv/motor/lista-varldens-dyraste-bilar_3800448.svd">
+<div class="image">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/rollsroyce.jpg" title="FOTO: TT." alt="&lt;b&gt;Rolls-Royce Phantom Extended Wheelbase&lt;/b&gt;&lt;br/&gt;
+Motor: 6,75-liters V12 med 453 hästkrafter
+Toppfart: 240 km/h, gör 0-100 på 5,8 sekunder
+Pris: 2 miljoner kronor" class="" height="96" width="145">
+</div>
+Här är världens dyraste bilar
+</a>
+</div>
+<div class="short-teaser">
+<a href="http://www.svd.se/naringsliv/lista-varldens-mest-lonsamma-bolag_3798190.svd?sidan=1">
+<div class="image">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/Fannie%2520Mae.jpg" title="" alt="" class="" height="96" width="145">
+</div>
+Världens mest lönsamma bolag
+</a>
+</div>
+<div class="short-teaser">
+<a href="http://www.svd.se/naringsliv/popkungens-ranch-ute-till-forsaljning_3792636.svd?sidan=1">
+<div class="image">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/MichaelJackson.jpeg" title="FOTO: SCANPIX." alt="" class="" height="96" width="145">
+</div>
+Mytomspunna Neverland&nbsp;till salu
+</a>
+</div>
+<div class="short-teaser">
+<a href="http://www.svd.se/naringsliv/10-andra-lander-som-ar-nara-bankrutt_3792626.svd?sidan=1">
+<div class="image">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/Grekland%2520finanskris.jpg" title="FOTO: PETROS GIANNAKOURIS/AP." alt="" class="" height="96" width="145">
+</div>
+10 länder som är nära bankrutt
+</a>
+</div>
+<div class="short-teaser">
+<a href="http://www.svd.se/naringsliv/sex-miljardbolag-som-startades-i-ett-garage_3785820.svd?sidan=1">
+<div class="image">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/HP%2520garage%2520Palo%2520Alto.jpg" title="FOTO: MARCIO JOSE SANCHEZ//AP. I december 2005 öppade HP dörrarna till det restaurerade garage där företaget grundades 1939 av Bill Hewlett och Dave Packard." alt="I december 2005 öppade HP dörrarna till det restaurerade garage där företaget grundades 1939 av Bill Hewlett och Dave Packard." class="" height="96" width="145">
+</div>
+6 miljardbolag som startades i garaget
+</a>
+</div>
+<div class="short-teaser">
+<a href="http://www.svd.se/naringsliv/10-bolag-som-bytt-namn_3783180.svd?sidan=1">
+<div class="image">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/News%2520of%2520the%2520world.jpg" title="FOTO: SANG TAN/AP." alt="" class="" height="96" width="145">
+</div>
+10 krisbolag som bytt namn
+</a>
+</div>
+<div class="short-teaser">
+<a href="http://www.svd.se/naringsliv/de-ar-usas-tio-rikaste-familjer_3773338.svd?sidan=1">
+<div class="image">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/hearst-castle.jpg" title="FOTO: AP. Det berömda Hearst Castle i Kalifornien." alt="Det berömda Hearst Castle i Kalifornien." class="" height="96" width="145">
+</div>
+De är USA:s tio rikaste familjer
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="grid-column-3 colspan-2">
+<div class="ad ad-3870486">
+<div id="position3870486"></div>
+<script>
+jQuery(document).bind(SvD.ads.events.SVD_PRIORITIZED_CONTENT_AND_ADS_LOADED, function(){EAS_load_fif('position3870486','http://www.svd.se/naringsliv/nyheter/?service=EAS_fif', 'http://ads.aftonbladet.se/eas?cu=1087&EASTsection=naringsliv%7cnaringsliv_nyheter&EASInclude2=naringsliv%7cnaringsliv_nyheter&EASTpage=article&EASTomx=upp&kw1=article4131605&kw3=&cat1=&cat2=&cat3=&EASInclude=%2b0.36&EASTpw=&cre=mu&js=y&target=_blank&' + jQuery.param(EASParams),'0','0')});
+</script>
+<noscript>
+<iframe src="http://ads.aftonbladet.se/eas?cu=1087&EASTsection=naringsliv%7cnaringsliv_nyheter&EASInclude2=naringsliv%7cnaringsliv_nyheter&EASTpage=article&EASTomx=upp&kw1=article4131605&kw3=&cat1=&cat2=&cat3=&EASInclude=%2b0.36&EASTpw=&cre=mu" scrolling="no" frameborder="0" marginheight="0" marginwidth="0">
+<a href="http://ads.aftonbladet.se/eas?cu=1087&EASTsection=naringsliv%7cnaringsliv_nyheter&EASInclude2=naringsliv%7cnaringsliv_nyheter&EASTpage=article&EASTomx=upp&kw1=article4131605&kw3=&cat1=&cat2=&cat3=&EASInclude=%2b0.36&EASTpw=&ty=ct">
+<img src="http://ads.aftonbladet.se/eas?cu=1087&EASTsection=naringsliv%7cnaringsliv_nyheter&EASInclude2=naringsliv%7cnaringsliv_nyheter&EASTpage=article&EASTomx=upp&kw1=article4131605&kw3=&cat1=&cat2=&cat3=&EASInclude=%2b0.36&EASTpw=&cre=img">
+</a>
+</iframe>
+</noscript>
+</div>
+<div class="content-switch logged-in">
+<div class="internal-ad">
+<a href="http://story.svd.se/murar/?utm_source=nliv&amp;utm_medium=rightbox_article&amp;utm_content=story&amp;utm_campaign=story" target="_blank">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/315x100_svdstory_europav2.gif" alt="esvd">
+</a>
+</div>
+</div>
+<div class="content-switch logged-out">
+<div class="internal-ad">
+<a href="https://kundservice.svd.se/1m0?utm_source=nliv&amp;utm_medium=rightbox_article&amp;utm_content=1m0&amp;utm_campaign=1m0&amp;kwsn=5067" target="_blank">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/vandsida-315x100.gif" alt="3_99">
+</a>
+</div>
+</div>
+<div class="news-list lp_feed id-1185066">
+<h2>Senaste nytt</h2>
+<ul>
+<li>
+<span class="date">
+15:40
+</span>
+<a href="http://www.svd.se/naringsliv/nyheter/norsk-oljeproduktion-minskas-inte_4131605.svd">
+Norsk oljeproduktion minskas inte
+</a>
+</li>
+<li>
+<span class="date">
+15:37
+</span>
+<a href="http://www.svd.se/naringsliv/pengar/sparande/inget-budgetbesked-fran-hogsta-ratt_4129007.svd">
+Inget budgetbesked från högsta rätt
+</a>
+</li>
+<li>
+<span class="date">
+15:24
+</span>
+<a href="http://www.svd.se/naringsliv/luxemburg-fortjanar-en-hel-del-kritik_4129381.svd">
+”Luxemburg förtjänar en hel del kritik”
+</a>
+</li>
+<li>
+<span class="date">
+15:24
+</span>
+<a href="http://www.svd.se/naringsliv/motor/jattebra-bil-om-man-ar-elitgymnast_4102659.svd">
+”Jättebra bil – om man är elitgymnast”
+</a>
+</li>
+<li>
+<span class="date">
+14:55
+</span>
+<a href="http://www.svd.se/naringsliv/af-stoppar-meningslost-jobbsokande_4128959.svd">
+AF stoppar meningslöst jobbsökande
+</a>
+</li>
+<li>
+<span class="date">
+14:09
+</span>
+<a href="http://www.svd.se/naringsliv/brytpunkten-for-inkomstskatt-provas-inte_4130975.svd">
+Brytpunkten för inkomstskatt prövas inte
+</a>
+</li>
+<li>
+<span class="date">
+13:17
+</span>
+<a href="http://www.svd.se/naringsliv/pengar/bostad/sa-har-amorteringskravet-paverkat-visningarna_4130661.svd">
+Så har amorteringskravet påverkat visningarna
+</a>
+</li>
+</ul>
+<ul class="page-navigation url-http%3A%2F%2Fwww.svd.se%2Fnaringsliv%2F%3Fservice%3Dajax%26type%3Dlist%26articleId%3D1185066%26view%3DsimpleDate">
+<li class="selected"><a href="">0</a></li>
+<li><a href="">1</a></li>
+<li><a href="">2</a></li>
+</ul>
+</div>
+<div class="media-article lp_mediateaser lp_pos38">
+<span class="vignette">SvD Story </span>
+<div class="image">
+<a href="http://bit.ly/1zyRz30" class="external-link" rel="external">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/story.jpg" title="" alt="" class="" height="209" width="315">
+</a>
+<div class="caption">
+<p>Följ med till krisens Lettland med SvD Story – en helt ny digital läsupplevelse.</p>
+</div>
+</div>
+</div>
+<div class="media-article lp_mediateaser lp_pos39">
+<span class="vignette">Webb-tv: Fröberg testar</span>
+<div class="image">
+<a href="http://www.svd.se/naringsliv/motor/jonas-froberg-bakom-ratten_4037589.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/biltester.jpg" title="" alt="" class="" height="209" width="315">
+</a>
+<div class="caption">
+<p>Följ med SvD:s Jonas Fröberg och Magnus Hjalmarson Neideman på fartfyllda biltester.</p>
+</div>
+</div>
+</div>
+<div class="media-article lp_mediateaser lp_pos40">
+<span class="vignette">2 MINUTER</span>
+<div class="image">
+<a href="http://www.svd.se/naringsliv/tva-minuter-alla-avsnitt_3985329.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/Cervenka_2min.jpg" title="FOTO: SVD. . SvD Näringslivs Andreas Cervenka och Katarina Hugo i &quot;2 minuter&quot;." alt="SvD Näringslivs Andreas Cervenka och Katarina Hugo i &quot;2 minuter&quot;." class="" height="209" width="315">
+</a>
+<div class="caption">
+<p>Se alla avsnitt av SvD Näringslivs nya webbserie</p>
+<p class="credit">FOTO: SvD. </p>
+</div>
+</div>
+</div>
+<div class="news-list lp_feed id-3563542">
+<h2>Webb-tv</h2>
+<ul>
+<li>
+<a href="http://www.svd.se/naringsliv/jattebra-bil-om-man-ar-elitgymnast_4102659.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/JF_002.jpg" title="" alt="" class="" height="96" width="145">
+</a>
+<h3>
+<a href="http://www.svd.se/naringsliv/jattebra-bil-om-man-ar-elitgymnast_4102659.svd">
+”Jättebra bil – om man är elitgymnast”
+</a></h3>
+<p>Jonas Fröberg testar den alldeles nya och speciella BMW i8.</p>
+</li>
+<li>
+<a href="http://www.svd.se/naringsliv/en-jattebra-bil-som-inte-gar-att-kopa_4118753.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/Tumnagel%2520Audi%2520A7%2520h-tron.jpeg" title="Tumnagel till Audi A7 h-tron" alt="Tumnagel till Audi A7 h-tron" class="" height="96" width="145">
+</a>
+<h3>
+<a href="http://www.svd.se/naringsliv/en-jattebra-bil-som-inte-gar-att-kopa_4118753.svd">
+”En jättebra bil som inte går att köpa”
+</a></h3>
+<p>SvD:s Jonas Fröberg testar Audi A7 h-tron, världens första...</p>
+</li>
+<li>
+<a href="http://www.svd.se/naringsliv/nya-audin-kanns-nastan-lite-attiotal_4114417.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/Tumnagel%2520Audi%2520prologe.jpeg" title="Tumnagel till Audi prologe" alt="Tumnagel till Audi prologe" class="" height="96" width="145">
+</a>
+<h3>
+<a href="http://www.svd.se/naringsliv/nya-audin-kanns-nastan-lite-attiotal_4114417.svd">
+80-talskänsla över nya konceptbilen från Audi
+</a></h3>
+<p>Audi visar sin nya koncept bil Audi Prologe i Los Angeles,...</p>
+</li>
+<li>
+<a href="http://www.svd.se/naringsliv/sa-gick-det-nar-froberg-forsokte-hitta-elbilarna_4122073.svd">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/Tumnagel%2520Spaning%2520L.jpeg" title="Tumnagel till Spaning L.A Auto Show" alt="Tumnagel till Spaning L.A Auto Show" class="" height="96" width="145">
+</a>
+<h3>
+<a href="http://www.svd.se/naringsliv/sa-gick-det-nar-froberg-forsokte-hitta-elbilarna_4122073.svd">
+”Miljöbilen används bara som ett pr-trick”
+</a></h3>
+<p>Vilka är de största trenderna på årets bilsalong i Los...</p>
+</li>
+</ul>
+</div>
+<div class="tab-box" id="market-box">
+<h2><a href="http://bors-nliv.svd.se/" target="_blank">Börsen</a></h2>
+<ul class="tabs">
+<li class="selected"><a rel="nofollow" href="#"><span>Index</span></a></li>
+<li class=""><a rel="nofollow" href="#"><span>Valutor</span></a></li>
+<li class=""><a rel="nofollow" href="#"><span>Råvaror</span></a></li>
+<li class=""><a rel="nofollow" href="#"><span>Räntor</span></a></li>
+</ul>
+<div class="content tab-content-1"><h3>Index</h3><table><tbody><tr class="selected"><th>OMX-S, <span class="date">16.07</span></th><td>+0,4 %</td><td>466,97</td></tr><tr class="market-details"><td colspan="3"><div style="height: auto; display: block;" class="time-frames"><img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/chart.png" alt=""><ul><li class="selected"><a href="http://graf.svd.se/charts/intraday/chart.png?p=svdn2&amp;insref1=6486&amp;numdays=1&amp;width=291&amp;height=120&amp;scaling=valueandrelative">1 dag</a></li><li class=""><a href="http://graf.svd.se/charts/intraday/chart.png?p=svdn2&amp;insref1=6486&amp;numdays=5&amp;width=291&amp;height=120&amp;scaling=valueandrelative">1 vecka</a></li><li class=""><a href="http://graf.svd.se/charts/historical/chart.png?p=svdn2&amp;insref1=6486&amp;startdate=2014-10-24&amp;width=291&amp;height=120&amp;scaling=valueandrelative">1 månad</a></li><li class=""><a href="http://graf.svd.se/charts/historical/chart.png?p=svdn2&amp;insref1=6486&amp;startdate=2014-01-01&amp;width=291&amp;height=120&amp;scaling=valueandrelative">Årsskiftet</a></li></ul></div></td></tr><tr><th>Nasdaq, <span class="date">16.07</span></th><td>+0,5 %</td><td>4 737,32<div class="time-frames"><ul><li class="selected"><a href="http://graf.svd.se/charts/intraday/chart.png?p=svdn2us&amp;insref1=39487&amp;numdays=1&amp;width=291&amp;height=120&amp;scaling=valueandrelative">1 dag</a></li><li class="selected"><a href="http://graf.svd.se/charts/intraday/chart.png?p=svdn2us&amp;insref1=39487&amp;numdays=5&amp;width=291&amp;height=120&amp;scaling=valueandrelative">1 vecka</a></li><li class="selected"><a href="http://graf.svd.se/charts/historical/chart.png?p=svdn2us&amp;insref1=39487&amp;startdate=2014-10-24&amp;width=291&amp;height=120&amp;scaling=valueandrelative">1 månad</a></li><li class="selected"><a href="http://graf.svd.se/charts/historical/chart.png?p=svdn2us&amp;insref1=39487&amp;startdate=2014-01-01&amp;width=291&amp;height=120&amp;scaling=valueandrelative">Årsskiftet</a></li></ul></div></td></tr><tr><th>DAX, <span class="date">16.08</span></th><td>+0,6 %</td><td>9 795,63<div class="time-frames"><ul><li class="selected"><a href="http://graf.svd.se/charts/intraday/chart.png?p=svdn2&amp;insref1=72822&amp;numdays=1&amp;width=291&amp;height=120&amp;scaling=valueandrelative">1 dag</a></li><li class="selected"><a href="http://graf.svd.se/charts/intraday/chart.png?p=svdn2&amp;insref1=72822&amp;numdays=5&amp;width=291&amp;height=120&amp;scaling=valueandrelative">1 vecka</a></li><li class="selected"><a href="http://graf.svd.se/charts/historical/chart.png?p=svdn2&amp;insref1=72822&amp;startdate=2014-10-24&amp;width=291&amp;height=120&amp;scaling=valueandrelative">1 månad</a></li><li class="selected"><a href="http://graf.svd.se/charts/historical/chart.png?p=svdn2&amp;insref1=72822&amp;startdate=2014-01-01&amp;width=291&amp;height=120&amp;scaling=valueandrelative">Årsskiftet</a></li></ul></div></td></tr><tr><th>FTSE, <span class="date">15.53</span></th><td>-0,3 %</td><td>6 733,79<div class="time-frames"><ul><li class="selected"><a href="http://graf.svd.se/charts/intraday/chart.png?p=svdn2&amp;insref1=72650&amp;numdays=1&amp;width=291&amp;height=120&amp;scaling=valueandrelative">1 dag</a></li><li class="selected"><a href="http://graf.svd.se/charts/intraday/chart.png?p=svdn2&amp;insref1=72650&amp;numdays=5&amp;width=291&amp;height=120&amp;scaling=valueandrelative">1 vecka</a></li><li class="selected"><a href="http://graf.svd.se/charts/historical/chart.png?p=svdn2&amp;insref1=72650&amp;startdate=2014-10-24&amp;width=291&amp;height=120&amp;scaling=valueandrelative">1 månad</a></li><li class="selected"><a href="http://graf.svd.se/charts/historical/chart.png?p=svdn2&amp;insref1=72650&amp;startdate=2014-01-01&amp;width=291&amp;height=120&amp;scaling=valueandrelative">Årsskiftet</a></li></ul></div></td></tr><tr><th>Nikkei, <span class="date">17.48</span></th><td>+0,3 %</td><td>17 357,51<div class="time-frames"><ul><li class="selected"><a href="http://graf.svd.se/charts/intraday/chart.png?p=svdn2as&amp;insref1=42054&amp;numdays=1&amp;width=291&amp;height=120&amp;scaling=valueandrelative">1 dag</a></li><li class="selected"><a href="http://graf.svd.se/charts/intraday/chart.png?p=svdn2as&amp;insref1=42054&amp;numdays=5&amp;width=291&amp;height=120&amp;scaling=valueandrelative">1 vecka</a></li><li class="selected"><a href="http://graf.svd.se/charts/historical/chart.png?p=svdn2as&amp;insref1=42054&amp;startdate=2014-10-21&amp;width=291&amp;height=120&amp;scaling=valueandrelative">1 månad</a></li><li class="selected"><a href="http://graf.svd.se/charts/historical/chart.png?p=svdn2as&amp;insref1=42054&amp;startdate=2014-01-01&amp;width=291&amp;height=120&amp;scaling=valueandrelative">Årsskiftet</a></li></ul></div></td></tr></tbody></table><a class="more" href="http://bors-nliv.svd.se/index.php/indexlist/index/utland">Visa fler index</a></div><div class="content tab-content-2"><h3>Valutor</h3><table><tbody><tr><th>Euro, <span class="date">16.22</span></th><td>-0,1 %</td><td>9,25 SEK<div class="time-frames"><ul><li class="selected"><a href="http://graf.svd.se/charts/intraday/chart.png?p=svdn2all&amp;insref1=926&amp;numdays=1&amp;width=291&amp;height=120&amp;scaling=valueandrelative">1 dag</a></li><li class="selected"><a href="http://graf.svd.se/charts/intraday/chart.png?p=svdn2all&amp;insref1=926&amp;numdays=5&amp;width=291&amp;height=120&amp;scaling=valueandrelative">1 vecka</a></li><li class="selected"><a href="http://graf.svd.se/charts/historical/chart.png?p=svdn2all&amp;insref1=926&amp;startdate=2014-10-24&amp;width=291&amp;height=120&amp;scaling=valueandrelative">1 månad</a></li><li class="selected"><a href="http://graf.svd.se/charts/historical/chart.png?p=svdn2all&amp;insref1=926&amp;startdate=2014-01-01&amp;width=291&amp;height=120&amp;scaling=valueandrelative">Årsskiftet</a></li></ul></div></td></tr><tr><th>USD, <span class="date">16.22</span></th><td>-0,4 %</td><td>7,44 SEK<div class="time-frames"><ul><li class="selected"><a href="http://graf.svd.se/charts/intraday/chart.png?p=svdn2all&amp;insref1=150&amp;numdays=1&amp;width=291&amp;height=120&amp;scaling=valueandrelative">1 dag</a></li><li class="selected"><a href="http://graf.svd.se/charts/intraday/chart.png?p=svdn2all&amp;insref1=150&amp;numdays=5&amp;width=291&amp;height=120&amp;scaling=valueandrelative">1 vecka</a></li><li class="selected"><a href="http://graf.svd.se/charts/historical/chart.png?p=svdn2all&amp;insref1=150&amp;startdate=2014-10-24&amp;width=291&amp;height=120&amp;scaling=valueandrelative">1 månad</a></li><li class="selected"><a href="http://graf.svd.se/charts/historical/chart.png?p=svdn2all&amp;insref1=150&amp;startdate=2014-01-01&amp;width=291&amp;height=120&amp;scaling=valueandrelative">Årsskiftet</a></li></ul></div></td></tr></tbody></table><a class="more" href="http://bors-nliv.svd.se/index.php/valutor">Visa fler valutor</a></div><div class="content tab-content-3"><h3>Råvaror</h3><table><tbody><tr><th>Olja brent, <span class="date">16.22</span></th><td>-0,3 %</td><td>80,19<div class="time-frames"><ul><li class="selected"><a href="http://graf.svd.se/charts/intraday/chart.png?p=svdn2all&amp;insref1=42051&amp;numdays=1&amp;width=291&amp;height=120&amp;scaling=valueandrelative">1 dag</a></li><li class="selected"><a href="http://graf.svd.se/charts/intraday/chart.png?p=svdn2all&amp;insref1=42051&amp;numdays=5&amp;width=291&amp;height=120&amp;scaling=valueandrelative">1 vecka</a></li><li class="selected"><a href="http://graf.svd.se/charts/historical/chart.png?p=svdn2all&amp;insref1=42051&amp;startdate=2014-10-24&amp;width=291&amp;height=120&amp;scaling=valueandrelative">1 månad</a></li><li class="selected"><a href="http://graf.svd.se/charts/historical/chart.png?p=svdn2all&amp;insref1=42051&amp;startdate=2014-01-01&amp;width=291&amp;height=120&amp;scaling=valueandrelative">Årsskiftet</a></li></ul></div></td></tr><tr><th>Guld, <span class="date">16.22</span></th><td>-0,1 %</td><td>1 199,43<div class="time-frames"><ul><li class="selected"><a href="http://graf.svd.se/charts/intraday/chart.png?p=svdn2all&amp;insref1=72831&amp;numdays=1&amp;width=291&amp;height=120&amp;scaling=valueandrelative">1 dag</a></li><li class="selected"><a href="http://graf.svd.se/charts/intraday/chart.png?p=svdn2all&amp;insref1=72831&amp;numdays=5&amp;width=291&amp;height=120&amp;scaling=valueandrelative">1 vecka</a></li><li class="selected"><a href="http://graf.svd.se/charts/historical/chart.png?p=svdn2all&amp;insref1=72831&amp;startdate=2014-10-24&amp;width=291&amp;height=120&amp;scaling=valueandrelative">1 månad</a></li><li class="selected"><a href="http://graf.svd.se/charts/historical/chart.png?p=svdn2all&amp;insref1=72831&amp;startdate=2014-01-01&amp;width=291&amp;height=120&amp;scaling=valueandrelative">Årsskiftet</a></li></ul></div></td></tr></tbody></table><a class="more" href="http://bors-nliv.svd.se/index.php/ravaror">Visa fler råvaror</a></div><div class="content tab-content-4"><h3>Räntor</h3><table><tbody><tr><th>3 mån, <span class="date">08.54</span></th><td>+0,0 %</td><td>0,00 %<div class="time-frames"><ul><li class="selected"><a href="http://graf.svd.se/charts/intraday/chart.png?p=svdn2yield&amp;insref1=33377&amp;numdays=1&amp;width=291&amp;height=120&amp;scaling=">1 dag</a></li><li class="selected"><a href="http://graf.svd.se/charts/intraday/chart.png?p=svdn2yield&amp;insref1=33377&amp;numdays=5&amp;width=291&amp;height=120&amp;scaling=">1 vecka</a></li><li class="selected"><a href="http://graf.svd.se/charts/historical/chart.png?p=svdn2yield&amp;insref1=33377&amp;startdate=2014-10-24&amp;width=291&amp;height=120&amp;scaling=">1 månad</a></li><li class="selected"><a href="http://graf.svd.se/charts/historical/chart.png?p=svdn2yield&amp;insref1=33377&amp;startdate=2014-01-01&amp;width=291&amp;height=120&amp;scaling=">Årsskiftet</a></li></ul></div></td></tr><tr><th>5 år, <span class="date">16.03</span></th><td>-0,0 %</td><td>0,22 %<div class="time-frames"><ul><li class="selected"><a href="http://graf.svd.se/charts/intraday/chart.png?p=svdn2yield&amp;insref1=33382&amp;numdays=1&amp;width=291&amp;height=120&amp;scaling=">1 dag</a></li><li class="selected"><a href="http://graf.svd.se/charts/intraday/chart.png?p=svdn2yield&amp;insref1=33382&amp;numdays=5&amp;width=291&amp;height=120&amp;scaling=">1 vecka</a></li><li class="selected"><a href="http://graf.svd.se/charts/historical/chart.png?p=svdn2yield&amp;insref1=33382&amp;startdate=2014-10-24&amp;width=291&amp;height=120&amp;scaling=">1 månad</a></li><li class="selected"><a href="http://graf.svd.se/charts/historical/chart.png?p=svdn2yield&amp;insref1=33382&amp;startdate=2014-01-01&amp;width=291&amp;height=120&amp;scaling=">Årsskiftet</a></li></ul></div></td></tr></tbody></table><a class="more" href="http://bors-nliv.svd.se/index.php/rantor">Visa fler räntor</a></div>
+</div>	<div class="media-article lp_mediateaser lp_pos41">
+<span class="vignette">Ny sajt</span>
+<div class="image">
+<a href="http://www.svd.se/naringsliv/pengar/">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/01-pengar.jpg" title="" alt="" class="" height="117" width="315">
+</a>
+<div class="caption">
+<p>SvD Näringsliv ger dig en bättre privatekonomi.</p>
+</div>
+</div>
+</div>
+<div class="media-article lp_mediateaser lp_pos42">
+<span class="vignette">SvD Börsforum</span>
+<div class="image">
+<a href="http://borsforum.svd.se/">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/01-forum.jpg" title="" alt="" class="" height="117" width="315">
+</a>
+<div class="caption">
+<p>Testa Sveriges modernaste ekonomiforum</p>
+</div>
+</div>
+</div>
+<div class="media-article lp_mediateaser lp_pos43">
+<span class="vignette">Räntekartan</span>
+<div class="image">
+<a href="http://www.svd.se/naringsliv/sag-din-ranta/">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/01-rantekarta.jpg" title="" alt="" class="" height="117" width="315">
+</a>
+<div class="caption">
+<p>50 000 har sagt sin ränta – klicka här!</p>
+</div>
+</div>
+</div>
+<div class="media-article lp_mediateaser lp_pos44">
+<span class="vignette">Bloggar</span>
+<div class="image">
+<a href="http://www.svd.se/naringsliv/special/analys/">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/bloggar.jpg" title="FOTO: SVD/MONTAGE. . SvD Näringslivs profiler Patricia Hedelius och Jonas Fröberg." alt="SvD Näringslivs profiler Patricia Hedelius och Jonas Fröberg." class="" height="209" width="315">
+</a>
+<div class="caption">
+<p>Läs våra prisbelönta journalisters bloggar.</p>
+<p class="credit">FOTO: SvD/Montage. </p>
+</div>
+</div>
+</div>
+<div class="column-vignette" style="margin-top: 11px; padding-top: 10px; border-top: 1px solid #d8c9bf;">
+<a href="http://www.svd.se/naringsliv/satt-nlivse-som-startsida_7324619.svd"><img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/nliv-lila_1023954a.gif" alt="Gör nliv.se till din startsida"></a>
+</div>
+<h2 class="column-vignette" style="margin-top: 11px; padding-top: 10px; border-top: 1px solid #d8c9bf;">SvD Näringsliv på Facebook</h2>
+<iframe class="hooalhgvcffghpqwmvwy" src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/like_003.html" scrolling="no" style="border:none; overflow:hidden; width:315px; height:35px;" allowtransparency="true" frameborder="0"></iframe>
+<div class="partner-box blocket-jobs-box">
+<h2>Lediga jobb från <a href="http://www.svd.se/naringsliv/karriar/sok-jobb/">Blocket Jobb</a></h2>
+<div class="search-box">
+<form action="http://www.svd.se/naringsliv/karriar/sok-jobb/" method="get">
+<fieldset>
+<input disabled="disabled" name="ca" value="11" type="hidden">
+<div class="field">
+<label for="search-query">Titel, yrkesområde eller företag</label>
+<input value="Titel, yrkesområde eller företag" id="search-query" name="q" class="single-input-with-submit" tabindex="1" type="text">
+</div>
+<div class="field">
+<input tabindex="29" id="searchbutton" value="Sök" type="submit">
+</div>
+</fieldset>
+</form>
+</div>
+<h3>Yrkesområde</h3>
+<p>
+<a href="http://www.svd.se/naringsliv/karriar/sok-jobb/?cg=9010">Administration &amp; HR</a>, <a href="http://www.svd.se/naringsliv/karriar/sok-jobb/?cg=9020">Bygg &amp; Hantverk</a>, <a href="http://www.svd.se/naringsliv/karriar/sok-jobb/?cg=9030">Data &amp; IT</a>, <a href="http://www.svd.se/naringsliv/karriar/sok-jobb/?cg=9040">Ekonomi/Finans/Juridik</a>, <a href="http://www.svd.se/naringsliv/karriar/sok-jobb/?cg=9050">Försäljning &amp; Marknad</a>, <a href="http://www.svd.se/naringsliv/karriar/sok-jobb/?cg=9060">Industri &amp; Transport</a>, <a href="http://www.svd.se/naringsliv/karriar/sok-jobb/?cg=9070">Media/Kultur/Reklam</a>, <a href="http://www.svd.se/naringsliv/karriar/sok-jobb/?cg=9080">Restaurang</a>, <a href="http://www.svd.se/naringsliv/karriar/sok-jobb/?cg=9090">Service &amp; Butik</a>, <a href="http://www.svd.se/naringsliv/karriar/sok-jobb/?cg=9100">Teknik &amp; Ingenjör</a>, <a href="http://www.svd.se/naringsliv/karriar/sok-jobb/?cg=9110">Utbildning</a>, <a href="http://www.svd.se/naringsliv/karriar/sok-jobb/?cg=9120">Vård/Hälsa/Skönhet</a>, <a href="http://www.svd.se/naringsliv/karriar/sok-jobb/?cg=9130">Övrigt</a>
+</p>
+<p class="partner-description">
+I samarbete med <a href="http://jobb.blocket.se/" target="_blank" rel="external">Blocket Jobb</a>
+</p>
+</div>	<div id="funds-box" class="tab-box">
+<h2><a href="http://bors-nliv.svd.se/index.php/fonder/index?view=alla&amp;sort=ytdd" target="_blank">Fonder</a></h2>
+<ul class="tabs">
+<li class="selected"><a href="#" rel="nofollow"><span>Vinnare</span></a></li>
+<li><a href="#" rel="nofollow"><span>Förlorare</span></a></li>
+</ul>
+<div class="content tab-content-1">
+<h3>Vinnare</h3>
+<ul class="subtabs">
+<li class="selected"><a href="">Idag</a></li>
+<li><a href="">1 vecka</a></li>
+<li><a href="">1 månad</a></li>
+<li><a href="">1 år</a></li>
+</ul>
+<div class="subcontent">
+<h4>Idag</h4>
+<ul>
+<li><a href="http://bors-nliv.svd.se/index.php/funddetail/index/25270"><span class="title">Superfund Green C EUR SICAV</span><span class="value positive">13,21 %</span></a></li><li><a href="http://bors-nliv.svd.se/index.php/funddetail/index/25271"><span class="title">Superfund Green C USD SICAV</span><span class="value positive">12,61 %</span></a></li><li><a href="http://bors-nliv.svd.se/index.php/funddetail/index/51628"><span class="title">Superfund Green Gold B SICAV</span><span class="value positive">10,07 %</span></a></li><li><a href="http://bors-nliv.svd.se/index.php/funddetail/index/25268"><span class="title">Superfund Green B EUR SICAV</span><span class="value positive">9,73 %</span></a></li><li><a href="http://bors-nliv.svd.se/index.php/funddetail/index/25269"><span class="title">Superfund Green B USD SICAV</span><span class="value positive">9,53 %</span></a></li>
+</ul>
+</div>
+<div class="subcontent">
+<h4>1 vecka</h4>
+<ul>
+<li><a href="http://bors-nliv.svd.se/index.php/funddetail/index/25270"><span class="title">Superfund Green C EUR SICAV</span><span class="value positive">13,21 %</span></a></li><li><a href="http://bors-nliv.svd.se/index.php/funddetail/index/25271"><span class="title">Superfund Green C USD SICAV</span><span class="value positive">12,61 %</span></a></li><li><a href="http://bors-nliv.svd.se/index.php/funddetail/index/190839"><span class="title">PARVEST EQUITY BRAZIL SEK</span><span class="value positive">11,04 %</span></a></li><li><a href="http://bors-nliv.svd.se/index.php/funddetail/index/24241"><span class="title">PARVEST EQUITY BRAZIL</span><span class="value positive">10,35 %</span></a></li><li><a href="http://bors-nliv.svd.se/index.php/funddetail/index/271724"><span class="title">PARV Eq BRAZIL ClassicAccUSD</span><span class="value positive">10,23 %</span></a></li>
+</ul>
+</div>
+<div class="subcontent">
+<h4>1 månad</h4>
+<ul>
+<li><a href="http://bors-nliv.svd.se/index.php/funddetail/index/23883"><span class="title">Jap50Eq A Dist JPY</span><span class="value positive">17,21 %</span></a></li><li><a href="http://bors-nliv.svd.se/index.php/funddetail/index/23880"><span class="title">JPM Japan 50 Equiy A (acc)-JPY</span><span class="value positive">17,19 %</span></a></li><li><a href="http://bors-nliv.svd.se/index.php/funddetail/index/24406"><span class="title">PF(LUX)-Japan Index P</span><span class="value positive">16,89 %</span></a></li><li><a href="http://bors-nliv.svd.se/index.php/funddetail/index/24407"><span class="title">PF(LUX)-Japan Index R</span><span class="value positive">16,88 %</span></a></li><li><a href="http://bors-nliv.svd.se/index.php/funddetail/index/413055"><span class="title">Robur ETF OMXS30 Bull2</span><span class="value positive">16,74 %</span></a></li>
+</ul>
+</div>
+<div class="subcontent">
+<h4>1 år</h4>
+<ul>
+<li><a href="http://bors-nliv.svd.se/index.php/funddetail/index/25561"><span class="title">Brummer Multi-Strategy</span><span class="value positive">839,74 %</span></a></li><li><a href="http://bors-nliv.svd.se/index.php/funddetail/index/671704"><span class="title">Brummer Multi-Strategy Utd</span><span class="value positive">353,67 %</span></a></li><li><a href="http://bors-nliv.svd.se/index.php/funddetail/index/46328"><span class="title">Brummer Multi-Strategy 2xL</span><span class="value positive">343,02 %</span></a></li><li><a href="http://bors-nliv.svd.se/index.php/funddetail/index/25476"><span class="title">EF - Euro Countr. Opport. P-ac</span><span class="value positive">86,18 %</span></a></li><li><a href="http://bors-nliv.svd.se/index.php/funddetail/index/833331"><span class="title">Goldman Sachs India Equity</span><span class="value positive">80,18 %</span></a></li>
+</ul>
+</div>
+<a href="http://bors-nliv.svd.se/index.php/fonder/index?view=alla&amp;sort=ytdd" class="more">Visa fler fonder</a>
+</div>
+<div class="content tab-content-2">
+<h3>Förlorare</h3>
+<ul class="subtabs">
+<li class="selected"><a href="">Idag</a></li>
+<li><a href="">1 vecka</a></li>
+<li><a href="">1 månad</a></li>
+<li><a href="">1 år</a></li>
+</ul>
+<div class="subcontent">
+<h4>Idag</h4>
+<ul>
+<li><a href="http://bors-nliv.svd.se/index.php/funddetail/index/47456"><span class="title">Caprifol – Nordiska Fonden</span><span class="value negative">-5,62 %</span></a></li><li><a href="http://bors-nliv.svd.se/index.php/funddetail/index/478039"><span class="title">Sentat Event Driven</span><span class="value negative">-4,15 %</span></a></li><li><a href="http://bors-nliv.svd.se/index.php/funddetail/index/190843"><span class="title">SpotR Bear OMXS30</span><span class="value negative">-3,31 %</span></a></li><li><a href="http://bors-nliv.svd.se/index.php/funddetail/index/22977"><span class="title">Enter Maximal Pro</span><span class="value negative">-3,12 %</span></a></li><li><a href="http://bors-nliv.svd.se/index.php/funddetail/index/69145"><span class="title">XACT Bear 2</span><span class="value negative">-2,55 %</span></a></li>
+</ul>
+</div>
+<div class="subcontent">
+<h4>1 vecka</h4>
+<ul>
+<li><a href="http://bors-nliv.svd.se/index.php/funddetail/index/47456"><span class="title">Caprifol – Nordiska Fonden</span><span class="value negative">-5,62 %</span></a></li><li><a href="http://bors-nliv.svd.se/index.php/funddetail/index/23701"><span class="title">Ny Energi</span><span class="value negative">-5,01 %</span></a></li><li><a href="http://bors-nliv.svd.se/index.php/funddetail/index/456742"><span class="title">Inside Australia</span><span class="value negative">-4,78 %</span></a></li><li><a href="http://bors-nliv.svd.se/index.php/funddetail/index/190843"><span class="title">SpotR Bear OMXS30</span><span class="value negative">-4,44 %</span></a></li><li><a href="http://bors-nliv.svd.se/index.php/funddetail/index/478039"><span class="title">Sentat Event Driven</span><span class="value negative">-4,15 %</span></a></li>
+</ul>
+</div>
+<div class="subcontent">
+<h4>1 månad</h4>
+<ul>
+<li><a href="http://bors-nliv.svd.se/index.php/funddetail/index/173538"><span class="title">F Gold &amp; Precious Metals</span><span class="value negative">-15,33 %</span></a></li><li><a href="http://bors-nliv.svd.se/index.php/funddetail/index/69145"><span class="title">XACT Bear 2</span><span class="value negative">-14,88 %</span></a></li><li><a href="http://bors-nliv.svd.se/index.php/funddetail/index/190843"><span class="title">SpotR Bear OMXS30</span><span class="value negative">-14,83 %</span></a></li><li><a href="http://bors-nliv.svd.se/index.php/funddetail/index/25553"><span class="title">XACT Bear</span><span class="value negative">-11,35 %</span></a></li><li><a href="http://bors-nliv.svd.se/index.php/funddetail/index/580702"><span class="title">Tundra Nigeria &amp; Sub Sahara</span><span class="value negative">-10,23 %</span></a></li>
+</ul>
+</div>
+<div class="subcontent">
+<h4>1 år</h4>
+<ul>
+<li><a href="http://bors-nliv.svd.se/index.php/funddetail/index/440566"><span class="title">FMG Mongolia Fund B</span><span class="value negative">-34,86 %</span></a></li><li><a href="http://bors-nliv.svd.se/index.php/funddetail/index/533637"><span class="title">Independent Precious Metal Sec</span><span class="value negative">-34,17 %</span></a></li><li><a href="http://bors-nliv.svd.se/index.php/funddetail/index/23233"><span class="title">FIM Russia Small Cap</span><span class="value negative">-32,99 %</span></a></li><li><a href="http://bors-nliv.svd.se/index.php/funddetail/index/23005"><span class="title">Evli Ryssland</span><span class="value negative">-29,31 %</span></a></li><li><a href="http://bors-nliv.svd.se/index.php/funddetail/index/190843"><span class="title">SpotR Bear OMXS30</span><span class="value negative">-29,13 %</span></a></li>
+</ul>
+</div>
+<a href="http://bors-nliv.svd.se/index.php/fonder/index?view=alla&amp;sort=ytdd" class="more">Visa fler fonder</a>
+</div>
+</div>
+<div id="sticky">
+<div class="news-list lp_feed id-1047144">
+<h2>Mest läst</h2>
+<ul class="simple-numerical">
+<li>
+<span class="no">1</span>
+<a href="http://www.svd.se/naringsliv/nliv-misstanken-ryssland-testar-satellitdodare_4129451.svd">
+Misstanken: Ryssland testar ”satellitdödare”
+</a>
+</li>
+<li>
+<span class="no">2</span>
+<a href="http://www.svd.se/naringsliv/harifran-gick-flygen-fore-bromma-och-arlanda-naringsliv_4100497.svd">
+Härifrån gick flygen före Bromma och Arlanda
+</a>
+</li>
+<li>
+<span class="no">3</span>
+<a href="http://www.svd.se/naringsliv/pengar/sparande/inget-budgetbesked-fran-hogsta-ratt_4129007.svd">
+Inget budgetbesked från högsta rätt
+</a>
+</li>
+<li>
+<span class="no">4</span>
+<a href="http://www.svd.se/naringsliv/nyheter/varlden/sa-mycket-pengar-bloder-ryssland_4129815.svd">
+Putin: IS pressar oljans världsmarknadspris
+</a>
+</li>
+<li>
+<span class="no">5</span>
+<a href="http://www.svd.se/naringsliv/verbal-strid-om-riksbankens-rantepolitik_4083645.svd">
+Verbal strid om Riksbankens räntepolitik
+</a>
+</li>
+<li>
+<span class="no">6</span>
+<a href="http://www.svd.se/naringsliv/brytpunkten-for-inkomstskatt-provas-inte_4130975.svd">
+Brytpunkten för inkomstskatt prövas inte
+</a>
+</li>
+<li>
+<span class="no">7</span>
+<a href="http://www.svd.se/naringsliv/nyheter/varlden/vm-byggare-i-qatar-far-globalt-fackstod_4119957.svd">
+Migrantarbetare får fackstöd
+</a>
+</li>
+<li>
+<span class="no">8</span>
+<a href="http://www.svd.se/naringsliv/sju-ryska-ubatar_4033283.svd">
+Sju ryska ubåtar
+</a>
+</li>
+<li>
+<span class="no">9</span>
+<a href="http://www.svd.se/naringsliv/teknisk-analys-investtech-fyra-jattar-analyserade_4119397.svd">
+Fyra jättar analyserade
+</a>
+</li>
+<li>
+<span class="no">10</span>
+<a href="http://www.svd.se/naringsliv/affarsjet-chefer-arga-over-hotande-brommastangning_4098151.svd">
+Affärsjet-chefer arga över hotande Brommastängning
+</a>
+</li>
+</ul>
+</div>
+<div class="news-list lp_feed id-1047148">
+<h2>Mest kommenterat</h2>
+<ul class="simple-numerical">
+<li>
+<span class="no">1</span>
+<a href="http://www.svd.se/opinion/ledarsidan/rattvisa-loner-ar-lonsamt_4128779.svd">
+Rättvisa löner är lönsamt
+</a>
+</li>
+<li>
+<span class="no">2</span>
+<a href="http://www.svd.se/opinion/brannpunkt/fd-ambassadorer-finland-och-sverige-bor-stanna-utanfor-nato_4128043.svd">
+Finland och Sverige bör stanna utanför Nato
+</a>
+</li>
+<li>
+<span class="no">3</span>
+<a href="http://www.svd.se/opinion/ledarsidan/m-maste-ga-till-sina-rotter_4127617.svd">
+M måste gå till sina rötter
+</a>
+</li>
+<li>
+<span class="no">4</span>
+<a href="http://www.svd.se/opinion/ledarsidan/oppositionen-ska-gora-sitt-jobb_4128783.svd">
+Oppositionen ska göra sitt jobb
+</a>
+</li>
+<li>
+<span class="no">5</span>
+<a href="http://www.svd.se/opinion/ledarsidan/bakslag-for-egyptens-flickor_4128781.svd">
+Bakslag för Egyptens flickor
+</a>
+</li>
+</ul>
+</div>
+<div class="news-list lp_feed id-1047152">
+<h2>Mest delat</h2>
+<ul class="simple-numerical">
+<li>
+<span class="no">1</span>
+<a href="http://www.svd.se/import_tt/tt_prio2/hetast-i-landet-och-iskallast_4126669.svd">
+Hetaste bomarknaden i landet – och den som är iskall
+</a>
+</li>
+<li>
+<span class="no">2</span>
+<a href="http://www.svd.se/naringsliv/vm-byggare-i-qatar-far-globalt-fackstod_4119957.svd">
+Migrantarbetare får fackstöd
+</a>
+</li>
+<li>
+<span class="no">3</span>
+<a href="http://www.svd.se/naringsliv/digitalt/den-som-vet-mest-om-konsumenten-vinner_4118727.svd">
+Den som vet mest om konsumenten vinner
+</a>
+</li>
+<li>
+<span class="no">4</span>
+<a href="http://www.svd.se/naringsliv/branscher/bank-och-fastighet/it-krasch-stangde-bank-i-en-manad_4127967.svd">
+It-krasch stängde bank i en månad – ska böta 650 miljoner
+</a>
+</li>
+<li>
+<span class="no">5</span>
+<a href="http://www.svd.se/naringsliv/karriar/sa-nar-du-fram-med-ditt-budskap_4110755.svd">
+Så når du fram med ditt budskap
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="in-between-1" class="in-between commercial-in-between in-between-1">
+<div class="carousel">
+<ul>
+<li style="height: 170px;" class="size-2">
+<h3>SVD ERBJUDANDE</h3>
+<a href="https://kundservice.svd.se/1m0?utm_source=nliv&amp;utm_medium=band&amp;utm_content=1m0&amp;utm_campaign=1m0&amp;kwsn=5067" target="_blank">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/vandsida-315x150-2.gif" alt="">
+</a>
+</li>
+<li style="height: 170px;" class="size-2">
+<h3>DIGITALA TJÄNSTER</h3>
+<a href="https://kundservice.svd.se/aktivera?utm_source=nliv&amp;utm_medium=band&amp;utm_content=aktivera&amp;utm_campaign=aktivera" target="_blank">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/Nliv-band-315x150__1028836a.jpg" alt="">
+</a>
+</li>
+<li style="height: 170px;" class="size-2">
+<h3>SVD SURF</h3>
+<a href="https://kundservice.svd.se/Bli-prenumerant/SvD-surf/?utm_source=nliv&amp;utm_medium=band&amp;utm_content=315x150_surf&amp;utm_campaign=315x150_surf" target="_blank">
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/Nliv-band-315x150-_1055496a.jpg" alt="">
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="footer" class="lp_footer">
+<div id="footer-service-navigation">
+<h2>TJÄNSTER FRÅN SvD:</h2>
+<ul>
+<li><a href="http://annonsera.svd.se/">Annonsera</a></li>
+<li><a href="http://kundservice.svd.se/Bli-prenumerant/?utm_source=nliv&amp;utm_medium=servicenav&amp;utm_content=footer&amp;utm_campaign=pren" target="_blank">Prenumerera</a></li>
+<li><a href="http://kundservice.svd.se/Kundservice/?utm_source=nliv&amp;utm_medium=servicenav&amp;utm_content=footer&amp;utm_campaign=kundservice" target="_blank">Kundservice</a></li>
+<li><a href="http://kundservice.svd.se/Bli-prenumerant/SvD-Digital/?utm_source=nliv&amp;utm_medium=servicenav&amp;utm_content=footer&amp;utm_campaign=digiprod" target="_blank">Digitala erbjudanden</a></li>
+<li><a href="http://accent.svd.se/se/?utm_source=nliv&amp;utm_medium=serviceband&amp;utm_content=accentpuff&amp;utm_campaign=accentpuff" target="_blank">SvD accent</a></li>
+</ul>
+</div>
+<!-- Crazy Egg -->
+<script type="text/javascript">
+setTimeout(function(){var a=document.createElement("script");
+var b=document.getElementsByTagName("script")[0];
+a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0013/4944.js?"+Math.floor(new Date().getTime()/3600000);
+a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+</script>
+<!-- /Crazy Egg -->
+<div id="footer-content">
+<div id="footer-news">
+<h2>Internationella nyheter</h2>
+<ul>
+<li>
+<a rel="external" href="http://online.wsj.com/articles/swiss-museum-accepts-art-from-gurlitt-1416826077?mod=rss_europe_whats_news"><span class="source">Wall Street Journal</span>Swiss Museum Accepts Art From Gurlitt</a>
+</li>
+<li>
+<a rel="external" href="http://www.theguardian.com/business/2014/nov/24/bt-o2-talks-buy-back"><span class="source">Guardian Business</span>BT in talks with Telefónica to buy O2 in plan for EU-wide mobile alliance</a>
+</li>
+<li>
+<a rel="external" href="http://www.handelsblatt.com/finanzen/boerse-maerkte/anlagestrategie/dax-umfrage-rally-ist-noch-jung/11023638.html"><span class="source">Handelsblatt</span>Dax-Umfrage: „Rally ist noch jung“</a>
+</li>
+</ul>
+<span class="fade-out"></span>
+</div>
+<div id="footer-contact">
+<h2>Prata med oss</h2>
+<ul>
+<li><a href="http://www.facebook.com/svd.naringsliv">SvD Näringsliv på Facebook</a></li>
+<li><a href="http://www.twitter.com/naringsliv_live">Följ oss på Twitter</a></li>
+<li><a href="mailto:nliv@svd.se">Tipsa SvD Näringsliv</a></li>
+</ul>
+</div>
+<div id="footer-showcase">
+<h2>SvD Näringsliv</h2>
+<p>Läs SvD Näringsliv på papper, eller på <a href="http://www.nliv.se/">www.nliv.se</a> eller på <a href="http://mobil.nliv.se/">mobil.nliv.se</a></p>
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/SvD_N_ringsliv_kana_883687a.png" alt="SvD Näringsliv">
+</div>
+</div>
+<div id="footer-menu">
+<ul id="mainnavigation-footer">
+<li><a href="http://www.svd.se/" class="svd" onclick="s_objectID='mainNav_http%3A%2F%2Fwww.svd.se%2F';">SvD.se</a></li>
+<li><a href="http://www.svd.se/naringsliv/" class="" onclick="s_objectID='mainNav_http%3A%2F%2Fwww.svd.se%2Fnaringsliv%2F';">Näringsliv</a></li>
+<li><a href="http://bors-nliv.svd.se/" class="" onclick="s_objectID='mainNav_http%3A%2F%2Fbors-nliv.svd.se%2F';" target="_blank">Börs</a></li>
+<li><a href="http://borsforum.svd.se/" class="" onclick="s_objectID='mainNav_http%3A%2F%2Fborsforum.svd.se';">Börsforum</a></li>
+<li class="selected"><a href="http://www.svd.se/naringsliv/nyheter/" class="" onclick="s_objectID='mainNav_http%3A%2F%2Fwww.svd.se%2Fnaringsliv%2Fnyheter%2F';">Nyheter</a></li>
+<li><a href="http://www.svd.se/naringsliv/pengar/" class="" onclick="s_objectID='mainNav_http%3A%2F%2Fwww.svd.se%2Fnaringsliv%2Fpengar%2F';">Pengar</a></li>
+<li><a href="http://www.svd.se/naringsliv/sok-foretag/" class="" onclick="s_objectID='mainNav_http%3A%2F%2Fwww.svd.se%2Fnaringsliv%2Fsok-foretag%2F';">Sök företag</a></li>
+<li><a href="http://www.svd.se/naringsliv/motor/" class="" onclick="s_objectID='mainNav_http%3A%2F%2Fwww.svd.se%2Fnaringsliv%2Fmotor%2F';">Motor</a></li>
+<li><a href="http://www.svd.se/naringsliv/karriar/" class="" onclick="s_objectID='mainNav_http%3A%2F%2Fwww.svd.se%2Fnaringsliv%2Fkarriar%2F';">Karriär</a></li>
+<li class="last"><a href="http://www.svd.se/naringsliv/special/sajtkarta-naringsliv_7059581.svd" class="sitemap url-%3Fservice%3Dajax%26type%3Dsitemap" onclick="s_objectID='mainNav_http%3A%2F%2Fwww.svd.se%2Fnaringsliv%2Fspecial%2Fsajtkarta-naringsliv_7059581.svd';">A-Ö</a></li>
+</ul>
+<form action="http://www.svd.se/search.do" method="get" id="footer-searchbox">
+<fieldset>
+<label for="searchwordAutocompleteFooter">Sök nyheter &amp; aktier</label>
+<input value="Sök nyheter &amp; aktier" id="searchwordAutocompleteFooter" name="q" class="textbox" type="text">
+<input name="section1" value="Näringsliv" type="hidden">
+<input value="" name="submit" type="submit">
+</fieldset>
+</form>
+</div>
+<div class="footer-info">
+<a class="top-of-page" href="#page">Upp</a>
+<a href="http://www.svd.se/"><img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/SvD_logo_109.png" alt="SVD logo"></a>
+<p><a href="http://www.svd.se/svdinfo">Svenska Dagbladet</a> | Chefredaktör och ansvarig utgivare: <a href="mailto:fredric.karen@svd.se">Fredric Karén</a> | VD: <a href="mailto:gunilla.asker@svd.se">Gunilla Asker</a> | Stf ansvariga utgivare och redaktionschefer: <a href="mailto:olle.zachrison@svd.se">Olle Zachrison</a> och <a href="mailto:niklas.kierkegaard@svd.se">Niklas Kierkegaard</a> | Nyhetschefer SvD.se: <a href="mailto:mikael.larsson@svd.se">Mikael Larsson</a> och <a href="mailto:petter.forslund@svd.se">Petter Forslund</a> | Försäljningschef annons: <a href="mailto:peter.oskarsson@svd.se">Peter Oskarsson</a> | Lämna nyhetstips - <a href="mailto:tipsa@svd.se">tipsa@svd.se</a> | Kontakta <a href="mailto:webbredaktion@svd.se">Tjänstgörande webbredaktör - webbredaktion@svd.se</a> | Rapportera fel till <a href="http://www.svd.se/special/svd_info/rapportera-fel-i-svd_676729.svd">SvD:s Kvalitetsredaktör</a> | <a href="http://www.svd.se/cookies">Så använder SvD.se cookies</a> | Postadress: Svenska Dagbladet, 105 17 Stockholm | Besök: <a href="http://www.hitta.se/svd/f%C3%B6retag">Västra Järnvägsgatan 21</a>, Stockholm | Telefon <a href="http://kundservice.svd.se/">kundservice</a>: +46&nbsp;8&nbsp;618&nbsp;02&nbsp;20 | Telefon växel: +46&nbsp;8&nbsp;13&nbsp;50&nbsp;00 | Organisationsnummer: 902004-3619</p>
+</div>
+<div class="footer-info">
+<a class="top-of-page" href="#page">Upp</a>
+<a href="http://www.svd.se/naringsliv"><img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/logo-440x51.png" alt="SVD Näringsliv logo"></a>
+<p><a href="http://www.svd.se/naringsliv/">SvD Näringsliv</a> | <a href="http://www.nliv.se/">Nliv.se</a> | Chefredaktör och ansvarig utgivare: <a href="mailto:fredric.karen@svd.se">Fredric Karén</a> | VD: <a href="mailto:gunilla.asker@svd.se">Gunilla Asker</a> | Stf ansvariga utgivare och redaktionschefer: <a href="mailto:olle.zachrison@svd.se">Olle Zachrison</a> och <a href="mailto:niklas.kierkegaard@svd.se">Niklas Kierkegaard</a> | Chef SvD Näringsliv: <a href="mailto:maria.rimpi@svd.se">Maria Rimpi</a>| Nyhetschef nliv.se: <a href="mailto:daniel.kederstedt@svd.se">Daniel Kederstedt</a>| Försäljningschef annons: <a href="mailto:peter.oskarsson@svd.se">Peter Oskarsson</a> | <a href="http://kundservice.svd.se/annonsera/">Annonsinformation</a> | Lämna nyhetstips - <a href="mailto:tipsa@svd.se">tipsa@svd.se</a> | Kontakta Tjänstgörande webbredaktör - <a href="mailto:nliv@svd.se">nliv@svd.se</a> | Rapportera fel till <a href="http://www.svd.se/special/svd_info/rapportera-fel-i-svd_676729.svd">SvD:s Kvalitetsredaktör</a> | <a href="http://www.svd.se/cookies">Så använder SvD.se cookies</a> | Postadress: Svenska Dagbladet, 105 17 Stockholm | Besök: <a href="http://www.hitta.se/svd/f%C3%B6retag" target="_blank">Västra Järnvägsgatan 21, Stockholm</a> | Telefon <a href="http://kundservice.svd.se/">kundservice</a>: +46 8 618 02 20 | Telefon växel: +46 8 13 50 00 | Organisationsnummer: 902004-3619</p>
+</div>
+<div id="welcome_visitor"></div>
+</div>
+</div>
+</div><ul style="display: none;" tabindex="0" id="ui-id-1" class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content ui-corner-all"></ul>
+<script type="text/javascript">
+if(typeof jQuery!='undefined'){
+jQuery(document).bind(SvD.ads.events.SVD_PRIORITIZED_CONTENT_AND_ADS_LOADED, function(){
+SvD.fixedAd.loaded(1200);
+});
+SvD.ads.registerPrioritizedContentAndAdsLoaded(true,
+2000);
+}
+</script>
+<!-- Paywall load ads later -->
+<!-- START Xiti -->
+<script type="text/javascript">
+<!--
+xtnv = document;	xtsd = "http://logc253";
+xtsite = "487919";
+xtn2 = ""; xtpage = "naringsliv::nyheter::norsk-oljeproduktion-minskas-inte_4131605"; xtdi = ""; xt_multc = "&x1=4131605&x2=norsk-oljeproduktion-minskas-inte&x3=standard";	xt_an = ""; xt_ac = ""; if (window.xtparam!=null){window.xtparam+="&ac="+xt_ac+"&an="+xt_an+xt_multc;}
+else{window.xtparam="&ac="+xt_ac+"&an="+xt_an+xt_multc;};
+//-->
+</script>
+<script type="text/javascript" src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/xtcore.js"></script>
+<noscript>
+<img width="1" height="1" src="http://logi118.xiti.com/hit.xiti?s=&amp;s2=&amp;p=naringsliv%3a%3anyheter%3a%3anorsk-oljeproduktion-minskas-inte_4131605&amp;di=&amp;x1=4131605&amp;x2=norsk-oljeproduktion-minskas-inte&amp;x3=standard" alt="" />
+</noscript>
+<!-- END Xiti -->
+<!-- eaeLoggerEnabled true -->
+<!-- START EAELoggerClient -->
+<!-- eaeNoscriptMark -->
+<img src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/Logger.asc" class="ealogger" alt="" height="1" width="1">
+<!-- // Escenic Analysis Engine client script -->
+<!-- END EAELoggerClient -->
+<!-- START LinkPulse nliv -->
+<script type="text/javascript" src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/4f704cb1f925b37e36000000.js"></script>
+<!-- END LinkPulse nliv -->
+<div class=" fb_reset" id="fb-root"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/7r8gQb8MIqE.html" style="border: medium none;" tabindex="-1" title="Facebook Cross Domain Communication Frame" aria-hidden="true" id="fb_xdm_frame_http" scrolling="no" allowtransparency="true" name="fb_xdm_frame_http" frameborder="0"></iframe><iframe src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/7r8gQb8MIqE_002.html" style="border: medium none;" tabindex="-1" title="Facebook Cross Domain Communication Frame" aria-hidden="true" id="fb_xdm_frame_https" scrolling="no" allowtransparency="true" name="fb_xdm_frame_https" frameborder="0"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div>
+<script type="text/javascript">
+window.fbAsyncInit = function() {
+FB.init({appId: '120052334696503', status: true, cookie: true,
+xfbml: true, oauth: true});
+SvD.article.trackFacebook();
+SvD.article.logLikes('4131605', 'http://www.svd.se/naringsliv/nyheter/norsk-oljeproduktion-minskas-inte_4131605.svd', '2014-11-24 15:40:39', 'http://app.svd.se/recommend');
+if (typeof SocStat !== 'undefined') {
+SocStat.facebook.bind(4131605, 'http://www.svd.se/naringsliv/nyheter/norsk-oljeproduktion-minskas-inte_4131605.svd', '2014-11-24 15:40:39', 'http://socstat.svd.se');
+}
+};
+(function(d, s, id) {
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) return;
+js = d.createElement(s); js.id = id;
+js.src = "//connect.facebook.net/sv_SE/all.js";
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+<script type="text/javascript">
+window.twttr = (function (d,s,id) {
+var t, js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) return; js=d.createElement(s); js.id=id;
+js.src="//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
+return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });
+}(document, "script", "twitter-wjs"));
+//Wrap event bindings - Wait for async js to load
+twttr.ready(function (twttr) {
+twttr.events.bind('tweet', SvD.article.twitter.track);
+if (typeof SocStat !== 'undefined') {
+SocStat.twitter.bind(4131605, 'http://www.svd.se/naringsliv/nyheter/norsk-oljeproduktion-minskas-inte_4131605.svd', '2014-11-24 15:40:39', 'http://socstat.svd.se');
+}
+});
+</script>
+<!-- START SiteCatalyst -->
+<script type="text/javascript" src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/s_code_v20.js"></script>
+<script type="text/javascript">
+// <![CDATA[
+var referrer = document.referrer;
+var referrerParts = referrer.split('/');
+if (referrerParts.length >= 2) {
+if(referrerParts.length > 3) {
+if (referrerParts[3] != "naringsliv") {
+s.eVar39 = "svd.se";
+}
+} else if (referrerParts[2].indexOf("svd.se") != -1) {
+s.eVar39 = "svd.se";
+} else if (referrerParts[2].indexOf("e24.se") != -1) {
+s.eVar39 = "e24.se";
+} else if (referrerParts[2].indexOf("nliv.se") != -1) {
+s.eVar39 = "nliv.se";
+}
+}
+// Check internal hash
+var urlHash = window.location.hash;
+if (urlHash.indexOf("E24") != -1) {
+s.eVar39 = "e24.se";
+} else if (urlHash.indexOf("nliv") != -1) {
+s.eVar39 = "nliv.se";
+} else if (urlHash.indexOf("landsort") != -1) {
+s.eVar39 = "landsort";
+}
+// Check XiTi hash/url-param
+var url = window.location.href;
+if (url.indexOf("xtor=AD-500") != -1) {
+url = url.substring(url.indexOf("xtor=AD-500"));
+if (url.indexOf("aftonbladet") != -1)	{
+s.eVar39 = "aftonbladet.se naringslivs-box";
+} else if (url.indexOf("klart") != -1) {
+s.eVar39 = "klart.se";
+} else if (url.indexOf("blocket") != -1) {
+s.eVar39 = "blocket.se";
+} else if (url.indexOf("hitta") != -1) {
+s.eVar39 = "hitta.se";
+}
+}
+//	]]>
+</script>
+<script type="text/javascript">
+// Optimizely SiteCatalyst Integration
+window.optimizely = window.optimizely || [];
+window.optimizely.push("sc_activate");
+</script>
+<script type="text/javascript">
+// <![CDATA[
+s.pageName="naringsliv:nyheter:Norsk oljeproduktion minskas inte";
+s.pageType="";
+s.prop1="naringsliv";
+s.prop2="naringsliv:nyheter";
+s.prop3="naringsliv:nyheter";
+s.prop4="naringsliv:nyheter";
+s.prop5="naringsliv:nyheter";
+s.prop6="naringsliv:nyheter";
+if(document.cookie.indexOf("svd-wp=")>=0) {
+s.prop7="Logged In";
+var cArr=document.cookie.split(";");
+for(var i=0;i<cArr.length;i++)
+if(cArr[i].indexOf("svd-wp=")>=0&&cArr[i].indexOf("o:")>=0)
+s.prop31=cArr[i].substr(cArr[i].indexOf("o:")+2);
+} else {
+s.prop7="Logged Out";
+}
+s.prop25="4131605";
+s.prop30="article";
+s.prop34="svd.se";
+s.prop41="nyhet";
+s.prop37="http://www.svd.se/naringsliv/nyheter/norsk-oljeproduktion-minskas-inte_4131605.svd";
+s.prop42="eas3176,eas522,eas1457,eas513,eas1080,eas1066,eas1056,eas3031,eas518,eas1726,eas3146,eas2412,eas1087,eas1879,eas1169,eas1087";
+s.prop44="";
+s.hier1="naringsliv,nyheter";
+if(document.cookie.indexOf("svd-mc=")>=0) {
+var cArr=document.cookie.split(";");
+for(var i=0;i<cArr.length;i++)
+if(cArr[i].indexOf("svd-mc=")>=0)
+s.eVar30=cArr[i].substr(8);
+}
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=s.t();if(s_code)document.write(s_code)
+// ]]>
+</script>
+<!-- END SiteCatalyst code version: H.15.1. -->
+<!-- START Google Analytics -->
+<script type="text/javascript">
+// <![CDATA[
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+// ]]>
+</script>
+<!-- END Google Analytics -->
+<!-- begin oas Panel Only tag -->
+<script type="text/javascript">
+//<!--
+function send_panel() {
+var OAS_server = 'http://sifomedia.svd.se';
+if (! (OAS_rn)) {
+var OAS_rn = new String (Math.random());
+var OAS_rns = OAS_rn.substring (2, 11);
+}
+var OAS_taxonomy='&Sajt=svd&Sektion=naringsliv'; //Add Taxonomy here. Begin with '&'
+document.write('<i' + 'frame src="http://panel2.research-int.se/0/RI-Panel/pixel/set_panel2.html?'+OAS_rns+'__!__'+OAS_server+'__!__'+OAS_taxonomy+'" style="display:none;"></i' + 'frame>');
+return true;
+}
+if (document.cookie.indexOf('member_type=') === -1) {
+send_panel();
+}
+//-->
+</script><iframe class="hooalhgvcffghpqwmvwy" src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/set_panel2.html" style="display:none;"></iframe>
+<!-- end oas Panel Only tag -->
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"applicationID":"3202037","applicationTime":964,"beacon":"beacon-2.newrelic.com","queueTime":0,"licenseKey":"3b2c85146b","transactionName":"Ml1VZ0dUWUFQUkIMCQsXfWBlGkNXXEFaBBIAF1RcWFhYXB9bRRU=","agent":"js-agent.newrelic.com\/nr-476.min.js","errorBeacon":"bam.nr-data.net"}</script>
+
+<script src="Norsk%20oljeproduktion%20minskas%20inte%20%7C%20Nyheter%20%7C%20SvD_files/nr-476.js"></script></body></html>

@@ -3,6 +3,9 @@ local io = require("io")
 local ltn12 = require("ltn12")
 local SLAXML = require 'slaxdom'
 
+require 'feeds.htmlLib'
+require 'feeds.download'
+
 local articleFile = "feeds/article.html"
 
 CNNNews = {}
@@ -26,23 +29,11 @@ function getParagraphs(elements)
 	return t
 end
 
-function getText(paragraphs)
-	local str = ''
-
-	for i, p in ipairs(paragraphs) do
-		if type(p) == 'table' then
-			str = str .. getText(p) .. ' '
-		else
-			str = str .. p
-		end
-	end
-
-	return str
-
-end
-
 function CNNNews:new()
 	newObj = {
+		name = "CNN",
+		advertising = false,
+		datePattern = "%a+, (%d+) (%a+) (%d+) (%d+):(%d+):(%d+) (%a+)",
 		categories = {
 			['Top stories'] = 'http://rss.cnn.com/rss/edition.rss',
 			['World'] = 'http://rss.cnn.com/rss/edition_world.rss',
@@ -68,33 +59,36 @@ function CNNNews:new()
   return setmetatable(newObj, self)
 end
 
-function CNNNews:downloadArticle (link, output)
-	local outputfile = io.open(output, "w+")
-
-	http.request { 
-    url = link, 
-    sink = ltn12.sink.file(outputfile)
-	}
-
-end
-
 function CNNNews:parseArticleFile(articleFile)
 	local htmlstr = io.open(articleFile):read('*all')
 	
 	local html = require 'html'
 
   local root = html.parsestr(htmlstr)
-	
-	local paragraphs = getParagraphs(root)
+  
+  local block = HTML.findClass(root, 'cnn_storyarea')
 
-	local text = getText (paragraphs)
+  if #block == 0 then
+  	block = HTML.findClass(root, 'cnnContentContainer')
+  end
+  if #block == 0 then
+  	block = HTML.findId(root, 'storytext')
+  end
+
+  if block == nil then
+  	block = {}
+  end
+	
+	local paragraphs = HTML.findTag(block, 'p')
+
+	local text = HTML.getText (paragraphs)
 
 	return text
 
 end
 
 function CNNNews:getArticleText(link)
-	self:downloadArticle(articleFile, articleFile)
+	download.downloadFile(link, articleFile)
 
 	return self:parseArticleFile(articleFile)
 

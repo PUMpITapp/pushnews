@@ -2,8 +2,12 @@ local http = require("socket.http")
 local io = require("io")
 local ltn12 = require("ltn12")
 local SLAXML = require 'slaxdom'
+
 require "feeds.feed"
 require "feeds.xml"
+
+local ignoreLinksRegx = {"quiz.svd.se", "cnn.com/video"}
+
 
 FeedGetter = {}
 FeedGetter.__index = FeedsGetter
@@ -30,25 +34,31 @@ function FeedGetter:downloadFeeds(url, filename)
 end
 
 function FeedGetter:parseFeeds(filename)
-
 	local xml = io.open(filename):read('*all')
+
+	--deleting everything after the end rss tag, causing parsing errors
+	local beg, found = string.find(xml, '</rss>')
+	xml = string.sub(xml, 1, found)
+
 	local doc = SLAXML:dom(xml)
-	local channel = getByName(doc.root, 'channel')[1]
-	local items = getByName(channel, 'item')
+
+	local channel = XML.getByName(doc.root, 'channel')[1]
+	local items = XML.getByName(channel, 'item')
 
 	local feeds = {}
 
 	local first = true
 
+
 	for i, item in ipairs(items) do
 
-		local title = elementText(getByName(item, 'title')[1])
-		local descr = elementText(getByName(item, 'description')[1])
-		local date = elementText(getByName(item, 'pubDate')[1])
-		local link = elementText(getByName(item, 'guid')[1])
+		local title = XML.elementText(XML.getByName(item, 'title')[1])
+		local descr = XML.elementText(XML.getByName(item, 'description')[1])
+		local date = XML.elementText(XML.getByName(item, 'pubDate')[1])
+		local link = XML.elementText(XML.getByName(item, 'guid')[1])
 		local images = {}
 
-		for i, imgElement in ipairs(getByName(item, 'thumbnail')) do
+		for i, imgElement in ipairs(XML.getByName(item, 'thumbnail')) do
 			local url = imgElement.attr.url
 			local width = tonumber(imgElement.attr.width)
 			local height = tonumber(imgElement.attr.height)
@@ -73,9 +83,24 @@ function FeedGetter:parseFeeds(filename)
 
 		if title ~= nil and title ~= '' and descr ~= nil and descr ~= ''
 		and date ~= nil and date ~= '' and link ~= nil and link ~= '' then
+			--filter for some particular links
+			
+			local good = true
+			for i, IgnoreLink in ipairs(ignoreLinksRegx) do
+				if string.find(link, IgnoreLink) ~= nil then
+					good = false
+				end
+			end
+
+			if good then				
 			--Insert the new feed
 			table.insert(feeds, Feed:new(title, descr, date, link, images))
+			end
+
 		end
+
+		
+
 	end
 
 	local parsed = {entries = feeds}

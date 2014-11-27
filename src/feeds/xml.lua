@@ -1,4 +1,7 @@
-function getByName(el, name)
+XML = {}
+XML.__index = XML
+
+function XML.getByName(el, name)
 	elements = {}
 
 	for i, kid in ipairs (el.kids) do
@@ -11,7 +14,7 @@ function getByName(el, name)
 
 end
 
-function elementText(el)
+function XML.elementText(el)
   local pieces = {}
   for _,n in ipairs(el.kids) do
     if n.type=='element' then pieces[#pieces+1] = elementText(n)
