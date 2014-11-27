@@ -31,12 +31,13 @@ function categoriesView:viewDidLoad()
   self.categories_y = self.size.h/2-self.categories_h/2
   self.category_w = 800/3
   self.category_h = 500/3
-
+  
   self:drawCategoriesSurface()
   self:drawView()
+
 end
 
--- When this view will dissapear and another view will be shown, this is executed.
+-- When this view will disappear and another view will be shown, this is executed.
 function categoriesView:viewDidEnd()
 end
 
@@ -50,7 +51,8 @@ function categoriesView:drawView()
     gfx.screen:copyfrom(button, nil, { x=gfx.screen:get_width()-self.categories_x/2-button:get_width(), y=self.size.h/2-button:get_height()/2, w=32, h=68.75 }, true)
     button:destroy()
   end
-
+  applogo = gfx.loadpng('images/push_news_logo.png')
+    gfx.screen:copyfrom(applogo, nil, { x=10, y=10, w=165, h=55 }, true)
   gfx.update()
 end
 
