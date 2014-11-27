@@ -29,11 +29,19 @@ end
 -- @return #number Position...
 function TextModule.print(surface, font, text, x, y, w, h)
   local last_i = 0
+  local surface_w = 0
+  local surface_h = 0
+  local start_y = y
 
   if fonts[font] then
     local sx = x -- Start x position on the surface
-    local surface_w = surface:get_width()
-    local surface_h = surface:get_height()
+    if surface == nil then
+      surface_w = w
+      surface_h = h
+    else 
+      surface_w = surface:get_width()
+      surface_h = surface:get_height()
+    end
 
     if w == nil or w > surface_w then
       w = surface_w
@@ -69,7 +77,7 @@ function TextModule.print(surface, font, text, x, y, w, h)
       end
 
       if shouldBePrinted == true then
-        if y > h then
+        if y > start_y + h then
           return i, x
         end
 
@@ -80,7 +88,7 @@ function TextModule.print(surface, font, text, x, y, w, h)
             y = y + fonts[font].info.height
           end
 
-          if char.w > 0 and char.h > 0 then
+          if char.w > 0 and char.h > 0 and surface ~= nil then
             dx = x + char.ox -- dx is the x positon of the character, some characters need offset
             dy = y + fonts[font].info.metrics.ascender - char.oy -- dy is the y position of the character, some characters need offset
             surface:copyfrom(fonts[font].sprite, {x=char.x, y=char.y, w=char.w, h=char.h}, {x=dx, y=dy}, true)
@@ -96,29 +104,6 @@ function TextModule.print(surface, font, text, x, y, w, h)
   else
     print("Err: font not found.")
   end
-end
-
---- Split the text into the several parts 
-function TextModule.createSplit(surface_w, surface_h, font, text, x, y, w, h)
-  local surfaces = {}
-  local stop = false
-  local i = 1
-  local surface_counter = 0
-
-  while stop == false do
-    if i >= #text then
-      stop = true
-    else
-      local sur = gfx.new_surface(surface_w, surface_h)
-      sur:clear({234,234,234,255})
-      table.insert(surfaces, sur)
-
-      surface_counter = surface_counter + 1
-      i = i + TextModule.print(surfaces[surface_counter], font, text:sub(i, #text), x, y, w, h) - 1
-    end
-  end
-
-  return surfaces
 end
 
 function TextModule.getCharInfo(font, char)
