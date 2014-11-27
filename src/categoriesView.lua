@@ -2,7 +2,8 @@
 
 categoriesView = {}
 
--- Constructor of the categoriesView class
+--- Constructor of the categoriesView class
+-- @return #table A constructor table containing properties fpr the CategoriesView ----not too sure about this one... 
 function categoriesView:new()
   newObj = {
     size = { w=gfx.screen:get_width(), h=gfx.screen:get_height() },
@@ -14,7 +15,7 @@ function categoriesView:new()
   return setmetatable(newObj, self)
 end
 
--- When the view is loaded for the first time. This will be executed once.
+--- When the view is loaded for the first time. This will be executed once.
 function categoriesView:viewDidLoad()
   gfx.screen:clear(self.backgroundColor)
   self.categories = {
@@ -48,11 +49,11 @@ function categoriesView:viewDidLoad()
 
 end
 
--- When this view will disappear and another view will be shown, this is executed.
+--- When this view will disappear and another view will be shown, this is executed.
 function categoriesView:viewDidEnd()
 end
 
--- When the view has been loaded before and it is presented again.
+--- When the view has been loaded before and it is presented again.
 function categoriesView:drawView()
   local selectedCategories = self:getSelectedCategories()
   
@@ -89,11 +90,11 @@ function categoriesView:drawView()
   gfx.update()
 end
 
--- When the view is deleted. (You may want to free the memory allowed to you surfaces)
+--- When the view is deleted. (You may want to free the memory allowed to you surfaces)
 function categoriesView:freeView()
 end
 
--- Print the available categories onto the categoriesView
+--- Print the available categories onto the categoriesView
 function categoriesView:drawCategoriesSurface()
   local nbCategoriesPerRow = math.floor(self.categories_w/self.category_w)
   local nbRow = math.ceil(#self.categories/nbCategoriesPerRow)
@@ -128,6 +129,8 @@ function categoriesView:drawCategoriesSurface()
 
 end
 
+--- Make the selection of a category visible by changing the picture marking the category
+-- @param #string key indicates which key on the remote control that is pressed
 function categoriesView:selectCategory(key)
   local categorySurface = nil
 
@@ -146,6 +149,8 @@ function categoriesView:selectCategory(key)
   self:drawView()
 end
 
+--- Get the names of the selected categoies
+-- @return #table Listing the categories selected by the user
 function categoriesView:getSelectedCategories()
   local selectedCategories = {}
 
@@ -159,6 +164,8 @@ function categoriesView:getSelectedCategories()
 end
 
 -- The categoriesView has his own onKey function.
+-- @param #string key Indicates the selected key on the remote control
+-- @param #string state Indicates if a button on the remote contol is pressed down or not        
 function categoriesView:onKey(key, state)
   if state == 'up' then
     if key == 'right' then

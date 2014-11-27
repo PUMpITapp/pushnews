@@ -5,7 +5,8 @@ local newsFeedTmpImg = "feed_img_tmp.jpg"
 -- Class definition
 NewsFeedView = {}
 
---Class constructor
+--- Class constructor for the NewsFeedView
+-- @return #table A constructor table containing properties fpr the NewsFeedView ----not too sure about this one... 
 function NewsFeedView:new()
   newObj = {
     size = { w=gfx.screen:get_width(), h=gfx.screen:get_height() },
@@ -18,7 +19,7 @@ function NewsFeedView:new()
   return setmetatable(newObj, self)
 end
 
--- Loads the complete view
+--- Loads the complete NewsFeedView
 function NewsFeedView:viewDidLoad()
   -- Set news container size and position
   self.newsContainer_w = self.size.w*0.68
@@ -56,7 +57,7 @@ function NewsFeedView:viewDidLoad()
   self:drawView()
 end
 
--- Function to draw elements of the view
+--- Function to draw elements of the view
 function NewsFeedView:drawView()
   -- Clear screen below logo and above the ads banner
   gfx.screen:clear({232,232,232})
@@ -100,6 +101,9 @@ function NewsFeedView:drawView()
   gfx.update()
 end
 
+--- Fetch news from the categories that were selected on the category view
+-- @param #table selectedCategories Contains the categories that are selected by the user
+-- @return #table Contains the feeds that have been fetched
 function NewsFeedView:fetchNews(selectedCategories)
   local feeds = {}
 
@@ -120,6 +124,7 @@ function NewsFeedView:fetchNews(selectedCategories)
   return feeds
 end
 
+--- Convert the dates of the fetched news from the string format to a os.date format 
 function NewsFeedView:convertNewsDate()
   local MON = {Jan=1, Feb=2, Mar=3, Apr=4, May=5, Jun=6, Jul=7, Aug=8, Sep=9, Oct=10, Nov=11, Dec=12}
   
@@ -130,11 +135,14 @@ function NewsFeedView:convertNewsDate()
   end
 end
 
+--- Sort the news to be displayed on the NewsFeedView by date
 function NewsFeedView:sortNewsByDate()
+  --- should this inner function be commented in some way????
   local orderFunction = function (a, b) return a.date > b.date end
   table.sort(self.news, orderFunction)
 end
 
+--- Print the news, including the background and header colors and all the continent of the news on the serface
 function NewsFeedView:printNews()
   local news_summary = gfx.new_surface(self.news_w, self.news_h)
 
@@ -203,6 +211,9 @@ function NewsFeedView:printNews()
   news_summary:destroy()
 end
 
+--- Navigate with the arrows and numbers between the different views, scroll down in the newsFeedView and selecting one of the news
+-- @param #string key Indicates the selected key on the remote control
+-- @param #string state Indicates if a button on the remote contol is pressed down or not 
 function NewsFeedView:onKey(key, state)
   if state == 'up' then
     if key == 'left' then
