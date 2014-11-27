@@ -33,14 +33,22 @@ function categoriesView:viewDidLoad()
   self.categories_h = self.size.h/1.3
   self.categories_x = self.size.w/2-self.categories_w/2
   self.categories_y = self.size.h/2-self.categories_h/2
+
+
   self.category_w = 800/3.2
   self.category_h = 500/3.2
 
+  local logo = gfx.loadpng('images/pumpitapp.png')
+  logo:premultiply()
+  gfx.screen:copyfrom(logo, nil, {x=self.size.w-222, y=self.size.h-75, w=222, h=75}, true)
+  logo:destroy()
+
   self:drawCategoriesSurface()
   self:drawView()
+
 end
 
--- When this view will dissapear and another view will be shown, this is executed.
+-- When this view will disappear and another view will be shown, this is executed.
 function categoriesView:viewDidEnd()
 end
 
@@ -59,15 +67,15 @@ function categoriesView:drawView()
 
   button:destroy()
 
-  buttonPos = { x=self.size.w/2-64, y=self.size.h-76, w=32, h=32 }
+  buttonPos = { x=self.size.w/2-64, y=self.size.h-76, w=39, h=29 }
   gfx.screen:clear(self.backgroundColor, {x=buttonPos.x, y=buttonPos.y, w=200, h=50})
 
   for key, val in pairs(self.availableSources) do
     -- Print colored button
     if self.selectedSource == val then
-      button = gfx.loadpng('images/'.. self.selectedSource ..'_selected.png')
+      button = gfx.loadpng('images/'.. val ..'_selected.png')
     else
-      button = gfx.loadpng('images/'.. self.selectedSource ..'_unselected.png')
+      button = gfx.loadpng('images/'.. val ..'_unselected.png')
     end
     button:premultiply()
     gfx.screen:copyfrom(button, nil, buttonPos, true)
@@ -76,7 +84,8 @@ function categoriesView:drawView()
     local i, x = text.print(gfx.screen, "open_sans_regular_10", val, buttonPos.x+35, buttonPos.y+3, 50, nil)
     buttonPos.x = x + 10
   end
-
+  applogo = gfx.loadpng('images/push_news_logo.png')
+    gfx.screen:copyfrom(applogo, nil, { x=10, y=10, w=165, h=55 }, true)
   gfx.update()
 end
 
