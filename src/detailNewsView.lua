@@ -62,6 +62,12 @@ function detailNewsView:printNews(currentPage)
   local textprint_w = gfx.screen:get_width()-10
   local textprint_h = 200
 
+    -- Print logo
+  local logo = gfx.loadpng('images/push_news_logo.png')
+  logo:premultiply()
+  gfx.screen:copyfrom(logo, nil, {x=30, y=10, w=608*0.3, h=166*0.3})
+  logo:destroy()
+
   -- Set position for article text
   article_x = gfx.screen:get_width()/3+100
   article_w = gfx.screen:get_width()-300+100
@@ -73,7 +79,7 @@ function detailNewsView:printNews(currentPage)
   local printpage = "Page:" .. self.currentPage .. "/" .. self.total_pages
 
   --Print page content
-  text.print(gfx.screen, "open_sans_regular_10", self.newsFeed.title , textprint_x, 50, textprint_w, textprint_h)
+  text.print(gfx.screen, "open_sans_regular_10", self.newsFeed.title , article_x, 50, textprint_w, textprint_h)
   text.print(gfx.screen, "open_sans_regular_8_black", os.date("%x  %X", self.newsFeed.date), textprint_x, textprint_y, textprint_w, 100)
   text.print(gfx.screen, "open_sans_regular_8_red", string.upper(self.newsFeed.category), textprint_x, 130, textprint_w, textprint_h)
   text.print(gfx.screen, "open_sans_regular_10", printpage , printpage_x, printpage_y, 200, 100)

@@ -56,7 +56,7 @@ function NewsFeedView:drawView()
   -- Print logo
   local logo = gfx.loadpng('images/push_news_logo.png')
   logo:premultiply()
-  gfx.screen:copyfrom(logo, nil, {x=10, y=10, w=608*0.3, h=166*0.3})
+  gfx.screen:copyfrom(logo, nil, {x=30, y=10, w=608*0.3, h=166*0.3})
   logo:destroy()
 
   -- Print the news to the screen
