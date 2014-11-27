@@ -59,15 +59,15 @@ function categoriesView:drawView()
 
   button:destroy()
 
-  buttonPos = { x=self.size.w/2-64, y=self.size.h-76, w=32, h=32 }
+  buttonPos = { x=self.size.w/2-64, y=self.size.h-76, w=39, h=29 }
   gfx.screen:clear(self.backgroundColor, {x=buttonPos.x, y=buttonPos.y, w=200, h=50})
 
   for key, val in pairs(self.availableSources) do
     -- Print colored button
     if self.selectedSource == val then
-      button = gfx.loadpng('images/'.. self.selectedSource ..'_selected.png')
+      button = gfx.loadpng('images/'.. val ..'_selected.png')
     else
-      button = gfx.loadpng('images/'.. self.selectedSource ..'_unselected.png')
+      button = gfx.loadpng('images/'.. val ..'_unselected.png')
     end
     button:premultiply()
     gfx.screen:copyfrom(button, nil, buttonPos, true)
