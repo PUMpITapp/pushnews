@@ -36,6 +36,11 @@ function categoriesView:viewDidLoad()
   self.category_w = 800/3.2
   self.category_h = 500/3.2
 
+  local logo = gfx.loadpng('images/pumpitapp.png')
+  logo:premultiply()
+  gfx.screen:copyfrom(logo, nil, {x=self.size.w-222, y=self.size.h-75, w=222, h=75}, true)
+  logo:destroy()
+
   self:drawCategoriesSurface()
   self:drawView()
 end

@@ -85,6 +85,15 @@ function NewsFeedView:drawView()
     gfx.screen:copyfrom(button, nil, { x=self.size.w-self.newsContainer_x/2-button:get_width()/2, y=self.size.h/3*2-button:get_height()/2, w=64, h=64 }, true)
     button:destroy()
   end
+
+  -- Print advertising if needed
+  if self.feedProvider.advertising == true then
+    local banner = gfx.new_surface(self.newsContainer_w*0.75, 80)
+    banner:clear({52, 152, 219})
+    gfx.screen:copyfrom(banner, nil, {x=self.size.w/2-banner:get_width()/2, y=self.size.h-banner:get_height()-20}, true)
+    banner:destroy()
+    text.print(gfx.screen, "open_sans_regular_10_white", "Your custom advertising banner here", self.size.w/2-155, self.size.h-banner:get_height()/1.5-20, 800, nil)
+  end
   
   -- Update the screen
   gfx.update()

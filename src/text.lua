@@ -3,7 +3,7 @@ require('utf8')
 local TextModule = {}
 
 local fontDir = "fonts/"
-local registeredFonts = { "open_sans_regular_10", "open_sans_regular_8_red", "open_sans_regular_8_black", "lato_large", "lato_medium", "lato_small", "lora_small" }
+local registeredFonts = { "open_sans_regular_10_white", "open_sans_regular_10", "open_sans_regular_8_red", "open_sans_regular_8_black", "lato_large", "lato_medium", "lato_small", "lora_small" }
 
 local fonts = {}
 
