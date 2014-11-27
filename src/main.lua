@@ -46,6 +46,7 @@ require "newsFeedView"
 require "feeds.categoriegetter"
 require "feeds.feedgetter"
 require "feeds.cnnNews"
+require "feeds.svdNews"
 http = require("socket.http")
 io = require("io")
 ltn12 = require("ltn12")

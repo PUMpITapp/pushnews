@@ -31,6 +31,9 @@ end
 
 function CNNNews:new()
 	newObj = {
+		name = "CNN",
+		advertising = false,
+		datePattern = "%a+, (%d+) (%a+) (%d+) (%d+):(%d+):(%d+) (%a+)",
 		categories = {
 			['Top stories'] = 'http://rss.cnn.com/rss/edition.rss',
 			['World'] = 'http://rss.cnn.com/rss/edition_world.rss',

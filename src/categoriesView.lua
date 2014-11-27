@@ -6,7 +6,9 @@ categoriesView = {}
 function categoriesView:new()
   newObj = {
     size = { w=gfx.screen:get_width(), h=gfx.screen:get_height() },
-    backgroundColor = {232,232,232,255}
+    backgroundColor = {232,232,232,255},
+    availableSources = { "CNN", "SVD" },
+    selectedSource = "CNN"
   }
   self.__index = self
   return setmetatable(newObj, self)
@@ -15,7 +17,6 @@ end
 -- When the view is loaded for the first time. This will be executed once.
 function categoriesView:viewDidLoad()
   gfx.screen:clear(self.backgroundColor)
-  self.selectedSource = "CNN"
   self.categories = {
                      { name = 'Top stories', selected = false, img_unselected = 'images/topstories1.png', img_selected = 'images/topstories1_s.png' },
                      { name = 'World', selected = false, img_unselected = 'images/world2.png', img_selected = 'images/world2_s.png' },
@@ -58,31 +59,23 @@ function categoriesView:drawView()
 
   button:destroy()
 
-  local buttonCNN, buttonSVD = nil
   buttonPos = { x=self.size.w/2-64, y=self.size.h-76, w=32, h=32 }
+  gfx.screen:clear(self.backgroundColor, {x=buttonPos.x, y=buttonPos.y, w=200, h=50})
 
-  if self.selectedSource == "CNN" then
-    buttonCNN = gfx.loadpng('images/radio_selected.png')
-    buttonSVD = gfx.loadpng('images/radio_unselected.png')
-  else 
-    buttonSVD = gfx.loadpng('images/radio_selected.png')
-    buttonCNN = gfx.loadpng('images/radio_unselected.png')
+  for key, val in pairs(self.availableSources) do
+    -- Print colored button
+    if self.selectedSource == val then
+      button = gfx.loadpng('images/'.. self.selectedSource ..'_selected.png')
+    else
+      button = gfx.loadpng('images/'.. self.selectedSource ..'_unselected.png')
+    end
+    button:premultiply()
+    gfx.screen:copyfrom(button, nil, buttonPos, true)
+    button:destroy()
+    -- Print source name
+    local i, x = text.print(gfx.screen, "open_sans_regular_10", val, buttonPos.x+35, buttonPos.y+3, 50, nil)
+    buttonPos.x = x + 10
   end
-
-  buttonCNN:premultiply()
-  buttonSVD:premultiply()
-
-  gfx.screen:clear(self.backgroundColor, buttonPos)
-  gfx.screen:copyfrom(buttonCNN, nil, buttonPos, true)
-  local i, x = text.print(gfx.screen, "open_sans_regular_10", "CNN", buttonPos.x+35, buttonPos.y+3, 50, nil)
-
-  buttonPos.x = x + 10
-  gfx.screen:clear(self.backgroundColor, buttonPos)
-  gfx.screen:copyfrom(buttonSVD, nil, buttonPos, true)
-  text.print(gfx.screen, "open_sans_regular_10", "SVD", buttonPos.x+35, buttonPos.y+3, 50, nil)
-  
-  buttonSVD:destroy()
-  buttonCNN:destroy()
 
   gfx.update()
 end
@@ -164,7 +157,11 @@ function categoriesView:onKey(key, state)
 
       if #selectedCategories >= 1 then
         local newsFeed = vc:getView("newsFeed")
-        newsFeed.selectedSource = self.selectedSource
+        if self.selectedSource == "CNN" then
+          newsFeed.feedProvider = CNNNews:new()
+        else
+          newsFeed.feedProvider = SVDNews:new()
+        end
         newsFeed.selectedCategories = selectedCategories
         vc:presentView("newsFeed")
       end
