@@ -21,9 +21,16 @@ end
 
 -- When the view is loaded for the first time. This will be executed once.
 function detailNewsView:viewDidLoad()  
-  self.pageIndexes = {} 
-
   gfx.screen:clear({234,234,234,255})
+  
+  local loadingButton = gfx.loadpng('images/loading.png')
+  loadingButton:premultiply()
+  gfx.screen:copyfrom(loadingButton, nil, {x=self.size.w/2-100, y=self.size.h/2, w=32, h=32})
+  loadingButton:destroy()
+  text.print(gfx.screen, "open_sans_regular_10", "Loading article ..." , self.size.w/2-100+32+10, self.size.h/2+3, 400, nil)
+  gfx.update()
+
+  self.pageIndexes = {} 
 
   lorem = self.feedProvider:getArticleText(self.newsFeed.link)
 
@@ -36,6 +43,7 @@ end
 
 -- When the view has been loaded before and it is presented again.
 function detailNewsView:drawView()
+  gfx.screen:clear({234,234,234,255})
   -- Creating split
   self:createSplit()
 
@@ -70,7 +78,7 @@ function detailNewsView:printNews(currentPage)
 
   -- Set position for article text
   article_x = gfx.screen:get_width()/3+100
-  article_w = gfx.screen:get_width()-300+100
+  article_w = gfx.screen:get_width()-700
   article_h = gfx.screen:get_height()-300
   printpage_y = gfx.screen:get_height()-50
   printpage_x = gfx.screen:get_width()/2

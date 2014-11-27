@@ -21,6 +21,15 @@ end
 
 --- Loads the complete NewsFeedView
 function NewsFeedView:viewDidLoad()
+  gfx.screen:clear({232,232,232})
+
+  local loadingButton = gfx.loadpng('images/loading.png')
+  loadingButton:premultiply()
+  gfx.screen:copyfrom(loadingButton, nil, {x=self.size.w/2-100, y=self.size.h/2, w=32, h=32})
+  loadingButton:destroy()
+  text.print(gfx.screen, "open_sans_regular_10", "Loading news feeds ..." , self.size.w/2-100+32+10, self.size.h/2+3, 400, nil)
+  gfx.update()
+
   -- Set news container size and position
   self.newsContainer_w = self.size.w*0.68
   self.newsContainer_h = self.size.h*0.80
@@ -195,8 +204,8 @@ function NewsFeedView:printNews()
     -- Print news number, category, title and date
     text.print(news_summary, "open_sans_regular_10", tostring((self.newsPerPage+i-1)%self.newsPerPage+1), 7, 0, nil, nil)
     local cat_i, cat_x = text.print(news_summary, "open_sans_regular_8_red", string.upper(self.news[i].category), 15, 168, nil, nil)
-    text.print(news_summary, "open_sans_regular_8_black", ' - ' .. os.date("%x", self.news[i].date), cat_x, 168, news_summary:get_width()-15, nil)
-    text.print(news_summary, "open_sans_regular_10", self.news[i].title, 15, 195, news_summary:get_width()-15, nil)
+    text.print(news_summary, "open_sans_regular_8_black", ' - ' .. os.date("%x", self.news[i].date), cat_x, 168, news_summary:get_width()-30, nil)
+    text.print(news_summary, "open_sans_regular_10", self.news[i].title, 15, 195, news_summary:get_width()-30, nil)
     --print(self.news[i].title)
 
     -- Print the news to the screen
