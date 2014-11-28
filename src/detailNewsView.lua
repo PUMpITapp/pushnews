@@ -143,7 +143,7 @@ function detailNewsView:createSplit()
   local textprint_h = 200
 
   article_x = gfx.screen:get_width()/3
-  article_w = gfx.screen:get_width()-300
+  article_w = gfx.screen:get_width()-700
   article_h = gfx.screen:get_height()-300
 
   local stop = false

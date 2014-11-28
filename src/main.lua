@@ -35,7 +35,7 @@ else
   sys.root_path = function () return '' end
 end
 
-text = require "text"
+require('utf8')
 require "viewController"
 require "categoriesView"
 require "detailNewsView"
@@ -44,6 +44,7 @@ require "feeds.categoriegetter"
 require "feeds.feedgetter"
 require "feeds.cnnNews"
 require "feeds.svdNews"
+text = require "text"
 http = require("socket.http")
 io = require("io")
 ltn12 = require("ltn12")

@@ -31,11 +31,10 @@ function TextModule.print(surface, font, text, x, y, w, h)
   local last_i = 0
   local surface_w = 0
   local surface_h = 0
-  local start_y = y
+  local sy = y -- Start y position on the surface
+  local sx = x -- Start x position on the surface
 
   if fonts[font] then
-    local sx = x -- Start x position on the surface
-
     if surface == nil then
       surface_w = w
       surface_h = h
@@ -47,25 +46,28 @@ function TextModule.print(surface, font, text, x, y, w, h)
     if w == nil or w > surface_w then
       w = surface_w
     end
+    
     if h == nil or h > surface_h then
       h = surface_h
     end
 
     for i = 1,#text do -- For each character in the text
       local shouldBePrinted = true
-      local utf8 = require('utf8')
-      local c = utf8.sub(text,i,i) -- Get the character
+      local c = string.utf8sub(text,i,i) -- Get the character
 
       if c == ' ' then
-        local remaining_length = (sx+w) - x
-        local needed_length = 0
+        local remaining_length = (sx + w) - x
+        local needed_length = TextModule.getCharInfo(font, ' ').width
 
         for j = i+1,#text do
-          local cc = utf8.sub(text,j,j)
+          local cc = string.utf8sub(text,j,j)
+
           if cc == ' ' then
             break
           end
+
           tchar = TextModule.getCharInfo(font, cc)
+
           if tchar ~= nil then
             needed_length = needed_length + tchar.width
           end
@@ -79,15 +81,16 @@ function TextModule.print(surface, font, text, x, y, w, h)
       end
 
       if shouldBePrinted == true then
-        if y > start_y + h then
-          return i, x
-        end
-
         char = TextModule.getCharInfo(font, c)
+
         if char ~= nil then
           if x + char.width > sx + w then -- If the text is gonna be out the surface, popup a new line
             x = sx
             y = y + fonts[font].info.height
+          end
+
+          if y > sy + h then
+            return i, x
           end
 
           if char.w > 0 and char.h > 0 and surface ~= nil then
@@ -98,8 +101,9 @@ function TextModule.print(surface, font, text, x, y, w, h)
 
           x = x + char.width -- add offset for next character
         end
-        last_i = i
       end
+
+      last_i = i
     end
 
     return last_i, x
