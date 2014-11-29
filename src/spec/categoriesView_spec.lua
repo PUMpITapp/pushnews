@@ -2,13 +2,13 @@ require "main"
 
 describe("Categories View:", function()
 	it("Select Categories", function()
-		vc:getView("categories"):onKey("1","up")
-		assert.is_true(vc:getView("categories").categories[1].selected)
+		vc:getView("categories"):onKey("2","up")
+		assert.is_true(vc:getView("categories").categories[2].selected)
 	end)
 
 	it("Deselect Categories", function()
-		vc:getView("categories"):onKey("1","up")
-    assert.is_false(vc:getView("categories").categories[1].selected)
+		vc:getView("categories"):onKey("2","up")
+    assert.is_false(vc:getView("categories").categories[2].selected)
 	end)
 
   it("Select Source", function()
