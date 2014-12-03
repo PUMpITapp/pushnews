@@ -6,6 +6,8 @@ local SLAXML = require 'slaxdom'
 require 'feeds.htmlLib'
 require 'feeds.download'
 
+sys = {}
+sys.root_path = function () return '' end
 local articleFile = sys.root_path() .. "feeds/article.html"
 
 CNNNews = {}
