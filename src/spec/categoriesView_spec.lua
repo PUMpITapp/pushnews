@@ -13,7 +13,7 @@ describe("Categories View:", function()
 
   it("Select Source", function()
     vc:getView("categories"):onKey("green","up")
-    assert.are.equal(vc:getView("categories").selectedSource,"SVD")
+    assert.are.equal(vc:getView("categories").selectedSource,"CNN (Ads)")
 
     vc:getView("categories"):onKey("red","up")
     assert.are.equal(vc:getView("categories").selectedSource,"CNN")
