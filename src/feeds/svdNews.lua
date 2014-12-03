@@ -3,7 +3,7 @@ local SLAXML = require 'slaxdom'
 require 'feeds.htmlLib'
 require 'feeds.download'
 
-local articleFile = "feeds/article.html"
+local articleFile = sys.root_path() .. "feeds/article.html"
 
 SVDNews = {}
 SVDNews.__index = SVDNews
@@ -13,6 +13,7 @@ function SVDNews:new()
 		name = "SVD",
 		advertising = true,
 		datePattern = "%a+, (%d+) (%a+) (%d+) (%d+):(%d+):(%d+) %+(%d+)",
+		image = "images/svd.png",
 		categories = {
 			['Top stories'] = 'http://www.svd.se/?service=rss',
 			['World'] = 'http://www.svd.se/nyheter/utrikes/?service=rss',

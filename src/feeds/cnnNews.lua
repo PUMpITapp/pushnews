@@ -6,7 +6,7 @@ local SLAXML = require 'slaxdom'
 require 'feeds.htmlLib'
 require 'feeds.download'
 
-local articleFile = "feeds/article.html"
+local articleFile = sys.root_path() .. "feeds/article.html"
 
 CNNNews = {}
 CNNNews.__index = CNNNews
@@ -34,6 +34,7 @@ function CNNNews:new()
 		name = "CNN",
 		advertising = false,
 		datePattern = "%a+, (%d+) (%a+) (%d+) (%d+):(%d+):(%d+) (%a+)",
+    image = "images/cnn.png",
 		categories = {
 			['Top stories'] = 'http://rss.cnn.com/rss/edition.rss',
 			['World'] = 'http://rss.cnn.com/rss/edition_world.rss',
