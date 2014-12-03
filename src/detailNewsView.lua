@@ -89,9 +89,6 @@ function detailNewsView:printNews(currentPage)
   text.print(gfx.screen, "open_sans_regular_8_red", string.upper(self.newsFeed.category), textprint_x, 130, textprint_w, textprint_h)
   text.print(gfx.screen, "open_sans_regular_10", printpage , printpage_x, printpage_y, 200, 100)
 
-  local news_img
-
-
   --Print news image
   local news_img = gfx.loadpng(self.feedProvider.image)
   news_img:premultiply()
