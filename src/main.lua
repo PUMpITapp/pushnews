@@ -35,7 +35,6 @@ else
   sys.root_path = function () return '' end
 end
 
-require('utf8')
 require "viewController"
 require "categoriesView"
 require "detailNewsView"
