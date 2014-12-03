@@ -177,6 +177,8 @@ function categoriesView:onKey(key, state)
 
       if #selectedCategories >= 1 then
         local newsFeed = vc:getView("newsFeed")
+        local detailnews = vc:getView("detailNewsView")
+        detailnews.newsfeedpage = nil
         if self.selectedSource == "CNN" then
           newsFeed.feedProvider = CNNNews:new()
         else

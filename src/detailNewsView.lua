@@ -13,7 +13,8 @@ function detailNewsView:new()
     pageIndexes = {},
     total_pages = nil,
     feedGetter = FeedGetter:new(),
-    feedProvider = nil
+    feedProvider = nil,
+    newsfeedpage = nil
   }
   self.__index = self
   return setmetatable(newObj, self)
@@ -49,17 +50,12 @@ function detailNewsView:drawView()
 
   --Set the total pages of the article
   self.total_pages = #self.pageIndexes
-  print(self.total_pages)
-
-  -- Print the logo
-  -- TODO
 
   --Printing the content for the current page
   self:printNews(self.currentPage)
  
   -- Update the interface
   gfx.update()
-  print("done")
 end
 
 
@@ -177,6 +173,8 @@ end
 function detailNewsView:onKey(key, state)
   if state == 'up' then
     if key == 'left' then
+      local newsFeed = vc:getView("newsFeed")
+      newsFeed.newsIndex = self.newsfeedpage
       vc:presentView("newsFeed")
     elseif key == 'up' then
       if self.currentPage > 1 then
@@ -190,7 +188,7 @@ function detailNewsView:onKey(key, state)
         self.currentPage = self.currentPage + 1
         self:reloadPage()
       elseif self.currentPage == self.total_pages then
-        print("no more pages")
+        --Do nothing
       end
     end
   end

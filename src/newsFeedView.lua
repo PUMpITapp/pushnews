@@ -45,13 +45,23 @@ function NewsFeedView:viewDidLoad()
   self.news_w = 270
   self.news_h = 250
 
-  -- Set newsIndex to 1 when the view is loaded
-  self.newsIndex = 1
-
   -- Fetches the news on the internet
   self.news = self:fetchNews(self.selectedCategories)
   self:convertNewsDate()
   self:sortNewsByDate()
+
+  -- Set newsIndex to 1 or where it left when the view is loaded
+  local detailNewsView = vc:getView("detailNewsView")
+  if detailNewsView.newsfeedpage == nil then
+    self.newsIndex = 1
+  elseif detailNewsView.newsfeedpage <= #self.news then
+    self.newsIndex = detailNewsView.newsfeedpage
+  elseif detailNewsView.newsfeedpage > #self.news then
+    while detailNewsView.newsfeedpage > #self.news do
+      detailNewsView.newsfeedpage = detailNewsView.newsfeedpage - newsPerPage
+      self.newsIndex = detailNewsView.newsfeedpage
+    end
+  end
   
   -- Draw the view
   self:drawView()
@@ -240,6 +250,7 @@ function NewsFeedView:onKey(key, state)
         local newsSelected = key + self.newsIndex - 1
         if self.news[newsSelected] ~= nil then
           local detailNewsView = vc:getView("detailNewsView")
+          detailNewsView.newsfeedpage = self.newsIndex
           detailNewsView.feedProvider = self.feedProvider
           detailNewsView.newsFeed = self.news[newsSelected]
           vc:presentView("detailNewsView")
