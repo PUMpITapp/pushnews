@@ -1,3 +1,4 @@
+require "feeds.download"
 local lorem = ""
 
 detailNewsView = {}
@@ -88,10 +89,19 @@ function detailNewsView:printNews(currentPage)
   text.print(gfx.screen, "open_sans_regular_8_red", string.upper(self.newsFeed.category), textprint_x, 130, textprint_w, textprint_h)
   text.print(gfx.screen, "open_sans_regular_10", printpage , printpage_x, printpage_y, 200, 100)
 
+  local news_img
+
+
   --Print news image
-  local news_img = gfx.loadpng(self.feedProvider.image)
+  local tmpfeedimg = "images/tmpfeedimg.jpg"
+  if #self.newsFeed.images > 0 then
+    download.downloadFile(self.newsFeed.images[1].url, tmpfeedimg)
+    news_img = gfx.loadpng(tmpfeedimg)
+  else
+    news_img = gfx.loadpng(self.feedProvider.image)
+  end
   news_img:premultiply()
-  gfx.screen:copyfrom(news_img, nil, { x=130, y=230, w=300, h=337 }, true)
+  gfx.screen:copyfrom(news_img, nil, { x=130, y=320, w=270, h=153 }, true)
   news_img:destroy()
 
   --Print layout line
