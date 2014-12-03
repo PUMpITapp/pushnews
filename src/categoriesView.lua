@@ -25,8 +25,8 @@ function categoriesView:viewDidLoad()
                      { name = 'Finance', selected = false, img_unselected = 'images/finance4.png', img_selected = 'images/finance4_s.png' },
                      { name = 'Entertainment', selected = false, img_unselected = 'images/entertainment5.png', img_selected = 'images/entertainment5_s.png' },
                      { name = 'Technology', selected = false, img_unselected = 'images/technology6.png', img_selected = 'images/technology6_s.png' },
-                     { name = 'Art', selected = false, img_unselected = 'images/art7.png', img_selected = 'images/art7_s.png' },
-                     { name = 'Fashion', selected = false, img_unselected = 'images/fashion8.png', img_selected = 'images/fashion8_s.png' },
+                     { name = 'Travel', selected = false, img_unselected = 'images/travel7.png', img_selected = 'images/travel7_s.png' },
+                     { name = 'Space', selected = false, img_unselected = 'images/space8.png', img_selected = 'images/space8_s.png' },
                      { name = 'Sports', selected = false, img_unselected = 'images/sports9.png', img_selected = 'images/sports9_s.png' }
                    }
 

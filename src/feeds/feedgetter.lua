@@ -55,7 +55,10 @@ function FeedGetter:parseFeeds(filename)
 		local title = XML.elementText(XML.getByName(item, 'title')[1])
 		local descr = XML.elementText(XML.getByName(item, 'description')[1])
 		local date = XML.elementText(XML.getByName(item, 'pubDate')[1])
-		local link = XML.elementText(XML.getByName(item, 'guid')[1])
+		local link = XML.elementText(XML.getByName(item, 'guid')[1]) 
+		if string.find(link, "http://travel.cnn.com") ~= nil then
+			link = XML.elementText(XML.getByName(item, 'link')[1])
+		end
 		local images = {}
 
 		for i, imgElement in ipairs(XML.getByName(item, 'thumbnail')) do

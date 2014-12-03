@@ -35,7 +35,7 @@ function NewsFeedView:viewDidLoad()
   self.newsContainer_h = self.size.h*0.80
   if self.feedProvider.advertising == true then
     self.newsContainer_x = self.size.w/2-self.newsContainer_w/2
-    self.newsContainer_y = self.size.h*0.04
+    self.newsContainer_y = self.size.h*0.06
   else
     self.newsContainer_x = self.size.w/2-self.newsContainer_w/2
     self.newsContainer_y = self.size.h*0.1
@@ -144,7 +144,12 @@ function NewsFeedView:convertNewsDate()
   local MON = {Jan=1, Feb=2, Mar=3, Apr=4, May=5, Jun=6, Jul=7, Aug=8, Sep=9, Oct=10, Nov=11, Dec=12}
   
   for i=1, #self.news do
-    local day, month, year, hour, min, sec, tz = self.news[i].date:match(self.feedProvider.datePattern)
+    local day, month, year, hour, min, sec, tz
+    if self.news[i].category == "Travel" then
+      day, month, year, hour, min, sec, tz = self.news[i].date:match(self.feedProvider.datePatternTravel)
+    else
+      day, month, year, hour, min, sec, tz = self.news[i].date:match(self.feedProvider.datePattern)
+    end
     local month = MON[month]
     self.news[i].date = os.time({tz=tz, day=day, month=month, year=year, hour=hour, min=min, sec=sec})
   end

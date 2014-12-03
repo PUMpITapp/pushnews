@@ -36,6 +36,7 @@ function CNNNews:new()
 		name = "CNN",
 		advertising = false,
 		datePattern = "%a+, (%d+) (%a+) (%d+) (%d+):(%d+):(%d+) (%a+)",
+    datePatternTravel = "%a+, (%d+) (%a+) (%d+) (%d+):(%d+):(%d+) %+(%d+)",
     image = "images/cnn.png",
 		categories = {
 			['Top stories'] = 'http://rss.cnn.com/rss/edition.rss',
@@ -48,13 +49,14 @@ function CNNNews:new()
 			['us'] = 'http://rss.cnn.com/rss/edition_us.rss',
 			['Finance'] = 'http://rss.cnn.com/rss/money_news_international.rss',
 			['Technology'] = 'http://rss.cnn.com/rss/edition_technology.rss',
-			['space'] = 'http://rss.cnn.com/rss/edition_space.rss',
+			['Space'] = 'http://rss.cnn.com/rss/edition_space.rss',
 			['Entertainment'] = 'http://rss.cnn.com/rss/edition_entertainment.rss',
 			['Sports'] = 'http://rss.cnn.com/rss/edition_sport.rss',
 			['football'] = 'http://rss.cnn.com/rss/edition_football.rss',
 			['golf'] = 'http://rss.cnn.com/rss/edition_golf.rss',
 			['motor'] = 'http://rss.cnn.com/rss/edition_motorsport.rss',
 			['tennis'] = 'http://rss.cnn.com/rss/edition_tennis.rss',
+      ['Travel'] = 'http://travel.cnn.com/rss.xml',
 			['latest'] = 'http://rss.cnn.com/rss/cnn_latest.rss'
 		}
 	}
