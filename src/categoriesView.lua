@@ -8,7 +8,7 @@ function categoriesView:new()
   newObj = {
     size = { w=gfx.screen:get_width(), h=gfx.screen:get_height() },
     backgroundColor = {232,232,232,255},
-    availableSources = { "CNN", "SVD" },
+    availableSources = { "CNN", "CNN (Ads)" },
     selectedSource = "CNN"
   }
   self.__index = self
@@ -87,7 +87,7 @@ function categoriesView:drawView()
     gfx.screen:copyfrom(button, nil, buttonPos, true)
     button:destroy()
     -- Print source name
-    local i, x = text.print(gfx.screen, "open_sans_regular_10", val, buttonPos.x+40, buttonPos.y+3, 50, nil)
+    local i, x = text.print(gfx.screen, "open_sans_regular_10", val, buttonPos.x+40, buttonPos.y+3, 200, nil)
     buttonPos.x = x + 10
   end
 
@@ -180,7 +180,8 @@ function categoriesView:onKey(key, state)
         if self.selectedSource == "CNN" then
           newsFeed.feedProvider = CNNNews:new()
         else
-          newsFeed.feedProvider = SVDNews:new()
+          newsFeed.feedProvider = CNNNews:new()
+          newsFeed.feedProvider.advertising = true
         end
         newsFeed.selectedCategories = selectedCategories
         vc:presentView("newsFeed")
@@ -189,7 +190,7 @@ function categoriesView:onKey(key, state)
       self.selectedSource = "CNN"
       self:drawView()
     elseif key == "green" then
-      self.selectedSource = "SVD"
+      self.selectedSource = "CNN (Ads)"
       self:drawView()
     else
       key = tonumber(key)

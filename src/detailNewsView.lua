@@ -1,6 +1,4 @@
-text = require "text"
-
-local lorem = " START 1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a luctus neque. Praesent pulvinar enim id nisi lobortis, sit amet ullamcorper diam volutpat. Donec fermentum ipsum at magna ullamcorper maximus. Donec diam urna, dignissim non neque sed, rutrum vulputate nunc. Nam cursus aliquam libero, at suscipit orci. Vivamus iaculis tincidunt varius. Curabitur eu odio turpis. Curabitur non nibh sed justo dictum condimentum. In in molestie miDonec molestie tellus et tortor lacinia, nec venenatis massa vehicula. Maecenas non imperdiet mauris. Donec iaculis est pellentesque vehicula porttitor. Ut interdum vehicula augue, quis auctor dui luctus ut. Duis posuere turpis nec eros scelerisque, sit amet accumsan massa convallis. Quisque tincidunt quis neque rhoncus ullamcorper. Vestibulum non leo sed risus tincidunt gravida.ullamcorper. Vestibulum non leo sed risus tincidunt gravida.ullamcorper2. Vestibulum non leo sed risus tincidunt gravida.ullamcorper. Vestibulum non leo sed risus tincidunt gravida.ullamcorper. Vestibulum non leo sed risus tincidunt gravida.ullamcorper. Vestibulum non leo sed risus tincidunt gravida.ullamcorper. Vestibulum non leo sed risus tincidunt gravida.ullamcorper. Vestibulum non leo sed risus tincidunt gravida.ullamcorper. Vestibulum non leo sed risus tincidunt gravida.ullamcorper. Vestibulum non leo sed risus tincidunt gravida.ullamcorper. Vestibulum non leo sed risus tincidunt gravida.ullamcorper. Vestibulum3 non leo sed risus tincidunt gravida.ullamcorper. Vestibulum non leo sed risus tincidunt gravida.ullamcorper. Vestibulum non leo sed risus tincidunt gravida.ullamcorper. Vestibulum non leo sed risus tincidunt gravida.ullamcorper. Vestibulum non leo sed risus tincidunt gravida.ullamcorper. Vestibulum non leo sed risus tincidunt gravida.ullamcorper. Vestibulum non leo sed4 risus tincidunt gravidaRRR. 1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a luctus neque. Praesent pulvinar enim id nisi lobortis, sit amet ullamcorper diam volutpat. Donec fermentum ipsum at magna ullamcorper maximus. Donec diam urna, dignissim non neque1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a luctus neque. Praesent pulvinar enim id nisi lobortis, sit amet ullamcorper diam volutpat. Donec fermentum ipsum at magna ullamcorper maximus. Donec diam urna, dignissim non neque1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a luctus neque. Praesent pulvinar enim id nisi lobortis, sit amet ullamcorper diam volutpat. Donec fermentum ipsum at magna ullamcorper maximus. Donec diam urna, dignissim non neque1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a luctus neque. Praesent pulvinar enim id nisi lobortis, sit amet ullamcorper diam volutpat. Donec fermentum ipsum at magna ullamcorper maximus. Donec diam urna, dignissim non neque1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a luctus neque. Praesent pulvinar enim id nisi lobortis, sit amet ullamcorper diam volutpat. Donec fermentum ipsum at magna ullamcorper maximus. Donec diam urna, dignissim non neque1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a luctus neque. Praesent pulvinar enim id nisi lobortis, sit amet ullamcorper diam volutpat. Donec fermentum ipsum at magna ullamcorper maximus. Donec diam urna, dignissim non neque1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a luctus neque. Praesent pulvinar enim id nisi lobortis, sit amet ullamcorper diam volutpat. Donec fermentum ipsum at magna ullamcorper maximus. Donec diam urna, dignissim non neque1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a luctus neque. Praesent pulvinar enim id nisi lobortis, sit amet ullamcorper diam volutpat. Donec fermentum ipsum at magna ullamcorper maximus. Donec diam urna, dignissim non neque1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a luctus neque. Praesent pulvinar enim id nisi lobortis, sit amet ullamcorper diam volutpat. Donec fermentum ipsum at magna ullamcorper maximus. Donec diam urna, dignissim non neque1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a luctus neque. Praesent pulvinar enim id nisi lobortis, sit amet ullamcorper diam volutpat. Donec fermentum ipsum at magna ullamcorper maximus. Donec diam urna, dignissim non neque1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a luctus neque. Praesent pulvinar enim id nisi lobortis, sit amet ullamcorper diam volutpat. Donec fermentum ipsum at magna ullamcorper maximus. Donec diam urna, dignissim non neque1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a luctus neque. Praesent pulvinar enim id nisi lobortis, sit amet ullamcorper diam volutpat. Donec fermentum ipsum at magna ullamcorper maximus. Donec diam urna, dignissim non neque1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a luctus neque. Praesent pulvinar enim id nisi lobortis, sit amet ullamcorper diam volutpat. Donec fermentum ipsum at magna ullamcorper maximus. Donec diam urna, dignissim non neque1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a luctus neque. Praesent pulvinar enim id nisi lobortis, sit amet ullamcorper diam volutpat. Donec fermentum ipsum at magna ullamcorper maximus. Donec diam urna, dignissim non neque1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a luctus neque. Praesent pulvinar enim id nisi lobortis, sit amet ullamcorper diam volutpat. Donec fermentum ipsum at magna ullamcorper maximus. Donec diam urna, dignissim non neque1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a luctus neque. Praesent pulvinar enim id nisi lobortis, sit amet ullamcorper diam volutpat. Donec fermentum ipsum at magna ullamcorper maximus. Donec diam urna, dignissim non neque1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a luctus neque. Praesent pulvinar enim id nisi lobortis, sit amet ullamcorper diam volutpat. Donec fermentum ipsum at magna ullamcorper maximus. Donec diam urna, dignissim non neque1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a luctus neque. Praesent pulvinar enim id nisi lobortis, sit amet ullamcorper diam volutpat. Donec fermentum ipsum at magna ullamcorper maximus. Donec diam urna, dignissim non neque1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a luctus neque. Praesent pulvinar enim id nisi lobortis, sit amet ullamcorper diam volutpat. Donec fermentum ipsum at magna ullamcorper maximus. Donec diam urna, dignissim non neque1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a luctus neque. Praesent pulvinar enim id nisi lobortis, sit amet ullamcorper diam volutpat. Donec fermentum ipsum at magna ullamcorper maximus. Donec diam urna, dignissim non neque1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a luctus neque. Praesent pulvinar enim id nisi lobortis, sit amet ullamcorper diam volutpat. Donec fermentum ipsum at magna ullamcorper maximus. Donec diam urna, dignissim non neque1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a luctus neque. Praesent pulvinar enim id nisi lobortis, sit amet ullamcorper diam volutpat. Donec fermentum ipsum at magna ullamcorper maximus. Donec diam urna, dignissim non neque1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a luctus neque. Praesent pulvinar enim id nisi lobortis, sit amet ullamcorper diam volutpat. Donec fermentum ipsum at magna ullamcorper maximus. Donec diam urna, dignissim non neque1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a luctus neque. Praesent pulvinar enim id nisi lobortis, sit amet ullamcorper diam volutpat. Donec fermentum ipsum at magna ullamcorper maximus. Donec diam urna, dignissim non neque1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a luctus neque. Praesent pulvinar enim id nisi lobortis, sit amet ullamcorper diam volutpat. Donec fermentum ipsum at magna ullamcorper maximus. Donec diam urna, dignissim non neque1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a luctus neque. Praesent pulvinar enim id nisi lobortis, sit amet ullamcorper diam volutpat. Donec fermentum ipsum at magna ullamcorper maximus. Donec diam urna, dignissim non neque1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a luctus neque. Praesent pulvinar enim id nisi lobortis, sit amet ullamcorper diam volutpat. Donec fermentum ipsum at magna ullamcorper maximus. Donec diam urna, dignissim non neque1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a luctus neque. Praesent pulvinar enim id nisi lobortis, sit amet ullamcorper diam volutpat. Donec fermentum ipsum at magna ullamcorper maximus. Donec diam urna, dignissim non neque END "
+local lorem = ""
 
 detailNewsView = {}
 
@@ -22,15 +20,16 @@ end
 -- When the view is loaded for the first time. This will be executed once.
 function detailNewsView:viewDidLoad()  
   gfx.screen:clear({234,234,234,255})
-  
+
   local loadingButton = gfx.loadpng('images/loading.png')
   loadingButton:premultiply()
-  gfx.screen:copyfrom(loadingButton, nil, {x=self.size.w/2-100, y=self.size.h/2, w=32, h=32})
+  gfx.screen:copyfrom(loadingButton, nil, {x=self.size.w/2-100, y=self.size.h/2, w=32, h=32}, true)
   loadingButton:destroy()
   text.print(gfx.screen, "open_sans_regular_10", "Loading article ..." , self.size.w/2-100+32+10, self.size.h/2+3, 400, nil)
   gfx.update()
 
-  self.pageIndexes = {} 
+  self.currentPage = 1
+  self.pageIndexes = {}
 
   lorem = self.feedProvider:getArticleText(self.newsFeed.link)
 
@@ -44,22 +43,18 @@ end
 -- When the view has been loaded before and it is presented again.
 function detailNewsView:drawView()
   gfx.screen:clear({234,234,234,255})
+
   -- Creating split
   self:createSplit()
 
   --Set the total pages of the article
   self.total_pages = #self.pageIndexes
-  print(self.total_pages)
-
-  -- Print the logo
-  -- TODO
 
   --Printing the content for the current page
   self:printNews(self.currentPage)
  
   -- Update the interface
   gfx.update()
-  print("done")
 end
 
 
@@ -93,9 +88,9 @@ function detailNewsView:printNews(currentPage)
   text.print(gfx.screen, "open_sans_regular_10", printpage , printpage_x, printpage_y, 200, 100)
 
   --Print news image
-  local news_img = gfx.loadpng("images/cnn.png")
+  local news_img = gfx.loadpng(self.feedProvider.image)
   news_img:premultiply()
-  gfx.screen:copyfrom(news_img, nil, { x=30, y=200, w=400, h=450 }, true)
+  gfx.screen:copyfrom(news_img, nil, { x=130, y=230, w=300, h=337 }, true)
   news_img:destroy()
 
   --Print layout line
@@ -111,7 +106,11 @@ function detailNewsView:printNews(currentPage)
     text.print(gfx.screen, "open_sans_regular_10", lorem:sub(1, self.pageIndexes[self.currentPage]-1), article_x, 200, article_w, article_h)
   end
 
-  --TODO: Printing image
+  -- Print previous button
+  local prev_button = gfx.loadpng('images/previous.png')
+  prev_button:premultiply()
+  gfx.screen:copyfrom(prev_button, nil, { x=50, y=self.size.h/2-prev_button:get_height()/2, w=32, h=68.75 }, true)
+  prev_button:destroy()
 
   -- If there are more pages than the currentPage, show the scroll down button.
   if self.currentPage < self.total_pages then
@@ -181,16 +180,12 @@ function detailNewsView:onKey(key, state)
     elseif key == 'up' then
       if self.currentPage > 1 then
         self.currentPage = self.currentPage - 1
-        self:reloadPage()
-      elseif self.currentPage == self.total_pages then
-        
+        self:reloadPage()        
       end
     elseif key == 'down' then
       if self.currentPage < self.total_pages then
         self.currentPage = self.currentPage + 1
         self:reloadPage()
-      elseif self.currentPage == self.total_pages then
-        print("no more pages")
       end
     end
   end

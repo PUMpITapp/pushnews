@@ -1,9 +1,7 @@
-
-
 local TextModule = {}
 
 local fontDir = "fonts/"
-local registeredFonts = { "open_sans_regular_10_white", "open_sans_regular_10", "open_sans_regular_8_red", "open_sans_regular_8_black", "lato_large", "lato_medium", "lato_small", "lora_small" }
+local registeredFonts = { "open_sans_regular_10_white", "open_sans_regular_10", "open_sans_regular_8_red", "open_sans_regular_8_black" }
 
 local fonts = {}
 
@@ -53,14 +51,14 @@ function TextModule.print(surface, font, text, x, y, w, h)
 
     for i = 1,#text do -- For each character in the text
       local shouldBePrinted = true
-      local c = string.utf8sub(text,i,i) -- Get the character
+      local c = string.sub(text,i,i) -- Get the character
 
       if c == ' ' then
         local remaining_length = (sx + w) - x
         local needed_length = TextModule.getCharInfo(font, ' ').width
 
         for j = i+1,#text do
-          local cc = string.utf8sub(text,j,j)
+          local cc = string.sub(text,j,j)
 
           if cc == ' ' then
             break
@@ -113,12 +111,13 @@ function TextModule.print(surface, font, text, x, y, w, h)
 end
 
 function TextModule.getCharInfo(font, char)
-  for i = 1,#fonts[font].info.chars do
-    if fonts[font].info.chars[i].char == char then
-      return fonts[font].info.chars[i]
-    end
-  end
-  return nil
+  return fonts[font].info.chars[char]
+  --for i = 1,#fonts[font].info.chars do
+    --if fonts[font].info.chars[i].char == char then
+      --return fonts[font].info.chars[i]
+    --end
+  --end
+  --return nil
 end
 
 -- When this module is required, load the available fonts.

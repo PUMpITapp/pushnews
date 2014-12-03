@@ -25,7 +25,7 @@ function NewsFeedView:viewDidLoad()
 
   local loadingButton = gfx.loadpng('images/loading.png')
   loadingButton:premultiply()
-  gfx.screen:copyfrom(loadingButton, nil, {x=self.size.w/2-100, y=self.size.h/2, w=32, h=32})
+  gfx.screen:copyfrom(loadingButton, nil, {x=self.size.w/2-100, y=self.size.h/2, w=32, h=32}, true)
   loadingButton:destroy()
   text.print(gfx.screen, "open_sans_regular_10", "Loading news feeds ..." , self.size.w/2-100+32+10, self.size.h/2+3, 400, nil)
   gfx.update()
@@ -168,6 +168,7 @@ function NewsFeedView:printNews()
   for i=self.newsIndex, newsIndexMax do
     -- Fill in background color of news
     news_summary:clear({255,255,255,255})
+    local noImage = false
 
     if cx + self.news_w > self.newsContainer_w then
       cx = offset_x
@@ -175,9 +176,7 @@ function NewsFeedView:printNews()
     end
 
     -- Print the image of the news to the screen
-    if self.news[i].images[1] == nil then
-      -- TODO find some nice fallback pictures
-    else
+    if self.news[i].images[1] ~= nil then
       local url = self.news[i].images[1].url
       if url ~= nil then
         local outputfile = io.open(sys.root_path() .. newsFeedTmpImg, "w+")
@@ -193,9 +192,24 @@ function NewsFeedView:printNews()
           if img ~= nil then
             news_summary:copyfrom(img, nil, { x=0, y=0, w=news_summary:get_width(), h=153 }, false)
             img:destroy()
+          else
+            noImage = true
           end
+        else 
+          noImage = true
         end
+      else
+        noImage = true
       end
+    else
+      noImage = true
+    end
+
+    if noImage == true then
+      local img = gfx.loadpng(self.feedProvider.image)
+      img:premultiply()
+      news_summary:copyfrom(img, nil, { x=0, y=0, w=news_summary:get_width(), h=153 }, true)
+      img:destroy()
     end
 
     -- Fill in header color of news
