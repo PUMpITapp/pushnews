@@ -93,15 +93,9 @@ function detailNewsView:printNews(currentPage)
 
 
   --Print news image
-  local tmpfeedimg = "images/tmpfeedimg.jpg"
-  if #self.newsFeed.images > 0 then
-    download.downloadFile(self.newsFeed.images[1].url, tmpfeedimg)
-    news_img = gfx.loadpng(tmpfeedimg)
-  else
-    news_img = gfx.loadpng(self.feedProvider.image)
-  end
+  local news_img = gfx.loadpng(self.feedProvider.image)
   news_img:premultiply()
-  gfx.screen:copyfrom(news_img, nil, { x=130, y=320, w=270, h=153 }, true)
+  gfx.screen:copyfrom(news_img, nil, { x=130, y=230, w=300, h=337 }, true)
   news_img:destroy()
 
   --Print layout line

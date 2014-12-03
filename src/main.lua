@@ -1,5 +1,5 @@
 -- Every story needs a beginning, this is ours.
-local runningOnBox = false
+local runningOnBox = true
 
 --- Checks if the file was called from a test file.
 --@return #boolean If the file is being tested or not 
