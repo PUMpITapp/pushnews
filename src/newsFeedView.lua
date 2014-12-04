@@ -35,7 +35,7 @@ function NewsFeedView:viewDidLoad()
   self.newsContainer_h = self.size.h*0.80
   if self.feedProvider.advertising == true then
     self.newsContainer_x = self.size.w/2-self.newsContainer_w/2
-    self.newsContainer_y = self.size.h*0.04
+    self.newsContainer_y = self.size.h*0.06
   else
     self.newsContainer_x = self.size.w/2-self.newsContainer_w/2
     self.newsContainer_y = self.size.h*0.1
@@ -109,7 +109,6 @@ function NewsFeedView:drawView()
     banner:clear({52, 152, 219})
     gfx.screen:copyfrom(banner, nil, {x=self.size.w/2-banner:get_width()/2, y=self.size.h-banner:get_height()-20}, true)
     banner:destroy()
-    text.print(gfx.screen, "open_sans_regular_10_white", "Your custom advertising banner here", self.size.w/2-155, self.size.h-banner:get_height()/1.5-20, 800, nil)
   end
   
   -- Update the screen
@@ -144,7 +143,12 @@ function NewsFeedView:convertNewsDate()
   local MON = {Jan=1, Feb=2, Mar=3, Apr=4, May=5, Jun=6, Jul=7, Aug=8, Sep=9, Oct=10, Nov=11, Dec=12}
   
   for i=1, #self.news do
-    local day, month, year, hour, min, sec, tz = self.news[i].date:match(self.feedProvider.datePattern)
+    local day, month, year, hour, min, sec, tz
+    if self.news[i].category == "Travel" then
+      day, month, year, hour, min, sec, tz = self.news[i].date:match(self.feedProvider.datePatternTravel)
+    else
+      day, month, year, hour, min, sec, tz = self.news[i].date:match(self.feedProvider.datePattern)
+    end
     local month = MON[month]
     self.news[i].date = os.time({tz=tz, day=day, month=month, year=year, hour=hour, min=min, sec=sec})
   end
@@ -231,7 +235,7 @@ function NewsFeedView:printNews()
     text.print(news_summary, "open_sans_regular_10", tostring((self.newsPerPage+i-1)%self.newsPerPage+1), 7, 0, nil, nil)
     local cat_i, cat_x = text.print(news_summary, "open_sans_regular_8_red", string.upper(self.news[i].category), 15, 168, nil, nil)
     text.print(news_summary, "open_sans_regular_8_black", ' - ' .. os.date("%x", self.news[i].date), cat_x, 168, news_summary:get_width()-30, nil)
-
+    
     tmp_string = self.news[i].title
     count = 40
     if(string.len(tmp_string) >= count) then

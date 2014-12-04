@@ -1,3 +1,4 @@
+require "feeds.download"
 local lorem = ""
 
 detailNewsView = {}
