@@ -6,8 +6,12 @@ local SLAXML = require 'slaxdom'
 require 'feeds.htmlLib'
 require 'feeds.download'
 
-sys = {}
-sys.root_path = function () return '' end
+--to run app on box, change it to 'true'
+local runningOnBox = false
+if runningOnBox == false then
+  sys = {}
+  sys.root_path = function () return '' end
+end
 local articleFile = sys.root_path() .. "feeds/article.html"
 
 CNNNews = {}

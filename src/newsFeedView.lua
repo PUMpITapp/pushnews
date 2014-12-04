@@ -170,6 +170,8 @@ function NewsFeedView:printNews()
   local cx = offset_x
   local cy = offset_y
 
+  local title,tmp_string,count
+
   local newsIndexMax = self.newsIndex + self.newsPerPage - 1
   if newsIndexMax > #self.news then
     newsIndexMax = #self.news
@@ -229,8 +231,18 @@ function NewsFeedView:printNews()
     text.print(news_summary, "open_sans_regular_10", tostring((self.newsPerPage+i-1)%self.newsPerPage+1), 7, 0, nil, nil)
     local cat_i, cat_x = text.print(news_summary, "open_sans_regular_8_red", string.upper(self.news[i].category), 15, 168, nil, nil)
     text.print(news_summary, "open_sans_regular_8_black", ' - ' .. os.date("%x", self.news[i].date), cat_x, 168, news_summary:get_width()-30, nil)
-    text.print(news_summary, "open_sans_regular_10", self.news[i].title, 15, 195, news_summary:get_width()-30, nil)
-    --print(self.news[i].title)
+
+    tmp_string = self.news[i].title
+    count = 40
+    if(string.len(tmp_string) >= count) then
+      while  string.len(tmp_string) ~= count and string.sub(tmp_string,count,count) ~= ' ' do
+        count = count + 1
+      end
+      title = string.sub(tmp_string,0,count).."..."
+      text.print(news_summary, "open_sans_regular_10", title, 15, 195, news_summary:get_width()-30, nil)
+    else
+      text.print(news_summary, "open_sans_regular_10", tmp_string, 15, 195, news_summary:get_width()-30, nil)
+    end
 
     -- Print the news to the screen
     gfx.screen:copyfrom(news_summary, nil, {x=self.newsContainer_x+cx, y=self.newsContainer_y+cy, w=self.news_w, h=self.news_h}, false)
