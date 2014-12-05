@@ -16,15 +16,16 @@ function TextModule.loadFonts()
 end
 
 --- Print a text on a surface. Font should be a string specified in registeredFonts.
--- @param #string surface The surface on which we want to print the text.   
--- @param #string font The font we want to use when printing
--- @param #string text The text to be printed
--- @param #number x Start position for printing on the surface x-axis
--- @param #number y Start position for printing on the surface y-axis
--- @param #number w The width to use for printing the text
--- @param #number h The height to use for printing the text
--- @return #number where the FINISH THIS ONE!
--- @return #number Position...
+-- @param surface The surface on which we want to print the text.   
+-- @param font The font we want to use when printing
+-- @param text The text to be printed
+-- @param x Start position for printing on the surface x-axis
+-- @param y Start position for printing on the surface y-axis
+-- @param w The width to use for printing the text
+-- @param h The height to use for printing the text
+-- @return i Position of specific character
+-- @return x X-coordinate
+-- @return last_i Position of last character on text
 function TextModule.print(surface, font, text, x, y, w, h)
   local last_i = 0
   local surface_w = 0
@@ -110,14 +111,12 @@ function TextModule.print(surface, font, text, x, y, w, h)
   end
 end
 
+--- Get the character information
+-- @param font Which font is send into the function
+-- @param char Which character is send into the function
+-- @return TextModule The table that about the searched character
 function TextModule.getCharInfo(font, char)
   return fonts[font].info.chars[char]
-  --for i = 1,#fonts[font].info.chars do
-    --if fonts[font].info.chars[i].char == char then
-      --return fonts[font].info.chars[i]
-    --end
-  --end
-  --return nil
 end
 
 -- When this module is required, load the available fonts.

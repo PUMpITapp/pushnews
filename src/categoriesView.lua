@@ -3,7 +3,7 @@
 categoriesView = {}
 
 --- Constructor of the categoriesView class
--- @return #table A constructor table containing properties fpr the CategoriesView ----not too sure about this one... 
+-- @return view A constructor table containing properties fpr the CategoriesView ----not too sure about this one... 
 function categoriesView:new()
   newObj = {
     size = { w=gfx.screen:get_width(), h=gfx.screen:get_height() },
@@ -134,7 +134,7 @@ function categoriesView:drawCategoriesSurface()
 end
 
 --- Make the selection of a category visible by changing the picture marking the category
--- @param #string key indicates which key on the remote control that is pressed
+-- @param key indicates which key on the remote control that is pressed
 function categoriesView:selectCategory(key)
   local categorySurface = nil
 
@@ -154,7 +154,7 @@ function categoriesView:selectCategory(key)
 end
 
 --- Get the names of the selected categoies
--- @return #table Listing the categories selected by the user
+-- @return selectedCategories Listing the categories selected by the user
 function categoriesView:getSelectedCategories()
   local selectedCategories = {}
 
@@ -167,9 +167,9 @@ function categoriesView:getSelectedCategories()
   return selectedCategories
 end
 
--- The categoriesView has his own onKey function.
--- @param #string key Indicates the selected key on the remote control
--- @param #string state Indicates if a button on the remote contol is pressed down or not        
+--- The categoriesView has his own onKey function.
+-- @param key Indicates the selected key on the remote control
+-- @param state Indicates if a button on the remote contol is pressed down or not        
 function categoriesView:onKey(key, state)
   if state == 'up' then
     if key == 'right' then
