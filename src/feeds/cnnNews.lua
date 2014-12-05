@@ -17,6 +17,7 @@ local articleFile = sys.root_path() .. "feeds/article.html"
 CNNNews = {}
 CNNNews.__index = CNNNews
 
+---TRY TO DELETE IT THEN TEST IT
 function getParagraphs(elements)
 	local t = {}
 	for i, e in pairs(elements) do
@@ -35,6 +36,8 @@ function getParagraphs(elements)
 	return t
 end
 
+--- Creates a CNNNews object
+-- @return The object
 function CNNNews:new()
 	newObj = {
 		name = "CNN",
@@ -68,6 +71,8 @@ function CNNNews:new()
   return setmetatable(newObj, self)
 end
 
+--- Parse the article file
+-- @return text The text
 function CNNNews:parseArticleFile(articleFile)
 	local htmlstr = io.open(articleFile):read('*all')
 	
@@ -96,6 +101,9 @@ function CNNNews:parseArticleFile(articleFile)
 
 end
 
+--- Get the article text by loading it from a link
+-- @param link The link
+-- @return calls the function parseArticleFile and returns the text
 function CNNNews:getArticleText(link)
 	download.downloadFile(link, articleFile)
 

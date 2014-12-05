@@ -1,4 +1,6 @@
--- $Id: html.lua,v 1.2 2007-05-12 04:37:20 tclua Exp $
+--- Get the article text by loading it from a link
+-- @param link The link
+-- @return calls the function parseArticleFile and returns the text-- $Id: html.lua,v 1.2 2007-05-12 04:37:20 tclua Exp $
 
 module(..., package.seeall)
 

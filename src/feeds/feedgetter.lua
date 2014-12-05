@@ -20,6 +20,9 @@ function FeedGetter:new()
   return setmetatable(newObj, self)
 end
 
+--- Download or refactor the feed
+-- @param url The url
+-- @param filename What you want to name the file
 function FeedGetter:downloadFeeds(url, filename)
 	local outputfile = io.open(filename, "w+")
 
@@ -33,6 +36,9 @@ function FeedGetter:downloadFeeds(url, filename)
 
 end
 
+--- Parse the feed
+-- @param file File to take the feeds from
+-- @return parsed An array containing the feeds
 function FeedGetter:parseFeeds(filename)
 	local xml = io.open(filename):read('*all')
 
