@@ -101,6 +101,12 @@ function FeedGetter:parseFeeds(filename)
 				end
 			end
 
+			for i, existingFeed in ipairs(feeds) do
+				if existingFeed.title == title then
+					good = false
+				end
+			end
+
 			if good then				
 			--Insert the new feed
 			table.insert(feeds, Feed:new(title, descr, date, link, images))
