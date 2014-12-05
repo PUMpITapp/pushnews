@@ -2,9 +2,9 @@ XML = {}
 XML.__index = XML
 
 --- Finding the element that is matching the tagname
--- @param #table el An element
--- @param #string name Tagname of the element we are searching for
--- @return #table The matching elements
+-- @param el An element
+-- @param name Tagname of the element we are searching for
+-- @return the matching elements
 function XML.getByName(el, name)
 	elements = {}
 
@@ -19,8 +19,8 @@ function XML.getByName(el, name)
 end
 
 --- Returns the element text
--- @param #table el An element
--- @return #string The element text 
+-- @param el An element
+-- @return The element text 
 function XML.elementText(el)
   local pieces = {}
   for _,n in ipairs(el.kids) do
