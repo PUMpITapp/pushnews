@@ -3,7 +3,8 @@ local lorem = ""
 
 detailNewsView = {}
 
--- Constructor of the detailNewsView class
+--- Constructor of the detailNewsView class
+-- @return new_view It retuns the new created detailnewsview 
 function detailNewsView:new()
   newObj = {
     size = { w=gfx.screen:get_width(), h=gfx.screen:get_height() },
@@ -19,7 +20,7 @@ function detailNewsView:new()
   return setmetatable(newObj, self)
 end
 
--- When the view is loaded for the first time. This will be executed once.
+--- When the view is loaded for the first time. This will be executed once.
 function detailNewsView:viewDidLoad()  
   gfx.screen:clear({234,234,234,255})
 
@@ -38,11 +39,11 @@ function detailNewsView:viewDidLoad()
   self:drawView()
 end
 
--- When this view will dissapear and another view will be shown, this is executed.
+--- When this view will dissapear and another view will be shown, this is executed.
 function detailNewsView:viewDidEnd()
 end
 
--- When the view has been loaded before and it is presented again.
+--- When the view has been loaded before and it is presented again.
 function detailNewsView:drawView()
   gfx.screen:clear({234,234,234,255})
 
@@ -59,7 +60,8 @@ function detailNewsView:drawView()
   gfx.update()
 end
 
-
+--- Printing the article of the selected news
+-- @param currentPage Which page should be printed (indexing)
 function detailNewsView:printNews(currentPage)
   --Set text position and size
   local textprint_x = 30
@@ -67,7 +69,7 @@ function detailNewsView:printNews(currentPage)
   local textprint_w = gfx.screen:get_width()-10
   local textprint_h = 200
 
-    -- Print logo
+  -- Print logo
   local logo = gfx.loadpng('images/push_news_logo.png')
   logo:premultiply()
   gfx.screen:copyfrom(logo, nil, {x=30, y=10, w=608*0.3, h=166*0.3})
@@ -80,22 +82,22 @@ function detailNewsView:printNews(currentPage)
   printpage_y = gfx.screen:get_height()-50
   printpage_x = gfx.screen:get_width()/2
 
-  --Print page number
+  -- Print page number
   local printpage = "Page:" .. self.currentPage .. "/" .. self.total_pages
 
-  --Print page content
+  -- Print page content
   text.print(gfx.screen, "open_sans_regular_10", self.newsFeed.title , article_x, 50, textprint_w, textprint_h)
-  text.print(gfx.screen, "open_sans_regular_8_black", os.date("%x  %X", self.newsFeed.date), textprint_x, textprint_y, textprint_w, 100)
+  text.print(gfx.screen, "open_sans_regular_8_black","Publish Date-Time: ".. os.date("%x  %X", self.newsFeed.date), textprint_x, textprint_y, textprint_w, 100)
   text.print(gfx.screen, "open_sans_regular_8_red", string.upper(self.newsFeed.category), textprint_x, 130, textprint_w, textprint_h)
   text.print(gfx.screen, "open_sans_regular_10", printpage , printpage_x, printpage_y, 200, 100)
 
-  --Print news image
+  -- Print news image
   local news_img = gfx.loadpng(self.feedProvider.image)
   news_img:premultiply()
   gfx.screen:copyfrom(news_img, nil, { x=130, y=230, w=300, h=337 }, true)
   news_img:destroy()
 
-  --Print layout line
+  -- Print layout line
   local line = gfx.loadpng("images/black_line.png")
   line:premultiply()
   local widthimg = self.size.w/2 - line:get_width()
@@ -123,19 +125,19 @@ function detailNewsView:printNews(currentPage)
   end
 
 
-  --If the currentPage is more than 1 show the scroll up button and print the article text for that page,
+  -- If the currentPage is more than 1, show the scroll up button and print the article text for that page
   if self.currentPage > 1 then
     local up_button = gfx.loadpng('images/up.png')
     up_button:premultiply()
     gfx.screen:copyfrom(up_button, nil, { x=self.size.w-150, y=textprint_y+150, w=64, h=64 }, true)
     up_button:destroy()
     
-    -- Printing text from the last index in the last page to the index of the currentpage-1.    rarticle_x, 200, article_w, article_h)
+    -- Printing text from the last index in the last page to the index of the currentpage-1.
     text.print(gfx.screen, "open_sans_regular_10", lorem:sub(self.pageIndexes[self.currentPage-1], self.pageIndexes[self.currentPage]-1), article_x, 200, article_w, article_h)
   end
 end
 
---Seperates the text into several pages -> Adds every index to a table.
+--- Seperates the text into several pages -> Adds every index to a table.
 function detailNewsView:createSplit()
   -- Positions
   local textprint_x = 10
@@ -163,18 +165,20 @@ function detailNewsView:createSplit()
   end
 end
 
---Clears the screen and calls the printNews method to print text on the screen when currentPage > 1
+--- Clears the screen and calls the printNews method to print text on the screen when currentPage > 1
 function detailNewsView:reloadPage()
   gfx.screen:clear({234,234,234,255})
   self:printNews(self.currentPage)
   gfx.update()
 end
 
--- When the view is deleted. (You may want to free the memory allowed to you surfaces)
+--- When the view is deleted. (You may want to free the memory allowed to you surfaces)
 function detailNewsView:freeView()
 end
 
--- The detailNewsView has his own onKey function.
+--- The detailNewsView has his own onKey function.
+-- @param key Indicates the selected key on the remote control
+-- @param state Indicates if a button on the remote contol is pressed down or not 
 function detailNewsView:onKey(key, state)
   if state == 'up' then
     if key == 'left' then

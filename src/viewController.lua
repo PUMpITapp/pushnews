@@ -1,8 +1,8 @@
 -- The view controller allows to handle the transition between the view.
 viewController = {}
 
--- Creates a new view controller
--- @return ________
+--- Creates a new view controller
+-- @return viewController
 function viewController:new()
   newObj = {
     views = {},
@@ -13,8 +13,8 @@ function viewController:new()
 end
 
 --- Adds a view to the view controller. Each view is associted with an identifier.
--- @param #string identifier Name of the view
--- @param #view view The view module which should be added to the identifier
+-- @param identifier Name of the view
+-- @param view The view module which should be added to the identifier
 function viewController:addView(identifier, view)
   if identifier and not self.views[identifier] then
     if view then
@@ -27,10 +27,10 @@ function viewController:addView(identifier, view)
   end
 end
 
---[[ Present a view to the screen. Each view should have a viewDidLoad and drawView method.
-  viewDidLoad is called when the view is loaded
-  This should allow to redraw the view as it was before presenting another view.]]
---@param #string identifier Name of the view
+--- [[ Present a view to the screen. Each view should have a viewDidLoad and drawView method.
+  --- viewDidLoad is called when the view is loaded
+  --- This should allow to redraw the view as it was before presenting another view.]]
+--@param identifier Name of the view
 function viewController:presentView(identifier)
   if identifier and self.views[identifier] then
     if self.currentViewIdentifier and self.views[self.currentViewIdentifier].viewDidEnd then
@@ -44,8 +44,8 @@ function viewController:presentView(identifier)
   end
 end
 
----Removes the selected view
--- @param #string identifier Name of the view
+--- Removes the selected view
+-- @param identifier Name of the view
 function viewController:removeView(identifier)
   if identifier and self.views[identifier] then
     if self.views[identifier].freeView then
@@ -60,8 +60,8 @@ function viewController:removeView(identifier)
 end
 
 --- Returns the view specified by identifier.
--- @param #string identifier Name of the view
--- @return #view The specified view
+-- @param identifier Name of the view
+-- @return view The specified view
 function viewController:getView(identifier)
   if identifier and self.views[identifier] then
     return self.views[identifier]
@@ -71,16 +71,16 @@ function viewController:getView(identifier)
 end
 
 --- Returns both the current view identifier and the current view object.
--- @return #string The name of the view
--- @return #view The specified view
+-- @return currentViewIdentifier The name of the view
+-- @return view The specified view
 function viewController:getcurrentViewIdentifier()
   return self.currentViewIdentifier, self.views[self.currentViewIdentifier]
 end
 
---[[ This allows to have one onKey function per view. Each view has it's own onKey function and the 
-  right onKey function is exectued depending on the current view that is shown on the screen.]]
---@parameter key #string keyboard input
---@parameter state #string state of the key, down = pressed, up = released
+---[[ This allows to have one onKey function per view. Each view has it's own onKey function and the 
+  --- right onKey function is exectued depending on the current view that is shown on the screen.]]
+-- @parameter key keyboard input
+-- @parameter state state of the key, down = pressed, up = released
 function viewController:onKey(key, state)
   if self.currentViewIdentifier then
     if self.views[self.currentViewIdentifier].onKey then

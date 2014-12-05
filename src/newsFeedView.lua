@@ -6,7 +6,7 @@ local newsFeedTmpImg = "feed_img_tmp.jpg"
 NewsFeedView = {}
 
 --- Class constructor for the NewsFeedView
--- @return #table A constructor table containing properties fpr the NewsFeedView ----not too sure about this one... 
+-- @return view A constructor table containing properties fpr the NewsFeedView ----not too sure about this one... 
 function NewsFeedView:new()
   newObj = {
     size = { w=gfx.screen:get_width(), h=gfx.screen:get_height() },
@@ -67,7 +67,7 @@ function NewsFeedView:viewDidLoad()
   self:drawView()
 end
 
---- Function to draw elements of the view
+-- Function to draw elements of the view
 function NewsFeedView:drawView()
   -- Clear screen below logo and above the ads banner
   gfx.screen:clear({232,232,232})
@@ -116,8 +116,8 @@ function NewsFeedView:drawView()
 end
 
 --- Fetch news from the categories that were selected on the category view
--- @param #table selectedCategories Contains the categories that are selected by the user
--- @return #table Contains the feeds that have been fetched
+-- @param selectedCategories selectedCategories Contains the categories that are selected by the user
+-- @return feeds Contains the feeds that have been fetched
 function NewsFeedView:fetchNews(selectedCategories)
   local feeds = {}
 
@@ -156,7 +156,7 @@ end
 
 --- Sort the news to be displayed on the NewsFeedView by date
 function NewsFeedView:sortNewsByDate()
-  --- should this inner function be commented in some way????
+  -- should this inner function be commented in some way????
   local orderFunction = function (a, b) return a.date > b.date end
   table.sort(self.news, orderFunction)
 end
@@ -235,7 +235,8 @@ function NewsFeedView:printNews()
     text.print(news_summary, "open_sans_regular_10", tostring((self.newsPerPage+i-1)%self.newsPerPage+1), 7, 0, nil, nil)
     local cat_i, cat_x = text.print(news_summary, "open_sans_regular_8_red", string.upper(self.news[i].category), 15, 168, nil, nil)
     text.print(news_summary, "open_sans_regular_8_black", ' - ' .. os.date("%x", self.news[i].date), cat_x, 168, news_summary:get_width()-30, nil)
-    
+
+    -- '...' feature for long titles
     tmp_string = self.news[i].title
     count = 40
     if(string.len(tmp_string) >= count) then
@@ -258,8 +259,8 @@ function NewsFeedView:printNews()
 end
 
 --- Navigate with the arrows and numbers between the different views, scroll down in the newsFeedView and selecting one of the news
--- @param #string key Indicates the selected key on the remote control
--- @param #string state Indicates if a button on the remote contol is pressed down or not 
+-- @param key Indicates the selected key on the remote control
+-- @param state Indicates if a button on the remote contol is pressed down or not 
 function NewsFeedView:onKey(key, state)
   if state == 'up' then
     if key == 'left' then
