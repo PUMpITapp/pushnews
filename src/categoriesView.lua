@@ -2,19 +2,20 @@
 
 categoriesView = {}
 
--- Constructor of the categoriesView class
+--- Constructor of the categoriesView class
+-- @return #table A constructor table containing properties fpr the CategoriesView ----not too sure about this one... 
 function categoriesView:new()
   newObj = {
     size = { w=gfx.screen:get_width(), h=gfx.screen:get_height() },
     backgroundColor = {232,232,232,255},
-    availableSources = { "CNN", "SVD" },
+    availableSources = { "CNN", "CNN (Ads)" },
     selectedSource = "CNN"
   }
   self.__index = self
   return setmetatable(newObj, self)
 end
 
--- When the view is loaded for the first time. This will be executed once.
+--- When the view is loaded for the first time. This will be executed once.
 function categoriesView:viewDidLoad()
   gfx.screen:clear(self.backgroundColor)
   self.categories = {
@@ -24,8 +25,8 @@ function categoriesView:viewDidLoad()
                      { name = 'Finance', selected = false, img_unselected = 'images/finance4.png', img_selected = 'images/finance4_s.png' },
                      { name = 'Entertainment', selected = false, img_unselected = 'images/entertainment5.png', img_selected = 'images/entertainment5_s.png' },
                      { name = 'Technology', selected = false, img_unselected = 'images/technology6.png', img_selected = 'images/technology6_s.png' },
-                     { name = 'Art', selected = false, img_unselected = 'images/art7.png', img_selected = 'images/art7_s.png' },
-                     { name = 'Fashion', selected = false, img_unselected = 'images/fashion8.png', img_selected = 'images/fashion8_s.png' },
+                     { name = 'Travel', selected = false, img_unselected = 'images/travel7.png', img_selected = 'images/travel7_s.png' },
+                     { name = 'Space', selected = false, img_unselected = 'images/space8.png', img_selected = 'images/space8_s.png' },
                      { name = 'Sports', selected = false, img_unselected = 'images/sports9.png', img_selected = 'images/sports9_s.png' }
                    }
 
@@ -38,7 +39,12 @@ function categoriesView:viewDidLoad()
   self.category_w = 800/3.2
   self.category_h = 500/3.2
 
-  local logo = gfx.loadpng('images/pumpitapp.png')
+  local logo = gfx.loadpng('images/push_news_logo.png')
+  logo:premultiply()
+  gfx.screen:copyfrom(logo, nil, {x=30, y=10, w=608*0.3, h=166*0.3})
+  logo:destroy()
+
+  logo = gfx.loadpng('images/pumpitapp.png')
   logo:premultiply()
   gfx.screen:copyfrom(logo, nil, {x=self.size.w-222, y=self.size.h-75, w=222, h=75}, true)
   logo:destroy()
@@ -48,11 +54,11 @@ function categoriesView:viewDidLoad()
 
 end
 
--- When this view will disappear and another view will be shown, this is executed.
+--- When this view will disappear and another view will be shown, this is executed.
 function categoriesView:viewDidEnd()
 end
 
--- When the view has been loaded before and it is presented again.
+--- When the view has been loaded before and it is presented again.
 function categoriesView:drawView()
   local selectedCategories = self:getSelectedCategories()
   
@@ -81,19 +87,18 @@ function categoriesView:drawView()
     gfx.screen:copyfrom(button, nil, buttonPos, true)
     button:destroy()
     -- Print source name
-    local i, x = text.print(gfx.screen, "open_sans_regular_10", val, buttonPos.x+35, buttonPos.y+3, 50, nil)
+    local i, x = text.print(gfx.screen, "open_sans_regular_10", val, buttonPos.x+40, buttonPos.y+3, 200, nil)
     buttonPos.x = x + 10
   end
-  applogo = gfx.loadpng('images/push_news_logo.png')
-    gfx.screen:copyfrom(applogo, nil, { x=10, y=10, w=165, h=55 }, true)
+
   gfx.update()
 end
 
--- When the view is deleted. (You may want to free the memory allowed to you surfaces)
+--- When the view is deleted. (You may want to free the memory allowed to you surfaces)
 function categoriesView:freeView()
 end
 
--- Print the available categories onto the categoriesView
+--- Print the available categories onto the categoriesView
 function categoriesView:drawCategoriesSurface()
   local nbCategoriesPerRow = math.floor(self.categories_w/self.category_w)
   local nbRow = math.ceil(#self.categories/nbCategoriesPerRow)
@@ -128,6 +133,8 @@ function categoriesView:drawCategoriesSurface()
 
 end
 
+--- Make the selection of a category visible by changing the picture marking the category
+-- @param #string key indicates which key on the remote control that is pressed
 function categoriesView:selectCategory(key)
   local categorySurface = nil
 
@@ -146,6 +153,8 @@ function categoriesView:selectCategory(key)
   self:drawView()
 end
 
+--- Get the names of the selected categoies
+-- @return #table Listing the categories selected by the user
 function categoriesView:getSelectedCategories()
   local selectedCategories = {}
 
@@ -159,6 +168,8 @@ function categoriesView:getSelectedCategories()
 end
 
 -- The categoriesView has his own onKey function.
+-- @param #string key Indicates the selected key on the remote control
+-- @param #string state Indicates if a button on the remote contol is pressed down or not        
 function categoriesView:onKey(key, state)
   if state == 'up' then
     if key == 'right' then
@@ -166,10 +177,13 @@ function categoriesView:onKey(key, state)
 
       if #selectedCategories >= 1 then
         local newsFeed = vc:getView("newsFeed")
+        local detailnews = vc:getView("detailNewsView")
+        detailnews.newsfeedpage = nil
         if self.selectedSource == "CNN" then
           newsFeed.feedProvider = CNNNews:new()
         else
-          newsFeed.feedProvider = SVDNews:new()
+          newsFeed.feedProvider = CNNNews:new()
+          newsFeed.feedProvider.advertising = true
         end
         newsFeed.selectedCategories = selectedCategories
         vc:presentView("newsFeed")
@@ -178,7 +192,7 @@ function categoriesView:onKey(key, state)
       self.selectedSource = "CNN"
       self:drawView()
     elseif key == "green" then
-      self.selectedSource = "SVD"
+      self.selectedSource = "CNN (Ads)"
       self:drawView()
     else
       key = tonumber(key)

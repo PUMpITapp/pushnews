@@ -1,22 +1,13 @@
 require "main"
 
-
 describe("detailNewsView:", function()
-
-it("Press left key to return to newsfeedview", function()
-
-	local detailview = detailNewsView:new()
-	local newsfeedview = NewsFeedView:new()
-	local viewController = viewController:new()
-	viewController:addView("detailNewsView",detailview)
-	viewController:addView("newsFeed",newsfeedview)
-	viewController:presentView("detailNewsView")
-	--detailview:onKey("left", "up")
-
-	local view = viewController:getcurrentViewIdentifier()
-	print(view)
-	--assert.is_same(view,newsfeedview)
-	
+	it("Back to News Feeds", function()
+    --vc:getView("categories"):onKey("green","up")
+    --vc:getView("categories"):onKey("8","up")
+  	--vc:getView("categories"):onKey("right","up")
+  	--vc:getView("newsFeed"):onKey("1","up")
+  	--vc:getView("detailNewsView"):onKey("left","up")
+  	--local id,view = vc:getcurrentViewIdentifier()
+  	--assert.are.equal(id,"newsFeed")
 	end)
 end)
-

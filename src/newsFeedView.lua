@@ -5,7 +5,8 @@ local newsFeedTmpImg = "feed_img_tmp.jpg"
 -- Class definition
 NewsFeedView = {}
 
---Class constructor
+--- Class constructor for the NewsFeedView
+-- @return #table A constructor table containing properties fpr the NewsFeedView ----not too sure about this one... 
 function NewsFeedView:new()
   newObj = {
     size = { w=gfx.screen:get_width(), h=gfx.screen:get_height() },
@@ -18,14 +19,23 @@ function NewsFeedView:new()
   return setmetatable(newObj, self)
 end
 
--- Loads the complete view
+--- Loads the complete NewsFeedView
 function NewsFeedView:viewDidLoad()
+  gfx.screen:clear({232,232,232})
+
+  local loadingButton = gfx.loadpng('images/loading.png')
+  loadingButton:premultiply()
+  gfx.screen:copyfrom(loadingButton, nil, {x=self.size.w/2-100, y=self.size.h/2, w=32, h=32}, true)
+  loadingButton:destroy()
+  text.print(gfx.screen, "open_sans_regular_10", "Loading news feeds ..." , self.size.w/2-100+32+10, self.size.h/2+3, 400, nil)
+  gfx.update()
+
   -- Set news container size and position
   self.newsContainer_w = self.size.w*0.68
   self.newsContainer_h = self.size.h*0.80
   if self.feedProvider.advertising == true then
     self.newsContainer_x = self.size.w/2-self.newsContainer_w/2
-    self.newsContainer_y = self.size.h*0.04
+    self.newsContainer_y = self.size.h*0.06
   else
     self.newsContainer_x = self.size.w/2-self.newsContainer_w/2
     self.newsContainer_y = self.size.h*0.1
@@ -35,33 +45,39 @@ function NewsFeedView:viewDidLoad()
   self.news_w = 270
   self.news_h = 250
 
-  -- Set newsIndex to 1 when the view is loaded
-  self.newsIndex = 1
-
   -- Fetches the news on the internet
   self.news = self:fetchNews(self.selectedCategories)
   self:convertNewsDate()
   self:sortNewsByDate()
+
+  -- Set newsIndex to 1 or where it left when the view is loaded
+  local detailNewsView = vc:getView("detailNewsView")
+  if detailNewsView.newsfeedpage == nil then
+    self.newsIndex = 1
+  elseif detailNewsView.newsfeedpage <= #self.news then
+    self.newsIndex = detailNewsView.newsfeedpage
+  elseif detailNewsView.newsfeedpage > #self.news then
+    while detailNewsView.newsfeedpage > #self.news do
+      detailNewsView.newsfeedpage = detailNewsView.newsfeedpage - newsPerPage
+      self.newsIndex = detailNewsView.newsfeedpage
+    end
+  end
   
-  -- Print logo on the top
-  --local menuButton = gfx.loadpng('push_news_logo.png')
-  --local menuButtonScalingFactor = self.size.h/8/menuButton:get_height()
-  --gfx.screen:copyfrom(menuButton, nil, { x = 30, y = 0, w=menuButton:get_width()*menuButtonScalingFactor, h=menuButton:get_height()*menuButtonScalingFactor })
-  --menuButton:destroy()
-
-  -- Print the ads banner on the bottom
-  -- TODO
-
   -- Draw the view
   self:drawView()
 end
 
--- Function to draw elements of the view
+--- Function to draw elements of the view
 function NewsFeedView:drawView()
   -- Clear screen below logo and above the ads banner
   gfx.screen:clear({232,232,232})
-  applogo = gfx.loadpng('images/push_news_logo.png')
-    gfx.screen:copyfrom(applogo, nil, { x=10, y=10, w=165, h=55 }, true)
+  
+  -- Print logo
+  local logo = gfx.loadpng('images/push_news_logo.png')
+  logo:premultiply()
+  gfx.screen:copyfrom(logo, nil, {x=30, y=10, w=608*0.3, h=166*0.3})
+  logo:destroy()
+
   -- Print the news to the screen
   self:printNews()
 
@@ -93,13 +109,15 @@ function NewsFeedView:drawView()
     banner:clear({52, 152, 219})
     gfx.screen:copyfrom(banner, nil, {x=self.size.w/2-banner:get_width()/2, y=self.size.h-banner:get_height()-20}, true)
     banner:destroy()
-    text.print(gfx.screen, "open_sans_regular_10_white", "Your custom advertising banner here", self.size.w/2-155, self.size.h-banner:get_height()/1.5-20, 800, nil)
   end
   
   -- Update the screen
   gfx.update()
 end
 
+--- Fetch news from the categories that were selected on the category view
+-- @param #table selectedCategories Contains the categories that are selected by the user
+-- @return #table Contains the feeds that have been fetched
 function NewsFeedView:fetchNews(selectedCategories)
   local feeds = {}
 
@@ -120,21 +138,30 @@ function NewsFeedView:fetchNews(selectedCategories)
   return feeds
 end
 
+--- Convert the dates of the fetched news from the string format to a os.date format 
 function NewsFeedView:convertNewsDate()
   local MON = {Jan=1, Feb=2, Mar=3, Apr=4, May=5, Jun=6, Jul=7, Aug=8, Sep=9, Oct=10, Nov=11, Dec=12}
   
   for i=1, #self.news do
-    local day, month, year, hour, min, sec, tz = self.news[i].date:match(self.feedProvider.datePattern)
+    local day, month, year, hour, min, sec, tz
+    if self.news[i].category == "Travel" then
+      day, month, year, hour, min, sec, tz = self.news[i].date:match(self.feedProvider.datePatternTravel)
+    else
+      day, month, year, hour, min, sec, tz = self.news[i].date:match(self.feedProvider.datePattern)
+    end
     local month = MON[month]
     self.news[i].date = os.time({tz=tz, day=day, month=month, year=year, hour=hour, min=min, sec=sec})
   end
 end
 
+--- Sort the news to be displayed on the NewsFeedView by date
 function NewsFeedView:sortNewsByDate()
+  --- should this inner function be commented in some way????
   local orderFunction = function (a, b) return a.date > b.date end
   table.sort(self.news, orderFunction)
 end
 
+--- Print the news, including the background and header colors and all the continent of the news on the serface
 function NewsFeedView:printNews()
   local news_summary = gfx.new_surface(self.news_w, self.news_h)
 
@@ -147,6 +174,8 @@ function NewsFeedView:printNews()
   local cx = offset_x
   local cy = offset_y
 
+  local title,tmp_string,count
+
   local newsIndexMax = self.newsIndex + self.newsPerPage - 1
   if newsIndexMax > #self.news then
     newsIndexMax = #self.news
@@ -155,6 +184,7 @@ function NewsFeedView:printNews()
   for i=self.newsIndex, newsIndexMax do
     -- Fill in background color of news
     news_summary:clear({255,255,255,255})
+    local noImage = false
 
     if cx + self.news_w > self.newsContainer_w then
       cx = offset_x
@@ -162,9 +192,7 @@ function NewsFeedView:printNews()
     end
 
     -- Print the image of the news to the screen
-    if self.news[i].images[1] == nil then
-      -- TODO find some nice fallback pictures
-    else
+    if self.news[i].images[1] ~= nil then
       local url = self.news[i].images[1].url
       if url ~= nil then
         local outputfile = io.open(sys.root_path() .. newsFeedTmpImg, "w+")
@@ -180,9 +208,24 @@ function NewsFeedView:printNews()
           if img ~= nil then
             news_summary:copyfrom(img, nil, { x=0, y=0, w=news_summary:get_width(), h=153 }, false)
             img:destroy()
+          else
+            noImage = true
           end
+        else 
+          noImage = true
         end
+      else
+        noImage = true
       end
+    else
+      noImage = true
+    end
+
+    if noImage == true then
+      local img = gfx.loadpng(self.feedProvider.image)
+      img:premultiply()
+      news_summary:copyfrom(img, nil, { x=0, y=0, w=news_summary:get_width(), h=153 }, true)
+      img:destroy()
     end
 
     -- Fill in header color of news
@@ -191,8 +234,19 @@ function NewsFeedView:printNews()
     -- Print news number, category, title and date
     text.print(news_summary, "open_sans_regular_10", tostring((self.newsPerPage+i-1)%self.newsPerPage+1), 7, 0, nil, nil)
     local cat_i, cat_x = text.print(news_summary, "open_sans_regular_8_red", string.upper(self.news[i].category), 15, 168, nil, nil)
-    text.print(news_summary, "open_sans_regular_8_black", ' - ' .. os.date("%x", self.news[i].date), cat_x, 168, news_summary:get_width()-15, nil)
-    text.print(news_summary, "open_sans_regular_10", self.news[i].title, 15, 195, news_summary:get_width()-15, nil)
+    text.print(news_summary, "open_sans_regular_8_black", ' - ' .. os.date("%x", self.news[i].date), cat_x, 168, news_summary:get_width()-30, nil)
+    
+    tmp_string = self.news[i].title
+    count = 40
+    if(string.len(tmp_string) >= count) then
+      while  string.len(tmp_string) ~= count and string.sub(tmp_string,count,count) ~= ' ' do
+        count = count + 1
+      end
+      title = string.sub(tmp_string,0,count).."..."
+      text.print(news_summary, "open_sans_regular_10", title, 15, 195, news_summary:get_width()-30, nil)
+    else
+      text.print(news_summary, "open_sans_regular_10", tmp_string, 15, 195, news_summary:get_width()-30, nil)
+    end
 
     -- Print the news to the screen
     gfx.screen:copyfrom(news_summary, nil, {x=self.newsContainer_x+cx, y=self.newsContainer_y+cy, w=self.news_w, h=self.news_h}, false)
@@ -203,6 +257,9 @@ function NewsFeedView:printNews()
   news_summary:destroy()
 end
 
+--- Navigate with the arrows and numbers between the different views, scroll down in the newsFeedView and selecting one of the news
+-- @param #string key Indicates the selected key on the remote control
+-- @param #string state Indicates if a button on the remote contol is pressed down or not 
 function NewsFeedView:onKey(key, state)
   if state == 'up' then
     if key == 'left' then
@@ -223,6 +280,8 @@ function NewsFeedView:onKey(key, state)
         local newsSelected = key + self.newsIndex - 1
         if self.news[newsSelected] ~= nil then
           local detailNewsView = vc:getView("detailNewsView")
+          detailNewsView.newsfeedpage = self.newsIndex
+          detailNewsView.feedProvider = self.feedProvider
           detailNewsView.newsFeed = self.news[newsSelected]
           vc:presentView("detailNewsView")
         end
