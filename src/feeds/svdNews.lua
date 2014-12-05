@@ -14,6 +14,8 @@ local articleFile = sys.root_path() .. "feeds/article.html"
 SVDNews = {}
 SVDNews.__index = SVDNews
 
+--- Creates a SVDNews object
+-- @return The object
 function SVDNews:new()
 	newObj = {
 		name = "SVD",
@@ -36,6 +38,8 @@ function SVDNews:new()
   return setmetatable(newObj, self)
 end
 
+--- Parse the article file
+-- @return text The text
 function SVDNews:parseArticleFile(articleFile)
 	local htmlstr = io.open(articleFile):read('*all')
 	
@@ -55,6 +59,9 @@ function SVDNews:parseArticleFile(articleFile)
 
 end
 
+--- Get the article text by loading it from a link
+-- @param link The link
+-- @return calls the function parseArticleFile and returns the text
 function SVDNews:getArticleText(link)
 	download.downloadFile(link, articleFile)
 

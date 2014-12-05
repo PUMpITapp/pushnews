@@ -73,7 +73,7 @@ function categoriesView:drawView()
   button:destroy()
 
   buttonPos = { x=self.size.w/2-64, y=self.size.h-76, w=39, h=29 }
-  gfx.screen:clear(self.backgroundColor, {x=buttonPos.x, y=buttonPos.y, w=200, h=50})
+  gfx.screen:clear(self.backgroundColor, {x=buttonPos.x, y=buttonPos.y, w=400, h=50})
 
   for key, val in pairs(self.availableSources) do
     -- Print colored button

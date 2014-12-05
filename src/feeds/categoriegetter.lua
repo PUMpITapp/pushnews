@@ -17,15 +17,15 @@ function CategorieGetter:new()
 
 		for categorie, link in pairs (provider.categories) do
 
-			--if this categorie does not exist yet we have to initialize it's content
+			--if this category does not exist yet we have to initialize its content
 			if categories[categorie] == nil then
 
 				categories[categorie] = {}
 				
-				--initialize the provider array for this categorie
+				--initialize the provider array for this category
 				categories[categorie].providers = {}
 				
-				-- of this categorie is a registered categorie then we can give it a special image
+				-- if this category is a registered category then we can give it a special image
 				if registeredCategories[categorie] == nil then
 					categories[categorie].image = noCatLink
 				else
