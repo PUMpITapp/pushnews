@@ -17,23 +17,23 @@ local articleFile = sys.root_path() .. "feeds/article.html"
 CNNNews = {}
 CNNNews.__index = CNNNews
 
-function getParagraphs(elements)
-	local t = {}
-	for i, e in pairs(elements) do
-		if e._tag == 'p' and e._attr.class and string.find(e._attr.class, "cnn_storypgraphtxt") ~= nil then
-			table.insert(t, e)
-		elseif e ~= nil and type(e) == 'table' then
-
-			local other = getParagraphs(e)
-
-			for k, o in ipairs(other) do
-				table.insert (t, o)
-			end
-		end
-	end
-
-	return t
-end
+--function getParagraphs(elements)
+--	local t = {}
+--	for i, e in pairs(elements) do
+--		if e._tag == 'p' and e._attr.class and string.find(e._attr.class, "cnn_storypgraphtxt") ~= nil then
+--			table.insert(t, e)
+--		elseif e ~= nil and type(e) == 'table' then
+--
+--			local other = getParagraphs(e)
+--
+--			for k, o in ipairs(other) do
+--				table.insert (t, o)
+--			end
+--		end
+--	end
+--
+--	return t
+--end
 
 function CNNNews:new()
 	newObj = {

@@ -27,7 +27,7 @@ function NewsFeedView:viewDidLoad()
   loadingButton:premultiply()
   gfx.screen:copyfrom(loadingButton, nil, {x=self.size.w/2-100, y=self.size.h/2, w=32, h=32}, true)
   loadingButton:destroy()
-  text.print(gfx.screen, "open_sans_regular_10", "Loading news feeds ..." , self.size.w/2-100+32+10, self.size.h/2+3, 400, nil)
+  text.print(gfx.screen, "lora_regular_14_black", "Loading news feeds ..." , self.size.w/2-100+32+10, self.size.h/2+3, 400, nil)
   gfx.update()
 
   -- Set news container size and position
@@ -232,21 +232,21 @@ function NewsFeedView:printNews()
     news_summary:clear({255,255,255,255}, { x=0, y=0, w=25, h=25})
 
     -- Print news number, category, title and date
-    text.print(news_summary, "open_sans_regular_10", tostring((self.newsPerPage+i-1)%self.newsPerPage+1), 7, 0, nil, nil)
-    local cat_i, cat_x = text.print(news_summary, "open_sans_regular_8_red", string.upper(self.news[i].category), 15, 168, nil, nil)
-    text.print(news_summary, "open_sans_regular_8_black", ' - ' .. os.date("%x", self.news[i].date), cat_x, 168, news_summary:get_width()-30, nil)
+    text.print(news_summary, "lora_regular_14_black", tostring((self.newsPerPage+i-1)%self.newsPerPage+1), 7, 0, nil, nil)
+    local cat_i, cat_x = text.print(news_summary, "lora_regular_12_red", string.upper(self.news[i].category), 15, 168, nil, nil)
+    text.print(news_summary, "lora_regular_12_black", ' - ' .. os.date("%x", self.news[i].date), cat_x, 168, news_summary:get_width()-30, nil)
 
     -- '...' feature for long titles
     tmp_string = self.news[i].title
-    count = 40
+    count = 38
     if(string.len(tmp_string) >= count) then
       while  string.len(tmp_string) ~= count and string.sub(tmp_string,count,count) ~= ' ' do
         count = count + 1
       end
       title = string.sub(tmp_string,0,count).."..."
-      text.print(news_summary, "open_sans_regular_10", title, 15, 195, news_summary:get_width()-30, nil)
+      text.print(news_summary, "lora_regular_14_black", title, 15, 195, news_summary:get_width()-30, nil)
     else
-      text.print(news_summary, "open_sans_regular_10", tmp_string, 15, 195, news_summary:get_width()-30, nil)
+      text.print(news_summary, "lora_regular_14_black", tmp_string, 15, 195, news_summary:get_width()-30, nil)
     end
 
     -- Print the news to the screen

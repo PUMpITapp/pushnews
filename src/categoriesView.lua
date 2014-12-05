@@ -1,5 +1,4 @@
 -- categoriesView class
-
 categoriesView = {}
 
 --- Constructor of the categoriesView class
@@ -87,7 +86,7 @@ function categoriesView:drawView()
     gfx.screen:copyfrom(button, nil, buttonPos, true)
     button:destroy()
     -- Print source name
-    local i, x = text.print(gfx.screen, "open_sans_regular_10", val, buttonPos.x+40, buttonPos.y+3, 200, nil)
+    local i, x = text.print(gfx.screen, "lora_regular_14_black", val, buttonPos.x+40, buttonPos.y+3, 200, nil)
     buttonPos.x = x + 10
   end
 

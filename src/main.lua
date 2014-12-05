@@ -55,8 +55,8 @@ ltn12 = require("ltn12")
 vc = viewController:new()
 
 --- Let the view controller handle the onKey function
--- @parameter key  keyboard input
--- @parameter state state of the key, down = pressed, up = released
+-- @param key  keyboard input
+-- @param state state of the key, down = pressed, up = released
 function onKey(key, state)
   vc:onKey(key, state)
 end

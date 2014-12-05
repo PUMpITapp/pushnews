@@ -27,9 +27,9 @@ function viewController:addView(identifier, view)
   end
 end
 
---- [[ Present a view to the screen. Each view should have a viewDidLoad and drawView method.
-  --- viewDidLoad is called when the view is loaded
-  --- This should allow to redraw the view as it was before presenting another view.]]
+--- Present a view to the screen. Each view should have a viewDidLoad and drawView method.
+  -- viewDidLoad is called when the view is loaded
+  -- This should allow to redraw the view as it was before presenting another view.
 --@param identifier Name of the view
 function viewController:presentView(identifier)
   if identifier and self.views[identifier] then
@@ -77,10 +77,10 @@ function viewController:getcurrentViewIdentifier()
   return self.currentViewIdentifier, self.views[self.currentViewIdentifier]
 end
 
----[[ This allows to have one onKey function per view. Each view has it's own onKey function and the 
-  --- right onKey function is exectued depending on the current view that is shown on the screen.]]
--- @parameter key keyboard input
--- @parameter state state of the key, down = pressed, up = released
+--- This allows to have one onKey function per view. Each view has it's own onKey function and the 
+  -- right onKey function is exectued depending on the current view that is shown on the screen.
+-- @param key keyboard input
+-- @param state state of the key, down = pressed, up = released
 function viewController:onKey(key, state)
   if self.currentViewIdentifier then
     if self.views[self.currentViewIdentifier].onKey then
