@@ -9,6 +9,8 @@ registeredCategories = {
 
 noCatLink = 'noCatLink'
 
+--- Creates new CategorieGetter
+-- @return new CategorieGetter
 function CategorieGetter:new()
 	local providers = { CNNNews:new() }
 	local categories = {}

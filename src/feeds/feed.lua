@@ -2,7 +2,7 @@
 Feed = {}
 Feed.__index = Feed
 
----Methods on how to get the feeds may change so we need to have an representation of a feed
+--- Methods on how to get the feeds may change so we need to have an representation of a feed
 -- so that if the method change and we translate the output to this class model, 
 -- it can be used with other works
 -- @param title The title of the news article
