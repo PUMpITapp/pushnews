@@ -3,11 +3,11 @@ local io = require("io")
 local ltn12 = require("ltn12")
 local SLAXML = require 'slaxdom'
 
+require 'config'
 require 'feeds.htmlLib'
 require 'feeds.download'
 
---to run app on box, change it to 'true'
-local runningOnBox = false
+--to run app on box
 if runningOnBox == false then
   sys = {}
   sys.root_path = function () return '' end

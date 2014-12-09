@@ -1,7 +1,5 @@
 -- Every story needs a beginning, this is ours.
-
--- to run app on box, change it to 'true'
-local runningOnBox = false
+require "config"
 
 --- Checks if the file was called from a test file.
 -- @return underGoingTest If the file is being tested or not 
